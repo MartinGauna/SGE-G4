@@ -1,6 +1,8 @@
 package martes.noche;
 
 ;
+import categoria.Categoria;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -8,7 +10,7 @@ public class Cliente extends Persona {
 
     private String tipoDoc;
     private int numeroDoc;
-    private int telefono;
+    private double telefono;
     private Categoria categoria;
     private LocalDate fechaAltaServicio;
     private List<Dispositivo> dispositivos;
@@ -37,7 +39,7 @@ public class Cliente extends Persona {
         this.numeroDoc = numeroDoc;
     }
 
-    public int getTelefono() {
+    public double getTelefono() {
         return telefono;
     }
 
