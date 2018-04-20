@@ -32,7 +32,7 @@ public class Administrador extends Persona {
 
     public long getAntiguedad() {
         LocalDate now = LocalDate.now();
-        return (Period.between(now.withDayOfMonth(1),
-                getFechaAlta().withDayOfMonth(1))).toTotalMonths();
+        return (Period.between(getFechaAlta().withDayOfMonth(1),
+                now.withDayOfMonth(1))).toTotalMonths();
     }
 }
