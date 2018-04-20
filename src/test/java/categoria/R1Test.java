@@ -1,10 +1,8 @@
-package martes.noche;
+package categoria;
 
 import categoria.R1;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.time.LocalDate;
 
 import static org.junit.Assert.*;
 
