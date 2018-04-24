@@ -1,6 +1,6 @@
-package categoria;
+package martes.noche.categoria;
 
-import categoria.R1;
+import martes.noche.categoria.R1;
 import org.junit.Before;
 import org.junit.Test;
 

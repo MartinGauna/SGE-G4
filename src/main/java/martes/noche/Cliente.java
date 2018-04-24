@@ -1,7 +1,6 @@
 package martes.noche;
 
-;
-import categoria.Categoria;
+import martes.noche.categoria.Categoria;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -10,7 +9,7 @@ public class Cliente extends Persona {
 
     private String tipoDoc;
     private int numeroDoc;
-    private double telefono;
+    private int telefono;
     private Categoria categoria;
     private LocalDate fechaAltaServicio;
     private List<Dispositivo> dispositivos;
@@ -24,7 +23,7 @@ public class Cliente extends Persona {
     }
 
     public String getTipoDoc() {
-        return tipoDoc;
+        return this.tipoDoc;
     }
 
     public void setTipoDoc(String tipoDoc) {
@@ -32,7 +31,7 @@ public class Cliente extends Persona {
     }
 
     public int getNumeroDoc() {
-        return numeroDoc;
+        return this.numeroDoc;
     }
 
     public void setNumeroDoc(int numeroDoc) {
@@ -40,7 +39,7 @@ public class Cliente extends Persona {
     }
 
     public double getTelefono() {
-        return telefono;
+        return this.telefono;
     }
 
     public void setTelefono(int telefono) {
@@ -48,7 +47,7 @@ public class Cliente extends Persona {
     }
 
     public Categoria getCategoria() {
-        return categoria;
+        return this.categoria;
     }
 
     public void setCategoria(Categoria categoria) {
@@ -56,7 +55,7 @@ public class Cliente extends Persona {
     }
 
     public LocalDate getFechaAltaServicio() {
-        return fechaAltaServicio;
+        return this.fechaAltaServicio;
     }
 
     public void setFechaAltaServicio(LocalDate fechaAltaServicio) {
@@ -64,7 +63,7 @@ public class Cliente extends Persona {
     }
 
     public List<Dispositivo> getDispositivos() {
-        return dispositivos;
+        return this.dispositivos;
     }
     public void setDispositivos(List<Dispositivo> dispositivos) {
         this.dispositivos = dispositivos;

@@ -1,4 +1,4 @@
-package categoria;
+package martes.noche.categoria;
 
 public class R7 extends Categoria {
 
