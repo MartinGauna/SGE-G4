@@ -1,8 +1,9 @@
 package martes.noche;
 
 //TODO: ver porque no importa el gson
-//import com.google.gson.Gson;
-import java.io.FileReader;
+import org.json.JSONObject;
+import java.io.File;
+import org.apache.commons.io.FileUtils;
 import java.io.IOException;
 import java.io.Reader;
 
@@ -11,6 +12,12 @@ public class Dispositivo {
     private String nombre;
     private int consumoHora;
     private String estado;
+
+    public Dispositivo(){
+        this.nombre = "";
+        this.consumoHora = 0;
+        this.estado = "";
+    }
 
     public Dispositivo(String nombre, int consumoHora, String estado) {
         this.nombre = nombre;
@@ -42,30 +49,15 @@ public class Dispositivo {
         this.estado = estado;
     }
 
-//TODO: descomentar codigo cuando resuelva el primer problema y ver si funciona
-/*    public static void leerJSON() {
-        Gson gson = new Gson();
+    public void loadJSON(String path) throws IOException {
 
-        try (Reader reader = new FileReader("D:\\staff.json")) {
+        File file = new File(path);
+        String content = FileUtils.readFileToString(file, "utf-8");
+        JSONObject dispJsonObject = new JSONObject(content);
 
-            // Convert JSON to Java Object
-            Dispositivo dispositivo = gson.fromJson(reader, dispositivo.class);
-            System.out.println(dispositivo);
-
-            // Ejemplo de JSON a importar
-            *//*
-              "dispositivo": [
-                 {
-                  "nombre": "Play Station 5",
-                  "consumoHora": 5000,
-                  "estado": "activo",
-                 }]
-            *//*
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }*/
+        this.nombre = dispJsonObject.getString("nombre");
+        this.consumoHora = dispJsonObject.getInt("consumoHora");
+        this.estado = dispJsonObject.getString("estado");
+    }
 
 }
