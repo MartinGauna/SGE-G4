@@ -1,13 +1,19 @@
 package martes.noche.categoria;
 
-public abstract class Categoria {
-
+public class Categoria {
+	
+	private String name;
     private double cargoFijo;
     private double cargoVariable;
+    private int consumoMin;
+    private int consumoMax;
 
-    public Categoria(double  cargoFijo, double  cargoVariable) {
-        this.cargoFijo = cargoFijo;
+    public Categoria(String name, double  cargoFijo, double  cargoVariable, int consumoMin, int consumoMax ) {
+        this.setName(name);
+    	this.cargoFijo = cargoFijo;
         this.cargoVariable = cargoVariable;
+        this.setConsumoMin(consumoMin);
+        this.setConsumoMax(consumoMax);
     }
 
     public double  getCargoFijo() {
@@ -29,4 +35,28 @@ public abstract class Categoria {
     public double calcularValorAprox(int kwh) {
         return getCargoFijo() + kwh * getCargoVariable();
     }
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getConsumoMin() {
+		return consumoMin;
+	}
+
+	public void setConsumoMin(int consumoMin) {
+		this.consumoMin = consumoMin;
+	}
+
+	public int getConsumoMax() {
+		return consumoMax;
+	}
+
+	public void setConsumoMax(int consumoMax) {
+		this.consumoMax = consumoMax;
+	}
 }

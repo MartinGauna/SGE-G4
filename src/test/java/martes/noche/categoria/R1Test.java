@@ -13,7 +13,7 @@ public class R1Test {
 
     @Before
     public void setUp() throws Exception {
-        r1 = new R1(18.76, 0.644);
+        r1 = new R1();
     }
 
     @Test

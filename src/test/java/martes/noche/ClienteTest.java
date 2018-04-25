@@ -16,7 +16,7 @@ public class ClienteTest {
 
     @Before
     public void setUp() throws Exception {
-        this.r1 = new R1(18.76, 0.644);
+        this.r1 = new R1();
         this.testClient = new Cliente("DNI", 12345678, 45555533, r1 , LocalDate.now());
 
     }

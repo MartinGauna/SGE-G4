@@ -49,15 +49,4 @@ public class Dispositivo {
         this.estado = estado;
     }
 
-    public void loadJSON(String path) throws IOException {
-
-        File file = new File(path);
-        String content = FileUtils.readFileToString(file, "utf-8");
-        JSONObject dispJsonObject = new JSONObject(content);
-
-        this.nombre = dispJsonObject.getString("nombre");
-        this.consumoHora = dispJsonObject.getInt("consumoHora");
-        this.estado = dispJsonObject.getString("estado");
-    }
-
 }

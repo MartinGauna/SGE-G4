@@ -41,7 +41,7 @@ public class Administrador extends Persona {
                 now.withDayOfMonth(1))).toTotalMonths();
     }
 
-    private void loadJSON(String path) throws IOException {
+    public void loadJSON(String path) throws IOException {
 
         File file = new File(path);
         String content = FileUtils.readFileToString(file, "utf-8");

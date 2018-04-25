@@ -1,5 +1,11 @@
 package martes.noche;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+import org.json.JSONObject;
+
 public abstract class Persona {
     private String nombreCompleto;
     private String domicilio;
@@ -35,5 +41,12 @@ public abstract class Persona {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    public void loadJSON(String content) throws IOException {
+
+        JSONObject dispJsonObject = new JSONObject(content);
+
+
     }
 }

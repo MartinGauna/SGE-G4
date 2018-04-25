@@ -2,8 +2,13 @@ package martes.noche;
 
 import martes.noche.categoria.Categoria;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
+
+import org.apache.commons.io.FileUtils;
+import org.json.JSONObject;
 
 public class Cliente extends Persona {
 
@@ -22,7 +27,11 @@ public class Cliente extends Persona {
         this.fechaAltaServicio = fechaAltaServicio;
     }
 
-    public String getTipoDoc() {
+	public Cliente() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getTipoDoc() {
         return this.tipoDoc;
     }
 
@@ -68,4 +77,5 @@ public class Cliente extends Persona {
     public void setDispositivos(List<Dispositivo> dispositivos) {
         this.dispositivos = dispositivos;
     }
+
 }
