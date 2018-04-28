@@ -9,22 +9,13 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
 
-public class Administrador extends Persona {
+public class Administrador extends Usuario {
 
-    private LocalDate fechaAlta;
     private int legajo;
 
     public Administrador(LocalDate fechaAlta, int legajo) {
-        this.fechaAlta = fechaAlta;
+        this.setFechaAlta(fechaAlta);
         this.legajo = legajo;
-    }
-
-    public LocalDate getFechaAlta() {
-        return fechaAlta;
-    }
-
-    public void setFechaAlta(LocalDate fechaAlta) {
-        this.fechaAlta = fechaAlta;
     }
 
     public int getLegajo() {
@@ -39,15 +30,5 @@ public class Administrador extends Persona {
         LocalDate now = LocalDate.now();
         return (Period.between(getFechaAlta().withDayOfMonth(1),
                 now.withDayOfMonth(1))).toTotalMonths();
-    }
-
-    public void loadJSON(String path) throws IOException {
-
-        File file = new File(path);
-        String content = FileUtils.readFileToString(file, "utf-8");
-        JSONObject dispJsonObject = new JSONObject(content);
-
-        this.fechaAlta = LocalDate.parse(dispJsonObject.getString("nombre"));
-        this.legajo = dispJsonObject.getInt("legajo");
     }
 }
