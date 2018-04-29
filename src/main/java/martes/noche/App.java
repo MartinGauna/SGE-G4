@@ -7,10 +7,6 @@ import java.util.List;
 import martes.noche.categoria.Categoria;
 import martes.noche.jsonParser.JsonParser;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
 	private static App instance = null;
@@ -33,9 +29,6 @@ public class App
         System.out.println( "============ Lista de Clientes" );
 		try{
 			List<Cliente> clientes = jsonParser.loadClientesJSON("/listaClientes.json");
-//			for(Cliente cli: clientes ) {
-//				System.out.println(cli.toString());
-//			}
             clientes.forEach(cli-> System.out.println(cli.toString()));
 		} catch (IOException e) {
 			e.printStackTrace();
