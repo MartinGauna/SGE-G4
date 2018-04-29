@@ -33,6 +33,23 @@ public class App
 			e.printStackTrace();
 		}
 
+        System.out.println( "============ Administrador" );
+        try{
+            Administrador admin = jsonParser.loadAdministradorJSON("/administrador.json");
+            System.out.println(admin.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println( "============ Lista de Administradores" );
+        try{
+            List<Administrador> admins = jsonParser.loadAdministradoresJSON("/listaAdministradores.json");
+            admins.forEach(a-> System.out.println(a.toString()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
         System.out.println( "============ Dispositivo" );
         try {
             dispositivo = jsonParser.loadDispositivoJSON("/dispositivo.json");

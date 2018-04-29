@@ -1,6 +1,7 @@
 package martes.noche;
 
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,8 +16,7 @@ public class Categoria {
     private int consumoMax;
 
 
-    public Categoria() {
-        // TODO Devolver R1 como default de momento
+    public Categoria() throws IOException {
     }
 
     // Cargo las categorías desde un json
