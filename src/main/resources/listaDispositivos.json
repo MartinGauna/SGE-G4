@@ -1,0 +1,17 @@
+[
+  {
+    "nombre":"Heladera",
+    "consumoHora": 500,
+    "estado":"activo"
+  },
+  {
+    "nombre":"televisor",
+    "consumoHora": 300,
+    "estado":"activo"
+  },
+  {
+    "nombre":"plancha",
+    "consumoHora": 2000,
+    "estado":"activo"
+  }
+]

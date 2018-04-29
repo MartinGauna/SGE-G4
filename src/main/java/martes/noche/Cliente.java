@@ -79,4 +79,19 @@ public class Cliente extends Usuario {
         this.dispositivos = dispositivos;
     }
 
+    @Override
+    public String toString() {
+        return  "Cliente: \n"+
+                "\tNombre: " + getNombre() + "\n" +
+                "\tApellido: " + getApellido() + "\n" +
+                "\tDomicilio: " + getDomicilio() + "\n" +
+                "\tUser: " + getUsername() + "\n" +
+                "\tPassword: " + getPassword() + "\n" +
+                "\tFecha de Alta: " + getFechaAlta() + "\n" +
+                "\tTipo de Documento: " + getTipoDoc() + "\n" +
+                "\tNumero de documento: " + getNumeroDoc() + "\n" +
+                "\tTelefono: " + getTelefono() + "\n" +
+                "\tCategoría: " + getCategoria() + "\n" +
+                "\tDispositivos: " + getDispositivos() + "\n";
+    }
 }

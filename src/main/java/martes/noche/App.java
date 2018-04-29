@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import martes.noche.categoria.Categoria;
-import martes.noche.json.Json;
+import martes.noche.jsonParser.JsonParser;
 
 /**
  * Hello world!
@@ -17,23 +17,47 @@ public class App
 	List<Categoria> categorias = new ArrayList<Categoria>();
     public static void main( String[] args )
     {
-//        System.out.println( "Hello World!" );
 
         //Loading Dispositivo.
-    	Json jsonReader = new Json();
+    	JsonParser jsonParser = new JsonParser();
         Dispositivo dispositivo = new Dispositivo();
+
+        System.out.println( "============ Clientes" );
+        try{
+			Cliente cliente = jsonParser.loadClientJSON("/cliente.json");
+			System.out.println(cliente.toString());
+		} catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println( "============ Lista de Clientes" );
+		try{
+			List<Cliente> clientes = jsonParser.loadClientesJSON("/listaClientes.json");
+//			for(Cliente cli: clientes ) {
+//				System.out.println(cli.toString());
+//			}
+            clientes.forEach(cli-> System.out.println(cli.toString()));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+        System.out.println( "============ Dispositivo" );
         try {
-            dispositivo = jsonReader.loadDispositivoJSON("./src/main/resources/dispositivo.json");
+            dispositivo = jsonParser.loadDispositivoJSON("/dispositivo.json");
+			System.out.println(dispositivo.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println( "Dispositivo:" );
-        System.out.print( " Nombre: " );
-        System.out.println( dispositivo.getNombre());
-        System.out.print( " ConsumoHora: " );
-        System.out.println( dispositivo.getConsumoHora());
-        System.out.print( " Estado: " );
-        System.out.println( dispositivo.getEstado());
+
+        System.out.println( "============ Lista de Dispositivos" );
+        try {
+            List<Dispositivo> dispositivos = jsonParser.loadDispositivosJSON("/listaDispositivos.json");
+            dispositivos.forEach(disp -> System.out.println(disp.toString()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
     
     public static App getInstance() {
@@ -42,6 +66,7 @@ public class App
     	}
     	return instance;
     }
+
     
     public Categoria getCategoriaByName(String name) {
     	int i;

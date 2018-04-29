@@ -49,4 +49,11 @@ public class Dispositivo {
         this.estado = estado;
     }
 
+    @Override
+    public String toString() {
+        return  "Dispositivo: \n"+
+                "\tNombre: " + getNombre() + "\n" +
+                "\tConsumo por Hora: " + getConsumoHora() + "\n" +
+                "\tEstado: " + getEstado() + "\n";
+    }
 }
