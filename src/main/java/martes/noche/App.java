@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import martes.noche.categoria.Categoria;
 import martes.noche.jsonParser.JsonParser;
 
 public class App 
@@ -51,6 +50,19 @@ public class App
         }
 
 
+        System.out.println( "============ Categoria" );
+        try {
+            Categoria cat = new Categoria("R1");
+            System.out.println(cat.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            Categoria cat = new Categoria("R7");
+            System.out.println(cat.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     public static App getInstance() {
@@ -65,7 +77,7 @@ public class App
     	int i;
     	for(i = 0; i < categorias.size(); i++) {
     		Categoria cat = categorias.get(i);
-    		if(cat.getName() == name) {
+    		if(cat.getNombre() == name) {
     			return cat;
     		}
     	}

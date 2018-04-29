@@ -16,17 +16,5 @@ public class DispositivoTest {
         this.device = new Dispositivo("Condensador de flujo", 80000, "activo");
     }
 
-    @Test
-    public void getNombreTest() throws Exception{
-        assertEquals("Condensador de flujo", device.getNombre());
-    }
-
-    @Test
-    public void getConsumoTest() throws Exception{
-        assertEquals(80000, device.getConsumoHora());
-    }
-    @Test
-    public void getEstadoTest() throws Exception{
-        assertEquals("activo", device.getEstado());
-    }
+//    @Test
 }

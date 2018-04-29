@@ -12,17 +12,8 @@ public class AdministradorTest {
 
     @Before
     public void setUp() throws Exception {
-        this.admin = new Administrador(LocalDate.of(2018,01, 01), 1234567);
-    }
-
-    @Test
-    public void getfechaAltaTest() throws Exception{
-        assertEquals(LocalDate.of(2018,01, 01), admin.getFechaAlta());
-    }
-
-    @Test
-    public void getLegajoTest() throws Exception{
-        assertEquals(1234567, admin.getLegajo());
+        this.admin = new Administrador("AdminNanme","AdminApell", "ADomi", "AdminUser",
+                "AdminPAss", LocalDate.of(2018,01, 01), 1234567);
     }
 
     @Test

@@ -1,17 +1,29 @@
 package martes.noche;
 
-//TODO: ver porque no importa el gson
-import org.json.JSONObject;
-import java.io.File;
-import org.apache.commons.io.FileUtils;
-import java.io.IOException;
-import java.io.Reader;
+import java.lang.String;
 
 public class Dispositivo {
 
     private String nombre;
     private int consumoHora;
     private String estado;
+
+    public enum Estados {
+        ENCENDIDO("encendido"),
+        APAGADO("apagado");
+
+        private final String value;
+
+
+        Estados(final String text) {
+            this.value = text;
+        }
+
+        @Override
+        public String toString() {
+            return value;
+        }
+    }
 
     // Dispositivo
     public Dispositivo(){
@@ -46,7 +58,12 @@ public class Dispositivo {
         return estado;
     }
     public void setEstado(String estado) {
-        this.estado = estado;
+        if (estado.equals(Estados.ENCENDIDO.toString())) {
+            this.estado = estado;
+        } else {
+            this.estado = Estados.APAGADO.toString();
+        }
+
     }
 
     @Override

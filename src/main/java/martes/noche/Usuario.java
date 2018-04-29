@@ -20,6 +20,15 @@ public abstract class Usuario {
         this.nombre = nombre;
     }
 
+    public Usuario(String nombre, String apellido, String domicilio, String user, String password, LocalDate fechaAlta){
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.domicilio = domicilio;
+        this.user = user;
+        this.password = password;
+        this.fechaAlta = fechaAlta;
+    }
+
     // Apellido
     public String getApellido() {
         return apellido;
