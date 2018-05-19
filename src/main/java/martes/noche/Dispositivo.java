@@ -10,7 +10,8 @@ public class Dispositivo {
 
     public enum Estados {
         ENCENDIDO("encendido"),
-        APAGADO("apagado");
+        APAGADO("apagado"),
+    	AHORRO("ahorro");
 
         private final String value;
 

@@ -11,6 +11,7 @@ public class Cliente extends Usuario {
     private int telefono;
     private Categoria categoria;
     private List<Dispositivo> dispositivos;
+    private int puntaje;
 
 //    public enum TipoDocumento {
 //        DNI("DNI"),
@@ -33,6 +34,7 @@ public class Cliente extends Usuario {
         this.telefono = telefono;
         this.categoria = categoria;
         this.setFechaAlta(fechaAltaServicio) ;
+        this.puntaje = 0;
     }
 //===================== Getters & Setters
 	// Tipo de Documento
@@ -74,6 +76,13 @@ public class Cliente extends Usuario {
     public void setDispositivos(List<Dispositivo> dispositivos) {
         this.dispositivos = dispositivos;
     }
+    
+    public void addDispositivo(Dispositivo disp) {
+    	this.dispositivos.add(disp);
+    	if(isInteligente(disp)) {
+    		puntaje += 15;
+    	}
+    }
 
 //===================== Methods
 
@@ -111,5 +120,9 @@ public class Cliente extends Usuario {
                 "\tTelefono: " + getTelefono() + "\n" +
                 "\tCategoría: " + getCategoria() + "\n" +
                 "\tDispositivos: " + getDispositivos() + "\n";
+    }
+    
+    public Boolean isInteligente(Dispositivo disp) {
+    	return disp.getClass().getName().equals("DispositivoInteligente");
     }
 }
