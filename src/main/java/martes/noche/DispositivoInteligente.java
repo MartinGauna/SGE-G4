@@ -1,13 +1,21 @@
 package martes.noche;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class DispositivoInteligente extends Dispositivo {
     
 	List<Consumo> consumo;
-	
-	public void addConsumo(int watts, Date fechaInicio, Date fechaFinal) {
+    Actuador actuador;
+
+    public DispositivoInteligente(String nombre, int consumoHora, String estado) {
+        super(nombre, consumoHora, estado);
+        this.consumo = new ArrayList<Consumo>();
+        this.actuador = null;
+    }
+
+    public void addConsumo(int watts, Date fechaInicio, Date fechaFinal) {
         //Create consumo Object
         Consumo consumoI = new Consumo(this, watts, fechaInicio, fechaFinal);
 
@@ -41,5 +49,13 @@ public class DispositivoInteligente extends Dispositivo {
         if(this.getEstado() != "ahorro") {
             this.setEstado("ahorro");
         }
+    }
+
+    public Actuador getActuador() {
+        return actuador;
+    }
+
+    public void setActuador(Actuador actuador) {
+        this.actuador = actuador;
     }
 }

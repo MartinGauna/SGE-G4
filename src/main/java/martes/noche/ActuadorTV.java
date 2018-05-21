@@ -4,6 +4,10 @@ public class ActuadorTV implements Actuador {
 
     private DispositivoInteligenteTV tv;
 
+    public ActuadorTV(DispositivoInteligenteTV tv) {
+        this.tv = tv;
+    }
+
     public void prenderDispositivo() {
         tv.encender();
     }
@@ -21,7 +25,7 @@ public class ActuadorTV implements Actuador {
         tv.apagar();
     }
 
-    public void cambiarCanal(int canal) {
+    public void cambiarACanal(int canal) {
         tv.setCanal(canal);
     }
 

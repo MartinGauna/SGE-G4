@@ -1,8 +1,11 @@
 package martes.noche;
 
 public class ActuadorHeladera implements Actuador {
-
     private DispositivoInteligenteHeladera heladera;
+
+    public ActuadorHeladera(DispositivoInteligenteHeladera heladera) {
+        this.heladera = heladera;
+    }
 
     public void prenderDispositivo() {
         heladera.encender();

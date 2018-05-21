@@ -4,6 +4,10 @@ public class ActuadorAAcondicionado implements Actuador {
 
     private DispositivoInteligenteAAcondicionado aire;
 
+    public ActuadorAAcondicionado(DispositivoInteligenteAAcondicionado aire) {
+        this.aire = aire;
+    }
+
     public void prenderDispositivo() {
         aire.encender();
     }
@@ -28,7 +32,7 @@ public class ActuadorAAcondicionado implements Actuador {
         aire.setTemperatura(aire.getTemperatura() + cantidad);
     }
 
-    public void bajarIntensidad(int cantidad) {
+    public void bajarTemperatura(int cantidad) {
         aire.setTemperatura(aire.getTemperatura() - cantidad);
     }
 
