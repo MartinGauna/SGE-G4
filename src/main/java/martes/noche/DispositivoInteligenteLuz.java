@@ -1,12 +1,12 @@
 package martes.noche;
 
-public class DispositivoInteligenteHeladera extends DispositivoInteligente {
+public class DispositivoInteligenteLuz extends DispositivoInteligente {
 
     private int intensidad;
 
-    public DispositivoInteligenteHeladera(String nombre, int consumoHora, String estado) {
+    public DispositivoInteligenteLuz(String nombre, int consumoHora, String estado) {
         super(nombre, consumoHora, estado);
-        ActuadorHeladera actuador = new ActuadorHeladera(this);
+        ActuadorLuz actuador = new ActuadorLuz(this);
         this.setActuador(actuador);
     }
 
