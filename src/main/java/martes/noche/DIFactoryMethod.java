@@ -15,6 +15,9 @@ public class DIFactoryMethod {
             case "Heladera":
                 dispositivo = new DispositivoInteligenteHeladera(nombre, consumoHora, estado);
                 break;
+            case "Luz":
+                dispositivo = new DispositivoInteligenteLuz(nombre, consumoHora, estado);
+                break;
         }
         return dispositivo;
     }
