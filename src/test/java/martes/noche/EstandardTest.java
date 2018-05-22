@@ -11,6 +11,7 @@ public class EstandardTest {
 
     @Before
     public void setUp() throws Exception {
+
         this.tvEstandard = new Estandard("Heladera", 10, "Activo");
         this.adaptadorTV = new Adaptador(this.tvEstandard);
     }

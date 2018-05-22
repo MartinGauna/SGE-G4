@@ -1,13 +1,20 @@
 package martes.noche;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Adaptador {
 
-    private Dispositivo dispositivo;
+    private Estandard dispositivo;
     private List<Consumo> consumo;
     private Boolean modoAhorro;
+
+    //Constructor
+    public Adaptador(Estandard dispositivo, List<Consumo> consumo, Boolean modoAhorro) {
+
+        this.consumo = new ArrayList<Consumo>();
+    }
 
     //AgregarConsumo
     public void addConsumo(int watts, Date fechaInicio, Date fechaFinal) {
@@ -18,10 +25,11 @@ public class Adaptador {
         consumo.add(consumoI);
 
     }
-    public int getConsumoTotal(Date periodo) {
+
+    public int getConsumoTotal(Date fechaInicio, Date fechaFinal) {
         int total = 0;
         for(int i=0; i< consumo.size(); i++) {
-            if((consumo.get(i).getFechaInicio().before(periodo) || (consumo.get(i).getFechaFinal()).after(periodo)))
+            if((consumo.get(i).getFechaInicio().before(fechaInicio) || (consumo.get(i).getFechaFinal()).after(fechaFinal)))
             {total += consumo.get(i).getWatts();}
         }
         return total;
