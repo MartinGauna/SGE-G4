@@ -14,6 +14,7 @@ public class Adaptador {
     public Adaptador(Estandard dispositivo) {
 
         this.consumo = new ArrayList<Consumo>();
+        dispositivo.convertir(this);
     }
 
     //AgregarConsumo
