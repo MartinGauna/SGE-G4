@@ -32,6 +32,8 @@ public class DispositivoInteligente extends Dispositivo {
         }
         return total;
     }
+
+
     
     public void encender() {
     	if(this.getEstado() != "encendido") {

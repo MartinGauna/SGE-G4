@@ -64,6 +64,9 @@ public class Dispositivo {
         } else {
             this.estado = Estados.APAGADO.toString();
         }
+        if(estado == "ahorro")
+        {this.estado = Estados.AHORRO.toString();}
+
 
     }
 
