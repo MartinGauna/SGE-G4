@@ -9,6 +9,8 @@ public class DispositivoInteligenteTV extends DispositivoInteligente {
         super(nombre, consumoHora, estado);
         ActuadorTV actuador = new ActuadorTV(this);
         this.setActuador(actuador);
+        this.setCanal(12);
+        this.setVolumen(25);
     }
 
     public int getCanal() {

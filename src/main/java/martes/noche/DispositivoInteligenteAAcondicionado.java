@@ -7,6 +7,7 @@ public class DispositivoInteligenteAAcondicionado extends DispositivoInteligente
         super(nombre, consumoHora, estado);
         ActuadorAAcondicionado actuador = new ActuadorAAcondicionado(this);
         this.setActuador(actuador);
+        this.setTemperatura(24);
     }
 
     public int getTemperatura() {

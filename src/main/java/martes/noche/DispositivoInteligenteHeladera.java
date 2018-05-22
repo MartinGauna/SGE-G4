@@ -8,6 +8,7 @@ public class DispositivoInteligenteHeladera extends DispositivoInteligente {
         super(nombre, consumoHora, estado);
         ActuadorHeladera actuador = new ActuadorHeladera(this);
         this.setActuador(actuador);
+        this.setIntensidad(0);
     }
 
     public int getIntensidad() {
