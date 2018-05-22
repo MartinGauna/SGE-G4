@@ -12,6 +12,16 @@ public class EstandardTest {
     @Before
     public void setUp() throws Exception {
         this.tvEstandard = new Estandard("Heladera", 10, "Activo");
+        this.adaptadorTV = new Adaptador(this.tvEstandard);
+    }
+
+
+    //atias Vivone
+    // public Adaptador(Estandard dispositivo, List<Consumo> consumo, Boolean modoAhorro)
+
+    @Test
+    public void getConsumoHoraTest() throws Exception{
+        assertEquals(10, tvEstandard.getConsumoHora());
     }
 
     @Test
