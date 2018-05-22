@@ -11,7 +11,7 @@ public class Adaptador {
     private Boolean modoAhorro;
 
     //Constructor
-    public Adaptador(Estandard dispositivo, List<Consumo> consumo, Boolean modoAhorro) {
+    public Adaptador(Estandard dispositivo) {
 
         this.consumo = new ArrayList<Consumo>();
     }
