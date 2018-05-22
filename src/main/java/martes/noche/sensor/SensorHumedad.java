@@ -2,20 +2,24 @@ package martes.noche.sensor;
 
 import martes.noche.Magnitud;
 
+import java.util.Random;
+
 public class SensorHumedad extends Sensor{
 
-    public SensorHumedad(){
+    public SensorHumedad() {
         this.setMagnitud(new Magnitud(0, "RH"));
         this.setIntervalo(0);
     }
 
-    public SensorHumedad(long intervalo){
+    public SensorHumedad(long intervalo) {
         this.setMagnitud(new Magnitud(0, "RH"));
         this.setIntervalo(intervalo);
     }
 
     @Override
     public Magnitud getMedicion() {
-        return this.getMagnitud();
+        Random rand = new Random(300);
+        this.magnitud.setValor(rand.nextLong());
+        return this.magnitud;
     }
 }
