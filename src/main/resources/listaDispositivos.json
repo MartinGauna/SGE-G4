@@ -10,8 +10,13 @@
     "estado":"activo"
   },
   {
-    "nombre":"plancha",
+    "nombre":"Aire acondicionado",
     "consumoHora": 2000,
+    "estado":"activo"
+  },
+  {
+    "nombre":"lampara led",
+    "consumoHora": 20,
     "estado":"activo"
   }
 ]
