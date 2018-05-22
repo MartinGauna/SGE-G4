@@ -24,11 +24,11 @@ public class ActuadorLuz implements Actuador {
         luz.apagar();
     }
 
-    public void subirIntensidad(int cantidad) {
-        luz.setIntensidad(luz.getIntensidad() + cantidad);
+    public void subirLuminosidad(int cantidad) {
+        luz.setLuminosidad(luz.getLuminosidad() + cantidad);
     }
 
-    public void bajarIntensidad(int cantidad) {
-        luz.setIntensidad(luz.getIntensidad() - cantidad);
+    public void bajarLuminosidad(int cantidad) {
+        luz.setLuminosidad(luz.getLuminosidad() - cantidad);
     }
 }
