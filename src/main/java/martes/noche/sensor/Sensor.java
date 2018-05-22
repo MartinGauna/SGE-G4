@@ -2,9 +2,10 @@ package martes.noche.sensor;
 
 import martes.noche.Magnitud;
 
+
 public abstract class Sensor {
-    private long intervalo;
-    private Magnitud magnitud;
+    protected long intervalo;
+    protected Magnitud magnitud;
 
     public Magnitud getMagnitud() {
         return magnitud;
