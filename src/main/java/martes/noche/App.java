@@ -49,19 +49,22 @@ public class App
             e.printStackTrace();
         }
 
-
-        System.out.println( "============ Dispositivo" );
+        System.out.println( "============ Lista de Dispositivos Inteligentes" );
         try {
-            dispositivo = jsonParser.loadDispositivoJSON("/dispositivo.json");
-			System.out.println(dispositivo.toString());
+            List<DispositivoInteligente> dispositivos = jsonParser.loadDispositivosInteligentesJSON("/listaDispositivosInteligentes.json");
+            dispositivos.forEach(disp -> System.out.println(disp.getClass().toString()));
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        System.out.println( "============ Lista de Dispositivos" );
+        System.out.println( "============ Lista de Dispositivos Estandard" );
         try {
-            List<Dispositivo> dispositivos = jsonParser.loadDispositivosJSON("/listaDispositivos.json");
-            dispositivos.forEach(disp -> System.out.println(disp.toString()));
+            List<Estandard> dispositivos = jsonParser.loadDispositivosEstandardJSON("/listaDispositivosEstandard.json");
+            dispositivos.forEach(disp -> System.out.println(disp.getClass().toString()));
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }

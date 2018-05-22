@@ -11,10 +11,7 @@ import java.util.Optional;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import martes.noche.Administrador;
-import martes.noche.Cliente;
-import martes.noche.Dispositivo;
-import martes.noche.Categoria;
+import martes.noche.*;
 
 
 import com.google.gson.reflect.TypeToken;
@@ -71,18 +68,20 @@ public  class JsonParser {
         return administradores;
     }
 
-    // Dispositivo
-    public Dispositivo loadDispositivoJSON(String path) throws IOException {
-        Dispositivo dispositivo;
+    // Dispositivo Estandar
+    public List<Estandard> loadDispositivosEstandardJSON(String path) throws IOException {
+        Type DispositivoListType = new TypeToken<List<Estandard>>() {}.getType();
+        List<Estandard> dispositivos;
         try(Reader reader = new InputStreamReader(JsonParser.class.getResourceAsStream(path), "UTF-8")){
             Gson gson = new GsonBuilder().create();
-            dispositivo = gson.fromJson(reader, Dispositivo.class);
+            dispositivos = gson.fromJson(reader, DispositivoListType);
         }
-        return dispositivo;
+        return dispositivos;
     }
-    public List<Dispositivo> loadDispositivosJSON(String path) throws IOException {
-        Type DispositivoListType = new TypeToken<List<Dispositivo>>() {}.getType();
-        List<Dispositivo> dispositivos;
+    // Dispositivo Inteligente
+    public List<DispositivoInteligente> loadDispositivosInteligentesJSON(String path) throws IOException {
+        Type DispositivoListType = new TypeToken<List<DispositivoInteligente>>() {}.getType();
+        List<DispositivoInteligente> dispositivos;
         try(Reader reader = new InputStreamReader(JsonParser.class.getResourceAsStream(path), "UTF-8")){
             Gson gson = new GsonBuilder().create();
             dispositivos = gson.fromJson(reader, DispositivoListType);
