@@ -12,15 +12,15 @@ public class SensorMovimiento extends Sensor {
     }
 
     public SensorMovimiento(long intervalo) {
-        this.setMagnitud(new Magnitud(0, "m"));
+        super(0, "m", 30);
         this.setIntervalo(intervalo);
     }
 
     @Override
     public Magnitud getMedicion() {
 
-        Random rand = new Random(30);
-        this.magnitud.setValor(rand.nextLong());
+//        Random rand = new Random(30);
+//        this.magnitud.setValor(rand.nextLong());
         return this.magnitud;
     }
 }
