@@ -2,9 +2,9 @@ package martes.noche;
 
 public class DIFactoryMethod {
 
-    Dispositivo dispositivo = null;
+    DispositivoInteligente dispositivo = null;
 
-    public Dispositivo crearDispositivo(String nombre, int consumoHora, String estado) {
+    public DispositivoInteligente crearDispositivo(String nombre, int consumoHora, String estado) {
         switch (nombre) {
             case "Aire acondicionado":
                 dispositivo = new DispositivoInteligenteAAcondicionado(nombre, consumoHora, estado);
