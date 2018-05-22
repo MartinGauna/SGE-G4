@@ -15,7 +15,7 @@ public class EstandardTest {
         this.tvEstandard = new Estandard("Heladera", 10, "Activo");
         this.adaptadorTV = new Adaptador(this.tvEstandard);
     }
-    
+
 
     @Test
     public void getConsumoHoraTest() throws Exception{

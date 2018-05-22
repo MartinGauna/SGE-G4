@@ -17,7 +17,7 @@ public class AdaptadorTest {
     @Before
     public void setUp() throws Exception {
         Estandard estandard = new Estandard("Heladera",123,"encendido");
-        this.adapt = new Adaptador(estandard, null,false);
+        this.adapt = new Adaptador(estandard);
     }
 
     @Test
