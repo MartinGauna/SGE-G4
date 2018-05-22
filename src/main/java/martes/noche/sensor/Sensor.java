@@ -2,6 +2,10 @@ package martes.noche.sensor;
 
 import martes.noche.Magnitud;
 
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public abstract class Sensor {
     protected long intervalo;
@@ -28,9 +32,17 @@ public abstract class Sensor {
         setIntervalo(0);
     }
 
-    public Sensor(long intervalo, String magnitud) {
-        setMagnitud(new Magnitud(0, magnitud));
-        setIntervalo(intervalo);
+    public Sensor(long intervalo, String magnitud, int seed) {
+        TimerTask task = new TimerTask() {
+            public void run() {
+                Random rand = new Random(seed);
+                Magnitud magnitud = getMagnitud();
+                magnitud.setValor(rand.nextLong());
+            }
+        };
+        Timer timer = new Timer("Medir");
+        timer.schedule(task, intervalo);
+        this.magnitud = new Magnitud(intervalo, magnitud);
     }
 
     public abstract Magnitud getMedicion();

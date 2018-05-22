@@ -12,14 +12,14 @@ public class SensorHumedad extends Sensor{
     }
 
     public SensorHumedad(long intervalo) {
-        this.setMagnitud(new Magnitud(0, "RH"));
+        super(intervalo, "RH", 300);
         this.setIntervalo(intervalo);
     }
 
     @Override
     public Magnitud getMedicion() {
-        Random rand = new Random(300);
-        this.magnitud.setValor(rand.nextLong());
+//        Random rand = new Random(300);
+//        this.magnitud.setValor(rand.nextLong());
         return this.magnitud;
     }
 }

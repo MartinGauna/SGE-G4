@@ -12,14 +12,14 @@ public class SensorLuz extends Sensor{
     }
 
     public SensorLuz(long intervalo) {
-        this.setMagnitud(new Magnitud(0, "Hz"));
+        super(0, "Hz",300);
         this.setIntervalo(intervalo);
     }
 
     @Override
     public Magnitud getMedicion() {
-        Random rand = new Random(300);
-        this.magnitud.setValor(rand.nextLong());
+//        Random rand = new Random(300);
+//        this.magnitud.setValor(rand.nextLong());
         return this.magnitud;
     }
 }
