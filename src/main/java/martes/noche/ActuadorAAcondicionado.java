@@ -1,5 +1,7 @@
 package martes.noche;
 
+import martes.noche.sensor.Sensor;
+
 public class ActuadorAAcondicionado implements Actuador {
 
     private DispositivoInteligenteAAcondicionado aire;
@@ -30,6 +32,21 @@ public class ActuadorAAcondicionado implements Actuador {
 
     public void subirTemperatura(int cantidad) {
         aire.setTemperatura(aire.getTemperatura() + cantidad);
+    }
+
+    public void subirTemperatura(int cantidad, long condicion, Sensor sensor, char criterio ) {
+        Magnitud mag = sensor.getMedicion();
+        switch (criterio){
+            case '=':
+                if(condicion == mag.getValor()) {aire.setTemperatura((aire.getTemperatura() + cantidad));}
+                break;
+            case '>':
+                if(condicion > mag.getValor()) {aire.setTemperatura((aire.getTemperatura() + cantidad));}
+                break;
+            case '<':
+                if(condicion < mag.getValor()) {aire.setTemperatura((aire.getTemperatura() + cantidad));}
+                break;
+        }
     }
 
     public void bajarTemperatura(int cantidad) {
