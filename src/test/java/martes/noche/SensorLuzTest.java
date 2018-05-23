@@ -16,8 +16,6 @@ public class SensorLuzTest {
 
     @Test
     public void obtenermedicion(){
-
-        System.out.println(sensor.getMedicion());
         long prev = sensor.getMedicion().getValor();
         for(int i =0; i<100000 ;i++){
             if(prev != sensor.getMedicion().getValor()){

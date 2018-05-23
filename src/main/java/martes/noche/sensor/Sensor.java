@@ -54,6 +54,7 @@ public abstract class Sensor {
         this.intervalo=intervalo;
         this.magnitud = new Magnitud(0, magnitud);
         medirTask task = new medirTask(this.magnitud,maxVal);
+        task.run();
         Timer timer = new Timer("Medir");
         timer.schedule(task,0,  intervalo);
     }
