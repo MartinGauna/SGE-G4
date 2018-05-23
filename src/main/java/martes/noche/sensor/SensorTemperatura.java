@@ -13,13 +13,10 @@ public class SensorTemperatura extends Sensor {
 
     public SensorTemperatura(long intervalo) {
         super(0, "°C", 40);
-        this.setIntervalo(intervalo);
     }
 
     @Override
     public Magnitud getMedicion() {
-//        Random rand = new Random(40);
-//        this.magnitud.setValor(rand.nextLong());
-        return this.magnitud;
+        return this.getMagnitud();
     }
 }

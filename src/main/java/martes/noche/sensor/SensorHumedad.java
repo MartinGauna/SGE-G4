@@ -18,8 +18,6 @@ public class SensorHumedad extends Sensor{
 
     @Override
     public Magnitud getMedicion() {
-//        Random rand = new Random(300);
-//        this.magnitud.setValor(rand.nextLong());
-        return this.magnitud;
+        return this.getMagnitud();
     }
 }
