@@ -1,6 +1,7 @@
 package martes.noche;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,6 +38,7 @@ public class Cliente extends Usuario {
         this.telefono = telefono;
         this.categoria = categoria;
         this.setFechaAlta(fechaAltaServicio) ;
+        this.dispositivos = new ArrayList<Dispositivo>();
         this.puntaje = 0;
     }
 //===================== Getters & Setters
@@ -80,12 +82,19 @@ public class Cliente extends Usuario {
         this.dispositivos = dispositivos;
     }
 
+    //puntaje
+    public int getPuntaje() {
+        return puntaje;
+    }
+    public void setPuntaje(int puntaje) {
+        this.puntaje = puntaje;
+    }
+
+
     public void addDispositivo(Dispositivo disp) {
-    	this.dispositivos.add(disp);
-    	if(isInteligente(disp)) {
-    		puntaje += puntosPorInteligente;
-    	}
-    	else puntaje += puntosPorEstandard;
+        this.dispositivos.add(disp);
+        if (isInteligente(disp)) this.setPuntaje(this.getPuntaje() + puntosPorInteligente);
+        else this.setPuntaje(this.getPuntaje() + puntosPorEstandard);
     }
 
     public void addAdaptador(Estandard disp) {
@@ -94,7 +103,6 @@ public class Cliente extends Usuario {
         this.dispositivos.add(disp);
         this.addDispositivo(disp);
     }
-
 
 //===================== Methods
 

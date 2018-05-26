@@ -58,6 +58,7 @@ public class Dispositivo {
     public String getEstado() {
         return estado;
     }
+
     public void setEstado(String estado) {
         if (estado.equals(Estados.ENCENDIDO.toString())) {
             this.estado = estado;
@@ -66,8 +67,6 @@ public class Dispositivo {
         }
         if(estado == "ahorro")
         {this.estado = Estados.AHORRO.toString();}
-
-
     }
 
     @Override
