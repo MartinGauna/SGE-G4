@@ -1,8 +1,6 @@
 package ar.edu.utn.frba.dds.dispositivo;
 
-import martes.noche.dispositivo.*;
-
-public class DIFactoryMethod {
+ public class DIFactoryMethod {
 
     DispositivoInteligente dispositivo = null;
 

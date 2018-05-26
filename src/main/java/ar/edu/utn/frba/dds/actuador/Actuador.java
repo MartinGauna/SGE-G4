@@ -9,6 +9,4 @@ public interface Actuador {
     public void cambiarModoAPrendido();
     public void cambiarModoAApagado();
 
-    //configurar timer?
-    //agendar accion?
 }
