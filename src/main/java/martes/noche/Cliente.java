@@ -1,5 +1,9 @@
 package martes.noche;
 
+import martes.noche.dispositivo.Adaptador;
+import martes.noche.dispositivo.Dispositivo;
+import martes.noche.dispositivo.Estandard;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;

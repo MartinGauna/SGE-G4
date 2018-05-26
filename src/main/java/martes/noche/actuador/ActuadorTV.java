@@ -1,4 +1,6 @@
-package martes.noche;
+package martes.noche.actuador;
+
+import martes.noche.dispositivo.DispositivoInteligenteTV;
 
 public class ActuadorTV implements Actuador {
 

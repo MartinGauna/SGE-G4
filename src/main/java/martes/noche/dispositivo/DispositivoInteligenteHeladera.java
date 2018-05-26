@@ -1,4 +1,6 @@
-package martes.noche;
+package martes.noche.dispositivo;
+
+import martes.noche.actuador.ActuadorHeladera;
 
 public class DispositivoInteligenteHeladera extends DispositivoInteligente {
 

@@ -1,4 +1,6 @@
-package martes.noche;
+package martes.noche.actuador;
+
+import martes.noche.dispositivo.DispositivoInteligenteLuz;
 
 public class ActuadorLuz implements Actuador {
     private DispositivoInteligenteLuz luz;

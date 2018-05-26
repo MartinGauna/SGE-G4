@@ -1,4 +1,6 @@
-package martes.noche;
+package martes.noche.dispositivo;
+
+import martes.noche.actuador.ActuadorAAcondicionado;
 
 public class DispositivoInteligenteAAcondicionado extends DispositivoInteligente {
     private int temperatura;

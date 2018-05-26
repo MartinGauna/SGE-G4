@@ -1,6 +1,7 @@
-package martes.noche;
+package martes.noche.dispositivo;
 
-import java.util.ArrayList;
+import martes.noche.dispositivo.Adaptador;
+import martes.noche.dispositivo.Dispositivo;
 
 public class Estandard extends Dispositivo {
 

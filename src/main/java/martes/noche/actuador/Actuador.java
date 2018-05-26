@@ -1,4 +1,4 @@
-package martes.noche;
+package martes.noche.actuador;
 
 public interface Actuador {
 

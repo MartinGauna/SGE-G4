@@ -1,5 +1,7 @@
 package martes.noche;
 
+import martes.noche.dispositivo.Dispositivo;
+
 import java.util.Date;
 
 public class Consumo {

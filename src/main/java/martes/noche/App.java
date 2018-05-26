@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import martes.noche.dispositivo.Dispositivo;
+import martes.noche.dispositivo.DispositivoInteligente;
+import martes.noche.dispositivo.Estandard;
 import martes.noche.jsonParser.JsonParser;
 
 public class App 

@@ -1,5 +1,7 @@
-package martes.noche;
+package martes.noche.actuador;
 
+import martes.noche.dispositivo.DispositivoInteligenteAAcondicionado;
+import martes.noche.Magnitud;
 import martes.noche.sensor.Sensor;
 
 public class ActuadorAAcondicionado implements Actuador {

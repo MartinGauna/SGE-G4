@@ -6,7 +6,6 @@ import java.io.Reader;
 
 import java.util.List;
 import java.lang.reflect.Type;
-import java.util.Optional;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -15,6 +14,8 @@ import martes.noche.*;
 
 
 import com.google.gson.reflect.TypeToken;
+import martes.noche.dispositivo.DispositivoInteligente;
+import martes.noche.dispositivo.Estandard;
 
 
 public  class JsonParser {

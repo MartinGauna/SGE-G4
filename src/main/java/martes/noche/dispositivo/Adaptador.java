@@ -1,4 +1,6 @@
-package martes.noche;
+package martes.noche.dispositivo;
+
+import martes.noche.Consumo;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -32,7 +34,7 @@ public class Adaptador {
         for(int i=0; i< consumo.size(); i++) {
             if((consumo.get(i).getFechaInicio().after(fechaInicio) || (consumo.get(i).getFechaFinal()).before(fechaFinal)))
             {total += consumo.get(i).getWatts();}
-        }
+}
         return total;
     }
 
