@@ -2,14 +2,13 @@ package ar.edu.utn.frba.dds.dispositivo;
 
 import ar.edu.utn.frba.dds.Consumo;
 import ar.edu.utn.frba.dds.actuador.Actuador;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 public class DispositivoInteligente extends Dispositivo {
-    
+
 	List<Consumo> consumo;
     Actuador actuador;
     List<Integer> periodos;
@@ -29,22 +28,18 @@ public class DispositivoInteligente extends Dispositivo {
         consumo.add(consumoI);
 
     }
-    
+
     public void encender() {
-    	if(!this.getEstado().equals("encendido") ) {
-    	    this.setEstado("encendido");
-        }
+        this.setEstado(Estados.ENCENDIDO.toString());
     }
-    
+
     public void apagar() {
-        if(!this.getEstado().equals("apagado")) {
-            this.setEstado("apagado");
-        }
+        this.setEstado(Estados.APAGADO.toString());
     }
 
     public void cambiarAmodoAhorro() {
-        if(!this.getEstado().equals("ahorro")) {
-            this.setEstado("ahorro");
+        if(!this.getEstado().equals(Estados.APAGADO.toString())) {
+            this.setEstado(Estados.AHORRO.toString());
         }
     }
 
@@ -55,7 +50,7 @@ public class DispositivoInteligente extends Dispositivo {
     public void setActuador(Actuador actuador) {
         this.actuador = actuador;
     }
-    
+
     public int getConsumoTotal(Date fechaInicio, Date fechaFinal) {
         int total = 0;
         for(int i=0; i< consumo.size(); i++) {
@@ -65,14 +60,14 @@ public class DispositivoInteligente extends Dispositivo {
         }
         return total;
     }
-    
+
     public void initializePeriods( ) {
     	periodos = new ArrayList<Integer>();
     	for (int i = 0; i < 12; i++) {
     		periodos.add(i, 0);
     	}
     }
-    
+
     public void cleanPeriod() {
     	Date date = new Date();
     	Calendar c = Calendar.getInstance();
@@ -86,9 +81,9 @@ public class DispositivoInteligente extends Dispositivo {
     	}
     	periodos.add(c.get(Calendar.MONTH), watts);
     }
-    
+
     public int getConsumoPeriodo(int mes) {
     	return periodos.get(mes);
     }
-    
+
 }

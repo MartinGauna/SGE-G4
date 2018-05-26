@@ -60,13 +60,10 @@ public class Dispositivo {
     }
 
     public void setEstado(String estado) {
-        if (estado.equals(Estados.ENCENDIDO.toString())) {
+        // TODO Preguntar: Si mando un estado incorrecto, debo tirar exeption?
+        if(estado.equals(Estados.ENCENDIDO.toString()) || estado.equals(Estados.APAGADO.toString()) || estado.equals(Estados.AHORRO.toString())){
             this.estado = estado;
-        } else {
-            this.estado = Estados.APAGADO.toString();
         }
-        if(estado == "ahorro")
-        {this.estado = Estados.AHORRO.toString();}
     }
 
     @Override
