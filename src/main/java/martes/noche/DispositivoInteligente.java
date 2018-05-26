@@ -29,19 +29,19 @@ public class DispositivoInteligente extends Dispositivo {
     }
     
     public void encender() {
-    	if(this.getEstado() != "encendido") {
+    	if(!this.getEstado().equals("encendido") ) {
     	    this.setEstado("encendido");
         }
     }
     
     public void apagar() {
-        if(this.getEstado() != "apagado") {
+        if(!this.getEstado().equals("apagado")) {
             this.setEstado("apagado");
         }
     }
 
     public void cambiarAmodoAhorro() {
-        if(this.getEstado() != "ahorro") {
+        if(!this.getEstado().equals("ahorro")) {
             this.setEstado("ahorro");
         }
     }
