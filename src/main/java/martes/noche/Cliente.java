@@ -6,6 +6,9 @@ import java.util.Optional;
 
 public class Cliente extends Usuario {
 
+    public static final int puntosPorEstandard = 10;
+    public static final int puntosPorInteligente = 15;
+
     private String tipoDoc;
     private int numeroDoc;
     private int telefono;
@@ -76,13 +79,22 @@ public class Cliente extends Usuario {
     public void setDispositivos(List<Dispositivo> dispositivos) {
         this.dispositivos = dispositivos;
     }
-    
+
     public void addDispositivo(Dispositivo disp) {
     	this.dispositivos.add(disp);
     	if(isInteligente(disp)) {
-    		puntaje += 15;
+    		puntaje += puntosPorInteligente;
     	}
+    	else puntaje += puntosPorEstandard;
     }
+
+    public void addAdaptador(Estandard disp) {
+        Adaptador adapt = new Adaptador(disp);
+        disp.setAdaptador(adapt);
+        this.dispositivos.add(disp);
+        this.addDispositivo(disp);
+    }
+
 
 //===================== Methods
 
@@ -123,6 +135,6 @@ public class Cliente extends Usuario {
     }
     
     public Boolean isInteligente(Dispositivo disp) {
-    	return disp.getClass().getName().equals("DispositivoInteligente");
+    	return !(disp instanceof Estandard);
     }
 }
