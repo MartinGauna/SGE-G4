@@ -1,10 +1,14 @@
 package martes.noche;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class Cliente extends Usuario {
+
+    public static final int puntosPorEstandard = 10;
+    public static final int puntosPorInteligente = 15;
 
     private String tipoDoc;
     private int numeroDoc;
@@ -34,6 +38,7 @@ public class Cliente extends Usuario {
         this.telefono = telefono;
         this.categoria = categoria;
         this.setFechaAlta(fechaAltaServicio) ;
+        this.dispositivos = new ArrayList<Dispositivo>();
         this.puntaje = 0;
     }
 //===================== Getters & Setters
@@ -76,12 +81,27 @@ public class Cliente extends Usuario {
     public void setDispositivos(List<Dispositivo> dispositivos) {
         this.dispositivos = dispositivos;
     }
-    
+
+    //puntaje
+    public int getPuntaje() {
+        return puntaje;
+    }
+    public void setPuntaje(int puntaje) {
+        this.puntaje = puntaje;
+    }
+
+
     public void addDispositivo(Dispositivo disp) {
-    	this.dispositivos.add(disp);
-    	if(isInteligente(disp)) {
-    		puntaje += 15;
-    	}
+        this.dispositivos.add(disp);
+        if (isInteligente(disp)) this.setPuntaje(this.getPuntaje() + puntosPorInteligente);
+        else this.setPuntaje(this.getPuntaje() + puntosPorEstandard);
+    }
+
+    public void addAdaptador(Estandard disp) {
+        Adaptador adapt = new Adaptador(disp);
+        disp.setAdaptador(adapt);
+        this.dispositivos.add(disp);
+        this.addDispositivo(disp);
     }
 
 //===================== Methods
@@ -123,6 +143,6 @@ public class Cliente extends Usuario {
     }
     
     public Boolean isInteligente(Dispositivo disp) {
-    	return disp.getClass().getName().equals("DispositivoInteligente");
+    	return !(disp instanceof Estandard);
     }
 }

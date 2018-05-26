@@ -17,14 +17,6 @@ public class App
     	JsonParser jsonParser = new JsonParser();
         Dispositivo dispositivo = new Dispositivo();
 
-        System.out.println( "============ Clientes" );
-        try{
-			Cliente cliente = jsonParser.loadClientJSON("/cliente.json");
-			System.out.println(cliente.toString());
-		} catch (IOException e) {
-            e.printStackTrace();
-        }
-
         System.out.println( "============ Lista de Clientes" );
 		try{
 			List<Cliente> clientes = jsonParser.loadClientesJSON("/listaClientes.json");
@@ -32,14 +24,6 @@ public class App
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-        System.out.println( "============ Administrador" );
-        try{
-            Administrador admin = jsonParser.loadAdministradorJSON("/administrador.json");
-            System.out.println(admin.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         System.out.println( "============ Lista de Administradores" );
         try{
