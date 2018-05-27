@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds.Regla;
+package ar.edu.utn.frba.dds.regla;
 
 public interface Observable {
 

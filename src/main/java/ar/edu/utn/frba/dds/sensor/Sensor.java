@@ -1,8 +1,8 @@
 package ar.edu.utn.frba.dds.sensor;
 
 import ar.edu.utn.frba.dds.Magnitud;
-import ar.edu.utn.frba.dds.Regla.Observable;
-import ar.edu.utn.frba.dds.Regla.Observer;
+import ar.edu.utn.frba.dds.regla.Observable;
+import ar.edu.utn.frba.dds.regla.Observer;
 
 import java.util.*;
 

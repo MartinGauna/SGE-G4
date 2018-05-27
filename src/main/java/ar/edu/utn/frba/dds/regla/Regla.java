@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds.Regla;
+package ar.edu.utn.frba.dds.regla;
 
 import ar.edu.utn.frba.dds.Magnitud;
 import ar.edu.utn.frba.dds.actuador.Actuador;
@@ -20,14 +20,13 @@ public class Regla implements Observer{
         this.cantidad = cantidad;
         this.actuador = actuador;
         this.methodname = methodname;
-
     }
 
     public void update(Observable observable){
 
         Sensor sensor = (Sensor) observable;
         Magnitud mag = sensor.getMedicion();
-        System.out.println("El nuevo valor es: " + mag.getValor());
+        //System.out.println("El nuevo valor es: " + mag.getValor());
 
         switch (criterio){
             case '=':
