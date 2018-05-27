@@ -1,20 +1,41 @@
 package ar.edu.utn.frba.dds.adaptadorFabricante;
 
-public class FabricanteAdapter implements IAdapter{
+public class FabricanteAdapter {
 
+    private IAdapter iAdapter;
 
-    @Override
-    public void enviarMensaje() {
-
+    public FabricanteAdapter(String formato){
+        switch (formato) {
+            case "JSon":
+                iAdapter = new JSon();
+                break;
+            case "XML":
+                iAdapter = new XML();
+                break;
+        }
     }
 
-    @Override
-    public void recibirMensaje() {
 
+    public void enviarMensaje(String formato) {
+        switch (formato) {
+            case "JSon":
+                iAdapter.enviarMensaje();
+                break;
+            case "XML":
+                iAdapter.enviarMensaje();
+                break;
+        }
     }
 
-    @Override
-    public void adaptarMetodo() {
 
+    public void recibirMensaje(String formato) {
+        switch (formato) {
+            case "JSon":
+                iAdapter.recibirMensaje();
+                break;
+            case "XML":
+                iAdapter.recibirMensaje();
+                break;
+        }
     }
 }

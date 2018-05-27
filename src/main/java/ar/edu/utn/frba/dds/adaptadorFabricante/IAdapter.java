@@ -4,6 +4,5 @@ public interface IAdapter {
 
     public void enviarMensaje();
     public void recibirMensaje();
-    public void adaptarMetodo();
 
 }
