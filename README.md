@@ -8,4 +8,4 @@
 ### dgusti89@gmail.com, matiasvivone@hotmail.com, martinj.gauna@gmail.com, juanma.conde@hotmail.com o gonzalogiliberti@gmail.com
 # 
 ## para correr test:
-### posicionarse sobre la raiz del proyecto y correr el script "mvn test"
+### (sobre el branch master) posicionarse sobre la raiz del proyecto y correr el script "mvn test"
