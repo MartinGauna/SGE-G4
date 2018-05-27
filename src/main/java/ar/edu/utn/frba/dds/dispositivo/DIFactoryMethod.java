@@ -1,8 +1,7 @@
 package ar.edu.utn.frba.dds.dispositivo;
 
-import ar.edu.utn.frba.dds.dispositivo.*;
-
 public class DIFactoryMethod {
+
 
     DispositivoInteligente dispositivo = null;
 

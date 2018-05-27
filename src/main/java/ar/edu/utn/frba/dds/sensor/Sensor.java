@@ -1,16 +1,19 @@
 package ar.edu.utn.frba.dds.sensor;
 
 import ar.edu.utn.frba.dds.Magnitud;
+import ar.edu.utn.frba.dds.regla.Observable;
+import ar.edu.utn.frba.dds.regla.Observer;
 
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 
-public abstract class Sensor {
+public abstract class Sensor implements Observable {
     protected long intervalo;
     protected Magnitud magnitud;
     public Magnitud mag;
+
+    // Collection de observers
+    private Set<Observer> observers;
 
     public Magnitud getMagnitud() {
         return magnitud;
@@ -18,6 +21,8 @@ public abstract class Sensor {
 
     public void setMagnitud(Magnitud magnitud) {
         this.magnitud = magnitud;
+        // cambio el valor y notifico
+        this.notifyObservers();
     }
 
     public long getIntervalo() {
@@ -48,6 +53,7 @@ public abstract class Sensor {
     public Sensor() {
         setMagnitud(new Magnitud());
         setIntervalo(0);
+        this.observers = new HashSet();
     }
 
     public Sensor(long intervalo, String magnitud, int maxVal) {
@@ -60,4 +66,17 @@ public abstract class Sensor {
     }
 
     public abstract Magnitud getMedicion();
+
+    // agrega un observer a la collection
+    public void addObserver(Observer observer) {
+        this.observers.add(observer);
+    }
+
+    // notifica a todos los observers
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update(this);
+        }
+    }
+
 }

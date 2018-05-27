@@ -1,23 +1,19 @@
 package ar.edu.utn.frba.dds.jsonParser;
 
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
-
-import java.util.List;
-import java.lang.reflect.Type;
-
 import ar.edu.utn.frba.dds.Administrador;
+import ar.edu.utn.frba.dds.Categoria;
 import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import ar.edu.utn.frba.dds.Categoria;
-
-
 import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.lang.reflect.Type;
+import java.util.List;
 
 
 public  class JsonParser {
