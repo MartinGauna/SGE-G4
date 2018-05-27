@@ -30,17 +30,15 @@ public class DispositivoInteligente extends Dispositivo {
     }
 
     public void encender() {
-        this.setEstado(Estados.ENCENDIDO.toString());
+        this.getEstado().handleActivo();
     }
 
     public void apagar() {
-        this.setEstado(Estados.APAGADO.toString());
+        this.getEstado().handleApagado();
     }
 
     public void cambiarAmodoAhorro() {
-        if(!this.getEstado().equals(Estados.APAGADO.toString())) {
-            this.setEstado(Estados.AHORRO.toString());
-        }
+        this.getEstado().handleAhorro();
     }
 
     public Actuador getActuador() {

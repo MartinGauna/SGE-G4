@@ -5,6 +5,9 @@ import ar.edu.utn.frba.dds.actuador.ActuadorHeladera;
 import ar.edu.utn.frba.dds.dispositivo.DIFactoryMethod;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteHeladera;
+import ar.edu.utn.frba.dds.dispositivo.estadosDispositivo.Activo;
+import ar.edu.utn.frba.dds.dispositivo.estadosDispositivo.Ahorro;
+import ar.edu.utn.frba.dds.dispositivo.estadosDispositivo.Apagado;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -34,19 +37,19 @@ public class ActuadorHeladeraTest {
     @Test
     public void apagarHeladeraTest() {
         actuador.apagarDispositivo();
-        assert(heladera.getEstado().equals("apagado"));
+        assert(heladera.getEstado().getStatus() instanceof Apagado);
     }
 
     @Test
     public void prenderHeladeraTest() {
         actuador.prenderDispositivo();
-        assert(heladera.getEstado().equals("encendido"));
+        assert(heladera.getEstado().getStatus() instanceof Activo);
     }
 
     @Test
     public void heladeraModoAhorroTest() {
         actuador.cambiarModoAAhorro();
-        assert(heladera.getEstado().equals("ahorro"));
+        assert(heladera.getEstado().getStatus() instanceof Ahorro);
     }
 
     @Test

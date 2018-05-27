@@ -1,6 +1,6 @@
 package ar.edu.utn.frba.dds.dispositivo;
 
-import martes.noche.dispositivo.*;
+import ar.edu.utn.frba.dds.dispositivo.*;
 
 public class DIFactoryMethod {
 

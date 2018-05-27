@@ -1,41 +1,42 @@
 package ar.edu.utn.frba.dds.dispositivo;
 
+import ar.edu.utn.frba.dds.dispositivo.estadosDispositivo.*;
+
 import java.lang.String;
 
 public class Dispositivo {
 
     private String nombre;
     private int consumoHora;
-    private String estado;
+    private Context estado;
 
-    public enum Estados {
-        ENCENDIDO("encendido"),
-        APAGADO("apagado"),
-    	AHORRO("ahorro");
-
-        private final String value;
-
-
-        Estados(final String text) {
-            this.value = text;
-        }
-
-        @Override
-        public String toString() {
-            return value;
-        }
-    }
+//    public enum Estados {
+//        ENCENDIDO("encendido"),
+//        APAGADO("apagado"),
+//    	AHORRO("ahorro");
+//
+//        private final String value;
+//
+//        Estados(final String text) {
+//            this.value = text;
+//        }
+//
+//        @Override
+//        public String toString() {
+//            return value;
+//        }
+//    }
 
     // Dispositivo
     public Dispositivo(){
         this.nombre = "";
         this.consumoHora = 0;
-        this.estado = "";
+        this.estado = new Context("activo");
     }
     public Dispositivo(String nombre, int consumoHora, String estado) {
         this.nombre = nombre;
         this.consumoHora = consumoHora;
-        this.estado = estado;
+        this.estado = new Context(estado);
     }
 
     // Nombre
@@ -55,15 +56,8 @@ public class Dispositivo {
     }
 
     // Estado del dispositivo.
-    public String getEstado() {
+    public Context getEstado() {
         return estado;
-    }
-
-    public void setEstado(String estado) {
-        // TODO Preguntar: Si mando un estado incorrecto, debo tirar exeption?
-        if(estado.equals(Estados.ENCENDIDO.toString()) || estado.equals(Estados.APAGADO.toString()) || estado.equals(Estados.AHORRO.toString())){
-            this.estado = estado;
-        }
     }
 
     @Override

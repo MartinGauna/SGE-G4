@@ -15,7 +15,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import ar.edu.utn.frba.dds.Categoria;
-import martes.noche.*;
 
 
 import com.google.gson.reflect.TypeToken;
