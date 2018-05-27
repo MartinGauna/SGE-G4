@@ -11,5 +11,5 @@
 ### carpeta SGE-G4/Documentacion
 #
 ## para correr test:
-### (sobre el branch master) posicionarse sobre la raiz del proyecto y correr el comando "mvn test"
+### (sobre el branch entrega01) posicionarse sobre la raiz del proyecto y correr el comando "mvn test"
 ### _nota: asegurarse de que la variable JAVA_HOME esté apuntando a un jdk y no a un jre_ 
