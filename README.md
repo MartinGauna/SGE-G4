@@ -11,4 +11,4 @@
 ### carpeta SGE-G4/Documentacion
 #
 ## para correr test:
-### (sobre el branch master) posicionarse sobre la raiz del proyecto y correr el script "mvn test"
+### (sobre el branch master) posicionarse sobre la raiz del proyecto y correr el comando "mvn test"
