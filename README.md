@@ -7,5 +7,8 @@
 ### Por medio de mail a cualquiera de los siguiente mails:
 ### dgusti89@gmail.com, matiasvivone@hotmail.com, martinj.gauna@gmail.com, juanma.conde@hotmail.com o gonzalogiliberti@gmail.com
 # 
+## Documentos de entregas:
+### carpeta SGE-G4/Documentacion
+#
 ## para correr test:
 ### (sobre el branch master) posicionarse sobre la raiz del proyecto y correr el script "mvn test"
