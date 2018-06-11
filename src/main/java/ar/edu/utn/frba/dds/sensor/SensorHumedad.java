@@ -10,7 +10,7 @@ public class SensorHumedad extends Sensor{
     }
 
     public SensorHumedad(long intervalo) {
-        super(intervalo, "RH", 300);
+        super(intervalo, "RH", 100);
         this.setIntervalo(intervalo);
     }
 

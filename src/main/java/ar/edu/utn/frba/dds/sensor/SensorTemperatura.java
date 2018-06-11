@@ -10,7 +10,12 @@ public class SensorTemperatura extends Sensor {
     }
 
     public SensorTemperatura(long intervalo) {
-        super(0, "°C", 40);
+
+        //Agregado por Matias: paso el intervalo como parametro (antes estaba hardcodeado en intervalo: 0
+        super(intervalo, "°C", 40);
+
+        //Agregado por Matias para replicar comportamiento de SensorHumedad -->
+        this.setIntervalo(intervalo);
     }
 
     @Override

@@ -74,6 +74,7 @@ public abstract class Sensor implements Observable {
 
     // notifica a todos los observers
     public void notifyObservers() {
+
         for (Observer observer : observers) {
             observer.update(this);
         }

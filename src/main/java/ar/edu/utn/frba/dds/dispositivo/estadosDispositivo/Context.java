@@ -21,12 +21,16 @@ public class Context {
         }
     }
 
-    public void setStatus(DIState status) {
-        this.status = status;
+    public void setStatus(DIState status) { this.status = status;
     }
 
-    public DIState getStatus() {
-        return status;
+    public DIState getStatus() {return status;}
+
+    public String getEstado() {
+        if(status instanceof Activo){return "Activo";}
+        if(status instanceof Ahorro){return "Ahorro";}
+        if(status instanceof Apagado){return "Apagado";}
+        else{return "Estado no encontrado.";}
     }
 
     public void handleActivo() {

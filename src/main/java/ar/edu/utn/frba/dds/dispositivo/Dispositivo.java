@@ -58,6 +58,7 @@ public class Dispositivo {
     // Estado del dispositivo.
     public Context getEstado() {
         return estado;
+
     }
 
     @Override
