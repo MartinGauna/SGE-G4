@@ -1,21 +1,22 @@
 package ar.edu.utn.frba.dds;
 
-import static org.junit.Assert.assertEquals;
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteHeladera;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 public class DispositivoInteligenteTest {
     public DispositivoInteligente dispInt;
 
     @Before
     public void setUp() throws Exception {
-        this.dispInt = new DispositivoInteligente("Heladera",123,"activo");
+        this.dispInt = new DispositivoInteligenteHeladera("Heladera",123,"activo");
     }
 
     @Test
