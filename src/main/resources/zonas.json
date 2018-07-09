@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "nombre": "Almagro",
+    "latitud": -34.618680,
+    "longitud": -58.415423,
+    "radio": 300
+  },
+  {
+    "id": 2,
+    "nombre": "San Telmo",
+    "latitud": -34.6210356,
+    "longitud": -58.373654,
+    "radio": 300
+  },
+  {
+    "id": 3,
+    "nombre": "Versalles",
+    "latitud": -34.6301082,
+    "longitud": -58.5248026,
+    "radio": 300
+  }
+
+  ]
