@@ -3,6 +3,7 @@ package ar.edu.utn.frba.dds.jsonParser;
 import ar.edu.utn.frba.dds.Administrador;
 import ar.edu.utn.frba.dds.Categoria;
 import ar.edu.utn.frba.dds.Cliente;
+import ar.edu.utn.frba.dds.Zona;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import com.google.gson.Gson;
@@ -78,5 +79,16 @@ public  class JsonParser {
             categorias = gson.fromJson(reader, CategoriasListType);
         }
         return categorias;
+    }
+
+    // Zonas
+    public List<Zona> loadZonaJSON() throws IOException{
+        Type ZonasListType = new TypeToken<List<Zona>>() {}.getType();
+        List<Zona> zonas;
+        try(Reader reader = new InputStreamReader(JsonParser.class.getResourceAsStream("/zonas.json"), "UTF-8")){
+            Gson gson = new GsonBuilder().create();
+            zonas = gson.fromJson(reader, ZonasListType);
+        }
+        return zonas;
     }
 }
