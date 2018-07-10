@@ -37,7 +37,6 @@ public class Dispositivo {
         this.nombre = nombre;
         this.consumoHora = consumoHora;
         this.estado = new Context(estado);
-        this.cliente.addDispositivo(this);
     }
 
     // Nombre

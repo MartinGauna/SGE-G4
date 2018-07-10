@@ -24,10 +24,7 @@ public class JsonParserTest {
        {
            System.out.println("-------");
            System.out.println("Nombre: " + disp.getNombre());
-           //System.out.println("Estado: " + disp.getEstado().getEstado());
            System.out.println("Consumo: " + disp.getConsumoHora());
-           System.out.println("Uso Max: " + disp.getUso_maximo());
-           System.out.println("Uso Min: " + disp.getUso_minimo());
            System.out.println("-------");
        }
     }

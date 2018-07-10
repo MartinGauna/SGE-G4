@@ -7,7 +7,7 @@ public class DispositivoInteligentePC extends DispositivoInteligente {
     private int uso_minimo;
 
     public DispositivoInteligentePC(String nombre, double consumoHora, String estado) {
-        super(nombre, consumoHora, estado);
+        super(nombre, consumoHora, estado,360,90);
         this.uso_minimo = 360;
         this.uso_maximo = 60;
         ActuadorPC actuador = new ActuadorPC(this);

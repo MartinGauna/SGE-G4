@@ -8,7 +8,7 @@ public class DispositivoInteligenteLuz extends DispositivoInteligente {
     private int uso_maximo;
     private int uso_minimo;
     public DispositivoInteligenteLuz(String nombre, double consumoHora, String estado) {
-        super(nombre, consumoHora, estado);
+        super(nombre, consumoHora, estado,360,90);
         this.uso_maximo = 360;
         this.uso_minimo = 90;
         ActuadorLuz actuador = new ActuadorLuz(this);

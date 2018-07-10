@@ -7,7 +7,7 @@ public class DispositivoInteligenteMicro extends DispositivoInteligente {
     private int uso_minimo;
 
     public DispositivoInteligenteMicro(String nombre, double consumoHora, String estado) {
-        super(nombre, consumoHora, estado);
+        super(nombre, consumoHora, estado,15,3);
         this.uso_minimo = 3;
         this. uso_maximo = 15;
         ActuadorMicro actuador = new ActuadorMicro(this);

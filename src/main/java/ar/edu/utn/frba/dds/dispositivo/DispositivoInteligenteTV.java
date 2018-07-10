@@ -6,12 +6,13 @@ public class DispositivoInteligenteTV extends DispositivoInteligente {
 
     private int canal;
     private int volumen;
-    private int uso_maximo;
-    private int uso_minimo;
+    public int uso_maximo;
+    public int uso_minimo;
+
     public DispositivoInteligenteTV(String nombre, double consumoHora, String estado) {
-        super(nombre, consumoHora, estado);
-        this.uso_maximo = 360;
-        this.uso_minimo = 90;
+        super(nombre, consumoHora, estado,360,90);
+        this.setUsoMaximo(360);
+        this.setUsoMinimo(90);
         ActuadorTV actuador = new ActuadorTV(this);
         this.setActuador(actuador);
         this.setCanal(12);
@@ -32,5 +33,11 @@ public class DispositivoInteligenteTV extends DispositivoInteligente {
 
     public void setVolumen(int volumen) {
         this.volumen = volumen;
+    }
+    public void setUsoMaximo(int usoMaximo) {
+        this.uso_maximo = usoMaximo;
+    }
+    public void setUsoMinimo(int usoMinimo) {
+        this.uso_minimo = usoMinimo;
     }
 }

@@ -7,7 +7,7 @@ public class DispositivoInteligentePlancha extends DispositivoInteligente {
     private int uso_minimo;
 
     public DispositivoInteligentePlancha(String nombre, double consumoHora, String estado) {
-        super(nombre, consumoHora, estado);
+        super(nombre, consumoHora, estado,30,3);
         this.uso_minimo = 3;
         this.uso_maximo = 30;
         ActuadorPlancha actuador = new ActuadorPlancha(this);

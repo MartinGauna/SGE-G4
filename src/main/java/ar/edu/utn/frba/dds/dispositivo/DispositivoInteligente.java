@@ -17,16 +17,13 @@ public class DispositivoInteligente extends Dispositivo {
     int uso_maximo;
 
 
-    public DispositivoInteligente(String nombre, double consumoHora, String estado) {
+    public DispositivoInteligente(String nombre, double consumoHora, String estado, int uso_maximo,int uso_minimo) {
         super(nombre, consumoHora, estado);
-
-        DIFactoryMethod diFactoryMethod = new DIFactoryMethod();
-        DispositivoInteligente disp = diFactoryMethod.crearDispositivo(nombre,consumoHora,estado);
+        this.uso_minimo = uso_minimo;
+        this.uso_maximo = uso_maximo;
         this.consumo = new ArrayList<Consumo>();
         this.actuador = null;
         this.initializePeriods();
-        this.uso_minimo  = disp.getUso_minimo();
-        this.uso_maximo = disp.getUso_maximo();
 
     }
 
