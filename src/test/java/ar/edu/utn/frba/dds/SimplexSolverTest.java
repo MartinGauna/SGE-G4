@@ -5,7 +5,7 @@ import org.apache.commons.math3.optim.*;
 import org.apache.commons.math3.optim.linear.*;
 import org.apache.commons.math3.optim.nonlinear.scalar.GoalType;
 
-public class TestSimplexSolver {
+public class SimplexSolverTest {
 
     @Test
     public void testSistemaCompatibleDeterminado() {
