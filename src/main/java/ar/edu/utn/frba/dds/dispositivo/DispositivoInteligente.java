@@ -57,12 +57,23 @@ public class DispositivoInteligente extends Dispositivo {
         this.actuador = actuador;
     }
 
+    @Override
     public int getConsumoTotal(Date fechaInicio, Date fechaFinal) {
         int total = 0;
         for(int i=0; i< consumo.size(); i++) {
             if((consumo.get(i).getFechaInicio().after(fechaInicio) || (consumo.get(i).getFechaFinal()).before(fechaFinal))) {
             	total += consumo.get(i).getWatts();
             }
+        }
+        return total;
+    }
+    @Override
+    public int getConsumoTotal() {
+        int total = 0;
+        for(int i=0; i< consumo.size(); i++) {
+
+                total += consumo.get(i).getWatts();
+
         }
         return total;
     }

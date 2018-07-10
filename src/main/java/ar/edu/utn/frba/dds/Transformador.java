@@ -26,7 +26,7 @@ public class Transformador {
            for(Dispositivo disp : dispositivos)
            {
                //ToDO: (Matias) Chequear si esta es la funcion correcta a llamar... realmente trae el consumo usado?
-               consumoTotal += disp.getConsumoHora();
+               consumoTotal += disp.getConsumoTotal();
            }
         }
         return consumoTotal;

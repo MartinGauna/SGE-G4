@@ -6,10 +6,10 @@ public class Zona {
     private List<Transformador> transformadores;
     int metrosRedonda;
     private String nombreDescriptivo;
-    private float latitud;
-    private float longitud;
+    private double latitud;
+    private double longitud;
 
-    public Zona(String nombreDescriptivo, float latitud, float longitud, List<Transformador> transformadores, int metrosRedonda)
+    public Zona(String nombreDescriptivo, double latitud, double longitud, List<Transformador> transformadores, int metrosRedonda)
     {
         this.metrosRedonda = metrosRedonda;
         this.transformadores = transformadores;
@@ -25,10 +25,10 @@ public class Zona {
     public String getNombreDescriptivo() {
         return nombreDescriptivo;
     }
-    public float getLatitud() {
+    public double getLatitud() {
         return latitud;
     }
-    public float getLongitud() { return longitud;}
+    public double getLongitud() { return longitud;}
     public List<Transformador> getTransformadores() {
         return transformadores;
     }

@@ -3,6 +3,8 @@ package ar.edu.utn.frba.dds.dispositivo;
 import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.dispositivo.estadosDispositivo.Context;
 
+import java.util.Date;
+
 public class Dispositivo {
 
     private String nombre;
@@ -35,7 +37,7 @@ public class Dispositivo {
     }
     public Dispositivo(String nombre, double consumoHora, String estado) {
         this.nombre = nombre;
-        this.consumoHora = consumoHora;
+        setConsumoHora(consumoHora);
         this.estado = new Context(estado);
     }
 
@@ -51,9 +53,12 @@ public class Dispositivo {
     public double getConsumoHora() {
         return consumoHora;
     }
-    public void setConsumoHora(int consumoHora) {
+    public void setConsumoHora(double consumoHora) {
         this.consumoHora = consumoHora;
     }
+
+    public int getConsumoTotal(Date fechaInicio, Date fechaFinal) {return 0;}
+    public int getConsumoTotal() {return 0;}
 
     // Estado del dispositivo.
     public Context getEstado() {

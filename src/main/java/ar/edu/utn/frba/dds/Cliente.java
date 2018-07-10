@@ -20,6 +20,7 @@ public class Cliente extends Usuario {
     private Categoria categoria;
     private List<Dispositivo> dispositivos;
     private int puntaje;
+    private Transformador transformador;
 
 //    public enum TipoDocumento {
 //        DNI("DNI"),
