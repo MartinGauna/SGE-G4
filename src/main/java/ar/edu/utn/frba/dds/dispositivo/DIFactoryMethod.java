@@ -5,7 +5,7 @@ public class DIFactoryMethod {
 
     DispositivoInteligente dispositivo = null;
 
-    public DispositivoInteligente crearDispositivo(String nombre, int consumoHora, String estado) {
+    public DispositivoInteligente crearDispositivo(String nombre, double consumoHora, String estado) {
         switch (nombre) {
             case "Aire acondicionado":
                 dispositivo = new DispositivoInteligenteAAcondicionado(nombre, consumoHora, estado);

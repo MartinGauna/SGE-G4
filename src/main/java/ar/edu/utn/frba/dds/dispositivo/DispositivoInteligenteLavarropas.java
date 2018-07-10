@@ -3,7 +3,8 @@ package ar.edu.utn.frba.dds.dispositivo;
 import ar.edu.utn.frba.dds.actuador.ActuadorLavarropas;
 
 public class DispositivoInteligenteLavarropas extends DispositivoInteligente {
-
+    private int uso_maximo;
+    private int uso_minimo;
 
     public DispositivoInteligenteLavarropas(String nombre, double consumoHora, String estado) {
         super(nombre, consumoHora, estado);

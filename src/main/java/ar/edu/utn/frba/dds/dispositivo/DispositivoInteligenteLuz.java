@@ -5,7 +5,8 @@ import ar.edu.utn.frba.dds.actuador.ActuadorLuz;
 public class DispositivoInteligenteLuz extends DispositivoInteligente {
 
     private int luminosidad;
-
+    private int uso_maximo;
+    private int uso_minimo;
     public DispositivoInteligenteLuz(String nombre, double consumoHora, String estado) {
         super(nombre, consumoHora, estado);
         this.uso_maximo = 360;

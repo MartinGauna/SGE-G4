@@ -5,7 +5,8 @@ import ar.edu.utn.frba.dds.actuador.ActuadorHeladera;
 public class DispositivoInteligenteHeladera extends DispositivoInteligente {
 
     private int intensidad;
-
+    private int uso_maximo;
+    private int uso_minimo;
     public DispositivoInteligenteHeladera(String nombre, double consumoHora, String estado) {
         super(nombre, consumoHora, estado);
         this.uso_minimo = 90;

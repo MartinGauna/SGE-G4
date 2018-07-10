@@ -2,6 +2,7 @@ package ar.edu.utn.frba.dds.dispositivo;
 
 import ar.edu.utn.frba.dds.Consumo;
 import ar.edu.utn.frba.dds.actuador.Actuador;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -15,13 +16,18 @@ public class DispositivoInteligente extends Dispositivo {
     int uso_minimo;
     int uso_maximo;
 
+
     public DispositivoInteligente(String nombre, double consumoHora, String estado) {
         super(nombre, consumoHora, estado);
+
+        DIFactoryMethod diFactoryMethod = new DIFactoryMethod();
+        DispositivoInteligente disp = diFactoryMethod.crearDispositivo(nombre,consumoHora,estado);
         this.consumo = new ArrayList<Consumo>();
         this.actuador = null;
         this.initializePeriods();
-        this.uso_maximo = 0;
-        this.uso_minimo = 0;
+        this.uso_minimo  = disp.getUso_minimo();
+        this.uso_maximo = disp.getUso_maximo();
+
     }
 
     public void addConsumo(int watts, Date fechaInicio, Date fechaFinal) {
@@ -49,12 +55,6 @@ public class DispositivoInteligente extends Dispositivo {
         return actuador;
     }
 
-    public int getUso_minimo() {
-        return uso_minimo;
-    }
-    public int getUso_maximo() {
-        return uso_maximo;
-    }
 
     public void setActuador(Actuador actuador) {
         this.actuador = actuador;
@@ -94,5 +94,7 @@ public class DispositivoInteligente extends Dispositivo {
     public int getConsumoPeriodo(int mes) {
     	return periodos.get(mes);
     }
+    public int getUso_minimo(){return uso_minimo;}
+    public int getUso_maximo() {return uso_maximo;}
 
 }

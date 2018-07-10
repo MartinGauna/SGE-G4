@@ -3,7 +3,8 @@ package ar.edu.utn.frba.dds.dispositivo;
 import ar.edu.utn.frba.dds.actuador.ActuadorMicro;
 
 public class DispositivoInteligenteMicro extends DispositivoInteligente {
-
+    private int uso_maximo;
+    private int uso_minimo;
 
     public DispositivoInteligenteMicro(String nombre, double consumoHora, String estado) {
         super(nombre, consumoHora, estado);

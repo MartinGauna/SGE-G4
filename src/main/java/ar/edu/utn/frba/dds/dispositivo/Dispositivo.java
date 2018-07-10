@@ -1,14 +1,14 @@
 package ar.edu.utn.frba.dds.dispositivo;
 
-import ar.edu.utn.frba.dds.dispositivo.estadosDispositivo.*;
-
-import java.lang.String;
+import ar.edu.utn.frba.dds.Cliente;
+import ar.edu.utn.frba.dds.dispositivo.estadosDispositivo.Context;
 
 public class Dispositivo {
 
     private String nombre;
     private double consumoHora;
     private Context estado;
+    private Cliente cliente;
 
 //    public enum Estados {
 //        ENCENDIDO("encendido"),
@@ -37,6 +37,7 @@ public class Dispositivo {
         this.nombre = nombre;
         this.consumoHora = consumoHora;
         this.estado = new Context(estado);
+        this.cliente.addDispositivo(this);
     }
 
     // Nombre
@@ -69,7 +70,5 @@ public class Dispositivo {
                 "\tEstado: " + getEstado() + "\n";
     }
 
-    public int getUso_minimo() { return 0; }
-    public int getUso_maximo() { return 0;}
 
 }

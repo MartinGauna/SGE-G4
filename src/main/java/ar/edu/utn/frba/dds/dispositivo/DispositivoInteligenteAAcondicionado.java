@@ -4,6 +4,8 @@ import ar.edu.utn.frba.dds.actuador.ActuadorAAcondicionado;
 
 public class DispositivoInteligenteAAcondicionado extends DispositivoInteligente {
     private int temperatura;
+    public int uso_maximo;
+    public int uso_minimo;
 
     public DispositivoInteligenteAAcondicionado(String nombre, double consumoHora, String estado) {
         super(nombre, consumoHora, estado);
@@ -20,5 +22,13 @@ public class DispositivoInteligenteAAcondicionado extends DispositivoInteligente
 
     public void setTemperatura(int temperatura) {
         this.temperatura = temperatura;
+    }
+
+    @Override
+    public int getUso_minimo() {
+        return 90;
+    }
+    public int getUso_maximo() {
+        return 360;
     }
 }

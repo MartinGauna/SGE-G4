@@ -6,7 +6,8 @@ public class DispositivoInteligenteTV extends DispositivoInteligente {
 
     private int canal;
     private int volumen;
-
+    private int uso_maximo;
+    private int uso_minimo;
     public DispositivoInteligenteTV(String nombre, double consumoHora, String estado) {
         super(nombre, consumoHora, estado);
         this.uso_maximo = 360;
