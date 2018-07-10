@@ -15,7 +15,7 @@ public class DispositivoInteligente extends Dispositivo {
     int uso_minimo;
     int uso_maximo;
 
-    public DispositivoInteligente(String nombre, int consumoHora, String estado, int uso_minimo, int uso_maximo) {
+    public DispositivoInteligente(String nombre, double consumoHora, String estado, int uso_minimo, int uso_maximo) {
         super(nombre, consumoHora, estado);
         this.consumo = new ArrayList<Consumo>();
         this.actuador = null;
@@ -47,6 +47,13 @@ public class DispositivoInteligente extends Dispositivo {
 
     public Actuador getActuador() {
         return actuador;
+    }
+
+    public int getUso_minimo() {
+        return uso_minimo;
+    }
+    public int getUso_maximo() {
+        return uso_maximo;
     }
 
     public void setActuador(Actuador actuador) {

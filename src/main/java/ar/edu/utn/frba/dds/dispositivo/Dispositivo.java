@@ -7,7 +7,7 @@ import java.lang.String;
 public class Dispositivo {
 
     private String nombre;
-    private int consumoHora;
+    private double consumoHora;
     private Context estado;
 
 //    public enum Estados {
@@ -33,7 +33,7 @@ public class Dispositivo {
         this.consumoHora = 0;
         this.estado = new Context("activo");
     }
-    public Dispositivo(String nombre, int consumoHora, String estado) {
+    public Dispositivo(String nombre, double consumoHora, String estado) {
         this.nombre = nombre;
         this.consumoHora = consumoHora;
         this.estado = new Context(estado);
@@ -48,7 +48,7 @@ public class Dispositivo {
     }
 
     // Consumo por Hora
-    public int getConsumoHora() {
+    public double getConsumoHora() {
         return consumoHora;
     }
     public void setConsumoHora(int consumoHora) {
@@ -68,4 +68,8 @@ public class Dispositivo {
                 "\tConsumo por Hora: " + getConsumoHora() + "\n" +
                 "\tEstado: " + getEstado() + "\n";
     }
+
+    public int getUso_minimo() { return 0; }
+    public int getUso_maximo() { return 0;}
+
 }

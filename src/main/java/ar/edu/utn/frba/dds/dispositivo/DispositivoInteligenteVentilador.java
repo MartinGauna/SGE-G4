@@ -7,7 +7,7 @@ public class DispositivoInteligenteVentilador extends DispositivoInteligente {
     private int canal;
     private int volumen;
 
-    public DispositivoInteligenteVentilador(String nombre, int consumoHora, String estado) {
+    public DispositivoInteligenteVentilador(String nombre, double consumoHora, String estado) {
         super(nombre, consumoHora, estado,120,360);
         ActuadorVentilador actuador = new ActuadorVentilador(this);
         this.setActuador(actuador);

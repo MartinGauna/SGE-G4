@@ -6,7 +6,7 @@ public class DispositivoInteligenteLuz extends DispositivoInteligente {
 
     private int luminosidad;
 
-    public DispositivoInteligenteLuz(String nombre, int consumoHora, String estado) {
+    public DispositivoInteligenteLuz(String nombre, double consumoHora, String estado) {
         super(nombre, consumoHora, estado,90,360);
         ActuadorLuz actuador = new ActuadorLuz(this);
         this.setActuador(actuador);
