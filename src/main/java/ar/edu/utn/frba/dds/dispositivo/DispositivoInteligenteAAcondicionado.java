@@ -6,7 +6,9 @@ public class DispositivoInteligenteAAcondicionado extends DispositivoInteligente
     private int temperatura;
 
     public DispositivoInteligenteAAcondicionado(String nombre, double consumoHora, String estado) {
-        super(nombre, consumoHora, estado,90,360);
+        super(nombre, consumoHora, estado);
+        this.uso_minimo = 90;
+        this.uso_maximo = 360;
         ActuadorAAcondicionado actuador = new ActuadorAAcondicionado(this);
         this.setActuador(actuador);
         this.setTemperatura(24);

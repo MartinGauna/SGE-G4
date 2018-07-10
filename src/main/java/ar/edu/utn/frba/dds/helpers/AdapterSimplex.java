@@ -1,18 +1,17 @@
 package ar.edu.utn.frba.dds.helpers;
 
-import ar.edu.utn.frba.dds.Cliente;
-import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.helpers.simplex.facade.SimplexFacade;
 import org.apache.commons.math3.optim.PointValuePair;
 import org.apache.commons.math3.optim.linear.Relationship;
 import org.apache.commons.math3.optim.nonlinear.scalar.GoalType;
+
 import java.util.List;
 
 public class AdapterSimplex {
 
 
-    public void reporteConsumoEficiente(Cliente cliente) {
+    public void reporteConsumoEficiente(List<DispositivoInteligente> dispositivosInteligentes) {
         SimplexFacade simplexFacade = new SimplexFacade(GoalType.MAXIMIZE, true);
 
         simplexFacade.crearFuncionEconomica(1, 1, 1);
@@ -23,38 +22,30 @@ public class AdapterSimplex {
          - =  : Relationship.EQ
          **/
 
-        List<Dispositivo> dispositivos = cliente.getDispositivos();
-        int cantDispositivosInteligentes = 0;
 
         //RESTRICCION INICIAL
-        for (Dispositivo disp : dispositivos) {
-            if (disp instanceof DispositivoInteligente) {
-                cantDispositivosInteligentes++;
-            }
-        }
-        double[] restricciones = new double[cantDispositivosInteligentes];
+        double[] restricciones = new double[dispositivosInteligentes.size()];
 
-        for (int i = 0; i <= dispositivos.size(); i++) {
+        for (int i = 0; i <= dispositivosInteligentes.size(); i++) {
 
-            if (dispositivos.get(i) instanceof DispositivoInteligente) {
-                restricciones[i] = dispositivos.get(i).getConsumoHora();
-            }
+                restricciones[i] = dispositivosInteligentes.get(i).getConsumoHora();
+
         }
 
         simplexFacade.agregarRestriccion(Relationship.LEQ, 440640, restricciones);
 
         //RESTRICCION INDIVIDUALES
-        for (int i = 0; i <= dispositivos.size(); i++) {
-                double[] restricciones2 = new double[cantDispositivosInteligentes];
+        for (int i = 0; i <= dispositivosInteligentes.size(); i++) {
+                double[] restricciones2 = new double[dispositivosInteligentes.size()];
 
-                for(int z = 0; z <= dispositivos.size();z++)
+                for(int z = 0; z <= dispositivosInteligentes.size();z++)
                 {if(z==i){restricciones2[z] = 1;} else{restricciones2[z]=0;}}
 
 
                 //MAX
-                simplexFacade.agregarRestriccion(Relationship.LEQ, dispositivos.get(i).getUso_maximo(),restricciones2);
+                simplexFacade.agregarRestriccion(Relationship.LEQ, dispositivosInteligentes.get(i).getUso_maximo(),restricciones2);
                 //MIN
-                simplexFacade.agregarRestriccion(Relationship.GEQ,dispositivos.get(i).getUso_minimo(),restricciones2);
+                simplexFacade.agregarRestriccion(Relationship.GEQ,dispositivosInteligentes.get(i).getUso_minimo(),restricciones2);
         }
 
 

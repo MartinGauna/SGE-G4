@@ -15,7 +15,7 @@ public class DispositivoInteligente extends Dispositivo {
     int uso_minimo;
     int uso_maximo;
 
-    public DispositivoInteligente(String nombre, double consumoHora, String estado, int uso_minimo, int uso_maximo) {
+    public DispositivoInteligente(String nombre, double consumoHora, String estado) {
         super(nombre, consumoHora, estado);
         this.consumo = new ArrayList<Consumo>();
         this.actuador = null;

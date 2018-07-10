@@ -1,8 +1,8 @@
 [
   {
-    "nombre":"Aire acondicionado",
-    "consumoHora": 1.613,
-    "estado":"activo"
+    "nombre": "Aire acondicionado",
+    "consumoHora": 1.02,
+    "estado": "apagado"
   },
   {
     "nombre":"Aire acondicionado",
@@ -79,5 +79,4 @@
     "consumoHora": 0.4,
     "estado":"activo"
   }
-
 ]
