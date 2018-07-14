@@ -100,7 +100,7 @@ public  class JsonParser {
         //Importo los transformadores nuevos
 	    Type TransformadorListType = new TypeToken<List<Transformador>>() {}.getType();
         List<Transformador> transformadores;
-        try(Reader reader = new InputStreamReader(JsonParser.class.getResourceAsStream("/transformador.json"), "UTF-8")){
+        try(Reader reader = new InputStreamReader(JsonParser.class.getResourceAsStream("/transformadores.json"), "UTF-8")){
             Gson gson = new GsonBuilder().create();
             transformadores = gson.fromJson(reader, TransformadorListType);
         }

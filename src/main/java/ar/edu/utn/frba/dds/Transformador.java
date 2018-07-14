@@ -22,6 +22,7 @@ public class Transformador {
         this.idZona = idZona;
         listaDeTransformadores.add(this);
     }
+
     public void asignClientes(List<Cliente> clientes) {
         this.clientes = clientes;
     }
