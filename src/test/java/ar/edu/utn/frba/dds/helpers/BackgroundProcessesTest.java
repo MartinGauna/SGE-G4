@@ -19,11 +19,10 @@ public class BackgroundProcessesTest {
     private DispositivoInteligente d1;
     private DispositivoInteligente d2;
     private DispositivoInteligente d3;
-    private Cliente client;
     private List<DispositivoInteligente> dispositivoInteligenteList = new ArrayList<>() ;
     private AdapterSimplex adapterSimplex = new AdapterSimplex();
     private Cliente client1;
-
+    private BackgroundProcesses bkg = new BackgroundProcesses();
     @Before
     public void setUp() throws Exception {
         /**
@@ -57,27 +56,12 @@ public class BackgroundProcessesTest {
 
     }
 
+
+
     @Test
-    public void automatizacionAhorroAutomatico() {
-        adapterSimplex.reporteConsumoEficiente(dispositivoInteligenteList);
-        System.out.println("---------");
-        System.out.println("Value: " + adapterSimplex.solucion.getValue());
-        for(int i = 0;i < adapterSimplex.solucion.getPoint().length;i++)
-        {
-            System.out.println("Variable Dispositivo " + i + ": " + adapterSimplex.solucion.getPoint()[i]);
-            System.out.println("Dispositivo Consumo UTD" + i + ": " + dispositivoInteligenteList.get(i).getConsumoTotal());
-            System.out.println("Estado Dispositivo" + i + ": " + dispositivoInteligenteList.get(i).getEstado().getEstado());
-        }
-
-        System.out.println("---------");
-
-        client1.ahorroAutomatico();
-
-        for(int i = 0;i < adapterSimplex.solucion.getPoint().length;i++)
-        {
-            System.out.println("Variable Dispositivo " + i + ": " + adapterSimplex.solucion.getPoint()[i]);
-            System.out.println("Dispositivo Consumo UTD" + i + ": " + dispositivoInteligenteList.get(i).getConsumoTotal());
-            System.out.println("Estado Dispositivo" + i + ": " + dispositivoInteligenteList.get(i).getEstado().getEstado());
-        }
+    public void automatizacionAhorroAutomatico() throws InterruptedException {
+     bkg.automatizacionAhorroAutomatico(client1,1000*5);
+     Thread.sleep(20000);
     }
-}
+
+    }

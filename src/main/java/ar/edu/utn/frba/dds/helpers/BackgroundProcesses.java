@@ -13,14 +13,13 @@ public class BackgroundProcesses {
         @Override
         public void run() {
             cliente.ahorroAutomatico();
+            System.out.println("Automatic process ran.");
         }
     };
 
     Timer timer = new Timer();
-    long delay = 0;
-    long intervalPeriod = miliseconds; //daily 24 * 60 * 60 * 1000;
 
     // schedules the task to be run in an interval
-    timer.scheduleAtFixedRate(task,delay,intervalPeriod);
+    timer.schedule(task,0,miliseconds);
     }
 }

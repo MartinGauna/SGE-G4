@@ -14,7 +14,7 @@ import static java.lang.Integer.parseInt;
 
 public class AdapterSimplex {
 
-    PointValuePair solucion;
+    public PointValuePair solucion;
     Config config = new Config();
     int consumoTotalOptimo = parseInt(config.getProperty("consumoTotalOptimo"));
 
