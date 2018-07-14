@@ -9,13 +9,23 @@ public class Transformador {
 
     private List<Cliente> clientes;
     static ArrayList<Transformador> listaDeTransformadores = new ArrayList<Transformador>();
+    int id;
+    double latitud;
+    double longitud;
+    int idZona;
 
-
-    public Transformador(List<Cliente> clientes)
+    public Transformador(int id,   double latitud,double longitud, int idZona)
     {
-        this.clientes = clientes;
+        this.id = id;
+        this.latitud = latitud;
+        this.longitud = longitud;
+        this.idZona = idZona;
         listaDeTransformadores.add(this);
     }
+    public void asignClientes(List<Cliente> clientes) {
+        this.clientes = clientes;
+    }
+
 
     public List<Cliente> getClientes() {
         return clientes;

@@ -1,0 +1,20 @@
+[
+  {
+    id: 1,
+    latitud: -34.618680,
+    longitud: -58.415423,
+    idZona: 3
+  },
+  {
+    id: 2,
+    latitud: -34.6243280,
+    longitud: -58.424123,
+    idZona: 1
+  },
+  {
+    id: 3,
+    latitud: -34.638280,
+    longitud: -58.452323,
+    idZona: 2
+  }
+]
