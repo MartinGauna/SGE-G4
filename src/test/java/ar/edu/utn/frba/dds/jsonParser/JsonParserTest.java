@@ -17,7 +17,7 @@ public class JsonParserTest {
     @Test
     public void loadDispositivosInteligentesJSON() throws IOException {
        JsonParser jp = new JsonParser();
-       List<DispositivoInteligente> dispositivos = jp.loadDispositivosInteligentesJSON("/listaDispositivosInteligentes.json");
+       List<DispositivoInteligente> dispositivos = jp.loadDispositivosInteligentesJSON();
 
        System.out.println("DISPOSITIVOS");
        for(DispositivoInteligente disp : dispositivos)

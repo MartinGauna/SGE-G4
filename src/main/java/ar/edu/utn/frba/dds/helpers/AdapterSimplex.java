@@ -1,5 +1,6 @@
 package ar.edu.utn.frba.dds.helpers;
 
+import ar.edu.utn.frba.dds.Config;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.helpers.simplex.facade.SimplexFacade;
 import org.apache.commons.math3.optim.PointValuePair;
@@ -8,9 +9,15 @@ import org.apache.commons.math3.optim.nonlinear.scalar.GoalType;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.lang.Integer.parseInt;
+
 public class AdapterSimplex {
 
     PointValuePair solucion;
+    Config config = new Config();
+    int consumoTotalOptimo = parseInt(config.getProperty("consumoTotalOptimo"));
+
 
     public List<DispositivoInteligente> getDispositivosParaApagar(List<DispositivoInteligente> dispositivosInteligentes)
     {
@@ -32,7 +39,7 @@ public class AdapterSimplex {
             restricciones[i] = dispositivosInteligentes.get(i).getConsumoHora();
         }
 
-        simplexFacade.agregarRestriccion(Relationship.LEQ, 440640, restricciones);
+        simplexFacade.agregarRestriccion(Relationship.LEQ, consumoTotalOptimo, restricciones);
 
         //RESTRICCION INDIVIDUALES
         for (int i = 0; i < restricciones.length; i++) {
@@ -94,7 +101,7 @@ public class AdapterSimplex {
                 restricciones[i] = dispositivosInteligentes.get(i).getConsumoHora();
         }
 
-        simplexFacade.agregarRestriccion(Relationship.LEQ, 440640, restricciones);
+        simplexFacade.agregarRestriccion(Relationship.LEQ, consumoTotalOptimo, restricciones);
 
         //RESTRICCION INDIVIDUALES
         for (int i = 0; i < restricciones.length; i++) {
