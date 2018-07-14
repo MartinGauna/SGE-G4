@@ -1,9 +1,6 @@
 package ar.edu.utn.frba.dds.jsonParser;
 
-import ar.edu.utn.frba.dds.Administrador;
-import ar.edu.utn.frba.dds.Categoria;
-import ar.edu.utn.frba.dds.Cliente;
-import ar.edu.utn.frba.dds.Zona;
+import ar.edu.utn.frba.dds.*;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import com.google.gson.Gson;
@@ -90,5 +87,23 @@ public  class JsonParser {
             zonas = gson.fromJson(reader, ZonasListType);
         }
         return zonas;
+    }
+
+    // Transformadores
+    public List<Transformador> loadTransformadorJSON() throws IOException{
+
+	    //Borro todos los transformadores existentes en memoria
+        List<Transformador> transformadoresViejos = Transformador.getAll();
+        for (Transformador t : transformadoresViejos)
+        {t = null;}
+
+        //Importo los transformadores nuevos
+	    Type TransformadorListType = new TypeToken<List<Transformador>>() {}.getType();
+        List<Transformador> transformadores;
+        try(Reader reader = new InputStreamReader(JsonParser.class.getResourceAsStream("/transformador.json"), "UTF-8")){
+            Gson gson = new GsonBuilder().create();
+            transformadores = gson.fromJson(reader, TransformadorListType);
+        }
+        return transformadores;
     }
 }
