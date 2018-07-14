@@ -37,7 +37,7 @@ private DispositivoInteligente d3;
 
         dispositivoInteligenteList.add(d1);
         dispositivoInteligenteList.add(d2);
-        dispositivoInteligenteList.add(d3);
+       dispositivoInteligenteList.add(d3);
     }
 
     @Test

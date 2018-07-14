@@ -1,15 +1,15 @@
 package ar.edu.utn.frba.dds;
 
 
-import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.dispositivo.DIFactoryMethod;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 import java.time.LocalDate;
+
+import static org.junit.Assert.assertEquals;
 
 
 public class ClienteTest {
@@ -21,7 +21,7 @@ public class ClienteTest {
     public void setUp() throws Exception {
         this.client = new Cliente("CliName", "CliApell", "CliDom", "CliUser",
                 "CliPass", LocalDate.of(2018,04, 28),"DNI",
-                12345678, 45555533, null , LocalDate.now());
+                12345678, 45555533, null , LocalDate.now(),true);
     }
 
     @Test

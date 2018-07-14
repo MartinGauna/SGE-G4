@@ -1,24 +1,28 @@
 package ar.edu.utn.frba.dds;
 
+import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
+import ar.edu.utn.frba.dds.dispositivo.Estandard;
+import ar.edu.utn.frba.dds.helpers.BackgroundProcesses;
+import ar.edu.utn.frba.dds.jsonParser.JsonParser;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
-import ar.edu.utn.frba.dds.dispositivo.Estandard;
-import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
-import ar.edu.utn.frba.dds.jsonParser.JsonParser;
 
 public class App 
 {
 	private static App instance = null;
 	List<Categoria> categorias = new ArrayList<Categoria>();
+	Cliente loggedClient;
     public static void main( String[] args )
     {
 
         //Loading Dispositivo.
     	JsonParser jsonParser = new JsonParser();
         Dispositivo dispositivo = new Dispositivo();
+        BackgroundProcesses bkgP = new BackgroundProcesses();
+
 
         System.out.println( "============ Lista de Clientes" );
 		try{
@@ -100,5 +104,9 @@ public class App
     		}
     	}
     	return null;
+    }
+    public Cliente getLoggedClient() {
+
+        return loggedClient;
     }
 }

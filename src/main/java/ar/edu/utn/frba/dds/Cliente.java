@@ -1,8 +1,10 @@
 package ar.edu.utn.frba.dds;
 
 import ar.edu.utn.frba.dds.dispositivo.Adaptador;
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
+import ar.edu.utn.frba.dds.helpers.AdapterSimplex;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -21,7 +23,8 @@ public class Cliente extends Usuario {
     private List<Dispositivo> dispositivos;
     private int puntaje;
     private Transformador transformador;
-
+    private boolean ahorroAutomatico;
+    private AdapterSimplex adapterSimplex = new AdapterSimplex();
 //    public enum TipoDocumento {
 //        DNI("DNI"),
 //        CI("CI"),
@@ -36,7 +39,7 @@ public class Cliente extends Usuario {
 //    }
 
     public Cliente(String nombre, String apellido, String domicilio, String user, String password, LocalDate fechaAlta,
-                   String tipoDoc, int numeroDoc, int telefono, Categoria categoria, LocalDate fechaAltaServicio) {
+                   String tipoDoc, int numeroDoc, int telefono, Categoria categoria, LocalDate fechaAltaServicio,boolean ahorroAutomatico) {
         super(nombre, apellido, domicilio, user,password,fechaAlta);
         this.tipoDoc = tipoDoc;
         this.numeroDoc = numeroDoc;
@@ -45,6 +48,7 @@ public class Cliente extends Usuario {
         this.setFechaAlta(fechaAltaServicio) ;
         this.dispositivos = new ArrayList<Dispositivo>();
         this.puntaje = 0;
+        this.ahorroAutomatico = ahorroAutomatico;
     }
 //===================== Getters & Setters
 	// Tipo de Documento
@@ -54,6 +58,18 @@ public class Cliente extends Usuario {
     public void setTipoDoc(String tipoDoc) {
         this.tipoDoc = tipoDoc;
     }
+
+    public void ahorroAutomatico()
+    {
+        if(ahorroAutomatico)
+        {
+            for (DispositivoInteligente disp : adapterSimplex.getDispositivosParaApagar(this.getDispositivosInteligentes()))
+            {
+                disp.apagar();
+            };
+        }
+    }
+
 
     // Numero de Documento
     public int getNumeroDoc() {
@@ -83,6 +99,20 @@ public class Cliente extends Usuario {
     public List<Dispositivo> getDispositivos() {
         return this.dispositivos;
     }
+
+    public List<DispositivoInteligente> getDispositivosInteligentes()
+    {
+        List<DispositivoInteligente> out = new ArrayList<DispositivoInteligente>();
+        for(Dispositivo d : this.dispositivos)
+        {
+            if (d instanceof DispositivoInteligente) {
+            DispositivoInteligente di = (DispositivoInteligente) d;
+            out.add(di);
+        }
+        }
+        return out;
+    }
+
     public void setDispositivos(List<Dispositivo> dispositivos) {
         this.dispositivos = dispositivos;
     }
