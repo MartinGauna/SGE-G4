@@ -16,7 +16,7 @@ public class DispositivoInteligenteTest {
 
     @Before
     public void setUp() throws Exception {
-        this.dispInt = new DispositivoInteligenteHeladera("Heladera",123,"activo");
+        this.dispInt = new DispositivoInteligenteHeladera("Heladera",123,"activo",false);
     }
 
     @Test

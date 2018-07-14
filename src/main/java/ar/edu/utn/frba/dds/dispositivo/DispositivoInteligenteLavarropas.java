@@ -5,8 +5,9 @@ import ar.edu.utn.frba.dds.actuador.ActuadorLavarropas;
 public class DispositivoInteligenteLavarropas extends DispositivoInteligente {
     public int uso_maximo;
     public int uso_minimo;
+    boolean esBajoConsumo;
 
-    public DispositivoInteligenteLavarropas(String nombre, double consumoHora, String estado) {
+    public DispositivoInteligenteLavarropas(String nombre, double consumoHora, String estado,boolean esBajoConsumo) {
         super(nombre, consumoHora, estado,30,6);
         this.uso_minimo = 6;
         this.uso_maximo = 30;

@@ -31,9 +31,9 @@ private DispositivoInteligente d3;
         fm = new DIFactoryMethod();
         fm2 = new DIFactoryMethod();
         fm3 = new DIFactoryMethod();
-        d1 = fm.crearDispositivo("Televisor", 0.18, "activo");
-        d2 = fm2.crearDispositivo("Lavarropas", 0.875, "activo");
-        d3 = fm3.crearDispositivo("Ventilador", 0.06, "activo");
+        d1 = fm.crearDispositivo("Televisor", 0.18, "activo",false);
+        d2 = fm2.crearDispositivo("Lavarropas", 0.875, "activo",false);
+        d3 = fm3.crearDispositivo("Ventilador", 0.06, "activo",false);
 
         dispositivoInteligenteList.add(d1);
         dispositivoInteligenteList.add(d2);

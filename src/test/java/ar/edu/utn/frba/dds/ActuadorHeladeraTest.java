@@ -20,7 +20,7 @@ public class ActuadorHeladeraTest {
     @Before
     public void setUp() throws Exception {
         fm = new DIFactoryMethod();
-        heladera  = fm.crearDispositivo("Heladera", 20, "activo");
+        heladera  = fm.crearDispositivo("Heladera", 20, "activo",false);
         actuador = this.heladera.getActuador();
     }
 

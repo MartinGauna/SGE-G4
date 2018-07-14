@@ -25,7 +25,7 @@ public class ReglaTest {
 
     @Before
     public void setUp() throws Exception {
-       this.aire = new DispositivoInteligenteAAcondicionado("Aire Comedor",1200,"apagado");
+       this.aire = new DispositivoInteligenteAAcondicionado("Aire Comedor",1200,"apagado",false);
        this.actuadorAire = new ActuadorAAcondicionado(aire);
        this.sensorTemperatura  = new SensorTemperatura(1);
        this.sensorHumedad = new SensorHumedad(1);

@@ -1,6 +1,8 @@
 package ar.edu.utn.frba.dds;
 
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteTV;
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteTV24;
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteTV32;
 import ar.edu.utn.frba.dds.jsonParser.JsonParser;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,7 +23,7 @@ private Zona sanTelmo;
         Categoria cat1 = new Categoria("1");
         Cliente client1 = new Cliente("Matias","Vivone", "Cossio 6005","matiasv@wings4u.com","123",LocalDate.now(),"DNI",36728917,112305,cat1, LocalDate.now(),true);
         List<Cliente> clientes1 = new ArrayList<Cliente>();
-        DispositivoInteligenteTV tv1 = new DispositivoInteligenteTV("HD",0.123,"activo");
+        DispositivoInteligenteTV tv1 = new DispositivoInteligenteTV24("HD","activo");
         tv1.addConsumo(123, f,f);
         client1.addDispositivo(tv1);
         clientes1.add(client1);
@@ -38,7 +40,7 @@ private Zona sanTelmo;
 
         List<Cliente> clientes2 = new ArrayList<Cliente>();
 
-        DispositivoInteligenteTV tv2 = new DispositivoInteligenteTV("HD",0.123,"activo");
+        DispositivoInteligenteTV tv2 = new DispositivoInteligenteTV32("HD","activo");
         tv2.addConsumo(321,f,f);
         client2.addDispositivo(tv2);
         clientes2.add(client2);

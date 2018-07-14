@@ -8,8 +8,9 @@ public class DispositivoInteligenteTV extends DispositivoInteligente {
     private int volumen;
     public int uso_maximo;
     public int uso_minimo;
+    private  boolean esBajoConsumo;
 
-    public DispositivoInteligenteTV(String nombre, double consumoHora, String estado) {
+    public DispositivoInteligenteTV(String nombre, double consumoHora, String estado, boolean esBajoConsumo) {
         super(nombre, consumoHora, estado,360,90);
         this.setUsoMaximo(360);
         this.setUsoMinimo(90);

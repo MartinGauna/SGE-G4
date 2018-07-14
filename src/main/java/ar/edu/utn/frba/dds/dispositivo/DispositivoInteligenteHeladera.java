@@ -7,7 +7,9 @@ public class DispositivoInteligenteHeladera extends DispositivoInteligente {
     private int intensidad;
     private int uso_maximo;
     private int uso_minimo;
-    public DispositivoInteligenteHeladera(String nombre, double consumoHora, String estado) {
+    private  boolean esBajoConsumo;
+
+    public DispositivoInteligenteHeladera(String nombre, double consumoHora, String estado, boolean esBajoConsumo) {
         super(nombre, consumoHora, estado,360,90);
         this.uso_minimo = 90;
         this. uso_maximo = 360;

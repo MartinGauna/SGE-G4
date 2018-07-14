@@ -6,8 +6,11 @@ public class DispositivoInteligenteAAcondicionado extends DispositivoInteligente
     private int temperatura;
     public int uso_maximo;
     public int uso_minimo;
+    private double consumo;
+    private  boolean esBajoConsumo;
 
-    public DispositivoInteligenteAAcondicionado(String nombre, double consumoHora, String estado) {
+    public DispositivoInteligenteAAcondicionado(String nombre, double consumoHora, String estado, boolean esBajoConsumo)
+    {
         super(nombre, consumoHora, estado,360,90);
         this.uso_minimo = 90;
         this.uso_maximo = 360;
@@ -26,9 +29,9 @@ public class DispositivoInteligenteAAcondicionado extends DispositivoInteligente
 
     @Override
     public int getUso_minimo() {
-        return 90;
+        return uso_minimo;
     }
     public int getUso_maximo() {
-        return 360;
+        return uso_maximo;
     }
 }

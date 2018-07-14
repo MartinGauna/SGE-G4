@@ -25,6 +25,7 @@ public class DispositivoInteligente extends Dispositivo {
         this.actuador = null;
         this.initializePeriods();
 
+
     }
 
     public void addConsumo(int watts, Date fechaInicio, Date fechaFinal) {

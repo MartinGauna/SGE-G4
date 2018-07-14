@@ -27,7 +27,7 @@ public class ClienteTest {
     @Test
     public void addDispInteligenteTest() {
         fm = new DIFactoryMethod();
-        DispositivoInteligente heladera  = fm.crearDispositivo("Heladera", 20, "activo");
+        DispositivoInteligente heladera  = fm.crearDispositivo("Heladera", 20, "activo",false);
 
         assertEquals(this.client.getPuntaje(), 0);
         this.client.addDispositivo(heladera);
