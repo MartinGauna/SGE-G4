@@ -22,45 +22,10 @@ public class AdapterSimplex {
     public List<DispositivoInteligente> getDispositivosParaApagar(List<DispositivoInteligente> dispositivosInteligentes)
     {
         List<DispositivoInteligente> dispositivosParaApagar = new ArrayList<DispositivoInteligente>();
-        SimplexFacade simplexFacade = new SimplexFacade(GoalType.MAXIMIZE, true);
-
-        double[] restricciones = new double[dispositivosInteligentes.size()];
-
-        //INICIALIZO FUNCION ECONOMICA
-        double[] funcionEconomica = new double[restricciones.length];
-        for (int i = 0; i < restricciones.length; i++)
-        {
-            funcionEconomica[i] = 1;
-        }
-        simplexFacade.crearFuncionEconomica(funcionEconomica);
-
-        //RESTRICCION INICIAL
-        for (int i = 0; i < restricciones.length; i++) {
-            restricciones[i] = dispositivosInteligentes.get(i).getConsumoHora();
-        }
-
-        simplexFacade.agregarRestriccion(Relationship.LEQ, consumoTotalOptimo, restricciones);
-
-        //RESTRICCION INDIVIDUALES
-        for (int i = 0; i < restricciones.length; i++) {
-            double[] restricciones2 = new double[dispositivosInteligentes.size()];
-
-            for(int z = 0; z < dispositivosInteligentes.size();z++)
-            {if(z==i){restricciones2[z] = 1;} else{restricciones2[z]=0;}}
-
-            double max = dispositivosInteligentes.get(i).getUso_maximo();
-            double min = dispositivosInteligentes.get(i).getUso_minimo();
-
-            //MIN
-            simplexFacade.agregarRestriccion(Relationship.GEQ,  min,restricciones2);
-
-            //MAX
-            simplexFacade.agregarRestriccion(Relationship.LEQ, max,restricciones2);
-        }
-
 
         try {
-            solucion = simplexFacade.resolver();
+            reporteConsumoEficiente(dispositivosInteligentes);
+
             for (int i = 0; i < dispositivosInteligentes.size(); i++)
             {
                 if(dispositivosInteligentes.get(i).getConsumoTotal() > solucion.getPoint()[i])
@@ -71,7 +36,7 @@ public class AdapterSimplex {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        return dispositivosInteligentes;
+        return dispositivosParaApagar;
     }
     public void reporteConsumoEficiente(List<DispositivoInteligente> dispositivosInteligentes) {
 

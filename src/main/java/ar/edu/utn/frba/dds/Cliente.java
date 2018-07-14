@@ -63,7 +63,8 @@ public class Cliente extends Usuario {
     {
         if(ahorroAutomatico)
         {
-            for (DispositivoInteligente disp : adapterSimplex.getDispositivosParaApagar(this.getDispositivosInteligentes()))
+            List<DispositivoInteligente> dispositivosParaApagar = adapterSimplex.getDispositivosParaApagar(this.getDispositivosInteligentes());
+            for (DispositivoInteligente disp : dispositivosParaApagar)
             {
                 disp.apagar();
             };
