@@ -6,8 +6,6 @@ public class DispositivoInteligenteTV extends DispositivoInteligente {
 
     private int canal;
     private int volumen;
-    public int uso_maximo;
-    public int uso_minimo;
     private  boolean esBajoConsumo;
 
     public DispositivoInteligenteTV(String nombre, double consumoHora, String estado, boolean esBajoConsumo) {

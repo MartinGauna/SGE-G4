@@ -2,8 +2,6 @@ package ar.edu.utn.frba.dds.dispositivo;
 
 public class DispositivoInteligenteAAcondicionado2200 extends DispositivoInteligenteAAcondicionado {
     private int temperatura;
-    public int uso_maximo;
-    public int uso_minimo;
     private double consumo;
     private  boolean esBajoConsumo;
 

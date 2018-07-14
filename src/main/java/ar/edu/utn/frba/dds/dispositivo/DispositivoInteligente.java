@@ -13,8 +13,8 @@ public class DispositivoInteligente extends Dispositivo {
 	List<Consumo> consumo;
     Actuador actuador;
     List<Integer> periodos;
-    int uso_minimo;
-    int uso_maximo;
+    public int uso_minimo;
+    public int uso_maximo;
 
 
     public DispositivoInteligente(String nombre, double consumoHora, String estado, int uso_maximo,int uso_minimo) {
@@ -24,8 +24,6 @@ public class DispositivoInteligente extends Dispositivo {
         this.consumo = new ArrayList<Consumo>();
         this.actuador = null;
         this.initializePeriods();
-
-
     }
 
     public void addConsumo(int watts, Date fechaInicio, Date fechaFinal) {
@@ -103,7 +101,7 @@ public class DispositivoInteligente extends Dispositivo {
     public int getConsumoPeriodo(int mes) {
     	return periodos.get(mes);
     }
-    public int getUso_minimo(){return uso_minimo;}
-    public int getUso_maximo() {return uso_maximo;}
+    public int getUso_minimo(){return this.uso_minimo;}
+    public int getUso_maximo() {return this.uso_maximo;}
 
 }

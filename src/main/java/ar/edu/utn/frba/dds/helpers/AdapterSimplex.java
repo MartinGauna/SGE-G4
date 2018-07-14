@@ -17,10 +17,17 @@ public class AdapterSimplex {
         List<DispositivoInteligente> dispositivosParaApagar = new ArrayList<DispositivoInteligente>();
         SimplexFacade simplexFacade = new SimplexFacade(GoalType.MAXIMIZE, true);
 
-        simplexFacade.crearFuncionEconomica(1, 1, 1);
+        double[] restricciones = new double[dispositivosInteligentes.size()];
+
+        //INICIALIZO FUNCION ECONOMICA
+        double[] funcionEconomica = new double[restricciones.length];
+        for (int i = 0; i < restricciones.length; i++)
+        {
+            funcionEconomica[i] = 1;
+        }
+        simplexFacade.crearFuncionEconomica(funcionEconomica);
 
         //RESTRICCION INICIAL
-        double[] restricciones = new double[dispositivosInteligentes.size()];
         for (int i = 0; i < restricciones.length; i++) {
             restricciones[i] = dispositivosInteligentes.get(i).getConsumoHora();
         }
@@ -60,9 +67,19 @@ public class AdapterSimplex {
         return dispositivosInteligentes;
     }
     public void reporteConsumoEficiente(List<DispositivoInteligente> dispositivosInteligentes) {
+
         SimplexFacade simplexFacade = new SimplexFacade(GoalType.MAXIMIZE, true);
 
-        simplexFacade.crearFuncionEconomica(1, 1, 1);
+        double[] restricciones = new double[dispositivosInteligentes.size()];
+
+        //INICIALIZO FUNCION ECONOMICA
+        double[] funcionEconomica = new double[restricciones.length];
+        for (int i = 0; i < restricciones.length; i++)
+        {
+            funcionEconomica[i] = 1;
+        }
+        simplexFacade.crearFuncionEconomica(funcionEconomica);
+
 
         /**
          - >= : Relationship.GEQ
@@ -72,12 +89,9 @@ public class AdapterSimplex {
 
 
         //RESTRICCION INICIAL
-        double[] restricciones = new double[dispositivosInteligentes.size()];
-
         for (int i = 0; i < restricciones.length; i++) {
 
                 restricciones[i] = dispositivosInteligentes.get(i).getConsumoHora();
-
         }
 
         simplexFacade.agregarRestriccion(Relationship.LEQ, 440640, restricciones);
@@ -89,8 +103,8 @@ public class AdapterSimplex {
                 for(int z = 0; z < dispositivosInteligentes.size();z++)
                 {if(z==i){restricciones2[z] = 1;} else{restricciones2[z]=0;}}
 
-                double max = dispositivosInteligentes.get(i).getUso_maximo();
-                double min = dispositivosInteligentes.get(i).getUso_minimo();
+                double max = dispositivosInteligentes.get(i).uso_maximo;
+                double min = dispositivosInteligentes.get(i).uso_minimo;
 
                 //MIN
                 simplexFacade.agregarRestriccion(Relationship.GEQ,  min,restricciones2);
