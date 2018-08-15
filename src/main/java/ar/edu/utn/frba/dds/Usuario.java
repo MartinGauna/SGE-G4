@@ -2,13 +2,26 @@ package ar.edu.utn.frba.dds;
 
 import java.time.LocalDate;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "SGE_USUARIO")
+
+@Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Usuario {
+
+    @Id @GeneratedValue
+    private int id;
+
     private String nombre;
     private String apellido;
     private String domicilio;
     private String user;
     private String password;
     private LocalDate fechaAlta;
+
+    protected Usuario() {
+    }
 
     // Nombre
     public String getNombre() {

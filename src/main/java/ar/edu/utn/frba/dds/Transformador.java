@@ -4,12 +4,22 @@ import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.*;
 
+@Entity
+@Table
 public class Transformador {
 
-    private List<Cliente> clientes;
-    static ArrayList<Transformador> listaDeTransformadores = new ArrayList<Transformador>();
+    @Id
+    @GeneratedValue
     int id;
+
+    @OneToMany(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "IdCliente", referencedColumnName="id")
+    private List<Cliente> clientes;
+
+    static ArrayList<Transformador> listaDeTransformadores = new ArrayList<Transformador>();
+
     double latitud;
     double longitud;
     int idZona;

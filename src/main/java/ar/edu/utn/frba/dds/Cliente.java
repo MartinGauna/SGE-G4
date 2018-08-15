@@ -11,7 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.*;
+
+@Entity
+@Table
 public class Cliente extends Usuario {
+
+    @Id
+    @GeneratedValue
+    private int id;
 
     public static final int puntosPorEstandard = 10;
     public static final int puntosPorInteligente = 15;
@@ -19,11 +27,19 @@ public class Cliente extends Usuario {
     private String tipoDoc;
     private int numeroDoc;
     private int telefono;
-    private Categoria categoria;
+
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Categoria.class)
+    //@JoinColumn(name = "IdCategoria",  referencedColumnName="id")
+    public Categoria categoria;
+
+    @Transient
     private List<Dispositivo> dispositivos;
     private int puntaje;
-    private Transformador transformador;
+
+    //private Transformador transformador;
     private boolean ahorroAutomatico;
+
+    @Transient
     private AdapterSimplex adapterSimplex = new AdapterSimplex();
 //    public enum TipoDocumento {
 //        DNI("DNI"),
@@ -50,7 +66,11 @@ public class Cliente extends Usuario {
         this.puntaje = 0;
         this.ahorroAutomatico = ahorroAutomatico;
     }
-//===================== Getters & Setters
+
+    public Cliente() {
+    }
+
+    //===================== Getters & Setters
 	// Tipo de Documento
 	public String getTipoDoc() {
         return this.tipoDoc;

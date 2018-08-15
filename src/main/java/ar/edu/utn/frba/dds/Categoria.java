@@ -7,8 +7,15 @@ import java.util.Optional;
 
 import ar.edu.utn.frba.dds.jsonParser.JsonParser;
 
+import javax.persistence.*;
+
+@Entity
+@Table
 public class Categoria {
-	
+
+    @Id
+    private int id;
+
 	private String nombre;
     private double cargoFijo;
     private double cargoVariable;
