@@ -8,6 +8,7 @@ import java.util.Optional;
 import ar.edu.utn.frba.dds.jsonParser.JsonParser;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table
@@ -16,10 +17,15 @@ public class Categoria {
     @Id
     private int id;
 
+    @NotNull
 	private String nombre;
+    @NotNull
     private double cargoFijo;
+    @NotNull
     private double cargoVariable;
+    @NotNull
     private int consumoMin;
+    @NotNull
     private int consumoMax;
 
 
@@ -49,6 +55,10 @@ public class Categoria {
         this.cargoVariable = cargoVariable;
         this.consumoMin = consumoMin;
         this.consumoMax = consumoMax;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public double  getCargoFijo() {

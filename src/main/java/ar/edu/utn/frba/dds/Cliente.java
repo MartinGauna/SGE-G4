@@ -13,6 +13,7 @@ import java.util.Optional;
 import java.util.Optional;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table
@@ -21,23 +22,29 @@ public class Cliente extends Usuario {
     public static final int puntosPorEstandard = 10;
     public static final int puntosPorInteligente = 15;
 
+    @NotNull
     private String tipoDoc;
+    @NotNull
+    @Column(unique = true)
     private int numeroDoc;
+    @NotNull
     private int telefono;
+
+    private int puntaje;
+
+    private boolean ahorroAutomatico;
+
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Categoria.class)
     @JoinColumn(name = "idCategoria", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_CATEGORIA"))
     public Categoria categoria;
 
-    @Transient
-    private List<Dispositivo> dispositivos;
-    private int puntaje;
-
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Categoria.class)
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Transformador.class)
     @JoinColumn(name = "idTransformador", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_TRANSFORMADOR"))
     private Transformador transformador;
 
-    private boolean ahorroAutomatico;
+    @Transient
+    private List<Dispositivo> dispositivos;
 
     @Transient
     private AdapterSimplex adapterSimplex = new AdapterSimplex();
@@ -81,6 +88,15 @@ public class Cliente extends Usuario {
         this.tipoDoc = tipoDoc;
     }
 
+    public Transformador getTransformador() {
+        return transformador;
+    }
+
+    public void setTransformador(Transformador transformador) {
+        this.transformador = transformador;
+        transformador.addCliente(this);
+    }
+
     public void ahorroAutomatico() {
         if (ahorroAutomatico) {
             List<DispositivoInteligente> dispositivosParaApagar = adapterSimplex.getDispositivosParaApagar(this.getDispositivosInteligentes());
@@ -90,7 +106,6 @@ public class Cliente extends Usuario {
             ;
         }
     }
-
 
     // Numero de Documento
     public int getNumeroDoc() {
@@ -183,6 +198,14 @@ public class Cliente extends Usuario {
         return disp.get().getEstado().equals("activo");
     }
 
+    public void cambiarTransformador(Transformador newtra) {
+        if(this.getTransformador() != null) {
+            //primero remuevo el cliente si estaba en otro transformador
+            this.getTransformador().getClientes().remove(this);
+        }
+        //seteo el nuevo transformador
+        this.setTransformador(newtra);
+    }
 
     @Override
     public String toString() {

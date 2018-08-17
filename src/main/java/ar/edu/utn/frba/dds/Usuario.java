@@ -3,10 +3,10 @@ package ar.edu.utn.frba.dds;
 import java.time.LocalDate;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
-//@DiscriminatorColumn(name="tipoUsuario")
 @Table
 public abstract class Usuario {
 
@@ -14,11 +14,17 @@ public abstract class Usuario {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @NotNull
     private String nombre;
+    @NotNull
     private String apellido;
+    @NotNull
     private String domicilio;
+    @NotNull
     private String user;
+
     private String password;
+    @NotNull
     private LocalDate fechaAlta;
 
     protected Usuario() {

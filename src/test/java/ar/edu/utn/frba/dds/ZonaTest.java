@@ -27,11 +27,11 @@ private Zona sanTelmo;
         tv1.addConsumo(123, f,f);
         client1.addDispositivo(tv1);
         clientes1.add(client1);
-        Transformador transformador1 = new Transformador(1,-34.618680, -58.415423,1);
-        transformador1.asignClientes(clientes1);
-        List<Transformador> transformadores1 = new ArrayList<Transformador>();
-        transformadores1.add(transformador1);
-        almagro = new Zona("Almagro",-34.618680,-58.415423,transformadores1,300);
+
+        almagro = new Zona("Almagro",-34.618680,-58.415423,300);
+        Transformador transformador1 = new Transformador(-34.618680, -58.415423, almagro);
+        almagro.addTransformador(transformador1);
+        client1.setTransformador(transformador1);
 
 
         //CASO 2
@@ -44,13 +44,11 @@ private Zona sanTelmo;
         tv2.addConsumo(321,f,f);
         client2.addDispositivo(tv2);
         clientes2.add(client2);
-        Transformador transformador2 = new Transformador(2,-34.618680, -58.415423,2);
-        transformador2.asignClientes(clientes2);
 
-        List<Transformador> transformadores2 = new ArrayList<Transformador>();
-        transformadores2.add(transformador2);
-        sanTelmo = new Zona("San Telmo",-34.6210356,-58.373654,transformadores2,300);
-
+        sanTelmo = new Zona("San Telmo",-34.6210356,-58.373654,300);
+        Transformador transformador2 = new Transformador(-34.618680, -58.415423, sanTelmo);
+        sanTelmo.addTransformador(transformador2);
+        client2.setTransformador(transformador2);
     }
 
     @Test
