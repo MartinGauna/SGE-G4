@@ -15,7 +15,7 @@ public class Transformador {
     int id;
 
     @OneToMany(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "IdCliente", referencedColumnName="id")
+    @JoinColumn(name = "id", referencedColumnName="id")
     private List<Cliente> clientes;
 
     static ArrayList<Transformador> listaDeTransformadores = new ArrayList<Transformador>();

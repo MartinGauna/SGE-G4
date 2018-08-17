@@ -10,16 +10,13 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Optional;
 
 import javax.persistence.*;
 
 @Entity
 @Table
 public class Cliente extends Usuario {
-
-    @Id
-    @GeneratedValue
-    private int id;
 
     public static final int puntosPorEstandard = 10;
     public static final int puntosPorInteligente = 15;
@@ -29,14 +26,17 @@ public class Cliente extends Usuario {
     private int telefono;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Categoria.class)
-    //@JoinColumn(name = "IdCategoria",  referencedColumnName="id")
+    @JoinColumn(name = "idCategoria", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_CATEGORIA"))
     public Categoria categoria;
 
     @Transient
     private List<Dispositivo> dispositivos;
     private int puntaje;
 
-    //private Transformador transformador;
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Categoria.class)
+    @JoinColumn(name = "idTransformador", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_TRANSFORMADOR"))
+    private Transformador transformador;
+
     private boolean ahorroAutomatico;
 
     @Transient
@@ -55,13 +55,13 @@ public class Cliente extends Usuario {
 //    }
 
     public Cliente(String nombre, String apellido, String domicilio, String user, String password, LocalDate fechaAlta,
-                   String tipoDoc, int numeroDoc, int telefono, Categoria categoria, LocalDate fechaAltaServicio,boolean ahorroAutomatico) {
-        super(nombre, apellido, domicilio, user,password,fechaAlta);
+                   String tipoDoc, int numeroDoc, int telefono, Categoria categoria, LocalDate fechaAltaServicio, boolean ahorroAutomatico) {
+        super(nombre, apellido, domicilio, user, password, fechaAlta);
         this.tipoDoc = tipoDoc;
         this.numeroDoc = numeroDoc;
         this.telefono = telefono;
         this.categoria = categoria;
-        this.setFechaAlta(fechaAltaServicio) ;
+        this.setFechaAlta(fechaAltaServicio);
         this.dispositivos = new ArrayList<Dispositivo>();
         this.puntaje = 0;
         this.ahorroAutomatico = ahorroAutomatico;
@@ -71,23 +71,23 @@ public class Cliente extends Usuario {
     }
 
     //===================== Getters & Setters
-	// Tipo de Documento
-	public String getTipoDoc() {
+
+    // Tipo de Documento
+    public String getTipoDoc() {
         return this.tipoDoc;
     }
+
     public void setTipoDoc(String tipoDoc) {
         this.tipoDoc = tipoDoc;
     }
 
-    public void ahorroAutomatico()
-    {
-        if(ahorroAutomatico)
-        {
+    public void ahorroAutomatico() {
+        if (ahorroAutomatico) {
             List<DispositivoInteligente> dispositivosParaApagar = adapterSimplex.getDispositivosParaApagar(this.getDispositivosInteligentes());
-            for (DispositivoInteligente disp : dispositivosParaApagar)
-            {
+            for (DispositivoInteligente disp : dispositivosParaApagar) {
                 disp.apagar();
-            };
+            }
+            ;
         }
     }
 
@@ -96,6 +96,7 @@ public class Cliente extends Usuario {
     public int getNumeroDoc() {
         return this.numeroDoc;
     }
+
     public void setNumeroDoc(int numeroDoc) {
         this.numeroDoc = numeroDoc;
     }
@@ -104,6 +105,7 @@ public class Cliente extends Usuario {
     public double getTelefono() {
         return this.telefono;
     }
+
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
@@ -112,6 +114,7 @@ public class Cliente extends Usuario {
     public Categoria getCategoria() {
         return this.categoria;
     }
+
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
@@ -121,15 +124,13 @@ public class Cliente extends Usuario {
         return this.dispositivos;
     }
 
-    public List<DispositivoInteligente> getDispositivosInteligentes()
-    {
+    public List<DispositivoInteligente> getDispositivosInteligentes() {
         List<DispositivoInteligente> out = new ArrayList<DispositivoInteligente>();
-        for(Dispositivo d : this.dispositivos)
-        {
+        for (Dispositivo d : this.dispositivos) {
             if (d instanceof DispositivoInteligente) {
-            DispositivoInteligente di = (DispositivoInteligente) d;
-            out.add(di);
-        }
+                DispositivoInteligente di = (DispositivoInteligente) d;
+                out.add(di);
+            }
         }
         return out;
     }
@@ -142,6 +143,7 @@ public class Cliente extends Usuario {
     public int getPuntaje() {
         return puntaje;
     }
+
     public void setPuntaje(int puntaje) {
         this.puntaje = puntaje;
     }
@@ -174,7 +176,7 @@ public class Cliente extends Usuario {
         return this.getDispositivos().stream().count();
     }
 
-    public boolean dispositivoOn(String name){
+    public boolean dispositivoOn(String name) {
 
         Optional<Dispositivo> disp = dispositivos.stream().filter(d -> d.getNombre().equals(name)).findFirst();
 
@@ -184,7 +186,7 @@ public class Cliente extends Usuario {
 
     @Override
     public String toString() {
-        return  "Cliente: \n"+
+        return "Cliente: \n" +
                 "\tNombre: " + getNombre() + "\n" +
                 "\tApellido: " + getApellido() + "\n" +
                 "\tDomicilio: " + getDomicilio() + "\n" +
@@ -197,8 +199,8 @@ public class Cliente extends Usuario {
                 "\tCategoría: " + getCategoria() + "\n" +
                 "\tDispositivos: " + getDispositivos() + "\n";
     }
-    
+
     public Boolean isInteligente(Dispositivo disp) {
-    	return !(disp instanceof Estandard);
+        return !(disp instanceof Estandard);
     }
 }

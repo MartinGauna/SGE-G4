@@ -5,12 +5,13 @@ import java.time.LocalDate;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "SGE_USUARIO")
-
 @Inheritance(strategy=InheritanceType.JOINED)
+//@DiscriminatorColumn(name="tipoUsuario")
+@Table
 public abstract class Usuario {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     private String nombre;
@@ -40,6 +41,10 @@ public abstract class Usuario {
         this.user = user;
         this.password = password;
         this.fechaAlta = fechaAlta;
+    }
+
+    public int getId() {
+        return id;
     }
 
     // Apellido
