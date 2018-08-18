@@ -1,4 +1,5 @@
-##Lista de pasos para la persistencia en entrega 3.
+## Lista de pasos para la persistencia en entrega 3.
+
 
 1. Modificar en **src/main/resources/META-INF/persistence.xml** los datos de la base que tenga cada uno configurada.
 
@@ -33,7 +34,7 @@
 ---
 
 
-###Contenido de src/main/resources/db:
+### Contenido de src/main/resources/db:
 
 *IMPORTANTE: A medida que se persistan nuevas clases **atualicen los scripts** agregado las tablas nuevas*
 
@@ -46,7 +47,7 @@
 ---
 
 
-#####Notas: 
+##### Notas: 
 
 -  Al correr cualquiera de los test de persistencia, si las tablas no se encuentran creadas, se generan y ejecutan automaticamente los scripts de creación de tablas al momento de la ejecución del test
 -  Si se corre el mismo Test mas de una ves y no se hace una limpieza de las tablas usadas, seguramente el mismo falle por violacion de constraints (como por ejemplo la constraint de UNIQUE en el campo numeroDoc de la clase Cliente)
