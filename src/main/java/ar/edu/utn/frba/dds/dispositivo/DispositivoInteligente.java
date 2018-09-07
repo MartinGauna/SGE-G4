@@ -1,19 +1,31 @@
 package ar.edu.utn.frba.dds.dispositivo;
 
+import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.Consumo;
 import ar.edu.utn.frba.dds.actuador.Actuador;
+import ar.edu.utn.frba.dds.dispositivo.estadosDispositivo.Context;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
+@MappedSuperclass
 public class DispositivoInteligente extends Dispositivo {
 
+
+    @OneToMany(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "idConsumo", referencedColumnName = "id")
 	List<Consumo> consumo;
+    //TODO: Cambiar actuador de interfaz a clase o implementarlo
+    @Transient
     Actuador actuador;
+    @Transient
     List<Integer> periodos;
+    @NotNull
     public int uso_minimo;
+    @NotNull
     public int uso_maximo;
 
 
@@ -36,7 +48,8 @@ public class DispositivoInteligente extends Dispositivo {
     }
 
     public void encender() {
-        this.getEstado().handleActivo();
+        this.estado = Context.string_Apagado
+                
     }
 
     public void apagar() {

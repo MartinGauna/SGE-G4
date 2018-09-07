@@ -1,44 +1,55 @@
 package ar.edu.utn.frba.dds.dispositivo;
 
 import ar.edu.utn.frba.dds.Cliente;
+import ar.edu.utn.frba.dds.Transformador;
 import ar.edu.utn.frba.dds.dispositivo.estadosDispositivo.Context;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
+@MappedSuperclass
 public class Dispositivo {
 
-    private String nombre;
-    private double consumoHora;
-    private Context estado;
-    private Cliente cliente;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
-//    public enum Estados {
-//        ENCENDIDO("encendido"),
-//        APAGADO("apagado"),
-//    	AHORRO("ahorro");
-//
-//        private final String value;
-//
-//        Estados(final String text) {
-//            this.value = text;
-//        }
-//
-//        @Override
-//        public String toString() {
-//            return value;
-//        }
-//    }
+    @NotNull
+    private String nombre;
+    @NotNull
+    private double consumoHora;
+    @Enumerated(EnumType.STRING)
+    @Column
+    private Context estado;
+    @OneToOne(fetch = FetchType.LAZY, targetEntity = Cliente.class)
+    @JoinColumn(name = "idCliente", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_CLIENTE"))
+    private Cliente cliente;
 
     // Dispositivo
     public Dispositivo(){
         this.nombre = "";
         this.consumoHora = 0;
-        this.estado = new Context("activo");
+        this.estado = Context.string_Activo;
     }
     public Dispositivo(String nombre, double consumoHora, String estado) {
         this.nombre = nombre;
         setConsumoHora(consumoHora);
-        this.estado = new Context(estado);
+        switch (estado) {
+            case "ahorro":
+                this.estado = Context.string_Ahorrro;
+            case "apagado":
+                this.estado = Context.string_Apagado;
+            case "activo":
+                this.estado = Context.string_Activo;
+            default:
+                this.estado = Context.string_Activo;
+        }
+    }
+
+
+    public int getId() {
+        return id;
     }
 
     // Nombre

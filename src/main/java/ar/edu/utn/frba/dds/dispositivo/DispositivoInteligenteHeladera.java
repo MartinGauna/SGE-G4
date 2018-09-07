@@ -2,11 +2,19 @@ package ar.edu.utn.frba.dds.dispositivo;
 
 import ar.edu.utn.frba.dds.actuador.ActuadorHeladera;
 
-public class DispositivoInteligenteHeladera extends DispositivoInteligente {
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
+@Entity
+@Table
+public class DispositivoInteligenteHeladera extends DispositivoInteligente {
+    @NotNull
     private int intensidad;
+    @NotNull
     private int uso_maximo;
+    @NotNull
     private int uso_minimo;
+    @NotNull
     private  boolean esBajoConsumo;
 
     public DispositivoInteligenteHeladera(String nombre, double consumoHora, String estado, boolean esBajoConsumo) {
