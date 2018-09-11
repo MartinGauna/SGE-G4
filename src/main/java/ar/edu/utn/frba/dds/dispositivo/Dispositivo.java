@@ -22,9 +22,8 @@ public class Dispositivo {
     @Enumerated(EnumType.STRING)
     @Column
     public Context estado;
-    //@OneToOne(fetch = FetchType.LAZY, targetEntity = Cliente.class)
-    //@JoinColumn(name = "idCliente", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_CLIENTE"))
-    @Transient
+    @OneToOne(fetch = FetchType.LAZY, targetEntity = Cliente.class)
+    @JoinColumn(name = "idCliente", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_CLIENTE"))
     private Cliente cliente;
 
     // Dispositivo

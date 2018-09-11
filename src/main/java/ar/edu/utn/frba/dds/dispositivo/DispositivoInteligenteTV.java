@@ -2,11 +2,24 @@ package ar.edu.utn.frba.dds.dispositivo;
 
 import ar.edu.utn.frba.dds.actuador.ActuadorTV;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+@Table
+@Entity
 public class DispositivoInteligenteTV extends DispositivoInteligente {
 
+    @NotNull
     private int canal;
+    @NotNull
     private int volumen;
+    @NotNull
     private  boolean esBajoConsumo;
+
+    protected DispositivoInteligenteTV() {
+        
+    }
 
     public DispositivoInteligenteTV(String nombre, double consumoHora, String estado, boolean esBajoConsumo) {
         super(nombre, consumoHora, estado,360,90);
