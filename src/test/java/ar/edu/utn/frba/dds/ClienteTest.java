@@ -91,7 +91,7 @@ public class ClienteTest {
         {
             System.out.println("Variable Dispositivo " + i + ": " + adapterSimplex.solucion.getPoint()[i]);
             System.out.println("Dispositivo Consumo UTD" + i + ": " + dispositivoInteligenteList.get(i).getConsumoTotal());
-            System.out.println("Estado Dispositivo" + i + ": " + dispositivoInteligenteList.get(i).getEstado().getEstado());
+            System.out.println("Estado Dispositivo" + i + ": " + dispositivoInteligenteList.get(i).getEstado());
         }
 
         System.out.println("---------");
@@ -102,7 +102,7 @@ public class ClienteTest {
         {
             System.out.println("Variable Dispositivo " + i + ": " + adapterSimplex.solucion.getPoint()[i]);
             System.out.println("Dispositivo Consumo UTD" + i + ": " + dispositivoInteligenteList.get(i).getConsumoTotal());
-            System.out.println("Estado Dispositivo" + i + ": " + dispositivoInteligenteList.get(i).getEstado().getEstado());
+            System.out.println("Estado Dispositivo" + i + ": " + dispositivoInteligenteList.get(i).getEstado());
         }
     }
 }

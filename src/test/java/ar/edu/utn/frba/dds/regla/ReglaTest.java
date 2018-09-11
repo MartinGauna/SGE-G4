@@ -73,7 +73,7 @@ public class ReglaTest {
 
         System.out.println("-------");
 
-        System.out.println("Estado inicial del dispositivo:  " + aire.getEstado().getEstado());
+        System.out.println("Estado inicial del dispositivo:  " + aire.getEstado());
 
         //CONDICION 1 --> TEMPERATURA 23°
         Condicion cond1 = new Condicion('>',harcodedTemperatura,23);
@@ -93,7 +93,7 @@ public class ReglaTest {
         System.out.println("Procesando regla...");
         regla_test_1.ejecutar();
 
-        System.out.println("Estado final del dispositivo: " + aire.getEstado().getEstado());
+        System.out.println("Estado final del dispositivo: " + aire.getEstado());
 
         System.out.println("-------");
 
@@ -116,7 +116,7 @@ public class ReglaTest {
 
         System.out.println("-------");
 
-        System.out.println("Estado inicial del dispositivo:  " + aire.getEstado().getEstado());
+        System.out.println("Estado inicial del dispositivo:  " + aire.getEstado());
 
         //CONDICION 1 --> TEMPERATURA 23°
         Condicion cond1 = new Condicion('>',harcodedTemperatura,23);
@@ -136,7 +136,7 @@ public class ReglaTest {
         System.out.println("Procesando regla...");
         regla_test_2.ejecutar();
 
-        System.out.println("Estado final del dispositivo: " + aire.getEstado().getEstado());
+        System.out.println("Estado final del dispositivo: " + aire.getEstado());
 
         System.out.println("-------");
 
@@ -159,7 +159,7 @@ public class ReglaTest {
 
         System.out.println("-------");
 
-        System.out.println("Estado inicial del dispositivo:  " + aire.getEstado().getEstado());
+        System.out.println("Estado inicial del dispositivo:  " + aire.getEstado());
 
         //CONDICION 1 --> TEMPERATURA 23°
         Condicion cond1 = new Condicion('>',harcodedTemperatura,23);
@@ -179,7 +179,7 @@ public class ReglaTest {
         System.out.println("Procesando regla...");
         regla_test_3.ejecutar();
 
-        System.out.println("Estado final del dispositivo: " + aire.getEstado().getEstado());
+        System.out.println("Estado final del dispositivo: " + aire.getEstado());
 
         System.out.println("-------");
 
@@ -202,7 +202,7 @@ public class ReglaTest {
 
         System.out.println("-------");
 
-        System.out.println("Estado inicial del dispositivo:  " + aire.getEstado().getEstado());
+        System.out.println("Estado inicial del dispositivo:  " + aire.getEstado());
 
         //CONDICION 1 --> TEMPERATURA 23°
         Condicion cond1 = new Condicion('>',harcodedTemperatura,23);
@@ -222,7 +222,7 @@ public class ReglaTest {
         System.out.println("Procesando regla...");
         regla_test_4.ejecutar();
 
-        System.out.println("Estado final del dispositivo: " + aire.getEstado().getEstado());
+        System.out.println("Estado final del dispositivo: " + aire.getEstado());
 
         System.out.println("-------");
 
@@ -245,7 +245,7 @@ public class ReglaTest {
 
         System.out.println("-------");
 
-        System.out.println("Estado inicial del dispositivo:  " + aire.getEstado().getEstado());
+        System.out.println("Estado inicial del dispositivo:  " + aire.getEstado());
 
         //CONDICION 1 --> TEMPERATURA 23°
         Condicion cond1 = new Condicion('>',harcodedTemperatura,23);
@@ -265,7 +265,7 @@ public class ReglaTest {
         System.out.println("Procesando regla...");
         regla_test_5.ejecutar();
 
-        System.out.println("Estado final del dispositivo: " + aire.getEstado().getEstado());
+        System.out.println("Estado final del dispositivo: " + aire.getEstado());
 
         System.out.println("-------");
 
@@ -288,7 +288,7 @@ public class ReglaTest {
 
         System.out.println("-------");
 
-        System.out.println("Estado inicial del dispositivo:  " + aire.getEstado().getEstado());
+        System.out.println("Estado inicial del dispositivo:  " + aire.getEstado());
 
         //CONDICION 1 --> TEMPERATURA 23°
         Condicion cond1 = new Condicion('>',harcodedTemperatura,23);
@@ -308,7 +308,7 @@ public class ReglaTest {
         System.out.println("Procesando regla...");
         regla_test_6.ejecutar();
 
-        System.out.println("Estado final del dispositivo: " + aire.getEstado().getEstado());
+        System.out.println("Estado final del dispositivo: " + aire.getEstado());
 
         System.out.println("-------");
 

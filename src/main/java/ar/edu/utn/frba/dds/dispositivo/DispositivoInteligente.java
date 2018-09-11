@@ -14,7 +14,6 @@ import java.util.List;
 @MappedSuperclass
 public class DispositivoInteligente extends Dispositivo {
 
-
     @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "idConsumo", referencedColumnName = "id")
 	List<Consumo> consumo;
@@ -48,16 +47,15 @@ public class DispositivoInteligente extends Dispositivo {
     }
 
     public void encender() {
-        this.estado = Context.string_Apagado
-                
+        this.estado = Context.string_Activo;
     }
 
     public void apagar() {
-        this.getEstado().handleApagado();
+        this.estado = Context.string_Apagado;
     }
 
     public void cambiarAmodoAhorro() {
-        this.getEstado().handleAhorro();
+        this.estado = Context.string_Ahorrro;
     }
 
     public Actuador getActuador() {

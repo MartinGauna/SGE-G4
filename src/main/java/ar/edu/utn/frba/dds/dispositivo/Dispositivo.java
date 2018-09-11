@@ -21,7 +21,7 @@ public class Dispositivo {
     private double consumoHora;
     @Enumerated(EnumType.STRING)
     @Column
-    private Context estado;
+    public Context estado;
     @OneToOne(fetch = FetchType.LAZY, targetEntity = Cliente.class)
     @JoinColumn(name = "idCliente", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_CLIENTE"))
     private Cliente cliente;
