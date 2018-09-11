@@ -14,9 +14,10 @@ import java.util.List;
 @MappedSuperclass
 public class DispositivoInteligente extends Dispositivo {
 
-    @OneToMany(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "idConsumo", referencedColumnName = "id")
-	List<Consumo> consumo;
+    //@OneToMany(cascade = {CascadeType.ALL})
+    //@JoinColumn(name = "idConsumo", referencedColumnName = "id")
+	@Transient
+    List<Consumo> consumo;
     //TODO: Cambiar actuador de interfaz a clase o implementarlo
     @Transient
     Actuador actuador;
@@ -27,6 +28,9 @@ public class DispositivoInteligente extends Dispositivo {
     @NotNull
     public int uso_maximo;
 
+    protected  DispositivoInteligente() {
+        super();
+    }
 
     public DispositivoInteligente(String nombre, double consumoHora, String estado, int uso_maximo,int uso_minimo) {
         super(nombre, consumoHora, estado);

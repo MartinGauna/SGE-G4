@@ -17,6 +17,10 @@ public class DispositivoInteligenteHeladera extends DispositivoInteligente {
     @NotNull
     private  boolean esBajoConsumo;
 
+    protected DispositivoInteligenteHeladera(){
+        super();
+    }
+
     public DispositivoInteligenteHeladera(String nombre, double consumoHora, String estado, boolean esBajoConsumo) {
         super(nombre, consumoHora, estado,360,90);
         this.uso_minimo = 90;

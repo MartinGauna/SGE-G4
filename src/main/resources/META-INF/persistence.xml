@@ -14,11 +14,15 @@
         <class>ar.edu.utn.frba.dds.Transformador</class>
         <class>ar.edu.utn.frba.dds.Zona</class>
         <class>ar.edu.utn.frba.dds.Consumo</class>
+        <class>ar.edu.utn.frba.dds.dispositivo.Dispositivo</class>
+        <class>ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente</class>
+        <class>ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteHeladera</class>
+
 
             <properties>
             <property name="hibernate.archive.autodetection" value="class"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/sge" />
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/sge?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC" />
             <property name="hibernate.connection.username" value="root" />
             <property name="hibernate.connection.password" value="root" />
 
@@ -29,6 +33,7 @@
                         <property name="hibernate.connection.password" value="" />
                         <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
              -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
             <property name="use_sql_comments" value="true" />
