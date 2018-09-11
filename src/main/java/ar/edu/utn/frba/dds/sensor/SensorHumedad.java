@@ -2,6 +2,9 @@ package ar.edu.utn.frba.dds.sensor;
 
 import ar.edu.utn.frba.dds.Magnitud;
 
+import javax.persistence.Entity;
+
+@Entity
 public class SensorHumedad extends Sensor{
 
     public SensorHumedad() {

@@ -4,16 +4,38 @@ import ar.edu.utn.frba.dds.Magnitud;
 import ar.edu.utn.frba.dds.regla.Observable;
 import ar.edu.utn.frba.dds.regla.Observer;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.*;
 
-
+@Entity
+@Inheritance(strategy=InheritanceType.JOINED)
+@Table
 public abstract class Sensor implements Observable {
+
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
+    @NotNull
     protected long intervalo;
+    @NotNull
     protected Magnitud magnitud;
+
     public Magnitud mag;
 
     // Collection de observers
+    @Transient
     private Set<Observer> observers;
+
+
+
+
+    public int getId() {
+        return id;
+    }
 
     public Magnitud getMagnitud() {
         return magnitud;
