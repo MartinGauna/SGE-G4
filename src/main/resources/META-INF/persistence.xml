@@ -17,7 +17,12 @@
         <class>ar.edu.utn.frba.dds.dispositivo.Dispositivo</class>
         <class>ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente</class>
         <class>ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteHeladera</class>
-
+        <class>ar.edu.utn.frba.dds.Magnitud</class>
+        <class>ar.edu.utn.frba.dds.sensor.Sensor</class>
+        <class>ar.edu.utn.frba.dds.sensor.SensorHumedad</class>
+        <class>ar.edu.utn.frba.dds.sensor.SensorLuz</class>
+        <class>ar.edu.utn.frba.dds.sensor.SensorTemperatura</class>
+        <class>ar.edu.utn.frba.dds.sensor.SensorMovimiento</class>
 
             <properties>
             <property name="hibernate.archive.autodetection" value="class"/>

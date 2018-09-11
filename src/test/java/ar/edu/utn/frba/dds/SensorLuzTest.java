@@ -4,8 +4,6 @@ import ar.edu.utn.frba.dds.sensor.SensorLuz;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertNotNull;
-
 public class SensorLuzTest {
     private SensorLuz sensor;
     @Before

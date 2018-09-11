@@ -17,6 +17,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table
+@DiscriminatorValue("")
 public class Cliente extends Usuario {
 
     public static final int puntosPorEstandard = 10;
