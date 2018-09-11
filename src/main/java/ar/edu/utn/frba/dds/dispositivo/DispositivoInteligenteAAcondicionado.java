@@ -2,12 +2,26 @@ package ar.edu.utn.frba.dds.dispositivo;
 
 import ar.edu.utn.frba.dds.actuador.ActuadorAAcondicionado;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+@Table
+@Entity
 public class DispositivoInteligenteAAcondicionado extends DispositivoInteligente {
+    @NotNull
     private int temperatura;
+    @NotNull
     public int uso_maximo;
+    @NotNull
     public int uso_minimo;
+    @NotNull
     private double consumo;
+    @NotNull
     private  boolean esBajoConsumo;
+
+    protected  DispositivoInteligenteAAcondicionado() {
+
+    }
 
     public DispositivoInteligenteAAcondicionado(String nombre, double consumoHora, String estado, boolean esBajoConsumo)
     {
