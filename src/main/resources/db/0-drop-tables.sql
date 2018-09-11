@@ -2,8 +2,6 @@ drop database if exists SGE;
 
 CREATE DATABASE IF NOT EXISTS SGE;
 
-use SGE;
-
 /* -------------------------------------
  *  DROPS
  * -------------------------------------

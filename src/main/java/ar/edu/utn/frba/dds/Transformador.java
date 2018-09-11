@@ -77,4 +77,12 @@ public class Transformador {
     public void setZona(Zona zona) {
         this.zona = zona;
     }
+
+    public double getLatitud() {
+        return latitud;
+    }
+
+    public double getLongitud() {
+        return longitud;
+    }
 }
