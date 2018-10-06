@@ -4,14 +4,14 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-@Table
-@Entity
+//@Table
+//@Entity
 public class DispositivoInteligentePCEscritorio extends DispositivoInteligentePC {
-    @NotNull
+    //@NotNull
     private int temperatura;
-    @NotNull
+    //@NotNull
     private double consumo;
-    @NotNull
+    //@NotNull
     private  boolean esBajoConsumo;
 
     protected DispositivoInteligentePCEscritorio() {

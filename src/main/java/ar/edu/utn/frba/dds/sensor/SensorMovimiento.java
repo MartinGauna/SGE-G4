@@ -6,9 +6,9 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Entity
+/*@Entity
 @Table
-@DiscriminatorValue("M")
+@DiscriminatorValue("M")*/
 public class SensorMovimiento extends Sensor {
 
     public SensorMovimiento() {

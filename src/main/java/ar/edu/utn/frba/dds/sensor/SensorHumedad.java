@@ -6,9 +6,9 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Entity
-@Table
-@DiscriminatorValue("H")
+//@Entity
+//@Table
+//@DiscriminatorValue("H")
 public class SensorHumedad extends Sensor{
 
     public SensorHumedad() {

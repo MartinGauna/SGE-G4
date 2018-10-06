@@ -33,6 +33,10 @@ public class Adaptador {
         dispositivo.convertir(this);
     }
 
+    public Adaptador() {
+
+    }
+
     public int getId() {
         return id;
     }

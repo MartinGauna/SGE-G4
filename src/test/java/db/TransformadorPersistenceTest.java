@@ -65,21 +65,21 @@ public class TransformadorPersistenceTest {
         entityManager.persist(sanTelmo);
         for (Transformador t : trafos) {
             t.setZona(sanTelmo);
-            entityManager.merge(t);
+            entityManager.persist(t);
         }
         t1.commit();
 
         count = ((Long)entityManager.createQuery("select count(1) from Transformador ").getSingleResult()).intValue();
         assertTrue(count > 0);
-
+        assertEquals(count, 3);
 
         //elimino todos los elementos de la tabla
-//        t2.begin();
-//        entityManager.createQuery("DELETE FROM Transformador ").executeUpdate();
-//        t2.commit();
-//
-//        int empty = ((Long)entityManager.createQuery("select count(1) from Transformador ").getSingleResult()).intValue();
-//        assertEquals(0, empty);
+        t2.begin();
+        entityManager.createQuery("DELETE FROM Transformador ").executeUpdate();
+        entityManager.flush();
+        t2.commit();
+        int empty = ((Long)entityManager.createQuery("select count(1) from Transformador ").getSingleResult()).intValue();
+        assertEquals(0, empty);
 
         // agregado de transformador nuevo a json
         List<Transformador> trafosExtendido = this.loadTransformadorforTestJSON();
@@ -93,5 +93,6 @@ public class TransformadorPersistenceTest {
         newcount = ((Long)entityManager.createQuery("select count(1) from Transformador ").getSingleResult()).intValue();
 
         assertTrue(newcount > count);
+        assertEquals(newcount, 4);
     }
 }

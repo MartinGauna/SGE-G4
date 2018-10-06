@@ -17,6 +17,8 @@
         <class>ar.edu.utn.frba.dds.dispositivo.Dispositivo</class>
         <class>ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente</class>
         <class>ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteHeladera</class>
+        <class>ar.edu.utn.frba.dds.dispositivo.Estandard</class>
+        <class>ar.edu.utn.frba.dds.dispositivo.Adaptador</class>
         <class>ar.edu.utn.frba.dds.Magnitud</class>
         <class>ar.edu.utn.frba.dds.sensor.Sensor</class>
         <class>ar.edu.utn.frba.dds.sensor.SensorHumedad</class>

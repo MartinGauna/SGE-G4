@@ -2,6 +2,7 @@ package ar.edu.utn.frba.dds.dispositivo;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 @Table
@@ -10,11 +11,17 @@ public class Estandard extends Dispositivo {
 
     //Class Properties
     //Note: Dispositivo properties (inherating): String nombre, int consumoHora,  String estado;
-    @NotNull
+   // @NotNull
+    @Transient
     Adaptador adaptador;
+
 
     public Estandard(String nombre, int consumoEstimado, String estado) {
         super(nombre, consumoEstimado, estado);
+    }
+
+    public Estandard(){
+
     }
 
     public void convertir(Adaptador adaptador) {
