@@ -2,7 +2,7 @@ package ar.edu.utn.frba.dds.actuador;
 
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligentePC;
 
-public class ActuadorPC implements Actuador {
+public class ActuadorPC extends Actuador {
 
     private DispositivoInteligentePC pc;
 

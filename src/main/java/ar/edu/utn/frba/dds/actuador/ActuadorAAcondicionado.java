@@ -2,7 +2,7 @@ package ar.edu.utn.frba.dds.actuador;
 
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteAAcondicionado;
 
-public class ActuadorAAcondicionado implements Actuador {
+public class ActuadorAAcondicionado extends Actuador {
 
     private DispositivoInteligenteAAcondicionado aire;
 

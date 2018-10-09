@@ -2,7 +2,7 @@ package ar.edu.utn.frba.dds.actuador;
 
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteHeladera;
 
-public class ActuadorHeladera implements Actuador {
+public class ActuadorHeladera extends Actuador {
     private DispositivoInteligenteHeladera heladera;
 
     public ActuadorHeladera(DispositivoInteligenteHeladera heladera) {

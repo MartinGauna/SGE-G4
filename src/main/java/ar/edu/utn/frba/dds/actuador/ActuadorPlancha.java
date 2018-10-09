@@ -2,7 +2,7 @@ package ar.edu.utn.frba.dds.actuador;
 
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligentePlancha;
 
-public class ActuadorPlancha implements Actuador {
+public class ActuadorPlancha extends Actuador {
 
     private DispositivoInteligentePlancha plancha;
 

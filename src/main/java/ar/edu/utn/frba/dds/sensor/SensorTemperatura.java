@@ -6,9 +6,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-/*@Entity
-@Table
-@DiscriminatorValue("T")*/
+
 public class SensorTemperatura extends Sensor {
 
     public SensorTemperatura() {

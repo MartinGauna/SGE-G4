@@ -1,12 +1,12 @@
 package ar.edu.utn.frba.dds.actuador;
 
-public interface Actuador {
+public abstract class Actuador {
 
-    public void prenderDispositivo();
-    public void apagarDispositivo();
+    public abstract void prenderDispositivo();
+    public abstract void apagarDispositivo();
 
-    public void cambiarModoAAhorro();
-    public void cambiarModoAPrendido();
-    public void cambiarModoAApagado();
+    public abstract void cambiarModoAAhorro();
+    public abstract void cambiarModoAPrendido();
+    public abstract void cambiarModoAApagado();
 
 }

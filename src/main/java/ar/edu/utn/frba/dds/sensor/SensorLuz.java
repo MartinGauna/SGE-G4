@@ -6,10 +6,8 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-/*@Entity
-@Table
-@DiscriminatorValue("L")*/
-public class SensorLuz extends Sensor{
+
+public class    SensorLuz extends Sensor{
 
     public SensorLuz() {
         this.setMagnitud(new Magnitud(0, "Hz"));

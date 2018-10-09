@@ -1,4 +1,6 @@
-package ar.edu.utn.frba.dds.dispositivo;
+package ar.edu.utn.frba.dds.dispositivo.InstanciasDispositivo;
+
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteVentilador;
 
 public class DispositivoInteligenteVentiladorTecho extends DispositivoInteligenteVentilador {
     private int temperatura;

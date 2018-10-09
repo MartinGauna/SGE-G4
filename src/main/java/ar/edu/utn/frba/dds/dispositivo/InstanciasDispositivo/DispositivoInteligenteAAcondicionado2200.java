@@ -1,11 +1,13 @@
-package ar.edu.utn.frba.dds.dispositivo;
+package ar.edu.utn.frba.dds.dispositivo.InstanciasDispositivo;
 
-public class DispositivoInteligenteAAcondicionado3500 extends DispositivoInteligenteAAcondicionado {
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteAAcondicionado;
+
+public class DispositivoInteligenteAAcondicionado2200 extends DispositivoInteligenteAAcondicionado {
     private int temperatura;
-        private double consumo;
+    private double consumo;
     private  boolean esBajoConsumo;
 
-    public DispositivoInteligenteAAcondicionado3500(String nombre,  String estado) {
+    public DispositivoInteligenteAAcondicionado2200(String nombre,  String estado) {
         super(nombre, 1.613, estado,false);
     }
 

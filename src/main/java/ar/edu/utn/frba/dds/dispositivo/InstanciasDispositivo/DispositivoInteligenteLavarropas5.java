@@ -1,4 +1,6 @@
-package ar.edu.utn.frba.dds.dispositivo;
+package ar.edu.utn.frba.dds.dispositivo.InstanciasDispositivo;
+
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteLavarropas;
 
 public class DispositivoInteligenteLavarropas5 extends DispositivoInteligenteLavarropas {
     private int temperatura;

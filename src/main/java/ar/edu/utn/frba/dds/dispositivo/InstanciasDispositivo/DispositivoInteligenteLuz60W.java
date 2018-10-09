@@ -1,12 +1,12 @@
-package ar.edu.utn.frba.dds.dispositivo;
+package ar.edu.utn.frba.dds.dispositivo.InstanciasDispositivo;
 
-public class DispositivoInteligenteTV24 extends DispositivoInteligenteTV {
+public class DispositivoInteligenteLuz60W extends DispositivoInteligenteLuz {
     private int temperatura;
     private double consumo;
     private  boolean esBajoConsumo;
 
-    public DispositivoInteligenteTV24(String nombre, String estado) {
-        super(nombre, 0.04, estado,true);
+    public DispositivoInteligenteLuz60W(String nombre, String estado) {
+        super(nombre, 0.06, estado,false);
     }
 
     public int getTemperatura() {
@@ -16,6 +16,5 @@ public class DispositivoInteligenteTV24 extends DispositivoInteligenteTV {
     public void setTemperatura(int temperatura) {
         this.temperatura = temperatura;
     }
-
 
 }

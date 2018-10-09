@@ -1,5 +1,7 @@
 package ar.edu.utn.frba.dds.dispositivo;
 
+import ar.edu.utn.frba.dds.dispositivo.InstanciasDispositivo.*;
+
 public class DIFactoryMethod {
 
 
@@ -33,9 +35,6 @@ public class DIFactoryMethod {
                 break;
             case "Luz 40W":
                 dispositivo = new DispositivoInteligenteLuz40W(nombre, estado);
-                break;
-            case "Luz 60W":
-                dispositivo = new DispositivoInteligenteLuz60W(nombre, estado);
                 break;
             case "Luz 100W":
                 dispositivo = new DispositivoInteligenteLuz100W(nombre, estado);

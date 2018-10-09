@@ -1,4 +1,6 @@
-package ar.edu.utn.frba.dds.dispositivo;
+package ar.edu.utn.frba.dds.dispositivo.InstanciasDispositivo;
+
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligentePC;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;

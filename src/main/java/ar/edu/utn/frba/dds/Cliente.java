@@ -36,8 +36,8 @@ public class Cliente extends Usuario {
     private boolean ahorroAutomatico;
 
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Categoria.class)
     @JoinColumn(name = "idCategoria", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_CATEGORIA"))
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Categoria.class)
     public Categoria categoria;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Transformador.class)

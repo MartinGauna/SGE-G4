@@ -1,4 +1,6 @@
-package ar.edu.utn.frba.dds.dispositivo;
+package ar.edu.utn.frba.dds.dispositivo.InstanciasDispositivo;
+
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteTV;
 
 public class DispositivoInteligenteTV32 extends DispositivoInteligenteTV {
     private int temperatura;

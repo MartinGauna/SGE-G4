@@ -2,7 +2,7 @@ package ar.edu.utn.frba.dds.actuador;
 
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteVentilador;
 
-public class ActuadorVentilador implements Actuador {
+public class ActuadorVentilador extends Actuador {
 
     private DispositivoInteligenteVentilador ventilador;
 

@@ -8,12 +8,14 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-@MappedSuperclass
+@Entity
+@Inheritance(strategy=InheritanceType.JOINED)
+@Table
 public class Dispositivo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    public int id;
 
     @NotNull
     private String nombre;

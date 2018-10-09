@@ -2,7 +2,7 @@ package ar.edu.utn.frba.dds.actuador;
 
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteMicro;
 
-public class ActuadorMicro implements Actuador {
+public class ActuadorMicro extends Actuador {
 
     private DispositivoInteligenteMicro micro;
 

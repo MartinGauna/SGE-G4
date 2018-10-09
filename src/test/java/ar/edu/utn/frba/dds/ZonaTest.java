@@ -1,8 +1,8 @@
 package ar.edu.utn.frba.dds;
 
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteTV;
-import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteTV24;
-import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteTV32;
+import ar.edu.utn.frba.dds.dispositivo.InstanciasDispositivo.DispositivoInteligenteTV24;
+import ar.edu.utn.frba.dds.dispositivo.InstanciasDispositivo.DispositivoInteligenteTV32;
 import ar.edu.utn.frba.dds.jsonParser.JsonParser;
 import org.junit.Before;
 import org.junit.Test;

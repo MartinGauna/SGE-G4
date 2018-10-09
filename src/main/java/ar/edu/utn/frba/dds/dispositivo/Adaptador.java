@@ -19,8 +19,7 @@ public class Adaptador {
     @OneToOne(fetch = FetchType.LAZY, targetEntity = Estandard.class)
     @JoinColumn(name = "idDispositivo", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_ESTANDAR"))
     private Estandard dispositivo;
-    @OneToMany(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "idConsumo", referencedColumnName = "id")
+    @Transient
     private List<Consumo> consumo;
     @NotNull
     private Boolean modoAhorro;

@@ -11,11 +11,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-@MappedSuperclass
+@Entity
+@Inheritance(strategy=InheritanceType.JOINED)
+@Table
 public class DispositivoInteligente extends Dispositivo {
 
-    @OneToMany(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "idConsumo", referencedColumnName = "id")
+    @Transient
     List<Consumo> consumo;
     //TODO: Cambiar actuador de interfaz a clase o implementarlo
     @Transient

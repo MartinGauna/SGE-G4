@@ -11,13 +11,12 @@ import java.util.Date;
 @Table
 public class Consumo {
 
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
-	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Transformador.class)
-	@JoinColumn(name = "idTransformador", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_TRANSFORMADOR"))
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Dispositivo.class)
+	@JoinColumn(name = "id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_TRANSFORMADOR"))
     private Dispositivo dispositivo;
     @NotNull
 	private int watts;
@@ -32,6 +31,8 @@ public class Consumo {
         this.setFechaInicio(fechaInicio);
         this.setFechaFinal(fechaFinal);
     }
+
+    public Consumo() {}
 
 	public Date getFechaInicio() {
 		return fechaInicio;

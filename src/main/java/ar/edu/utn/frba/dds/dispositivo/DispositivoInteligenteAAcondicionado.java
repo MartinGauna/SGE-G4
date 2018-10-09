@@ -31,6 +31,8 @@ public class DispositivoInteligenteAAcondicionado extends DispositivoInteligente
         ActuadorAAcondicionado actuador = new ActuadorAAcondicionado(this);
         this.setActuador(actuador);
         this.setTemperatura(24);
+        this.setEsBajoConsumo(esBajoConsumo);
+        this.setConsumo(consumo);
     }
 
     public int getTemperatura() {
@@ -48,4 +50,21 @@ public class DispositivoInteligenteAAcondicionado extends DispositivoInteligente
     public int getUso_maximo() {
         return uso_maximo;
     }
+
+    public boolean isEsBajoConsumo() {
+        return esBajoConsumo;
+    }
+
+    public void setEsBajoConsumo(boolean esBajoConsumo) {
+        this.esBajoConsumo = esBajoConsumo;
+    }
+
+    public double getConsumo() {
+        return consumo;
+    }
+
+    public void setConsumo(double consumo) {
+        this.consumo = consumo;
+    }
 }
+

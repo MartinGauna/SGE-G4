@@ -25,7 +25,7 @@ public class DispositivoPersistenceTest {
 
     @Before
     public void before() {
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("TEST_PERSISTENCE_UNIT");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("TEST_PERSISTENCE_GONZALO");
         entityManager = factory.createEntityManager();
     }
 
