@@ -2,7 +2,7 @@ package ar.edu.utn.frba.dds.actuador;
 
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteLuz;
 
-public class ActuadorLuz implements Actuador {
+public class ActuadorLuz extends Actuador {
     private DispositivoInteligenteLuz luz;
 
     public ActuadorLuz(DispositivoInteligenteLuz luz) {

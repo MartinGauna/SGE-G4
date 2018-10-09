@@ -1,5 +1,7 @@
 package ar.edu.utn.frba.dds.dispositivo.InstanciasDispositivo;
 
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteLuz;
+
 public class DispositivoInteligenteLuz60W extends DispositivoInteligenteLuz {
     private int temperatura;
     private double consumo;
