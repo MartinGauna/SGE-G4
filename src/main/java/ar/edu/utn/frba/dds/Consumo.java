@@ -1,6 +1,7 @@
 package ar.edu.utn.frba.dds;
 
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -15,7 +16,7 @@ public class Consumo {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
-	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Dispositivo.class)
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = DispositivoInteligente.class)
 	@JoinColumn(name = "idDispositivo", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_TRANSFORMADOR"))
     private Dispositivo dispositivo;
     @NotNull
@@ -33,6 +34,10 @@ public class Consumo {
     }
 
     public Consumo() {}
+
+	public int getId() {
+		return id;
+	}
 
 	public Date getFechaInicio() {
 		return fechaInicio;

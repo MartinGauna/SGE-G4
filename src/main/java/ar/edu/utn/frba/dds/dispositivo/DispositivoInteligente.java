@@ -16,7 +16,8 @@ import java.util.List;
 @Table
 public class DispositivoInteligente extends Dispositivo {
 
-    @Transient
+    @OneToMany(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "idDispositivo", referencedColumnName = "id")
     List<Consumo> consumo;
     //TODO: Cambiar actuador de interfaz a clase o implementarlo
     @Transient
@@ -46,8 +47,15 @@ public class DispositivoInteligente extends Dispositivo {
         Consumo consumoI = new Consumo(this, watts, fechaInicio, fechaFinal);
 
         //Add to Consumo list
-        consumo.add(consumoI);
+        addConsumo(consumoI);
+    }
 
+    public void addConsumo(Consumo consumoI) {
+         consumo.add(consumoI);
+    }
+
+    public List<Consumo> getConsumos() {
+        return consumo;
     }
 
     public void encender() {
