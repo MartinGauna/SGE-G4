@@ -4,6 +4,7 @@ import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.Zona;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -65,6 +66,18 @@ public class Transformador {
             for (Dispositivo disp : dispositivos) {
 
                 consumoTotal += disp.getConsumoTotal();
+            }
+        }
+        return consumoTotal;
+    }
+
+    public int getConsumoTotal(Date fechaInicio, Date fechaFin) {
+        int consumoTotal = 0;
+        for (Cliente cliente : clientes) {
+            List<Dispositivo> dispositivos = cliente.getDispositivos();
+            for (Dispositivo disp : dispositivos) {
+
+                consumoTotal += disp.getConsumoTotal(fechaInicio, fechaFin);
             }
         }
         return consumoTotal;

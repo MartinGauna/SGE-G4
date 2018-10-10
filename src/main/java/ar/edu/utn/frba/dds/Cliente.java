@@ -151,6 +151,17 @@ public class Cliente extends Usuario {
         return out;
     }
 
+    public List<Estandard> getDispositivosEstandars() {
+        List<Estandard> out = new ArrayList<Estandard>();
+        for (Dispositivo d : this.dispositivos) {
+            if (d instanceof Estandard) {
+                Estandard de = (Estandard) d;
+                out.add(de);
+            }
+        }
+        return out;
+    }
+
     public void setDispositivos(List<Dispositivo> dispositivos) {
         this.dispositivos = dispositivos;
     }
