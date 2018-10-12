@@ -2,12 +2,14 @@ package ar.edu.utn.frba.dds.sensor;
 
 import ar.edu.utn.frba.dds.Magnitud;
 
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-
-public class    SensorLuz extends Sensor{
+@Entity
+@DiscriminatorColumn(name="L")
+public class SensorLuz extends Sensor{
 
     public SensorLuz() {
         this.setMagnitud(new Magnitud(0, "Hz"));

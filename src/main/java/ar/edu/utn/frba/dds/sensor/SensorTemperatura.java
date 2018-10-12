@@ -2,11 +2,13 @@ package ar.edu.utn.frba.dds.sensor;
 
 import ar.edu.utn.frba.dds.Magnitud;
 
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-
+@Entity
+@DiscriminatorColumn(name="T")
 public class SensorTemperatura extends Sensor {
 
     public SensorTemperatura() {
