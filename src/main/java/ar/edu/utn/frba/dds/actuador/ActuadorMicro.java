@@ -1,13 +1,25 @@
 package ar.edu.utn.frba.dds.actuador;
 
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteAAcondicionado;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteMicro;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@DiscriminatorColumn(name="MICROONDAS")
 public class ActuadorMicro extends Actuador {
 
+    @NotNull
+    @OneToOne(fetch = FetchType.LAZY, targetEntity = DispositivoInteligenteMicro.class)
+    @JoinColumn(name = "idDispositivo", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_ACTUADOR_MICRO"))
     private DispositivoInteligenteMicro micro;
 
     public ActuadorMicro(DispositivoInteligenteMicro micro) {
         this.micro = micro;
+    }
+
+    public ActuadorMicro() {
     }
 
     public void prenderDispositivo() {micro.encender();
@@ -27,3 +39,4 @@ public class ActuadorMicro extends Actuador {
     }
 
 }
+
