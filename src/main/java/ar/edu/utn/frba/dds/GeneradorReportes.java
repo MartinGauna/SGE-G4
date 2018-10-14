@@ -87,6 +87,6 @@ public class GeneradorReportes {
         String reporte;
         reporte = "El consumo del transformador fue: " + transformador.getConsumoTotal(fechaInicio, fechaFin) + " watts.";
         return reporte;
-    }
+}
 
 }

@@ -83,6 +83,10 @@ public class Transformador {
         return consumoTotal;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public Zona getZona() {
         return zona;
     }

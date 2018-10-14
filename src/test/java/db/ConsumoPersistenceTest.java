@@ -1,11 +1,8 @@
 package db;
 
-import ar.edu.utn.frba.dds.Cliente;
-import ar.edu.utn.frba.dds.Consumo;
-import ar.edu.utn.frba.dds.GeneradorReportes;
+import ar.edu.utn.frba.dds.*;
 import ar.edu.utn.frba.dds.actuador.ActuadorAAcondicionado;
 import ar.edu.utn.frba.dds.actuador.ActuadorHeladera;
-import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteAAcondicionado;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteHeladera;
 import org.junit.Before;
@@ -34,6 +31,9 @@ public class ConsumoPersistenceTest {
     private Consumo cons3;
     private Consumo cons4;
     private SimpleDateFormat sdf;
+    private Zona sanTelmo;
+    private Transformador trafo;
+
 
     @Before
     public void before() throws ParseException {
@@ -54,7 +54,7 @@ public class ConsumoPersistenceTest {
         actuadorAire = new ActuadorAAcondicionado(aire);
         actuadorHel = new ActuadorHeladera(hel);
 
-        //genero consumos
+        //creacion de consumos
         sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date d = sdf.parse("12/12/2018");
         Date e = sdf.parse("18/12/2018");
@@ -71,9 +71,17 @@ public class ConsumoPersistenceTest {
         aire.addConsumo(cons3);
         aire.addConsumo(cons4);
 
+
+        //creacion de transformadores y Zonas
+        sanTelmo = new Zona("San Telmo", -34.6210356, -58.373654, 300);
+        trafo = new Transformador( 34.61, 44.41, sanTelmo);
+        trafo.addCliente(cliente1);
+
         // persisto
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
+        entityManager.persist(sanTelmo);
+        entityManager.persist(trafo);
         entityManager.persist(cons1);
         entityManager.persist(cons2);
         entityManager.persist(cons3);
@@ -99,10 +107,12 @@ public class ConsumoPersistenceTest {
 
         String rep = reporte.generarReporteConsumoHogar(clientePersistido,inicio,fin);
         System.out.println(rep);
+
 }
 
     @Test
     public void consumoPromedioPorDispositivoTest() throws ParseException {
+
         // 2- Dado un dispositivo y un período, mostrar por consola su consumo promedio.
 
         Date inicio = sdf.parse("01/12/2018");
@@ -120,8 +130,17 @@ public class ConsumoPersistenceTest {
     }
 
     @Test
-    public void consumoPromedioPorTransformadorTest() {
+    public void consumoPromedioPorTransformadorTest() throws ParseException {
+
         // 3- Dado un transformador y un período, mostrar su consumo promedio.
+
+        Date inicio = sdf.parse("01/12/2018");
+        Date fin = sdf.parse("29/12/2018");
+
+        Transformador persistido = entityManager.find(Transformador.class, trafo.getId());
+
+        String rep = reporte.generarReporteTransformador(persistido,inicio,fin);
+        System.out.println(rep);
     }
 
     @Test
