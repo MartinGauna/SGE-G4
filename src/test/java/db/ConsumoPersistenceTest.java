@@ -5,6 +5,7 @@ import ar.edu.utn.frba.dds.Consumo;
 import ar.edu.utn.frba.dds.GeneradorReportes;
 import ar.edu.utn.frba.dds.actuador.ActuadorAAcondicionado;
 import ar.edu.utn.frba.dds.actuador.ActuadorHeladera;
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteAAcondicionado;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteHeladera;
 import org.junit.Before;
@@ -101,8 +102,21 @@ public class ConsumoPersistenceTest {
 }
 
     @Test
-    public void consumoPromedioPorDispositivoTest() {
+    public void consumoPromedioPorDispositivoTest() throws ParseException {
         // 2- Dado un dispositivo y un período, mostrar por consola su consumo promedio.
+
+        Date inicio = sdf.parse("01/12/2018");
+        Date fin = sdf.parse("29/12/2018");
+
+        DispositivoInteligenteAAcondicionado airePersistido = entityManager.find(DispositivoInteligenteAAcondicionado.class, aire.getId());
+
+        int consumoTotal = airePersistido.getConsumoTotal(inicio, fin);
+        int size = airePersistido.getConsumos().size();
+
+        int consumoPromedio = consumoTotal / size;
+
+        System.out.println("El dispositivo " + airePersistido.getNombre() + " tuvo un consumo promedio de " + consumoPromedio + " watts.");
+
     }
 
     @Test
