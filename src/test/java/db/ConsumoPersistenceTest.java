@@ -23,46 +23,50 @@ public class ConsumoPersistenceTest {
 
     private EntityManager entityManager;
     private GeneradorReportes reporte;
+    private Cliente cliente1;
+    private DispositivoInteligenteHeladera hel;
+    private DispositivoInteligenteAAcondicionado aire;
+    private ActuadorAAcondicionado actuadorAire;
+    private ActuadorHeladera actuadorHel;
+    private Consumo cons1;
+    private Consumo cons2;
+    private Consumo cons3;
+    private Consumo cons4;
+    private SimpleDateFormat sdf;
 
     @Before
-    public void before() {
+    public void before() throws ParseException {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("TEST_PERSISTENCE_UNIT");
         entityManager = factory.createEntityManager();
         reporte = GeneradorReportes.getInstance();
-    }
-
-    @Test
-    public void consumoTotalPorHogarTest() throws ParseException {
-
-        // 1 - Dado un hogar y un período, mostrar por consola el consumo total.
 
         // creacion de clientes
-        Cliente cliente1 = new Cliente("Pepe", "Ruiz", "Calle Falsa 123", "user1",
+        cliente1 = new Cliente("Pepe", "Ruiz", "Calle Falsa 123", "user1",
                 "pass1", LocalDate.of(2018,04, 28),"DNI",
                 87654321, 45555533, null , LocalDate.now(),true);
 
         //creacion de dispositivos
-        DispositivoInteligenteHeladera hel = new DispositivoInteligenteHeladera("Heladera", 123, "activo", false);
+        hel = new DispositivoInteligenteHeladera("Heladera", 123, "activo", false);
         cliente1.addDispositivo(hel);
-        DispositivoInteligenteAAcondicionado aire = new DispositivoInteligenteAAcondicionado("Aire Comedor", 1200, "apagado", false);
+        aire = new DispositivoInteligenteAAcondicionado("Aire Comedor", 1200, "apagado", false);
         cliente1.addDispositivo(aire);
-        ActuadorAAcondicionado actuadorAire = new ActuadorAAcondicionado(aire);
-        ActuadorHeladera actuadorHel = new ActuadorHeladera(hel);
+        actuadorAire = new ActuadorAAcondicionado(aire);
+        actuadorHel = new ActuadorHeladera(hel);
 
         //genero consumos
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date d = sdf.parse("12/12/2018");
         Date e = sdf.parse("18/12/2018");
         Date f = sdf.parse("19/12/2018");
         Date g = sdf.parse("21/12/2018");
 
-        Consumo cons1 = new Consumo(hel, 1200, d, e);
-        Consumo cons2 = new Consumo(hel, 2100, f, g);
+        cons1 = new Consumo(hel, 1200, d, e);
+        cons2 = new Consumo(hel, 2100, f, g);
         hel.addConsumo(cons1);
         hel.addConsumo(cons2);
 
-        Consumo cons3 = new Consumo(hel, 3400, d, e);
-        Consumo cons4 = new Consumo(hel, 4300, f, g);
+        cons3 = new Consumo(hel, 3400, d, e);
+        cons4 = new Consumo(hel, 4300, f, g);
         aire.addConsumo(cons3);
         aire.addConsumo(cons4);
 
@@ -79,6 +83,13 @@ public class ConsumoPersistenceTest {
         entityManager.persist(aire);
         entityManager.persist(cliente1);
         transaction.commit();
+
+    }
+
+    @Test
+    public void consumoTotalPorHogarTest() throws ParseException {
+
+        // 1 - Dado un hogar y un período, mostrar por consola el consumo total.
 
         Date inicio = sdf.parse("01/12/2018");
         Date fin = sdf.parse("29/12/2018");
