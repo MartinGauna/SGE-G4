@@ -9,16 +9,16 @@ import java.util.List;
 
 public class GeneradorReportes {
 
-    GeneradorReportes instance = null;
+    public static GeneradorReportes instance = null;
 
-    GeneradorReportes getInstance() {
+    public static GeneradorReportes getInstance() {
         if(instance == null) {
             instance = new GeneradorReportes();
         }
         return instance;
     }
 
-    String generarReporteConsumoHogar(Cliente cliente, Date fechaInicio, Date fechaFin) {
+    public String generarReporteConsumoHogar(Cliente cliente, Date fechaInicio, Date fechaFin) {
         String reporte;
 
         int consumoTotal = 0;
@@ -41,7 +41,7 @@ public class GeneradorReportes {
         return reporte;
     }
 
-    String generarReporteConsumoInteligente(Cliente cliente, Date fechaInicio, Date fechaFin) {
+    public String generarReporteConsumoInteligente(Cliente cliente, Date fechaInicio, Date fechaFin) {
         String reporte;
         int consumoTotal = 0;
         int consumoPromedio = 0;
@@ -62,7 +62,7 @@ public class GeneradorReportes {
         return reporte;
     }
 
-    String generarReporteConsumoEstandard(Cliente cliente, Date fechaInicio, Date fechaFin) {
+    public String generarReporteConsumoEstandard(Cliente cliente, Date fechaInicio, Date fechaFin) {
         String reporte;
         int consumoTotal = 0;
         int consumoPromedio = 0;
@@ -83,7 +83,7 @@ public class GeneradorReportes {
         return reporte;
     }
 
-    String generarReporteTransformador(Transformador transformador, Date fechaInicio, Date fechaFin){
+    public String generarReporteTransformador(Transformador transformador, Date fechaInicio, Date fechaFin){
         String reporte;
         reporte = "El consumo del transformador fue: " + transformador.getConsumoTotal(fechaInicio, fechaFin) + " watts.";
         return reporte;
