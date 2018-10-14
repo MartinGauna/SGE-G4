@@ -6,8 +6,8 @@ import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteVentilador;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@Table
 @Entity
-@DiscriminatorColumn(name="VENTILADOR")
 public class ActuadorVentilador extends Actuador {
 
     @NotNull

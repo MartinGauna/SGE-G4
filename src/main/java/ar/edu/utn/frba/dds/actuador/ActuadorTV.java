@@ -6,8 +6,8 @@ import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteTV;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@Table
 @Entity
-@DiscriminatorColumn(name="TV")
 public class ActuadorTV extends Actuador {
 
     @NotNull

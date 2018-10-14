@@ -1,5 +1,6 @@
 package ar.edu.utn.frba.dds.dispositivo;
 
+import ar.edu.utn.frba.dds.Consumo;
 import ar.edu.utn.frba.dds.actuador.ActuadorAAcondicionado;
 
 import javax.persistence.Entity;
@@ -14,8 +15,7 @@ public class DispositivoInteligenteAAcondicionado extends DispositivoInteligente
     public int uso_maximo;
     @NotNull
     public int uso_minimo;
-    @NotNull
-    private double consumo;
+
     @NotNull
     private  boolean esBajoConsumo;
 
@@ -32,7 +32,6 @@ public class DispositivoInteligenteAAcondicionado extends DispositivoInteligente
         this.setActuador(actuador);
         this.setTemperatura(24);
         this.setEsBajoConsumo(esBajoConsumo);
-        this.setConsumo(consumo);
     }
 
     public int getTemperatura() {
@@ -59,12 +58,5 @@ public class DispositivoInteligenteAAcondicionado extends DispositivoInteligente
         this.esBajoConsumo = esBajoConsumo;
     }
 
-    public double getConsumo() {
-        return consumo;
-    }
-
-    public void setConsumo(double consumo) {
-        this.consumo = consumo;
-    }
 }
 

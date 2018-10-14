@@ -40,12 +40,16 @@ public class Dispositivo {
         switch (estado) {
             case "ahorro":
                 this.estado = Context.string_Ahorrro;
+                break;
             case "apagado":
                 this.estado = Context.string_Apagado;
+                break;
             case "activo":
                 this.estado = Context.string_Activo;
+                break;
             default:
                 this.estado = Context.string_Activo;
+                break;
         }
     }
 

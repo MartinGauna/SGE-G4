@@ -6,8 +6,8 @@ import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligentePlancha;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@Table
 @Entity
-@DiscriminatorColumn(name="AACONDICIONADO")
 public class ActuadorPlancha extends Actuador {
 
     @NotNull

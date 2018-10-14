@@ -2,13 +2,29 @@ package ar.edu.utn.frba.dds.regla;
 
 import ar.edu.utn.frba.dds.actuador.Actuador;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
+@Entity
+@Table
 public class Regla implements Observer{
 
-    protected Actuador actuador;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
+;    @OneToOne(fetch = FetchType.LAZY, targetEntity = Actuador.class)
+    @JoinColumn(name = "idActuador", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_ACTUADOR"))
+    private Actuador actuador;
+
+    @NotNull
     protected String methodname;
+
+    @NotNull
+    @OneToMany(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "idRegla", referencedColumnName = "id")
     public List<Condicion> condiciones;
 
     public Regla(Actuador actuador, String methodname,  List<Condicion> condiciones) {
@@ -16,8 +32,15 @@ public class Regla implements Observer{
         this.methodname = methodname;
         this.condiciones = condiciones;
     }
+
+    public Regla() {
+    }
+
     public void update(Observable observable){}
 
+    public int getId() {
+        return id;
+    }
     public void ejecutar(){
         char previous_logic_factor;
         //Resultado del update es TRUE por default (por si no tiene ninguna condicion)

@@ -3,8 +3,7 @@ package ar.edu.utn.frba.dds.actuador;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy= InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="tipoActuador")
+@Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
 @Table
 public abstract class Actuador {
 

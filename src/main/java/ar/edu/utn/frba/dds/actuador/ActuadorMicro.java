@@ -1,13 +1,12 @@
 package ar.edu.utn.frba.dds.actuador;
 
-import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteAAcondicionado;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteMicro;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@Table
 @Entity
-@DiscriminatorColumn(name="MICROONDAS")
 public class ActuadorMicro extends Actuador {
 
     @NotNull

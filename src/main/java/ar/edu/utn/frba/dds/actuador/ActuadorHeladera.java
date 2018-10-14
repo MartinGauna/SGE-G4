@@ -6,8 +6,8 @@ import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteHeladera;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@Table
 @Entity
-@DiscriminatorColumn(name="HELADERA")
 public class ActuadorHeladera extends Actuador {
 
     @NotNull

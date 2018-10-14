@@ -7,8 +7,8 @@ import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteLuz;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@Table
 @Entity
-@DiscriminatorColumn(name="LUZ")
 public class ActuadorLuz extends Actuador {
 
     @NotNull

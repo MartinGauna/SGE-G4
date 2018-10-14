@@ -20,10 +20,14 @@ public class DispositivoInteligente extends Dispositivo {
     @JoinColumn(name = "idDispositivo", referencedColumnName = "id")
     List<Consumo> consumo;
     //TODO: Cambiar actuador de interfaz a clase o implementarlo
-    @Transient
+
+    @OneToOne(fetch = FetchType.LAZY, targetEntity = Actuador.class)
+    @JoinColumn(name = "idDispositivo", referencedColumnName = "id")
     Actuador actuador;
+
     @Transient
     List<Integer> periodos;
+
     @NotNull
     public int uso_minimo;
     @NotNull
