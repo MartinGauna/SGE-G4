@@ -8,8 +8,6 @@ import ar.edu.utn.frba.dds.regla.Condicion;
 import ar.edu.utn.frba.dds.regla.Regla;
 import ar.edu.utn.frba.dds.sensor.SensorHumedad;
 import ar.edu.utn.frba.dds.sensor.SensorTemperatura;
-import org.junit.Before;
-import org.junit.Test;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -17,8 +15,10 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class ReglaPersistenceTest {
 
@@ -45,10 +45,10 @@ public class ReglaPersistenceTest {
     }
 
     @Test
-    public void update_test_1() {
+    public void cambioEstadoTest() {
 
         long harcodedTemperatura = 24;
-        long harcodedHumedad = 80;
+        long harcodedHumedad = 95;
 
         //CONDICION 1 --> TEMPERATURA 23°
         Condicion cond1 = new Condicion('>', harcodedTemperatura, 23);
@@ -78,22 +78,21 @@ public class ReglaPersistenceTest {
         entityManager.persist(aire);
         transaction.commit();
 
-
-        //mostrado por consola de consumos
-
         DispositivoInteligenteAAcondicionado dispPersistido = entityManager.find(DispositivoInteligenteAAcondicionado.class, aire.getId());
         Regla reglaPersistida = entityManager.find(Regla.class, regla.getId());
 
         Context einicial = dispPersistido.getEstado();
         System.out.println("Estado inicial del dispositivo: " + einicial);
-
         reglaPersistida.ejecutar();
         Context efinal = dispPersistido.getEstado();
-
         System.out.println("Estado final del dispositivo: " + efinal);
+        assertNotSame(einicial, efinal);
 
-        //TODO: verificar porque no cambia el estado
-        //assertTrue(einicial != efinal);
+        // modifico alguna de las condiciones
+        long magnitudNueva = 100;
+        cond1.setMagnitudDelSensor(magnitudNueva);
+        Condicion condPersistida = entityManager.find(Condicion.class, cond1.getId());
+
+        assertEquals(magnitudNueva, condPersistida.getMagnitudDelSensor());
     }
-
 }

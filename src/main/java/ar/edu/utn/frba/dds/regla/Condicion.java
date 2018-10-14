@@ -78,4 +78,36 @@ public class Condicion {
     public int getId() {
         return id;
     }
+
+    public char getCriterio() {
+        return criterio;
+    }
+
+    public long getMagnitudDelSensor() {
+        return magnitudDelSensor;
+    }
+
+    public long getValor_condicion() {
+        return valor_condicion;
+    }
+
+    public void setRegla(Regla regla) {
+        this.regla = regla;
+    }
+
+    public void setCriterio(char criterio) {
+        this.criterio = criterio;
+    }
+
+    public void setPrevious_logic_factor(char previous_logic_factor) {
+        this.previous_logic_factor = previous_logic_factor;
+    }
+
+    public void setMagnitudDelSensor(long magnitudDelSensor) {
+        this.magnitudDelSensor = magnitudDelSensor;
+    }
+
+    public void setValor_condicion(long valor_condicion) {
+        this.valor_condicion = valor_condicion;
+    }
 }
