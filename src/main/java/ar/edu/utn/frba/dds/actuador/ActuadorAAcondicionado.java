@@ -1,13 +1,25 @@
 package ar.edu.utn.frba.dds.actuador;
 
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteAAcondicionado;
 
-public class ActuadorAAcondicionado implements Actuador {
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
+@Table
+@Entity
+public class ActuadorAAcondicionado extends Actuador {
+
+    @OneToOne(fetch = FetchType.LAZY, targetEntity = DispositivoInteligenteAAcondicionado.class)
+    @JoinColumn(name = "idDispositivo", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_ACTUADOR_AACOND"))
     private DispositivoInteligenteAAcondicionado aire;
 
     public ActuadorAAcondicionado(DispositivoInteligenteAAcondicionado aire) {
         this.aire = aire;
+        aire.setActuador(this);
+    }
+
+    public ActuadorAAcondicionado() {
     }
 
     public void prenderDispositivo() {

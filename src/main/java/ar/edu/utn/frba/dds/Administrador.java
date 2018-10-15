@@ -1,8 +1,13 @@
 package ar.edu.utn.frba.dds;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDate;
 import java.time.Period;
 
+@Entity
+@Table
 public class Administrador extends Usuario {
 
     private int legajo;
@@ -11,6 +16,9 @@ public class Administrador extends Usuario {
     public Administrador(String nombre, String apellido, String domicilio, String user, String password, LocalDate fechaAlta, int legajo) {
         super(nombre, apellido, domicilio, user,password,fechaAlta);
         this.legajo = legajo;
+    }
+
+    public Administrador() {
     }
 
     // Legajo

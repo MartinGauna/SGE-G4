@@ -1,28 +1,32 @@
 package ar.edu.utn.frba.dds;
 
+import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
+import ar.edu.utn.frba.dds.dispositivo.Estandard;
+import ar.edu.utn.frba.dds.helpers.BackgroundProcesses;
+import ar.edu.utn.frba.dds.jsonParser.JsonParser;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
-import ar.edu.utn.frba.dds.dispositivo.Estandard;
-import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
-import ar.edu.utn.frba.dds.jsonParser.JsonParser;
 
 public class App 
 {
 	private static App instance = null;
 	List<Categoria> categorias = new ArrayList<Categoria>();
+	Cliente loggedClient;
     public static void main( String[] args )
     {
 
         //Loading Dispositivo.
     	JsonParser jsonParser = new JsonParser();
         Dispositivo dispositivo = new Dispositivo();
+        BackgroundProcesses bkgP = new BackgroundProcesses();
+
 
         System.out.println( "============ Lista de Clientes" );
 		try{
-			List<Cliente> clientes = jsonParser.loadClientesJSON("/listaClientes.json");
+			List<Cliente> clientes = jsonParser.loadClientesJSON();
             clientes.forEach(cli-> System.out.println(cli.toString()));
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -30,7 +34,7 @@ public class App
 
         System.out.println( "============ Lista de Administradores" );
         try{
-            List<Administrador> admins = jsonParser.loadAdministradoresJSON("/listaAdministradores.json");
+            List<Administrador> admins = jsonParser.loadAdministradoresJSON();
             admins.forEach(a-> System.out.println(a.toString()));
         } catch (IOException e) {
             e.printStackTrace();
@@ -38,7 +42,7 @@ public class App
 
         System.out.println( "============ Lista de Dispositivos Inteligentes" );
         try {
-            List<DispositivoInteligente> dispositivos = jsonParser.loadDispositivosInteligentesJSON("/listaDispositivosInteligentes.json");
+            List<DispositivoInteligente> dispositivos = jsonParser.loadDispositivosInteligentesJSON();
             dispositivos.forEach(disp -> System.out.println(disp.getClass().toString()));
 
 
@@ -48,7 +52,7 @@ public class App
 
         System.out.println( "============ Lista de Dispositivos Estandard" );
         try {
-            List<Estandard> dispositivos = jsonParser.loadDispositivosEstandardJSON("/listaDispositivosEstandard.json");
+            List<Estandard> dispositivos = jsonParser.loadDispositivosEstandardJSON();
             dispositivos.forEach(disp -> System.out.println(disp.getClass().toString()));
 
 
@@ -100,5 +104,9 @@ public class App
     		}
     	}
     	return null;
+    }
+    public Cliente getLoggedClient() {
+
+        return loggedClient;
     }
 }

@@ -2,13 +2,33 @@ package ar.edu.utn.frba.dds;
 
 import java.time.LocalDate;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Inheritance(strategy=InheritanceType.JOINED)
+@Table
 public abstract class Usuario {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
+    @NotNull
     private String nombre;
+    @NotNull
     private String apellido;
+    @NotNull
     private String domicilio;
+    @NotNull
     private String user;
+
     private String password;
+    @NotNull
     private LocalDate fechaAlta;
+
+    protected Usuario() {
+    }
 
     // Nombre
     public String getNombre() {
@@ -27,6 +47,10 @@ public abstract class Usuario {
         this.user = user;
         this.password = password;
         this.fechaAlta = fechaAlta;
+    }
+
+    public int getId() {
+        return id;
     }
 
     // Apellido

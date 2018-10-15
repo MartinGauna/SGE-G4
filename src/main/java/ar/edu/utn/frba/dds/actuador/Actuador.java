@@ -1,12 +1,25 @@
 package ar.edu.utn.frba.dds.actuador;
 
-public interface Actuador {
+import javax.persistence.*;
 
-    public void prenderDispositivo();
-    public void apagarDispositivo();
+@Entity
+@Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
+@Table
+public abstract class Actuador {
 
-    public void cambiarModoAAhorro();
-    public void cambiarModoAPrendido();
-    public void cambiarModoAApagado();
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
+    public abstract void prenderDispositivo();
+    public abstract void apagarDispositivo();
+
+    public abstract void cambiarModoAAhorro();
+    public abstract void cambiarModoAPrendido();
+    public abstract void cambiarModoAApagado();
+
+    public int getId() {
+        return id;
+    }
 
 }

@@ -1,19 +1,46 @@
 package ar.edu.utn.frba.dds.sensor;
 
+import ar.edu.utn.frba.dds.Categoria;
 import ar.edu.utn.frba.dds.Magnitud;
 import ar.edu.utn.frba.dds.regla.Observable;
 import ar.edu.utn.frba.dds.regla.Observer;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.*;
 
-
+@Entity
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="tipoSensor")
+@Table
 public abstract class Sensor implements Observable {
-    protected long intervalo;
-    protected Magnitud magnitud;
-    public Magnitud mag;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
+    @NotNull
+    private long intervalo;
+
+    @OneToOne(fetch = FetchType.LAZY, targetEntity = Magnitud.class)
+    @JoinColumn(name = "idMagnitud", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_MAGNITUD"))
+    private Magnitud magnitud;
+
+    //public Magnitud mag;
+    public Sensor(long intervalo, Magnitud magnitud, Set<Observer> observers) {
+        this.intervalo = intervalo;
+        this.magnitud = magnitud;
+        this.observers = observers;
+    }
 
     // Collection de observers
+    @Transient
     private Set<Observer> observers;
+
+
+    public int getId() {
+        return id;
+    }
 
     public Magnitud getMagnitud() {
         return magnitud;
@@ -22,7 +49,7 @@ public abstract class Sensor implements Observable {
     public void setMagnitud(Magnitud magnitud) {
         this.magnitud = magnitud;
         // cambio el valor y notifico
-        this.notifyObservers();
+        //this.notifyObservers();
     }
 
     public long getIntervalo() {
@@ -74,6 +101,7 @@ public abstract class Sensor implements Observable {
 
     // notifica a todos los observers
     public void notifyObservers() {
+
         for (Observer observer : observers) {
             observer.update(this);
         }

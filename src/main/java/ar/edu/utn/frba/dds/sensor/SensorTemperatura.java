@@ -2,6 +2,13 @@ package ar.edu.utn.frba.dds.sensor;
 
 import ar.edu.utn.frba.dds.Magnitud;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@DiscriminatorColumn(name="T")
 public class SensorTemperatura extends Sensor {
 
     public SensorTemperatura() {
@@ -10,7 +17,12 @@ public class SensorTemperatura extends Sensor {
     }
 
     public SensorTemperatura(long intervalo) {
-        super(0, "°C", 40);
+
+        //Agregado por Matias: paso el intervalo como parametro (antes estaba hardcodeado en intervalo: 0
+        super(intervalo, "°C", 40);
+
+        //Agregado por Matias para replicar comportamiento de SensorHumedad -->
+        this.setIntervalo(intervalo);
     }
 
     @Override

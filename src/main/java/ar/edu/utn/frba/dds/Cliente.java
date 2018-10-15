@@ -1,26 +1,54 @@
 package ar.edu.utn.frba.dds;
 
 import ar.edu.utn.frba.dds.dispositivo.Adaptador;
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
+import ar.edu.utn.frba.dds.helpers.AdapterSimplex;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Optional;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table
+@DiscriminatorValue("")
 public class Cliente extends Usuario {
 
     public static final int puntosPorEstandard = 10;
     public static final int puntosPorInteligente = 15;
 
+    @NotNull
     private String tipoDoc;
+    @NotNull
+    @Column(unique = true)
     private int numeroDoc;
+    @NotNull
     private int telefono;
-    private Categoria categoria;
-    private List<Dispositivo> dispositivos;
+
     private int puntaje;
 
+    private boolean ahorroAutomatico;
+
+
+    @JoinColumn(name = "idCategoria", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_CATEGORIA"))
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Categoria.class)
+    public Categoria categoria;
+
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Transformador.class)
+    @JoinColumn(name = "idTransformador", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_TRANSFORMADOR"))
+    private Transformador transformador;
+
+    @Transient
+    private List<Dispositivo> dispositivos;
+
+    @Transient
+    private AdapterSimplex adapterSimplex = new AdapterSimplex();
 //    public enum TipoDocumento {
 //        DNI("DNI"),
 //        CI("CI"),
@@ -35,29 +63,56 @@ public class Cliente extends Usuario {
 //    }
 
     public Cliente(String nombre, String apellido, String domicilio, String user, String password, LocalDate fechaAlta,
-                   String tipoDoc, int numeroDoc, int telefono, Categoria categoria, LocalDate fechaAltaServicio) {
-        super(nombre, apellido, domicilio, user,password,fechaAlta);
+                   String tipoDoc, int numeroDoc, int telefono, Categoria categoria, LocalDate fechaAltaServicio, boolean ahorroAutomatico) {
+        super(nombre, apellido, domicilio, user, password, fechaAlta);
         this.tipoDoc = tipoDoc;
         this.numeroDoc = numeroDoc;
         this.telefono = telefono;
         this.categoria = categoria;
-        this.setFechaAlta(fechaAltaServicio) ;
+        this.setFechaAlta(fechaAltaServicio);
         this.dispositivos = new ArrayList<Dispositivo>();
         this.puntaje = 0;
+        this.ahorroAutomatico = ahorroAutomatico;
     }
-//===================== Getters & Setters
-	// Tipo de Documento
-	public String getTipoDoc() {
+
+    public Cliente() {
+    }
+
+    //===================== Getters & Setters
+
+    // Tipo de Documento
+    public String getTipoDoc() {
         return this.tipoDoc;
     }
+
     public void setTipoDoc(String tipoDoc) {
         this.tipoDoc = tipoDoc;
+    }
+
+    public Transformador getTransformador() {
+        return transformador;
+    }
+
+    public void setTransformador(Transformador transformador) {
+        this.transformador = transformador;
+        transformador.addCliente(this);
+    }
+
+    public void ahorroAutomatico() {
+        if (ahorroAutomatico) {
+            List<DispositivoInteligente> dispositivosParaApagar = adapterSimplex.getDispositivosParaApagar(this.getDispositivosInteligentes());
+            for (DispositivoInteligente disp : dispositivosParaApagar) {
+                disp.apagar();
+            }
+            ;
+        }
     }
 
     // Numero de Documento
     public int getNumeroDoc() {
         return this.numeroDoc;
     }
+
     public void setNumeroDoc(int numeroDoc) {
         this.numeroDoc = numeroDoc;
     }
@@ -66,6 +121,7 @@ public class Cliente extends Usuario {
     public double getTelefono() {
         return this.telefono;
     }
+
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
@@ -74,6 +130,7 @@ public class Cliente extends Usuario {
     public Categoria getCategoria() {
         return this.categoria;
     }
+
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
@@ -82,6 +139,29 @@ public class Cliente extends Usuario {
     public List<Dispositivo> getDispositivos() {
         return this.dispositivos;
     }
+
+    public List<DispositivoInteligente> getDispositivosInteligentes() {
+        List<DispositivoInteligente> out = new ArrayList<DispositivoInteligente>();
+        for (Dispositivo d : this.dispositivos) {
+            if (d instanceof DispositivoInteligente) {
+                DispositivoInteligente di = (DispositivoInteligente) d;
+                out.add(di);
+            }
+        }
+        return out;
+    }
+
+    public List<Estandard> getDispositivosEstandars() {
+        List<Estandard> out = new ArrayList<Estandard>();
+        for (Dispositivo d : this.dispositivos) {
+            if (d instanceof Estandard) {
+                Estandard de = (Estandard) d;
+                out.add(de);
+            }
+        }
+        return out;
+    }
+
     public void setDispositivos(List<Dispositivo> dispositivos) {
         this.dispositivos = dispositivos;
     }
@@ -90,6 +170,7 @@ public class Cliente extends Usuario {
     public int getPuntaje() {
         return puntaje;
     }
+
     public void setPuntaje(int puntaje) {
         this.puntaje = puntaje;
     }
@@ -122,17 +203,25 @@ public class Cliente extends Usuario {
         return this.getDispositivos().stream().count();
     }
 
-    public boolean dispositivoOn(String name){
+    public boolean dispositivoOn(String name) {
 
         Optional<Dispositivo> disp = dispositivos.stream().filter(d -> d.getNombre().equals(name)).findFirst();
 
         return disp.get().getEstado().equals("activo");
     }
 
+    public void cambiarTransformador(Transformador newtra) {
+        if(this.getTransformador() != null) {
+            //primero remuevo el cliente si estaba en otro transformador
+            this.getTransformador().getClientes().remove(this);
+        }
+        //seteo el nuevo transformador
+        this.setTransformador(newtra);
+    }
 
     @Override
     public String toString() {
-        return  "Cliente: \n"+
+        return "Cliente: \n" +
                 "\tNombre: " + getNombre() + "\n" +
                 "\tApellido: " + getApellido() + "\n" +
                 "\tDomicilio: " + getDomicilio() + "\n" +
@@ -145,8 +234,8 @@ public class Cliente extends Usuario {
                 "\tCategoría: " + getCategoria() + "\n" +
                 "\tDispositivos: " + getDispositivos() + "\n";
     }
-    
+
     public Boolean isInteligente(Dispositivo disp) {
-    	return !(disp instanceof Estandard);
+        return !(disp instanceof Estandard);
     }
 }

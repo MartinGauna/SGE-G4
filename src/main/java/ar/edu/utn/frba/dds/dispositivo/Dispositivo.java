@@ -1,42 +1,62 @@
 package ar.edu.utn.frba.dds.dispositivo;
 
-import ar.edu.utn.frba.dds.dispositivo.estadosDispositivo.*;
+import ar.edu.utn.frba.dds.Cliente;
+import ar.edu.utn.frba.dds.Consumo;
+import ar.edu.utn.frba.dds.Transformador;
+import ar.edu.utn.frba.dds.dispositivo.estadosDispositivo.Context;
 
-import java.lang.String;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
 
+@Entity
+@Inheritance(strategy=InheritanceType.JOINED)
+@Table
 public class Dispositivo {
 
-    private String nombre;
-    private int consumoHora;
-    private Context estado;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public int id;
 
-//    public enum Estados {
-//        ENCENDIDO("encendido"),
-//        APAGADO("apagado"),
-//    	AHORRO("ahorro");
-//
-//        private final String value;
-//
-//        Estados(final String text) {
-//            this.value = text;
-//        }
-//
-//        @Override
-//        public String toString() {
-//            return value;
-//        }
-//    }
+    @NotNull
+    private String nombre;
+    @NotNull
+    private double consumoHora;
+    @Enumerated(EnumType.STRING)
+    @Column
+    public Context estado;
+    @OneToOne(fetch = FetchType.LAZY, targetEntity = Cliente.class)
+    @JoinColumn(name = "idCliente", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_CLIENTE"))
+    private Cliente cliente;
 
     // Dispositivo
     public Dispositivo(){
         this.nombre = "";
         this.consumoHora = 0;
-        this.estado = new Context("activo");
+        this.estado = Context.string_Activo;
     }
-    public Dispositivo(String nombre, int consumoHora, String estado) {
+    public Dispositivo(String nombre, double consumoHora, String estado) {
         this.nombre = nombre;
-        this.consumoHora = consumoHora;
-        this.estado = new Context(estado);
+        setConsumoHora(consumoHora);
+        switch (estado) {
+            case "ahorro":
+                this.estado = Context.string_Ahorrro;
+                break;
+            case "apagado":
+                this.estado = Context.string_Apagado;
+                break;
+            case "activo":
+                this.estado = Context.string_Activo;
+                break;
+            default:
+                this.estado = Context.string_Activo;
+                break;
+        }
+    }
+
+
+    public int getId() {
+        return id;
     }
 
     // Nombre
@@ -48,16 +68,20 @@ public class Dispositivo {
     }
 
     // Consumo por Hora
-    public int getConsumoHora() {
+    public double getConsumoHora() {
         return consumoHora;
     }
-    public void setConsumoHora(int consumoHora) {
+    public void setConsumoHora(double consumoHora) {
         this.consumoHora = consumoHora;
     }
+
+    public int getConsumoTotal(Date fechaInicio, Date fechaFinal) {return 0;}
+    public int getConsumoTotal() {return 0;}
 
     // Estado del dispositivo.
     public Context getEstado() {
         return estado;
+
     }
 
     @Override
@@ -67,4 +91,5 @@ public class Dispositivo {
                 "\tConsumo por Hora: " + getConsumoHora() + "\n" +
                 "\tEstado: " + getEstado() + "\n";
     }
+
 }

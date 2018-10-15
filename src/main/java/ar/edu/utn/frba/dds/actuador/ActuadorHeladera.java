@@ -1,12 +1,25 @@
 package ar.edu.utn.frba.dds.actuador;
 
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteHeladera;
 
-public class ActuadorHeladera implements Actuador {
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+@Table
+@Entity
+public class ActuadorHeladera extends Actuador {
+
+    @OneToOne(fetch = FetchType.LAZY, targetEntity = DispositivoInteligenteHeladera.class)
+    @JoinColumn(name = "idDispositivo", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_ACTUADOR_HELADERA"))
     private DispositivoInteligenteHeladera heladera;
 
     public ActuadorHeladera(DispositivoInteligenteHeladera heladera) {
         this.heladera = heladera;
+        heladera.setActuador(this);
+    }
+
+    public ActuadorHeladera() {
     }
 
     public void prenderDispositivo() {
