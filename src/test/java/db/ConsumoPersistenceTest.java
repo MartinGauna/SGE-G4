@@ -3,6 +3,8 @@ package db;
 import ar.edu.utn.frba.dds.*;
 import ar.edu.utn.frba.dds.actuador.ActuadorAAcondicionado;
 import ar.edu.utn.frba.dds.actuador.ActuadorHeladera;
+import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteAAcondicionado;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteHeladera;
 import org.junit.Before;
@@ -144,10 +146,46 @@ public class ConsumoPersistenceTest {
     }
 
     @Test
-    public void incrementoConsumoTest() {
+    public void incrementoConsumoTest() throws ParseException {
         // 4- Recuperar un dispositivo asociado a un hogar de ese transformador
         //   e incrementar un 1000 % el consumo para ese período.
         //   Persistir el dispositivo.
         //   Nuevamente mostrar el consumo para ese transformador.
+
+        Transformador tp = entityManager.find(Transformador.class, trafo.getId());
+
+        //recupero primer cliente asociado al transformador
+        Cliente cliente = tp.getClientes().get(0);
+        //recupero primer dispositivo asociado al cliente
+        DispositivoInteligente disp = (DispositivoInteligente) cliente.getDispositivos().get(0);
+
+        Date inicio = sdf.parse("01/12/2018");
+        Date fin = sdf.parse("29/12/2018");
+
+        String previo = reporte.generarReporteTransformador(tp,inicio,fin);
+
+        //incremento el consumo del dispositivo en 1000%
+        int consumo = disp.getConsumoTotal() * 10;
+        System.out.println(disp.getConsumoTotal());
+        System.out.println(consumo);
+
+        Date i = sdf.parse("19/12/2018");
+        Date f = sdf.parse("21/12/2018");
+        Consumo cons = new Consumo(disp, consumo, i, f);
+        disp.addConsumo(cons);
+
+        //persisto nuevo consumo
+        EntityTransaction t = entityManager.getTransaction();
+        t.begin();
+        entityManager.persist(cons1);
+        t.commit();
+
+        System.out.println("Consumo previo para el transformador: " + tp.getId() + ": ");
+        System.out.println(previo);
+
+        System.out.println("Nuevo consumo para el transformador: " + tp.getId() + ": ");
+        String nuevo = reporte.generarReporteTransformador(tp,inicio,fin);
+        System.out.println(nuevo);
+
     }
 }

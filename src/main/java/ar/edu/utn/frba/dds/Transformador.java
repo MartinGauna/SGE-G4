@@ -19,6 +19,10 @@ public class Transformador {
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
+    public static ArrayList<Transformador> getListaDeTransformadores() {
+        return listaDeTransformadores;
+    }
+
     @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "idTransformador", referencedColumnName = "id")
     private List<Cliente> clientes;

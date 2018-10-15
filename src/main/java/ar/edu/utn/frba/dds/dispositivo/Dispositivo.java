@@ -1,6 +1,7 @@
 package ar.edu.utn.frba.dds.dispositivo;
 
 import ar.edu.utn.frba.dds.Cliente;
+import ar.edu.utn.frba.dds.Consumo;
 import ar.edu.utn.frba.dds.Transformador;
 import ar.edu.utn.frba.dds.dispositivo.estadosDispositivo.Context;
 
@@ -90,6 +91,5 @@ public class Dispositivo {
                 "\tConsumo por Hora: " + getConsumoHora() + "\n" +
                 "\tEstado: " + getEstado() + "\n";
     }
-
 
 }
