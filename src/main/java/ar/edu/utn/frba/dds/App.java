@@ -10,6 +10,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import spark.*;
+import spark.debug.DebugScreen;
+import spark.template.handlebars.HandlebarsTemplateEngine;
+
 public class App 
 {
 	private static App instance = null;
@@ -17,6 +21,9 @@ public class App
 	Cliente loggedClient;
     public static void main( String[] args )
     {
+
+        Spark.port(9000);
+        HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
 
         //Loading Dispositivo.
     	JsonParser jsonParser = new JsonParser();
@@ -40,15 +47,13 @@ public class App
             e.printStackTrace();
         }
 
-        System.out.println( "============ Lista de Dispositivos Inteligentes" );
-        try {
-            List<DispositivoInteligente> dispositivos = jsonParser.loadDispositivosInteligentesJSON();
-            dispositivos.forEach(disp -> System.out.println(disp.getClass().toString()));
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        System.out.println( "============ Lista de Dispositivos Inteligentes" );
+//        try {
+//            List<DispositivoInteligente> dispositivos = jsonParser.loadDispositivosInteligentesJSON();
+//            dispositivos.forEach(disp -> System.out.println(disp.getClass().toString()));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
         System.out.println( "============ Lista de Dispositivos Estandard" );
         try {
@@ -74,6 +79,14 @@ public class App
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        Spark.get("/", (request, response) -> {
+            return "<html><body><h1>HOLA</h1></body></html>";
+        } );
+
+        Spark.init();
+        DebugScreen.enableDebugScreen();
+
     }
     
     public static App getInstance() {

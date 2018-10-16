@@ -1,8 +1,8 @@
-package spark.utils;
-
-import java.lang.reflect.Field;
+package ar.edu.utn.frba.dds.spark.utils;
 
 import org.apache.commons.lang3.reflect.FieldUtils;
+
+import java.lang.reflect.Field;
 
 public class ReflectionUtils {
 
