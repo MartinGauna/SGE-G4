@@ -1,4 +1,5 @@
 ./target
+.idea
 
 # Compiled class file
 *.class
@@ -58,6 +59,7 @@ cmake-build-release/
 #========================================= IntelliJ
 # IntelliJ
 out/
+.idea
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
@@ -130,3 +132,6 @@ local.properties
 .cache-main
 .scala_dependencies
 .worksheet
+/target/
+
+*.iml
