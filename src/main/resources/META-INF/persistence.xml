@@ -44,7 +44,7 @@
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/sge?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC" />
             <property name="hibernate.connection.username" value="root" />
-            <property name="hibernate.connection.password" value="root" />
+            <property name="hibernate.connection.password" value="@Erosmith92" />
 
             <!--
                         <property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver" />
@@ -71,7 +71,7 @@
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/sge" />
             <property name="hibernate.connection.username" value="root" />
-            <property name="hibernate.connection.password" value="root" />
+            <property name="hibernate.connection.password" value="@Erosmith92" />
 
             <!--
                         <property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver" />
@@ -108,7 +108,7 @@
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/sge?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC" />
             <property name="hibernate.connection.username" value="root" />
-            <property name="hibernate.connection.password" value="root" />
+            <property name="hibernate.connection.password" value="@Erosmith92" />
 
             <!--
                         <property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver" />
