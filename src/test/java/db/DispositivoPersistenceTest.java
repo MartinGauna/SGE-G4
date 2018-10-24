@@ -4,6 +4,7 @@ import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.Consumo;
 import ar.edu.utn.frba.dds.Transformador;
 import ar.edu.utn.frba.dds.Zona;
+import ar.edu.utn.frba.dds.actuador.ActuadorHeladera;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteHeladera;
 import org.junit.Before;
@@ -37,8 +38,9 @@ public class DispositivoPersistenceTest {
 
     @Test
     public void testConnection() {
-        // creo un nuevo cliente
+
         DispositivoInteligenteHeladera dispositivo = new DispositivoInteligenteHeladera("heladera", 15.5, "activo", true);
+        ActuadorHeladera actuador = new ActuadorHeladera(dispositivo);
 
         // no esta persistido
         assertEquals(dispositivo.getId(), 0);
@@ -47,6 +49,7 @@ public class DispositivoPersistenceTest {
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
         entityManager.persist(dispositivo);
+        entityManager.persist(actuador);
         transaction.commit();
 
         // id no es nulo
@@ -71,6 +74,8 @@ public class DispositivoPersistenceTest {
         DispositivoInteligenteHeladera dispInt = new DispositivoInteligenteHeladera("Heladera", 123, "activo", false);
         cliente.addDispositivo(dispInt);
 
+        ActuadorHeladera actuador = new ActuadorHeladera(dispInt);
+
         //consumos del dispositivo
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date d = sdf.parse("12/12/2018");
@@ -88,6 +93,7 @@ public class DispositivoPersistenceTest {
         entityManager.persist(cons1);
         entityManager.persist(cons2);
         entityManager.persist(dispInt);
+        entityManager.persist(actuador);
         entityManager.persist(cliente);
         transaction.commit();
 
