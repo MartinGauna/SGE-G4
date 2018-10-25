@@ -4,35 +4,51 @@ import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import ar.edu.utn.frba.dds.helpers.BackgroundProcesses;
 import ar.edu.utn.frba.dds.jsonParser.JsonParser;
+import spark.ModelAndView;
 import spark.Spark;
 import spark.debug.DebugScreen;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import static spark.Spark.get;
+import static spark.Spark.staticFileLocation;
 
 public class App 
 {
 	private static App instance = null;
 	List<Categoria> categorias = new ArrayList<Categoria>();
 	Cliente loggedClient;
+
+
     public static void main( String[] args )
     {
 
         Spark.port(9000);
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
-        get("/hello", (req, res) -> "Hello World");
-
-        get("/", (request, response) -> {
-            return "<html><body><h1>HOLA</h1></body></html>";
-        } );
 
 
+        //TEST MATIAS
+        staticFileLocation("/public");
         Spark.init();
         DebugScreen.enableDebugScreen();
+
+        Spark.get("/login", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            model.put("message", "Hello Handlebars!");
+            return new ModelAndView(model, "login.html"); // located in resources/templates
+        }, new HandlebarsTemplateEngine());
+
+        //FIN TEST MATIAS
+
+
+        //get("/", (request, response) -> {
+        //    return "<html><body><h1>HOLA</h1></body></html>";
+        //} );
+
 
         //Loading Dispositivo.
     	JsonParser jsonParser = new JsonParser();
