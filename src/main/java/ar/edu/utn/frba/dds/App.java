@@ -1,18 +1,18 @@
 package ar.edu.utn.frba.dds;
 
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
-import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import ar.edu.utn.frba.dds.helpers.BackgroundProcesses;
 import ar.edu.utn.frba.dds.jsonParser.JsonParser;
+import spark.Spark;
+import spark.debug.DebugScreen;
+import spark.template.handlebars.HandlebarsTemplateEngine;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import spark.*;
-import spark.debug.DebugScreen;
-import spark.template.handlebars.HandlebarsTemplateEngine;
+import static spark.Spark.get;
 
 public class App 
 {
@@ -24,6 +24,15 @@ public class App
 
         Spark.port(9000);
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
+        get("/hello", (req, res) -> "Hello World");
+
+        get("/", (request, response) -> {
+            return "<html><body><h1>HOLA</h1></body></html>";
+        } );
+
+
+        Spark.init();
+        DebugScreen.enableDebugScreen();
 
         //Loading Dispositivo.
     	JsonParser jsonParser = new JsonParser();
@@ -80,12 +89,7 @@ public class App
             e.printStackTrace();
         }
 
-        Spark.get("/", (request, response) -> {
-            return "<html><body><h1>HOLA</h1></body></html>";
-        } );
 
-        Spark.init();
-        DebugScreen.enableDebugScreen();
 
     }
     
