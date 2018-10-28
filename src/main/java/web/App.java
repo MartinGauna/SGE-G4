@@ -34,25 +34,7 @@ public class App
     public static void main( String[] args )
     {
 
-        Spark.port(9000);
-        staticFileLocation("/webResources");
-        DebugScreen.enableDebugScreen();
-        HogarController.init();
-
-//        HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
-//        //TEST MATIAS
-
-//        Spark.init();
-
-
-        Spark.get("/login", (request, response) -> {
-            Map<String, Object> model = new HashMap<>();
-            model.put("message", "Hello Handlebars!");
-            return new ModelAndView(model, "login.html"); // located in resources/templates
-        }, new HandlebarsTemplateEngine());
-
-
-    	JsonParser jsonParser = new JsonParser();
+        JsonParser jsonParser = new JsonParser();
         BackgroundProcesses bkgP = new BackgroundProcesses();
 
         //Lista de Categorias
@@ -67,15 +49,15 @@ public class App
         }
 
         //Lista de Clientes
-		try{
-			List<Cliente> clientes = jsonParser.loadClientesJSON();
+        try{
+            List<Cliente> clientes = jsonParser.loadClientesJSON();
             for (Cliente c : clientes) {
                 c.setCategoria(null);
                 cldao.addClientIfNotExists(c);
             }
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         System.out.println( "============ Lista de Administradores" );
         try{
@@ -97,28 +79,43 @@ public class App
         try {
             List<Estandard> dispositivos = jsonParser.loadDispositivosEstandardJSON();
             dispositivos.forEach(disp -> System.out.println(disp.getClass().toString()));
-
-
         } catch (IOException e) {
             e.printStackTrace();
         }
 
 
-        System.out.println( "============ Categoria" );
-        try {
-            Categoria cat = new Categoria("R1");
-            System.out.println(cat.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
-            Categoria cat = new Categoria("R7");
-            System.out.println(cat.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Spark.port(9000);
+        staticFileLocation("/webResources");
+        DebugScreen.enableDebugScreen();
+        HogarController.init();
+
+//        HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
+//        //TEST MATIAS
+
+//        Spark.init();
+
+        Spark.get("/login", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            model.put("message", "Hello Handlebars!");
+            return new ModelAndView(model, "login.html"); // located in resources/templates
+        }, new HandlebarsTemplateEngine());
 
 
+
+
+//        System.out.println( "============ Categoria" );
+//        try {
+//            Categoria cat = new Categoria("R1");
+//            System.out.println(cat.toString());
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        try {
+//            Categoria cat = new Categoria("R7");
+//            System.out.println(cat.toString());
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
     }
     

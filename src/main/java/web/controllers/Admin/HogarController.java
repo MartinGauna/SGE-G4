@@ -56,13 +56,13 @@ public class HogarController extends mainController {
 //        }
 
         for (Cliente c : hogares.getClientes()){
-            long consumo = getAllConsumosByHogar(c);
+            Long consumo = getAllConsumosByHogar(c);
             hogares.addConsumo(consumo);
         }
     }
 
     private static long getAllConsumosByHogar(Cliente c) {
-        long consumoTotal = 0;
+        Long consumoTotal = new Long(0);
 
         List<Dispositivo> dispositivos = ddao.getAllDI(c);
 

@@ -30,4 +30,9 @@ public class ClientDao extends BaseDao {
             save(c);
         }
     }
+
+    public void addClient(Cliente c){
+        save(c);
+    }
+
 }

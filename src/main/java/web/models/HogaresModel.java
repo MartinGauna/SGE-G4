@@ -18,7 +18,8 @@ public class HogaresModel {
         this.consumos.add(consumo);
     }
 
-    public void setConsumos(List<Long> c){
+    public void setConsumos
+            (List<Long> c){
         this.consumos = c;
     }
 

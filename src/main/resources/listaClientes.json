@@ -9,33 +9,33 @@
     "tipoDoc": "DNI",
     "numeroDoc": 11111111,
     "telefono": 44444444,
-    "categoria": {},
+    "categoria": null,
     "disp": []
   },
   {
     "nombre": "Pepe",
     "apellido": "theFrog",
-    "domicilio": "Medrano 500",
+    "domicilio": "Medrano 501",
     "user": "pepe",
     "password": "12345",
     "fechaAlta": {},
     "tipoDoc": "DNI",
-    "numeroDoc": 11111111,
+    "numeroDoc": 22222222,
     "telefono": 44444444,
-    "categoria": {},
+    "categoria": null,
     "disp": []
   },
   {
     "nombre": "Rob",
     "apellido": "Rob",
-    "domicilio": "Medrano 500",
+    "domicilio": "Medrano 502",
     "user": "rb",
     "password": "123456",
     "fechaAlta": {},
     "tipoDoc": "DNI",
-    "numeroDoc": 11111111,
+    "numeroDoc": 33333333,
     "telefono": 44444444,
-    "categoria": {},
+    "categoria": null,
     "disp": []
   }
 ]

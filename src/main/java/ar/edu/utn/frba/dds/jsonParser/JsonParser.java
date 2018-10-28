@@ -27,7 +27,7 @@ public  class JsonParser {
             Gson gson = new GsonBuilder().create();
             clientes = gson.fromJson(reader, ClientListType);
             clientes.forEach(cliente -> {
-                if(cliente.getCategoria().getNombre() == null){
+                if(cliente.getCategoria() == null){
                     cliente.setCategoria(new Categoria("R1"));
                 }
             });
