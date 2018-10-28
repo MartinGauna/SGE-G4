@@ -23,7 +23,7 @@ import java.util.List;
 
 public class HogarController extends mainController {
 
-    private static final String HOGARES = "/admin/hogares.html";
+    private static final String HOGARES = "/admin/hogares.hbs";
     private static HogaresModel hogares;
 
     private static ClientDao cdao = new ClientDao();
