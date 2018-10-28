@@ -16,6 +16,7 @@ import web.Router;
 import web.controllers.mainController;
 import web.helper.SessionHelper;
 import web.models.HogaresModel;
+import web.models.views.HogaresTable;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ import java.util.List;
 public class HogarController extends mainController {
 
     private static final String HOGARES = "/admin/hogares.html";
-    private static HogaresModel hogares;
+    private static HogaresModel model;
 
     private static ClientDao cdao = new ClientDao();
     private static DispositivoDao ddao = new DispositivoDao();
@@ -40,28 +41,29 @@ public class HogarController extends mainController {
     private static ModelAndView showHogares(Request request, Response response) {
         sessionExist(request, response);
 
-        return new ModelAndView (hogares, HOGARES); // TODO add 'hogares' model
+        return new ModelAndView (model, HOGARES); // TODO add 'hogares' model
     }
 
     private static void initModel() {
-        hogares = new HogaresModel();
 
-        List<Cliente> cls = new ArrayList<Cliente>();
-        List<Long> cons = new ArrayList<Long>();
-        cls = cdao.list();
+        model = new HogaresModel();
+
+        List<HogaresTable> table = new ArrayList<HogaresTable>();
+        List<Cliente> cls = cdao.list();
 
         for (Cliente c : cls) {
-            hogares.addCliente(c);
+            HogaresTable row = new HogaresTable();
+            row.setCliente(c);
+            row.setConsumoTotal(getAllConsumosByHogar(c));
+
+            table.add(row);
         }
 
-        for (Cliente c : hogares.getClientes()){
-            Long consumo = getAllConsumosByHogar(c);
-            hogares.getMap().put(c, consumo);
-        }
+        model.setTable(table);
     }
 
     private static long getAllConsumosByHogar(Cliente c) {
-        Long consumoTotal = new Long(0);
+        long consumoTotal = 0;
 
         List<Dispositivo> dispositivos = ddao.getAllDI(c);
 

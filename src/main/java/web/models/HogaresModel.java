@@ -2,38 +2,27 @@ package web.models;
 
 import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.Consumo;
+import web.models.views.HogaresTable;
 
 import java.util.*;
 
 public class HogaresModel {
 
-    private Map<Cliente, Long> map = new HashMap<Cliente, Long>();
+    private List<HogaresTable> table;
 
-    //private List<Cliente> clientes;
-    //private List<Long> consumos;
-
-    public Collection<Long> getConsumos() {
-        return map.values();
-    }
-//
-//    public void addConsumo(Long consumo) {
-//        this.consumos.add(consumo);
-//    }
-//
-//    public void setConsumos(List<Long> c){
-//        this.consumos = c;
-//    }
-
-    public void addCliente(Cliente c){
-        map.put(c, null);
+    public HogaresModel() {
+        this.table = new ArrayList<HogaresTable>();
     }
 
-
-    public Set<Cliente> getClientes (){
-        return map.keySet();
+    public HogaresModel(List<HogaresTable> table) {
+        this.table = table;
     }
 
-    public Map<Cliente, Long> getMap() {
-        return map;
+    public List<HogaresTable> getTable() {
+        return table;
+    }
+
+    public void setTable(List<HogaresTable> table) {
+        this.table = table;
     }
 }
