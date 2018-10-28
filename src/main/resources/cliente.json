@@ -1,13 +1,41 @@
-{
-  "nombre": "John",
-  "apellido": "Doe",
-  "domicilio": "Medrano 500",
-  "user": "JohnDoe88",
-  "password": "1234",
-  "fechaAlta": {},
-  "tipoDoc": "DNI",
-  "numeroDoc": 11111111,
-  "telefono": 44444444,
-  "categoria": {},
-  "disp": []
-}
+[
+  {
+    "nombre": "John",
+    "apellido": "Doe",
+    "domicilio": "Medrano 500",
+    "user": "JohnDoe88",
+    "password": "1234",
+    "fechaAlta": {},
+    "tipoDoc": "DNI",
+    "numeroDoc": 11111111,
+    "telefono": 44444444,
+    "categoria": null,
+    "disp": []
+  },
+  {
+    "nombre": "Gustavo",
+    "apellido": "Di Peppe",
+    "domicilio": "Calle Falsa 123",
+    "user": "gdipeppe",
+    "password": "ssss",
+    "fechaAlta": {},
+    "tipoDoc": "DNI",
+    "numeroDoc": 22222222,
+    "telefono": 33333333,
+    "categoria": null,
+    "disp": []
+  }
+  {
+    "nombre": "Martin",
+    "apellido": "Gauna",
+    "domicilio": "Calle Falsa 456",
+    "user": "mgauna",
+    "password": "aaaa",
+    "fechaAlta": {},
+    "tipoDoc": "DNI",
+    "numeroDoc": 33333333,
+    "telefono": 44444444,
+    "categoria": null,
+    "disp": []
+  }
+]

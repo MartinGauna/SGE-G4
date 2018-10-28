@@ -3,6 +3,8 @@ package web;
 import ar.edu.utn.frba.dds.Administrador;
 import ar.edu.utn.frba.dds.Categoria;
 import ar.edu.utn.frba.dds.Cliente;
+import ar.edu.utn.frba.dds.dao.CategoriaDao;
+import ar.edu.utn.frba.dds.dao.ClientDao;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import ar.edu.utn.frba.dds.helpers.BackgroundProcesses;
@@ -26,7 +28,8 @@ public class App
 	private static App instance = null;
 	List<Categoria> categorias = new ArrayList<Categoria>();
 	Cliente loggedClient;
-
+    private static ClientDao cldao = new ClientDao();
+    private static CategoriaDao cadao = new CategoriaDao();
 
     public static void main( String[] args )
     {
@@ -49,16 +52,27 @@ public class App
         }, new HandlebarsTemplateEngine());
 
 
-
-        //Loading Dispositivo.
     	JsonParser jsonParser = new JsonParser();
         BackgroundProcesses bkgP = new BackgroundProcesses();
 
+        //Lista de Categorias
 
-        System.out.println( "============ Lista de Clientes" );
+        try{
+            List<Categoria> categorias = jsonParser.loadCategoriasJSON();
+            for (Categoria c : categorias) {
+                //cadao.addCategoriaIfNotExists(c);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //Lista de Clientes
 		try{
 			List<Cliente> clientes = jsonParser.loadClientesJSON();
-            clientes.forEach(cli-> System.out.println(cli.toString()));
+            for (Cliente c : clientes) {
+                c.setCategoria(null);
+                cldao.addClientIfNotExists(c);
+            }
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -137,6 +151,7 @@ public class App
     	}
     	return null;
     }
+
     public Cliente getLoggedClient() {
 
         return loggedClient;

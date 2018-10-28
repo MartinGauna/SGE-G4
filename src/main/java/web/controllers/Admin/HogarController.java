@@ -1,5 +1,11 @@
 package web.controllers.Admin;
+
 import ar.edu.utn.frba.dds.Cliente;
+import ar.edu.utn.frba.dds.Consumo;
+import ar.edu.utn.frba.dds.dao.ClientDao;
+import ar.edu.utn.frba.dds.dao.ConsumoDao;
+import ar.edu.utn.frba.dds.dao.DispositivoDao;
+import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import com.github.jknack.handlebars.Handlebars;
 import spark.ModelAndView;
 import spark.Request;
@@ -14,16 +20,16 @@ import web.models.HogaresModel;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-//import ar.edu.utn.frba.dds.dao.ClienteDao;
-
-
-
 
 public class HogarController extends mainController {
 
     private static final String HOGARES = "/admin/hogares.html";
     private static HogaresModel hogares;
-//    private static ClienteDao clienteDao = new ClienteDao();
+
+    private static ClientDao cdao = new ClientDao();
+    private static DispositivoDao ddao = new DispositivoDao();
+    private static ConsumoDao codao = new ConsumoDao();
+
 
     public static void init() {
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
@@ -40,14 +46,35 @@ public class HogarController extends mainController {
     private static void initModel() {
         hogares = new HogaresModel();
 
-        // TEST Antes de hacer el DAO
-        List<Cliente> test = new ArrayList<Cliente>();
-        test.add(new Cliente( "C1", "", "Dom 1", "", "", LocalDate.now(),
-                "", 1, 1, null, LocalDate.now(),false));
-        test.add(new Cliente( "C2", "", "Dom 2", "", "", LocalDate.now(),
-                "", 1, 1, null, LocalDate.now(),false));
+        List<Cliente> cls = new ArrayList<Cliente>();
+        List<Long> cons = new ArrayList<Long>();
+        hogares.setClientes(cdao.list());
+        hogares.setConsumos(cons);
 
-//        hogares.setClientes(clienteDao.getClientes());
-        hogares.setClientes(test);
+//        for (Cliente c : cls) {
+//            cdao.addClientIfNotExists(c);
+//        }
+
+        for (Cliente c : hogares.getClientes()){
+            long consumo = getAllConsumosByHogar(c);
+            hogares.addConsumo(consumo);
+        }
+    }
+
+    private static long getAllConsumosByHogar(Cliente c) {
+        long consumoTotal = 0;
+
+        List<Dispositivo> dispositivos = ddao.getAllDI(c);
+
+        for (Dispositivo d : dispositivos) {
+             List<Consumo> consumos =  codao.getConsumo(d);
+
+             if (!consumos.isEmpty()) {
+                 for (Consumo co : consumos) {
+                     consumoTotal += co.getWatts();
+                 }
+             }
+        }
+        return consumoTotal;
     }
 }
