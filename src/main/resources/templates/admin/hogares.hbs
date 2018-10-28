@@ -52,13 +52,12 @@
                     </tr>
                   </thead>
                   <tbody>
-                    {{#each clientes}}
-                      <tr>
-                        <!-- TODO LINK WITH A COLLECTION OF HOGARES and CONSUMOS. -->
-                        <td>{{domicilio}}</td>
-                        <!--<td>{{consumo}}</td>-->
-                      </tr>
-                    {{/each}}
+                  {{#each table}}
+                    <tr>
+                      <td>{{cliente.domicilio}}</td>
+                      <td>{{consumoTotal}}</td>
+                    </tr>
+                  {{/each}}
 
                   </tbody>
                 </table>
