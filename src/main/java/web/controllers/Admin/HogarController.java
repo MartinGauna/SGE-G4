@@ -48,16 +48,15 @@ public class HogarController extends mainController {
 
         List<Cliente> cls = new ArrayList<Cliente>();
         List<Long> cons = new ArrayList<Long>();
-        hogares.setClientes(cdao.list());
-        hogares.setConsumos(cons);
+        cls = cdao.list();
 
-//        for (Cliente c : cls) {
-//            cdao.addClientIfNotExists(c);
-//        }
+        for (Cliente c : cls) {
+            hogares.addCliente(c);
+        }
 
         for (Cliente c : hogares.getClientes()){
             Long consumo = getAllConsumosByHogar(c);
-            hogares.addConsumo(consumo);
+            hogares.getMap().put(c, consumo);
         }
     }
 
