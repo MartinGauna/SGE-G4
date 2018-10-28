@@ -97,4 +97,15 @@ public abstract class Usuario {
         fechaAlta = fecha;
     }
 
+
+    // Session del usuario.
+
+    //genero una session: 'id-name'
+    public String userSession() {
+        return getId() + "-" + getUsername();
+    }
+    // retorna el id en base a una userSession
+    public int getSessionId(String userSession){
+        return Integer.parseInt(userSession.substring(0,userSession.indexOf("-")));
+    }
 }

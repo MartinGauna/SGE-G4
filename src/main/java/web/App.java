@@ -1,5 +1,8 @@
-package ar.edu.utn.frba.dds;
+package web;
 
+import ar.edu.utn.frba.dds.Administrador;
+import ar.edu.utn.frba.dds.Categoria;
+import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import ar.edu.utn.frba.dds.helpers.BackgroundProcesses;
@@ -8,6 +11,7 @@ import spark.ModelAndView;
 import spark.Spark;
 import spark.debug.DebugScreen;
 import spark.template.handlebars.HandlebarsTemplateEngine;
+import web.controllers.Admin.HogarController;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,13 +32,15 @@ public class App
     {
 
         Spark.port(9000);
-        HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
-
-
-        //TEST MATIAS
-        staticFileLocation("/public");
-        Spark.init();
+        staticFileLocation("/webResources");
         DebugScreen.enableDebugScreen();
+        HogarController.init();
+
+//        HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
+//        //TEST MATIAS
+
+//        Spark.init();
+
 
         Spark.get("/login", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -42,17 +48,10 @@ public class App
             return new ModelAndView(model, "login.html"); // located in resources/templates
         }, new HandlebarsTemplateEngine());
 
-        //FIN TEST MATIAS
-
-
-        //get("/", (request, response) -> {
-        //    return "<html><body><h1>HOLA</h1></body></html>";
-        //} );
 
 
         //Loading Dispositivo.
     	JsonParser jsonParser = new JsonParser();
-        Dispositivo dispositivo = new Dispositivo();
         BackgroundProcesses bkgP = new BackgroundProcesses();
 
 
