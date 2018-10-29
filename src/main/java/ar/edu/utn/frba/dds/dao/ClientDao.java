@@ -22,6 +22,8 @@ public class ClientDao extends BaseDao {
 
     private Cliente clientExists(int doc) { return getByPropertyValue(Cliente.class, "numeroDoc", doc); }
 
+    public Cliente clientExists(String username) { return getByPropertyValue(Cliente.class, "user", username); }
+
     public void addClientIfNotExists(Cliente c){
         Cliente c2 = clientExists(c);
         if (c2 != null){
