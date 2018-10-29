@@ -6,7 +6,6 @@ import ar.edu.utn.frba.dds.dao.ClientDao;
 import ar.edu.utn.frba.dds.dao.ConsumoDao;
 import ar.edu.utn.frba.dds.dao.DispositivoDao;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
-import com.github.jknack.handlebars.Handlebars;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -14,11 +13,9 @@ import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import web.Router;
 import web.controllers.mainController;
-import web.helper.SessionHelper;
 import web.models.HogaresModel;
 import web.models.views.HogaresTable;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 

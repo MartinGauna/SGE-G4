@@ -5,21 +5,17 @@ import ar.edu.utn.frba.dds.Categoria;
 import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.dao.CategoriaDao;
 import ar.edu.utn.frba.dds.dao.ClientDao;
-import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import ar.edu.utn.frba.dds.helpers.BackgroundProcesses;
 import ar.edu.utn.frba.dds.jsonParser.JsonParser;
-import spark.ModelAndView;
 import spark.Spark;
 import spark.debug.DebugScreen;
-import spark.template.handlebars.HandlebarsTemplateEngine;
 import web.controllers.Admin.HogarController;
+import web.controllers.login.LoginController;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static spark.Spark.staticFileLocation;
 
@@ -87,35 +83,10 @@ public class App
         Spark.port(9000);
         staticFileLocation("/webResources");
         DebugScreen.enableDebugScreen();
+
         HogarController.init();
 
-//        HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
-//        //TEST MATIAS
-
-//        Spark.init();
-
-        Spark.get("/login", (request, response) -> {
-            Map<String, Object> model = new HashMap<>();
-            model.put("message", "Hello Handlebars!");
-            return new ModelAndView(model, "login.html"); // located in resources/templates
-        }, new HandlebarsTemplateEngine());
-
-
-
-
-//        System.out.println( "============ Categoria" );
-//        try {
-//            Categoria cat = new Categoria("R1");
-//            System.out.println(cat.toString());
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        try {
-//            Categoria cat = new Categoria("R7");
-//            System.out.println(cat.toString());
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        LoginController.init();
 
     }
     
