@@ -7,7 +7,7 @@ import java.util.List;
 
 public class UsuarioDao extends BaseDao {
 
-    AdminDao adao = new AdminDao();
+    ClientDao cdao = new ClientDao();
 
     public UsuarioDao() {
     }
@@ -16,9 +16,9 @@ public class UsuarioDao extends BaseDao {
         return getByPropertyValue(Cliente.class, "user", username);
     }
 
-    public Administrador isAdmin(Usuario user) {
-                    Administrador admin = adao.adminExists(user.getUsername());
-        return admin;
+    public Cliente isClient(Usuario user) {
+        Cliente c = cdao.clientExists(user.getUsername());
+        return c;
     }
 
     public List<Usuario> list() { return list(Usuario.class); }
