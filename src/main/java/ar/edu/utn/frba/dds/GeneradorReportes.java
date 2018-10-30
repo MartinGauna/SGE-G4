@@ -9,6 +9,10 @@ import java.util.List;
 
 public class GeneradorReportes {
 
+    public static int CONSUMO_HOGAR=0;
+    public static int CONSUMO_INTELIGENTE=1;
+    public static int CONSUMO_ESTANDAR=2;
+
     public static GeneradorReportes instance = null;
 
     public static GeneradorReportes getInstance() {
@@ -18,7 +22,7 @@ public class GeneradorReportes {
         return instance;
     }
 
-    public String generarReporteConsumoHogar(Cliente cliente, Date fechaInicio, Date fechaFin) {
+    public Reporte generarReporteConsumoHogar(Cliente cliente, Date fechaInicio, Date fechaFin) {
         String reporte;
 
         int consumoTotal = 0;
@@ -37,11 +41,11 @@ public class GeneradorReportes {
         } else {
             reporte = reporte + " registro un consumo de: " + consumoTotal + " watts.";
         }
-
-        return reporte;
+        Reporte reporte1 = new Reporte(cliente.getId(), fechaInicio, fechaFin, reporte, CONSUMO_HOGAR);
+        return reporte1;
     }
 
-    public String generarReporteConsumoInteligente(Cliente cliente, Date fechaInicio, Date fechaFin) {
+    public Reporte generarReporteConsumoInteligente(Cliente cliente, Date fechaInicio, Date fechaFin) {
         String reporte;
         int consumoTotal = 0;
         int consumoPromedio = 0;
@@ -58,11 +62,11 @@ public class GeneradorReportes {
 
         reporte = "El hogar de: " + cliente.getApellido() + " tuvo un consumo promedio de: ";
         reporte = reporte + consumoPromedio + " watts en el periodo de: " + fechaInicio + " a: " + fechaFin;
-
-        return reporte;
+        Reporte reporte1 = new Reporte(cliente.getId(), fechaInicio, fechaFin, reporte, CONSUMO_INTELIGENTE);
+        return reporte1;
     }
 
-    public String generarReporteConsumoEstandard(Cliente cliente, Date fechaInicio, Date fechaFin) {
+    public Reporte generarReporteConsumoEstandard(Cliente cliente, Date fechaInicio, Date fechaFin) {
         String reporte;
         int consumoTotal = 0;
         int consumoPromedio = 0;
@@ -79,14 +83,15 @@ public class GeneradorReportes {
 
         reporte = "El hogar de: " + cliente.getApellido() + " tuvo un consumo promedio de: ";
         reporte = reporte + consumoPromedio + " watts en el periodo de: " + fechaInicio + " a: " + fechaFin;
-
-        return reporte;
+        Reporte reporte1 = new Reporte(cliente.getId(), fechaInicio, fechaFin, reporte, CONSUMO_ESTANDAR);
+        return reporte1;
     }
 
-    public String generarReporteTransformador(Transformador transformador, Date fechaInicio, Date fechaFin){
+    public ReporteTransformador generarReporteTransformador(Transformador transformador, Date fechaInicio, Date fechaFin){
         String reporte;
         reporte = "El consumo del transformador fue: " + transformador.getConsumoTotal(fechaInicio, fechaFin) + " watts.";
-        return reporte;
+        ReporteTransformador reporteTransformador = new ReporteTransformador(transformador.getId(), fechaInicio, fechaFin, reporte);
+        return reporteTransformador;
 }
 
 }
