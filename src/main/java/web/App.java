@@ -11,6 +11,7 @@ import ar.edu.utn.frba.dds.helpers.BackgroundProcesses;
 import ar.edu.utn.frba.dds.jsonParser.JsonParser;
 import spark.Spark;
 import spark.debug.DebugScreen;
+import web.controllers.Admin.AltaDispositivoController;
 import web.controllers.Admin.HogarController;
 import web.controllers.LogoutController;
 import web.controllers.login.LoginController;
@@ -88,14 +89,17 @@ public class App
         Spark.port(9000);
         staticFileLocation("/webResources");
         DebugScreen.enableDebugScreen();
+        
+        startControllers();
+    }
 
+    public static void startControllers(){
+        HogarController.init();
         LoginController.init();
         LogoutController.init();
-        HogarController.init();
-
-
+        AltaDispositivoController.init();
     }
-    
+
     public static App getInstance() {
     	if(instance == null) { 
     		instance = new App();

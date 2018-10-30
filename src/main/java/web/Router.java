@@ -9,7 +9,7 @@ public class Router {
     private static final String HOME = "/home";
     private static final String LOGOUT = "/logout";
     private static final String ADMIN_HOGARES = "/hogares";
-
+    private static final String ALTA_DISPOSITIVO = "/altadispositivo";
 
 
 
@@ -26,6 +26,8 @@ public class Router {
     }
 
     public static String adminHogaresPath() { return ADMIN_HOGARES; }
+
+    public static String altaDispositivoPath() { return ALTA_DISPOSITIVO; }
 
 //    public static String hogares() { return ADMIN_HOGARES; }
 //    public static String hogares() { return ADMIN_HOGARES; }
