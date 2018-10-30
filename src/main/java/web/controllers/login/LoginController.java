@@ -2,21 +2,19 @@ package web.controllers.login;
 
 import ar.edu.utn.frba.dds.Usuario;
 import ar.edu.utn.frba.dds.dao.UsuarioDao;
+import web.models.AlertModel;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import web.Router;
-import web.models.LoginModel;
-
-import java.util.HashMap;
-import java.util.Map;
+import web.helper.SessionHelper;
 
 public class LoginController {
 
     private static final String LOGIN = "/login.hbs";
-    private static LoginModel model;
+    private static AlertModel alert = new AlertModel(false,"",false);
 
     public static void init() {
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
@@ -25,11 +23,11 @@ public class LoginController {
 
     }
     private static ModelAndView showLogin(Request request, Response response) {
-        Map<String, Object> model = new HashMap<>();
-
-        model.put("message", "Hello Handlebars!");
-
-        return new ModelAndView(model, LOGIN); // located in resources/templates
+        if (SessionHelper.existSession(request)){
+            response.redirect(Router.homePath());
+        }
+        alert.setHideAlert();
+        return new ModelAndView(alert, LOGIN);
     }
 
     public static ModelAndView checkLogin(Request request, Response response){
@@ -41,23 +39,15 @@ public class LoginController {
         Usuario u =  dao.getUser(email);
 
         if (u != null && u.getPassword().equals(request.queryParams("password"))){
-
+            alert.setHideAlert();
             if (dao.isClient(u) != null)
             {response.redirect(Router.homePath());}
             else
             {response.redirect(Router.adminHogaresPath());}
         }
 
-        response.status(403);
-
-        return  new ModelAndView("Usuario o password incorrecto",LOGIN);
+        alert.setShowAlertWithMessage("El usuario o password es incorrecto");
+        return new ModelAndView(alert,LOGIN);
     }
-
-    private static void initModel() {
-        model = new LoginModel();
-    }
-
-
-
 
 }

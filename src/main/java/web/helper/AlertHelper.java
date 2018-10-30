@@ -1,6 +1,6 @@
 package web.helper;
 
-import ar.edu.utn.frba.dds.models.AlertModel;
+import web.models.AlertModel;
 
 public class AlertHelper {
 

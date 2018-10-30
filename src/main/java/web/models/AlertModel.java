@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds.models;
+package web.models;
 
 public class AlertModel {
 

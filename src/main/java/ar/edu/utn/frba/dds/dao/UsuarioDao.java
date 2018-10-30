@@ -13,17 +13,6 @@ public class UsuarioDao extends BaseDao {
     public UsuarioDao() {
     }
 
-    /**public <T> T getUser(String username) {
-        Cliente c = getByPropertyValue(Cliente.class, "user", username);
-
-        if (c == null) {
-            Administrador a = getByPropertyValue(Administrador.class, "user", username);
-            return (T) a;
-        } else {
-            return (T) c;
-        }
-    }**/
-
     public Usuario getUser(String username) {
         return getByPropertyValue(Cliente.class, "user", username);
     }
