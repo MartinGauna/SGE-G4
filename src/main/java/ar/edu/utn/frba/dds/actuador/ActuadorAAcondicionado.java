@@ -22,6 +22,10 @@ public class ActuadorAAcondicionado extends Actuador {
     public ActuadorAAcondicionado() {
     }
 
+    public DispositivoInteligenteAAcondicionado getDispositivo() {
+        return aire;
+    }
+
     public void prenderDispositivo() {
         aire.encender();
     }

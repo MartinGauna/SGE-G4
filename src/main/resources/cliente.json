@@ -1,8 +1,8 @@
-{
-  "nombre": "John",
-  "apellido": "Doe",
+[{
+  "nombre": "Gonzalo",
+  "apellido": "Giliberti",
   "domicilio": "Medrano 500",
-  "user": "JohnDoe88",
+  "user": "gonzalogiliberti@hotmail.com",
   "password": "1234",
   "fechaAlta": {},
   "tipoDoc": "DNI",
@@ -10,4 +10,18 @@
   "telefono": 44444444,
   "categoria": null,
   "disp": []
+},
+{
+"nombre": "Juan",
+"apellido": "Conde",
+"domicilio": "Medrano 500",
+"user": "juanconde@hotmail.com",
+"password": "1234",
+"fechaAlta": {},
+"tipoDoc": "DNI",
+"numeroDoc": 11111111,
+"telefono": 44444444,
+"categoria": null,
+"disp": []
 }
+  ]

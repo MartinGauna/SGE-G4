@@ -1,9 +1,8 @@
 package ar.edu.utn.frba.dds;
 
-import java.time.LocalDate;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)

@@ -21,6 +21,10 @@ public class ActuadorPlancha extends Actuador {
     public ActuadorPlancha() {
     }
 
+    public DispositivoInteligentePlancha getDispositivo() {
+        return plancha;
+    }
+
     public void prenderDispositivo() {plancha.encender();
     }
     public void apagarDispositivo() {

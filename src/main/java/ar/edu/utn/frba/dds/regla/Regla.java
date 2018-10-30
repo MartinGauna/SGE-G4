@@ -1,6 +1,7 @@
 package ar.edu.utn.frba.dds.regla;
 
 import ar.edu.utn.frba.dds.actuador.Actuador;
+import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

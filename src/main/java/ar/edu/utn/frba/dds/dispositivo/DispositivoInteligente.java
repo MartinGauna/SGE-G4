@@ -86,7 +86,7 @@ public class DispositivoInteligente extends Dispositivo {
     @Override
     public int getConsumoTotal(Date fechaInicio, Date fechaFinal) {
         int total = 0;
-        for(int i=0; i< consumo.size(); i++) {
+        for(int i=0; i < consumo.size(); i++) {
             if((consumo.get(i).getFechaInicio().after(fechaInicio) || (consumo.get(i).getFechaFinal()).before(fechaFinal))) {
             	total += consumo.get(i).getWatts();
             }

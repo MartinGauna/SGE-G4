@@ -3,6 +3,7 @@ package web;
 import ar.edu.utn.frba.dds.Administrador;
 import ar.edu.utn.frba.dds.Categoria;
 import ar.edu.utn.frba.dds.Cliente;
+import ar.edu.utn.frba.dds.dao.AdminDao;
 import ar.edu.utn.frba.dds.dao.CategoriaDao;
 import ar.edu.utn.frba.dds.dao.ClientDao;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
@@ -24,6 +25,7 @@ public class App
 	private static App instance = null;
 	List<Categoria> categorias = new ArrayList<Categoria>();
 	Cliente loggedClient;
+    private static AdminDao adao = new AdminDao();
     private static ClientDao cldao = new ClientDao();
     private static CategoriaDao cadao = new CategoriaDao();
 
@@ -58,7 +60,9 @@ public class App
         System.out.println( "============ Lista de Administradores" );
         try{
             List<Administrador> admins = jsonParser.loadAdministradoresJSON();
-            admins.forEach(a-> System.out.println(a.toString()));
+            for (Administrador c : admins) {
+                adao.addAdminIfNotExists(c);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
