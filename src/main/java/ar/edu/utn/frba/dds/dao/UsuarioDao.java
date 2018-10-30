@@ -13,7 +13,7 @@ public class UsuarioDao extends BaseDao {
     public UsuarioDao() {
     }
 
-    public <T> T getUser(String username) {
+    /**public <T> T getUser(String username) {
         Cliente c = getByPropertyValue(Cliente.class, "user", username);
 
         if (c == null) {
@@ -22,12 +22,12 @@ public class UsuarioDao extends BaseDao {
         } else {
             return (T) c;
         }
+    }**/
+
+    public Usuario getUser(String username) {
+        return getByPropertyValue(Cliente.class, "user", username);
     }
 
-//    public Usuario getUser(String username) {
-//        return getByPropertyValue(Cliente.class, "user", username);
-//    }
-//
 
     public Cliente isClient(Usuario user) {
             Cliente c = cdao.clientExists(user.getUsername());
