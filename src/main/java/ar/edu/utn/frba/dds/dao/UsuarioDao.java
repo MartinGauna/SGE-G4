@@ -8,13 +8,26 @@ import java.util.List;
 public class UsuarioDao extends BaseDao {
 
     ClientDao cdao = new ClientDao();
+    AdminDao adao = new AdminDao ();
 
     public UsuarioDao() {
     }
 
-    public Usuario getUser(String username) {
-            return getByPropertyValue(Usuario.class, "user", username);
+    public <T> T getUser(String username) {
+        Cliente c = getByPropertyValue(Cliente.class, "user", username);
+
+        if (c == null) {
+            Administrador a = getByPropertyValue(Administrador.class, "user", username);
+            return (T) a;
+        } else {
+            return (T) c;
         }
+    }
+
+//    public Usuario getUser(String username) {
+//        return getByPropertyValue(Cliente.class, "user", username);
+//    }
+//
 
     public Cliente isClient(Usuario user) {
             Cliente c = cdao.clientExists(user.getUsername());
