@@ -1,8 +1,8 @@
 package ar.edu.utn.frba.dds.dao;
 
-import ar.edu.utn.frba.dds.Administrador;
 import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.Usuario;
+
 import java.util.List;
 
 public class UsuarioDao extends BaseDao {
@@ -16,7 +16,7 @@ public class UsuarioDao extends BaseDao {
             return getByPropertyValue(Usuario.class, "user", username);
         }
 
-        public Cliente isClient(Usuario user) {
+    public Cliente isClient(Usuario user) {
             Cliente c = cdao.clientExists(user.getUsername());
         return c;
     }

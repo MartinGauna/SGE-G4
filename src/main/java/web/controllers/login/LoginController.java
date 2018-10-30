@@ -1,6 +1,7 @@
 package web.controllers.login;
 
-import com.github.jknack.handlebars.Handlebars;
+import ar.edu.utn.frba.dds.Usuario;
+import ar.edu.utn.frba.dds.dao.UsuarioDao;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -19,11 +20,8 @@ public class LoginController {
 
     public static void init() {
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
-        Spark.get(Router.loginPath(), LoginController::showLogin,engine);
-        initModel();
-        Handlebars handlebars = new Handlebars();
-
-        //handlebars.registerHelper("signinact",helper)
+        Spark.get(Router.loginPath(),LoginController::showLogin,engine);
+        Spark.post(Router.loginPath(),LoginController::checkLogin,engine);
 
     }
     private static ModelAndView showLogin(Request request, Response response) {
@@ -34,12 +32,32 @@ public class LoginController {
         return new ModelAndView(model, LOGIN); // located in resources/templates
     }
 
-    private static void initModel() {
+    public static ModelAndView checkLogin(Request request, Response response){
 
-        model = new LoginModel();
-        //model.setTable();
+        String email = request.queryParams("email");
 
+        UsuarioDao dao = new UsuarioDao();
+
+        Usuario u =  dao.getUser(email);
+
+        if (u != null && u.getPassword().equals(request.queryParams("password"))){
+
+            if (dao.isClient(u) != null)
+            {response.redirect(Router.homePath());}
+            else
+            {response.redirect(Router.adminHogaresPath());}
+        }
+
+        response.status(403);
+
+        return  new ModelAndView("Usuario o password incorrecto",LOGIN);
     }
+
+    private static void initModel() {
+        model = new LoginModel();
+    }
+
+
 
 
 }
