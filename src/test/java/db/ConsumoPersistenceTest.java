@@ -107,8 +107,8 @@ public class ConsumoPersistenceTest {
 
         Cliente clientePersistido = entityManager.find(Cliente.class, cliente1.getId());
 
-        String rep = reporte.generarReporteConsumoHogar(clientePersistido,inicio,fin);
-        System.out.println(rep);
+        Reporte reporteCliente = reporte.generarReporteConsumoHogar(clientePersistido,inicio,fin);
+        System.out.println(reporteCliente.getReporte());
 
 }
 
@@ -141,8 +141,8 @@ public class ConsumoPersistenceTest {
 
         Transformador persistido = entityManager.find(Transformador.class, trafo.getId());
 
-        String rep = reporte.generarReporteTransformador(persistido,inicio,fin);
-        System.out.println(rep);
+        ReporteTransformador reporteCliente = reporte.generarReporteTransformador(persistido,inicio,fin);
+        System.out.println(reporteCliente.getReporte());
     }
 
     @Test
@@ -162,7 +162,8 @@ public class ConsumoPersistenceTest {
         Date inicio = sdf.parse("01/12/2018");
         Date fin = sdf.parse("29/12/2018");
 
-        String previo = reporte.generarReporteTransformador(tp,inicio,fin);
+        ReporteTransformador reportePrevio = reporte.generarReporteTransformador(tp,inicio,fin);
+        String previo = reportePrevio.getReporte();
 
         //incremento el consumo del dispositivo en 1000%
         int consumo = disp.getConsumoTotal() * 10;
@@ -184,8 +185,8 @@ public class ConsumoPersistenceTest {
         System.out.println(previo);
 
         System.out.println("Nuevo consumo para el transformador: " + tp.getId() + ": ");
-        String nuevo = reporte.generarReporteTransformador(tp,inicio,fin);
-        System.out.println(nuevo);
+        ReporteTransformador reporteNuevo = reporte.generarReporteTransformador(tp,inicio,fin);
+        System.out.println(reporteNuevo.getReporte());
 
     }
 }
