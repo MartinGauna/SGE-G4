@@ -84,9 +84,9 @@ public class App
         staticFileLocation("/webResources");
         DebugScreen.enableDebugScreen();
 
+        LoginController.init();
         HogarController.init();
 
-        LoginController.init();
 
     }
     
