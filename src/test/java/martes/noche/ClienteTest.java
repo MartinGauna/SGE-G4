@@ -26,11 +26,11 @@ public class ClienteTest {
     public void cargaClienteConData(){
 
         LocalDate dia = LocalDate.now();
-        R1 cat1 = new R1(21, 5);
-        Cliente juan = new Cliente("DNI", 1234567, 47441111, cat1, dia);
-        Cliente gus = new Cliente("DNI", 1234567, 47441111, cat1, dia);
-
-        assertSame(juan, juan);
+//        R1 cat1 = new R1(21, 5);
+//        Cliente juan = new Cliente("DNI", 1234567, 47441111, cat1, dia);
+//        Cliente gus = new Cliente("DNI", 1234567, 47441111, cat1, dia);
+//
+//        assertSame(juan, juan);
     }
 
 

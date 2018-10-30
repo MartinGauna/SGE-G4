@@ -13,6 +13,7 @@ import spark.Spark;
 import spark.debug.DebugScreen;
 import web.controllers.Admin.AltaDispositivoController;
 import web.controllers.Admin.HogarController;
+import web.controllers.Admin.ReportesController;
 import web.controllers.LogoutController;
 import web.controllers.login.LoginController;
 
@@ -98,6 +99,7 @@ public class App
         LoginController.init();
         LogoutController.init();
         AltaDispositivoController.init();
+        ReportesController.init();
     }
 
     public static App getInstance() {
