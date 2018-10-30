@@ -26,5 +26,15 @@
     "fechaAlta": {},
     "legajo": 123123
   }
+  ,
+  {
+    "nombre": "Test",
+    "apellido": "Admin",
+    "domicilio": "Medrano 500",
+    "user": "admin@admin",
+    "password": "1234",
+    "fechaAlta": {},
+    "legajo": 123123
+  }
 
 ]

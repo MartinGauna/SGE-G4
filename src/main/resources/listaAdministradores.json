@@ -3,8 +3,8 @@
     "nombre": "John",
     "apellido": "Doe",
     "domicilio": "Calle Falsa 123",
-    "user": "admin",
-    "password": "aaaa",
+    "user": "admin@admin",
+    "password": "1234",
     "fechaAlta": {},
     "legajo": 123123
   },
