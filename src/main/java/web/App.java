@@ -89,7 +89,7 @@ public class App
         Spark.port(9000);
         staticFileLocation("/webResources");
         DebugScreen.enableDebugScreen();
-        
+
         startControllers();
     }
 
