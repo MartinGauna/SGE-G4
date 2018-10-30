@@ -13,7 +13,7 @@ import java.util.Date;
  * Unit test for simple App.
  */
 
-public class ClienteTest {
+/*public class ClienteTest {
 
     @Test
     public void shouldAnswerWithTrue()
@@ -34,4 +34,4 @@ public class ClienteTest {
     }
 
 
-}
+}*/
