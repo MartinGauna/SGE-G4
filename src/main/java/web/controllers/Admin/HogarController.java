@@ -12,14 +12,14 @@ import spark.Response;
 import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import web.Router;
-import web.controllers.mainController;
+import web.controllers.MainController;
 import web.models.HogaresModel;
 import web.models.views.HogaresTable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HogarController extends mainController {
+public class HogarController extends MainController {
 
     private static final String HOGARES = "/admin/hogares.hbs";
     private static HogaresModel model;

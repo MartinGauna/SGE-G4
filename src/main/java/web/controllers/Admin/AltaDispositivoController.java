@@ -8,10 +8,10 @@ import spark.Response;
 import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import web.Router;
-import web.controllers.mainController;
+import web.controllers.MainController;
 import web.models.AltaDispositivoModel;
 
-public class AltaDispositivoController extends mainController {
+public class AltaDispositivoController extends MainController {
     private static final String ALTADISPOSITIVO = "/admin/altaDispositivo.html";
     private static AltaDispositivoModel model;
 

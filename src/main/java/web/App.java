@@ -12,6 +12,7 @@ import ar.edu.utn.frba.dds.jsonParser.JsonParser;
 import spark.Spark;
 import spark.debug.DebugScreen;
 import web.controllers.Admin.HogarController;
+import web.controllers.LogoutController;
 import web.controllers.login.LoginController;
 
 import java.io.IOException;
@@ -89,6 +90,7 @@ public class App
         DebugScreen.enableDebugScreen();
 
         LoginController.init();
+        LogoutController.init();
         HogarController.init();
 
 

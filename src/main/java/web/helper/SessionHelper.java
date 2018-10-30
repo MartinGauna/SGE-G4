@@ -23,4 +23,9 @@ public class SessionHelper {
     public static Boolean existSession(Request request){
         return request.session().attribute(SESSION) != null;
     }
+
+    public static void deleteSession(Request request){
+        request.session().removeAttribute(SESSION);
+    }
+
 }
