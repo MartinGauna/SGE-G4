@@ -21,6 +21,10 @@ public class ActuadorTV extends Actuador {
     public ActuadorTV() {
     }
 
+    public DispositivoInteligenteTV getDispositivo() {
+        return tv;
+    }
+
     public void prenderDispositivo() {
         tv.encender();
     }

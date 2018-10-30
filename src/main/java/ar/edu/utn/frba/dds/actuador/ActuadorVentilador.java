@@ -21,6 +21,10 @@ public class ActuadorVentilador extends Actuador {
     public ActuadorVentilador() {
     }
 
+    public DispositivoInteligenteVentilador getDispositivo() {
+        return ventilador;
+    }
+
     public void prenderDispositivo() {ventilador.encender();
     }
     public void apagarDispositivo() {

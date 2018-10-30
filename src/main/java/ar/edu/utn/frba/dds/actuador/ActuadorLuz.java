@@ -22,6 +22,10 @@ public class ActuadorLuz extends Actuador {
     public ActuadorLuz() {
     }
 
+    public DispositivoInteligenteLuz getDispositivo() {
+        return luz;
+    }
+
     public void prenderDispositivo() {
         luz.encender();
     }

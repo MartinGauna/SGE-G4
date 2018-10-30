@@ -22,6 +22,10 @@ public class ActuadorPC extends Actuador {
     public ActuadorPC() {
     }
 
+    public DispositivoInteligentePC getDispositivo() {
+        return pc;
+    }
+
     public void prenderDispositivo() {pc.encender();
     }
     public void apagarDispositivo() {
