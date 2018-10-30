@@ -47,6 +47,9 @@
             <div class="card-body">
 
 
+
+
+
                 <label class="radio-inline"><input type="radio" name="optradio" checked>Dispositivo Estandar</label>
                 <br />
                 <label class="radio-inline"><input type="radio" name="optradio">Dispositivo Inteligente</label>
@@ -54,13 +57,33 @@
 
 
                 <div class="col-md-6">
-                <select class="form-control" name="methodology" id="sm">
+                <select class="form-control" name="dispositivo" id="sm">
                     <option value="" selected disabled>Dispositivo</option>
                     {{#each dispositivos}}
                         <option value={{nombre}}>{{nombre}}</option>
                     {{/each}}
                 </select>
                 </div>
+
+
+
+
+                <div class="form-group col-md-8 ">
+                    <label for="InputNombreDispositivo" class="sr-only">Nombre del dispositivo</label>
+                    <input type="text" class="form-control" id="InputIndicatorName" placeholder="Nombre del indicador"  value="{{name}}" name="name" />
+                </div>
+
+                <div class="form-group col-md-8 ">
+                    <label for="InputIndicatorForm" class="sr-only">Expresión</label>
+                    <input type="text" class="form-control" id="InputIndicatorForm" placeholder="Expresión" value="{{expression}}" name="expression"/>
+                </div>
+
+                <div class="form-group col-md-8 ">
+                    <label for="InputIndicatorForm" class="sr-only">Expresión</label>
+                    <input type="text" class="form-control" id="InputIndicatorForm" placeholder="Expresión" value="{{expression}}" name="expression"/>
+                </div>
+
+
 
 
 
