@@ -1,4 +1,4 @@
-package web.controllers.client;
+package web.controllers.Admin;
 
 import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.Reporte;
@@ -13,15 +13,15 @@ import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import web.Router;
 import web.models.ReportesModel;
-import web.controllers.mainController;
+import web.controllers.MainController;
 import web.models.views.ReportesTable;
 import web.models.views.ReportesTrafosTable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReportesController extends mainController {
-    private static final String REPORTES = "/client/reportes.hbs";
+public class ReportesController extends MainController {
+    private static final String REPORTES = "/admin/reportes.hbs";
     private static ReportesModel model;
 
     private static ClientDao cdao = new ClientDao();

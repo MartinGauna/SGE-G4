@@ -2,6 +2,7 @@ package web.controllers.login;
 
 import ar.edu.utn.frba.dds.Usuario;
 import ar.edu.utn.frba.dds.dao.UsuarioDao;
+import web.controllers.MainController;
 import web.models.AlertModel;
 import spark.ModelAndView;
 import spark.Request;
@@ -11,7 +12,9 @@ import spark.template.handlebars.HandlebarsTemplateEngine;
 import web.Router;
 import web.helper.SessionHelper;
 
-public class LoginController {
+import static web.helper.SessionHelper.setSession;
+
+public class LoginController extends MainController {
 
     private static final String LOGIN = "/login.hbs";
     private static AlertModel alert = new AlertModel(false,"",false);
@@ -40,10 +43,13 @@ public class LoginController {
 
         if (u != null && u.getPassword().equals(request.queryParams("password"))){
             alert.setHideAlert();
-            if (dao.isClient(u) != null)
-            {response.redirect(Router.homePath());}
-            else
-            {response.redirect(Router.adminHogaresPath());}
+            setSession(request,u);
+            if (dao.isClient(u) != null){
+                response.redirect(Router.homePath());
+            }
+            else{
+                response.redirect(Router.adminHogaresPath());
+            }
         }
 
         alert.setShowAlertWithMessage("El usuario o password es incorrecto");
