@@ -13,14 +13,14 @@ import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import web.Router;
 import web.models.ReportesModel;
-import web.controllers.mainController;
+import web.controllers.MainController;
 import web.models.views.ReportesTable;
 import web.models.views.ReportesTrafosTable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReportesController extends mainController {
+public class ReportesController extends MainController {
     private static final String REPORTES = "/client/reportes.hbs";
     private static ReportesModel model;
 
