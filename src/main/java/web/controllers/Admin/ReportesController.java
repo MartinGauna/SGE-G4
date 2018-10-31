@@ -1,4 +1,4 @@
-package web.controllers.client;
+package web.controllers.Admin;
 
 import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.Reporte;
@@ -21,7 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReportesController extends MainController {
-    private static final String REPORTES = "/client/reportes.hbs";
+
+    private static final String REPORTES = "/admin/reportes.hbs";
     private static ReportesModel model;
 
     private static ClientDao cdao = new ClientDao();

@@ -70,20 +70,26 @@
 
                 <div class="form-group col-md-8 ">
                     <label for="InputNombreDispositivo" class="sr-only">Nombre del dispositivo</label>
-                    <input type="text" class="form-control" id="InputIndicatorName" placeholder="Nombre del indicador"  value="{{name}}" name="name" />
+                    <input type="text" class="form-control" id="InputNombreDispositivo" placeholder="Nombre del dispositivo"  value="{{nombre}}" name="nombre" />
                 </div>
 
                 <div class="form-group col-md-8 ">
-                    <label for="InputIndicatorForm" class="sr-only">Expresión</label>
-                    <input type="text" class="form-control" id="InputIndicatorForm" placeholder="Expresión" value="{{expression}}" name="expression"/>
+                    <label for="InputConsumoDispositivo" class="sr-only">Consumo Dispositivo</label>
+                    <input type="text" class="form-control" id="InputConsumoDispositivo" placeholder="Consumo Dispositivo" value="{{consumoHora}}" name="consumoHora"/>
                 </div>
 
                 <div class="form-group col-md-8 ">
-                    <label for="InputIndicatorForm" class="sr-only">Expresión</label>
-                    <input type="text" class="form-control" id="InputIndicatorForm" placeholder="Expresión" value="{{expression}}" name="expression"/>
+                    <label for="InputEstadoDispositivo" class="sr-only">Estado Dispositivo</label>
+                    <input type="text" class="form-control" id="InputEstadoDispositivo" placeholder="Estado Dispositivo" value="{{estado}}" name="estado"/>
                 </div>
 
-
+                <div class="form-group col-md-8 ">
+                    <select>
+                      <option value="activo">Activo</option>
+                      <option value="ahorro">Ahorro</option>
+                      <option value="apagado">Apagado</option>
+                    </select>
+                </div>
 
 
 
