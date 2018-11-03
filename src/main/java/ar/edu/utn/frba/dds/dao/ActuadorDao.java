@@ -13,4 +13,21 @@ public class ActuadorDao extends BaseDao{
 
         return getListByPropertyValue(clazz, "idDispositivo", idDispositivo);
     }
+
+    public void addActuadorIfNotExists(Actuador d){
+        Actuador d2 = actuadorExists(d);
+        if (d2 != null){
+            update(d2);
+        }else{
+            save(d);
+        }
+    }
+
+    private Actuador actuadorExists(Actuador d) {
+        return actuadorExists(d.getId());
+    }
+
+    private Actuador actuadorExists(int id) {
+        return getByPropertyValue(Actuador.class, "id", id); }
+
 }
