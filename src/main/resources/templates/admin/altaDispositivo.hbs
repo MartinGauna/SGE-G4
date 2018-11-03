@@ -46,17 +46,12 @@
               Alta de Dispositivos</div>
             <div class="card-body">
 
+                <div class="form-group col-md-8 ">
+                    <label class="radio-inline"><input type="radio" name="optradio" checked>Dispositivo Estandar</label>
+                    <label class="radio-inline"><input type="radio" name="optradio">Dispositivo Inteligente</label>
+                </div>
 
-
-
-
-                <label class="radio-inline"><input type="radio" name="optradio" checked>Dispositivo Estandar</label>
-                <br />
-                <label class="radio-inline"><input type="radio" name="optradio">Dispositivo Inteligente</label>
-                <br />
-
-
-                <div class="col-md-6">
+                <div class="form-group col-md-8 ">
                 <select class="form-control" name="dispositivo" id="sm">
                     <option value="" selected disabled>Dispositivo</option>
                     {{#each dispositivos}}
@@ -64,8 +59,6 @@
                     {{/each}}
                 </select>
                 </div>
-
-
 
 
                 <div class="form-group col-md-8 ">
@@ -79,18 +72,12 @@
                 </div>
 
                 <div class="form-group col-md-8 ">
-                    <label for="InputEstadoDispositivo" class="sr-only">Estado Dispositivo</label>
-                    <input type="text" class="form-control" id="InputEstadoDispositivo" placeholder="Estado Dispositivo" value="{{estado}}" name="estado"/>
-                </div>
-
-                <div class="form-group col-md-8 ">
                     <select>
                       <option value="activo">Activo</option>
                       <option value="ahorro">Ahorro</option>
                       <option value="apagado">Apagado</option>
                     </select>
                 </div>
-
 
 
                 <div class="form-group" align="right">
