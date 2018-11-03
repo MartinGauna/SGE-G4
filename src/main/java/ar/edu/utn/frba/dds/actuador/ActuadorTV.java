@@ -10,12 +10,13 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class ActuadorTV extends Actuador {
 
-    @OneToOne(fetch = FetchType.LAZY, targetEntity = DispositivoInteligenteAAcondicionado.class)
+    @OneToOne(fetch = FetchType.LAZY, targetEntity = DispositivoInteligenteTV.class)
     @JoinColumn(name = "idDispositivo", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_ACTUADOR_TV"))
     private DispositivoInteligenteTV tv;
 
     public ActuadorTV(DispositivoInteligenteTV tv) {
         this.tv = tv;
+        tv.setActuador(this);
     }
 
     public ActuadorTV() {
