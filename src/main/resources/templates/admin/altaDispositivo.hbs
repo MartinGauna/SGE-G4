@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,101 +23,109 @@
     <!-- Custom styles for this template-->
     <link href="./styles/css/sb-admin.css" rel="stylesheet">
 
-  </head>
+</head>
 
-  <body id="page-top">
+<body id="page-top">
 
-    {{>commons/header.hbs}}
+{{>commons/header.hbs}}
 
-    <div id="wrapper">
+<div id="wrapper">
 
-      {{>admin/navBar.hbs}}
+    {{>admin/navBar.hbs}}
 
-      <div id="content-wrapper">
+    <div id="content-wrapper">
 
         <div class="container-fluid">
 
-
-
-          <!-- DataTables Example -->
-          <div class="card mb-3">
-            <div class="card-header">
-              <i class="fas fa-table"></i>
-              Alta de Dispositivos</div>
-            <div class="card-body">
-
-                <div class="form-group col-md-8 ">
-                    <label class="radio-inline"><input type="radio" name="optradio" checked>Dispositivo Estandar</label>
-                    <label class="radio-inline"><input type="radio" name="optradio">Dispositivo Inteligente</label>
+            <!-- DataTables Example -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Alta de Dispositivos
                 </div>
+                <div class="card-body">
 
-                <div class="form-group col-md-8 ">
-                <select class="form-control" name="dispositivo" id="sm">
-                    <option value="" selected disabled>Dispositivo</option>
-                    {{#each dispositivos}}
-                        <option value={{nombre}}>{{nombre}}</option>
-                    {{/each}}
-                </select>
+                    <form class="form-label-group" action="/altaDispositivo" method="POST">
+
+                        <div class="form-group col-md-8 " title="tipo" name="tipo" id="sm">
+                            <label class="radio-inline"><input type="radio" checked value="DispositivoInteligente">Dispositivo Inteligente</label>
+                            <label class="radio-inline"><input type="radio" value="Estandar">Dispositivo Estandar</label>
+                        </div>
+
+                        <div class="form-group col-md-8 ">
+                            <select class="form-control" title = "dispositivo" name="dispositivo" id="sm">
+                                <option value="" selected disabled>Dispositivo</option>
+                                {{#each dispositivos}}
+                                    <option value={{nombre}}>{{nombre}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-8 ">
+                            <label for="InputNombreDispositivo" class="sr-only">Nombre del dispositivo</label>
+                            <input type="text" class="form-control" id="InputNombreDispositivo"
+                                   placeholder="Nombre del dispositivo" value="{{nombre}}" name="nombre"/>
+                        </div>
+
+                        <div class="form-group col-md-8 ">
+                            <label for="InputConsumoDispositivo" class="sr-only">Consumo Dispositivo</label>
+                            <input type="text" class="form-control" id="InputConsumoDispositivo"
+                                   placeholder="Consumo Dispositivo" value="{{consumoHora}}" name="consumoHora"/>
+                        </div>
+
+                        <div class="form-group col-md-8 " title="estado" name="estado" id="sm">
+                            <select>
+                                <option value="activo">Activo</option>
+                                <option value="ahorro">Ahorro</option>
+                                <option value="apagado">Apagado</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-8 ">
+                            <select class="form-control" title = "cliente" name="cliente" id="sm">
+                                <option value="" selected disabled>Asignar a cliente:</option>
+                                {{#each clientes}}
+                                    <option value={{username}}>{{nombre}} {{apellido}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+
+                        <div class="form-group" align="right">
+                            <p>
+                                <button class="btn btn-lg btn-primary" type="submit">Crear Dispositivo</button>
+                                <!--<button class="btn btn-lg btn-danger"  onclick="deleteMethodology()">Cancelar</button>-->
+                            </p>
+                        </div>
+                    </form>
                 </div>
-
-
-                <div class="form-group col-md-8 ">
-                    <label for="InputNombreDispositivo" class="sr-only">Nombre del dispositivo</label>
-                    <input type="text" class="form-control" id="InputNombreDispositivo" placeholder="Nombre del dispositivo"  value="{{nombre}}" name="nombre" />
-                </div>
-
-                <div class="form-group col-md-8 ">
-                    <label for="InputConsumoDispositivo" class="sr-only">Consumo Dispositivo</label>
-                    <input type="text" class="form-control" id="InputConsumoDispositivo" placeholder="Consumo Dispositivo" value="{{consumoHora}}" name="consumoHora"/>
-                </div>
-
-                <div class="form-group col-md-8 ">
-                    <select>
-                      <option value="activo">Activo</option>
-                      <option value="ahorro">Ahorro</option>
-                      <option value="apagado">Apagado</option>
-                    </select>
-                </div>
-
-
-                <div class="form-group" align="right">
-                    <p>
-                        <button class="btn btn-lg btn-primary" onclick="crearDispositivo()">Crear Dispositivo</button>
-                        <button class="btn btn-lg btn-danger"  onclick="deleteMethodology()">Eliminar</button>
-                    </p>
-                </div>
-
-
-
+                <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
             </div>
-            <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
-          </div>
 
 
-          <!--<p class="small text-center text-muted my-5">-->
+            <!--<p class="small text-center text-muted my-5">-->
             <!--<em>More table examples coming soon...</em>-->
-          <!--</p>-->
+            <!--</p>-->
 
         </div>
         <!-- /.container-fluid -->
 
-      </div>
-      <!-- /.content-wrapper -->
-
     </div>
-    <!-- /#wrapper -->
+    <!-- /.content-wrapper -->
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-      <i class="fas fa-angle-up"></i>
-    </a>
+</div>
+<!-- /#wrapper -->
 
-    <!-- Logout Modal-->
-    {{>commons/logoutModal.hbs}}
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
 
-  {{>commons/scripts.hbs}}
+<!-- Logout Modal-->
+{{>commons/logoutModal.hbs}}
+
+{{>commons/scripts.hbs}}
 
 
-  </body>
+</body>
 
 </html>
