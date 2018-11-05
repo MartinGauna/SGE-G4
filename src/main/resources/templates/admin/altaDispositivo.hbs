@@ -99,6 +99,19 @@
                                 <button class="btn btn-lg btn-primary" type="submit">Crear Dispositivo</button>
                                 <!--<button class="btn btn-lg btn-danger"  onclick="deleteMethodology()">Cancelar</button>-->
                             </p>
+
+                            {{#if showAlert}}
+                                {{#if isSuccess}}
+                                    <div class="alert alert-success mx-auto mt-5 card-login">
+                                        <strong>iujuu!!</strong> {{message}}
+                                    </div>
+                                {{else}}
+                                    <div class="alert alert-danger mx-auto mt-5 card-login">
+                                        <strong>Upss!!</strong> {{message}}
+                                    </div>
+                                {{/if}}
+                            {{/if}}
+
                         </div>
                     </form>
                 </div>

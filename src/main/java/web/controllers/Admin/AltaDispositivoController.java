@@ -22,7 +22,6 @@ import java.util.List;
 
 public class AltaDispositivoController extends MainController {
     private static final String ALTADISPOSITIVO = "/admin/altaDispositivo.hbs";
-    private static AlertModel alert = new AlertModel(false,"",false);
 
     private static AltaDispositivoModel model;
 
@@ -52,21 +51,25 @@ public class AltaDispositivoController extends MainController {
     }
 
     public static ModelAndView crearDispositivo(Request request, Response response){
-
         try {
             parseRequest(request);
+            model.success("El dispositivo fue creado con exito");
         }catch (IncompleteFormException ex){
             response.status(410);
             response.body(ex.getMessage());
+            model.failed(ex.getMessage());
         }catch (Exception ex){
             response.status(400);
             response.body("Ocurrio un error. Intenta nuevamente");
+            model.failed(ex.getMessage());
         }
 
         return new ModelAndView (model, ALTADISPOSITIVO);
     }
 
     private static Dispositivo parseRequest(Request request) {
+        //model.getAlert().setHideAlert();
+
         String tipo = request.queryParams("tipo");
         String disp = request.queryParams("dispositivo");
         String nombre = request.queryParams("nombre");
