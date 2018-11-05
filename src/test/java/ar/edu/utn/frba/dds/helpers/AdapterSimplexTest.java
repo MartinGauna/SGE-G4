@@ -1,7 +1,7 @@
 package ar.edu.utn.frba.dds.helpers;
 
 import ar.edu.utn.frba.dds.Cliente;
-import ar.edu.utn.frba.dds.dispositivo.DIFactoryMethod;
+import ar.edu.utn.frba.dds.dispositivo.DIFactory;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,9 +13,9 @@ public class AdapterSimplexTest {
 private Cliente client;
 private List<DispositivoInteligente> dispositivoInteligenteList = new ArrayList<>() ;
 private AdapterSimplex adapterSimplex = new AdapterSimplex();
-private DIFactoryMethod fm;
-private DIFactoryMethod fm2;
-private DIFactoryMethod fm3;
+private DIFactory fm;
+private DIFactory fm2;
+private DIFactory fm3;
 private DispositivoInteligente d1;
 private DispositivoInteligente d2;
 private DispositivoInteligente d3;
@@ -28,9 +28,9 @@ private DispositivoInteligente d3;
          - x2 -> Es un ventilador de techo cuyo consumo kWh es 0.06
          **/
 
-        fm = new DIFactoryMethod();
-        fm2 = new DIFactoryMethod();
-        fm3 = new DIFactoryMethod();
+        fm = new DIFactory();
+        fm2 = new DIFactory();
+        fm3 = new DIFactory();
         d1 = fm.crearDispositivo("Televisor 40", 0.18, "activo",false);
         d2 = fm2.crearDispositivo("Lavarropas 5kg", 0.875, "activo",false);
         d3 = fm3.crearDispositivo("Ventilador Techo", 0.06, "activo",false);

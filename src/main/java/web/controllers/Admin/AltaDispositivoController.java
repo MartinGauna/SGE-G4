@@ -4,7 +4,9 @@ package web.controllers.Admin;
 import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.dao.ClientDao;
 import ar.edu.utn.frba.dds.dao.DispositivoDao;
+import ar.edu.utn.frba.dds.dispositivo.DIFactory;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
+import ar.edu.utn.frba.dds.exception.IncompleteFormException;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -51,21 +53,42 @@ public class AltaDispositivoController extends MainController {
 
     public static ModelAndView crearDispositivo(Request request, Response response){
 
+        try {
+            parseRequest(request);
+        }catch (IncompleteFormException ex){
+            response.status(410);
+            response.body(ex.getMessage());
+        }catch (Exception ex){
+            response.status(400);
+            response.body("Ocurrio un error. Intenta nuevamente");
+        }
+
+        return new ModelAndView (model, ALTADISPOSITIVO);
+    }
+
+    private static Dispositivo parseRequest(Request request) {
         String tipo = request.queryParams("tipo");
         String disp = request.queryParams("dispositivo");
         String nombre = request.queryParams("nombre");
-        String consumo = request.queryParams("consumoHora");
+        double consumo = Double.parseDouble(request.queryParams("consumoHora"));
         String estado = request.queryParams("estado");
         String username = request.queryParams("cliente");
+        boolean bajoConsumo = Boolean.valueOf(request.queryParams("bajoConsumo"));
 
-        System.out.println(tipo);
-        System.out.println(disp);
-        System.out.println(nombre);
-        System.out.println(consumo);
-        System.out.println(estado);
-        System.out.println(username);
 
-        return new ModelAndView (model, ALTADISPOSITIVO);
+        Dispositivo dispositivo;
+        Cliente cliente = clientDao.clientExists(username);
+        DIFactory fm = new DIFactory();
+
+        try {
+            dispositivo = fm.crearDispositivoFromPOST(tipo,disp,nombre,consumo, estado, cliente, bajoConsumo);
+            dispositivoDao.addDispositivoIfNotExists(dispositivo);
+            clientDao.addClientIfNotExists(cliente);
+        }catch (NullPointerException ex){
+            throw new IncompleteFormException();
+        }
+        return dispositivo;
+
     }
 
 }

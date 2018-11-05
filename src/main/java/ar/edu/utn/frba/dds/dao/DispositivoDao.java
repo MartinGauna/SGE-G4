@@ -1,8 +1,11 @@
 package ar.edu.utn.frba.dds.dao;
 
 import ar.edu.utn.frba.dds.Cliente;
+import ar.edu.utn.frba.dds.actuador.Actuador;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DispositivoDao extends BaseDao{
@@ -23,7 +26,13 @@ public class DispositivoDao extends BaseDao{
         if (d2 != null){
             update(d2);
         }else{
-            save(d);
+            if( d instanceof DispositivoInteligente){
+                Actuador a = ((DispositivoInteligente) d).getActuador();
+                persistList(new ArrayList<Object>() {{add(a); add(d);}});
+            }
+            else {
+                save(d);
+            }
         }
     }
 }

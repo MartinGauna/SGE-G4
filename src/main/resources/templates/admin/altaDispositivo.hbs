@@ -47,9 +47,9 @@
 
                     <form class="form-label-group" action="/altaDispositivo" method="POST">
 
-                        <div class="form-group col-md-8 " title="tipo" name="tipo" id="sm">
-                            <label class="radio-inline"><input type="radio" checked value="DispositivoInteligente">Dispositivo Inteligente</label>
-                            <label class="radio-inline"><input type="radio" value="Estandar">Dispositivo Estandar</label>
+                        <div class="form-group col-md-8 " title="tipo" id="sm">
+                            <label class="radio-inline"><input name="tipo" value="int" type="radio" checked >Dispositivo Inteligente</label>
+                            <label class="radio-inline"><input name="tipo" value="est" type="radio" >Dispositivo Estandar</label>
                         </div>
 
                         <div class="form-group col-md-8 ">
@@ -64,17 +64,17 @@
                         <div class="form-group col-md-8 ">
                             <label for="InputNombreDispositivo" class="sr-only">Nombre del dispositivo</label>
                             <input type="text" class="form-control" id="InputNombreDispositivo"
-                                   placeholder="Nombre del dispositivo" value="{{nombre}}" name="nombre"/>
+                                   placeholder="nombre" value="{{nombre}}" name="nombre"/>
                         </div>
 
                         <div class="form-group col-md-8 ">
                             <label for="InputConsumoDispositivo" class="sr-only">Consumo Dispositivo</label>
                             <input type="text" class="form-control" id="InputConsumoDispositivo"
-                                   placeholder="Consumo Dispositivo" value="{{consumoHora}}" name="consumoHora"/>
+                                   placeholder="consumo" value="{{consumoHora}}" name="consumoHora"/>
                         </div>
 
-                        <div class="form-group col-md-8 " title="estado" name="estado" id="sm">
-                            <select>
+                        <div class="form-group col-md-8 " title="estado" id="sm">
+                            <select name="estado" >
                                 <option value="activo">Activo</option>
                                 <option value="ahorro">Ahorro</option>
                                 <option value="apagado">Apagado</option>
@@ -88,6 +88,10 @@
                                     <option value={{username}}>{{nombre}} {{apellido}}</option>
                                 {{/each}}
                             </select>
+                        </div>
+
+                        <div class="form-group col-md-8 " title="bajoConsumo" id="sm">
+                            <label class="radio-inline"><input name="bajoConsumo" value="true" type="radio" >Bajo Consumo</label>
                         </div>
 
                         <div class="form-group" align="right">

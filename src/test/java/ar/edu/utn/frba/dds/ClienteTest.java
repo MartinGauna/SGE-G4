@@ -1,7 +1,7 @@
 package ar.edu.utn.frba.dds;
 
 
-import ar.edu.utn.frba.dds.dispositivo.DIFactoryMethod;
+import ar.edu.utn.frba.dds.dispositivo.DIFactory;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import ar.edu.utn.frba.dds.helpers.AdapterSimplex;
@@ -19,9 +19,9 @@ import static org.junit.Assert.assertEquals;
 public class ClienteTest {
 
     private Cliente client;
-    private DIFactoryMethod fm;
-    private DIFactoryMethod fm2;
-    private DIFactoryMethod fm3;
+    private DIFactory fm;
+    private DIFactory fm2;
+    private DIFactory fm3;
     private DispositivoInteligente d1;
     private DispositivoInteligente d2;
     private DispositivoInteligente d3;
@@ -42,9 +42,9 @@ public class ClienteTest {
         Date f = new Date(2018,12,12);
 
         Categoria cat1 = new Categoria("1");
-        fm = new DIFactoryMethod();
-        fm2 = new DIFactoryMethod();
-        fm3 = new DIFactoryMethod();
+        fm = new DIFactory();
+        fm2 = new DIFactory();
+        fm3 = new DIFactory();
         d1 = fm.crearDispositivo("Televisor 40", 0.18, "activo",false);
         d2 = fm2.crearDispositivo("Lavarropas 5kg", 0.875, "activo",false);
         d3 = fm3.crearDispositivo("Ventilador Techo", 0.06, "activo",false);
@@ -65,7 +65,7 @@ public class ClienteTest {
 
     @Test
     public void addDispInteligenteTest() {
-        fm = new DIFactoryMethod();
+        fm = new DIFactory();
         DispositivoInteligente heladera  = fm.crearDispositivo("Heladera", 20, "activo",false);
 
         assertEquals(this.client.getPuntaje(), 0);
@@ -75,7 +75,7 @@ public class ClienteTest {
 
     @Test
     public void addDispEstandardTest() {
-        fm = new DIFactoryMethod();
+        fm = new DIFactory();
         Estandard heladera = new Estandard("Heladera", 20, "activo");
 
         assertEquals(this.client.getPuntaje(), 0);
