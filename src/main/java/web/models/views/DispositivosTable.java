@@ -26,4 +26,5 @@ public class DispositivosTable {
     public List<Dispositivo> getDispositivosDisponibles() {
         return dispositivosDisponibles;
     }
+
 }
