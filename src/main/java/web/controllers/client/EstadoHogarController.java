@@ -11,6 +11,7 @@ import spark.Response;
 import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import web.Router;
+import web.controllers.MainController;
 import web.helper.SessionHelper;
 import web.models.AlertModel;
 import web.models.EstadoHogarModel;
@@ -19,7 +20,7 @@ import web.models.views.HogaresTable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EstadoHogarController {
+public class EstadoHogarController extends MainController{
     private static final String ESTADO_HOGAR = "/cliente/estadoHogar.hbs";
     private static EstadoHogarModel model;
     private static AlertModel alert = new AlertModel(false,"",false);
@@ -41,9 +42,7 @@ public class EstadoHogarController {
         Integer userID = Integer.parseInt(userSession.substring(0,userSession.indexOf("-")));
         currentClient = cdao.getCliente(userID);
 
-        if (SessionHelper.existSession(request)){
-            response.redirect(Router.homePath());
-        }
+        sessionExist(request,response);
         alert.setHideAlert();
 
         return new ModelAndView(alert, ESTADO_HOGAR);
