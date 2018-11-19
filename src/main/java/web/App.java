@@ -2,6 +2,7 @@ package web;
 
 import ar.edu.utn.frba.dds.Categoria;
 import ar.edu.utn.frba.dds.Cliente;
+import ar.edu.utn.frba.dds.GeneradorReportes;
 import ar.edu.utn.frba.dds.helpers.BackgroundProcesses;
 import spark.Spark;
 import spark.debug.DebugScreen;
@@ -37,6 +38,9 @@ public class App
         DebugScreen.enableDebugScreen();
 
         startControllers();
+      //  while(true) {
+      //      GeneradorReportes.getInstance().generarReportes();
+     //   }
     }
 
     public static void startControllers(){

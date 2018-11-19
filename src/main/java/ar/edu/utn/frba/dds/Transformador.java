@@ -32,7 +32,7 @@ public class Transformador {
     @NotNull
     double longitud;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Zona.class)
+    @ManyToOne(cascade = {CascadeType.ALL}, targetEntity = Zona.class)
     @JoinColumn(name = "idZona", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_ZONA"))
     private Zona zona;
 
@@ -70,9 +70,11 @@ public class Transformador {
         int consumoTotal = 0;
         for (Cliente cliente : clientes) {
             List<Dispositivo> dispositivos = cliente.getDispositivos();
-            for (Dispositivo disp : dispositivos) {
+            if(dispositivos != null) {
+                for (Dispositivo disp : dispositivos) {
 
-                consumoTotal += disp.getConsumoTotal();
+                    consumoTotal += disp.getConsumoTotal();
+                }
             }
         }
         return consumoTotal;
@@ -82,9 +84,11 @@ public class Transformador {
         int consumoTotal = 0;
         for (Cliente cliente : clientes) {
             List<Dispositivo> dispositivos = cliente.getDispositivos();
-            for (Dispositivo disp : dispositivos) {
+            if(dispositivos != null) {
+                for (Dispositivo disp : dispositivos) {
 
-                consumoTotal += disp.getConsumoTotal(fechaInicio, fechaFin);
+                    consumoTotal += disp.getConsumoTotal(fechaInicio, fechaFin);
+                }
             }
         }
         return consumoTotal;

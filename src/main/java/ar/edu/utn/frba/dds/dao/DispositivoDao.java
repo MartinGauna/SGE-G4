@@ -14,6 +14,8 @@ public class DispositivoDao extends BaseDao{
         return getListByPropertyValue(Dispositivo.class, "idCliente", user);
     }
 
+    public List<Dispositivo> list() {return list(Dispositivo.class);}
+
     private Dispositivo dispositivoExists(Dispositivo e) {
         return dispositivoExists(e.getNombre());
     }

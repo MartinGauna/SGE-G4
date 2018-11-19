@@ -1,5 +1,7 @@
 package ar.edu.utn.frba.dds;
 
+import ar.edu.utn.frba.dds.dao.ClientDao;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -51,6 +53,12 @@ public class Reporte {
     @NotNull
     public int type;
 
+    @Transient
+    public String clienteName;
+
+    @Transient
+    ClientDao cdao = new ClientDao();
+
     public Reporte(){}
 
     public Reporte(int clienteId, Date fechaInicio, Date fechaFin, String reporte, int type){
@@ -59,7 +67,10 @@ public class Reporte {
         this.fechaFin = fechaFin;
         this.reporte = reporte;
         this.type = type;
+        this.clienteName = cdao.getCliente(clienteId).getNombre() + ' ' + cdao.getCliente(clienteId).getApellido();
     }
 
-
+    public void setClienteName() {
+        this.clienteName = cdao.getCliente(clienteId).getNombre() + ' ' + cdao.getCliente(clienteId).getApellido();
+    }
 }

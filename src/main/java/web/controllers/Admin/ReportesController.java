@@ -1,11 +1,10 @@
 package web.controllers.Admin;
 
-import ar.edu.utn.frba.dds.Cliente;
-import ar.edu.utn.frba.dds.Reporte;
-import ar.edu.utn.frba.dds.ReporteTransformador;
-import ar.edu.utn.frba.dds.Transformador;
+import ar.edu.utn.frba.dds.*;
 import ar.edu.utn.frba.dds.dao.ClientDao;
 import ar.edu.utn.frba.dds.dao.ReporteDao;
+import ar.edu.utn.frba.dds.dao.TransformadorDao;
+import com.sun.security.ntlm.Client;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -17,6 +16,7 @@ import web.controllers.MainController;
 import web.models.views.ReportesTable;
 import web.models.views.ReportesTrafosTable;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +26,7 @@ public class ReportesController extends MainController {
     private static ReportesModel model;
 
     private static ClientDao cdao = new ClientDao();
+    private static TransformadorDao tdao = new TransformadorDao();
     private static ReporteDao rdao = new ReporteDao();
 
 
@@ -35,7 +36,10 @@ public class ReportesController extends MainController {
         initModel();
     }
 
-    private static ModelAndView showReportes(Request request, Response response) {
+    private static ModelAndView showReportes(Request request, Response response) throws ParseException {
+        List<Cliente> listCliente = cdao.list();
+        List<Transformador> listTrafo = tdao.list();
+        GeneradorReportes.getInstance().generarReportes(listCliente, listTrafo);
         sessionExist(request, response);
 
         return new ModelAndView (model, REPORTES); // TODO add 'hogares' model
@@ -53,8 +57,8 @@ public class ReportesController extends MainController {
 
         for ( Reporte r : rep) {
             ReportesTable row = new ReportesTable();
+            r.setClienteName();
             row.setReporte(r);
-
             tableReporte.add(row);
         }
         for ( ReporteTransformador r : repT) {
