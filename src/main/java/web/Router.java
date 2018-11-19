@@ -11,7 +11,7 @@ public class Router {
     private static final String ADMIN_HOGARES = "/hogares";
     private static final String ALTA_DISPOSITIVO = "/altaDispositivo";
     private static final String REPORTES = "/reportes";
-
+    private static final String UPLOAD = "/upload";
 
 
     public static String loginPath(){
@@ -31,6 +31,10 @@ public class Router {
     public static String altaDispositivoPath() { return ALTA_DISPOSITIVO; }
 
     public static String reportesPath() { return REPORTES; }
+
+    public static String uploadPath(){
+        return UPLOAD;
+    }
 
 //    public static String hogares() { return ADMIN_HOGARES; }
 //    public static String hogares() { return ADMIN_HOGARES; }
