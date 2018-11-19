@@ -3,6 +3,7 @@ package db;
 import ar.edu.utn.frba.dds.*;
 import ar.edu.utn.frba.dds.actuador.ActuadorAAcondicionado;
 import ar.edu.utn.frba.dds.actuador.ActuadorHeladera;
+import ar.edu.utn.frba.dds.dao.ClientDao;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteAAcondicionado;
@@ -42,58 +43,60 @@ public class ConsumoPersistenceTest {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("TEST_PERSISTENCE_UNIT");
         entityManager = factory.createEntityManager();
         reporte = GeneradorReportes.getInstance();
+        ClientDao dao = new ClientDao();
 
         // creacion de clientes
-        cliente1 = new Cliente("Pepe", "Ruiz", "Calle Falsa 123", "user1",
-                "pass1", LocalDate.of(2018,04, 28),"DNI",
-                87654321, 45555533, null , LocalDate.now(),true);
-
+        cliente1 = dao.getCliente(1);
         //creacion de dispositivos
         hel = new DispositivoInteligenteHeladera("Heladera", 123, "activo", false);
         cliente1.addDispositivo(hel);
         aire = new DispositivoInteligenteAAcondicionado("Aire Comedor", 1200, "apagado", false);
         cliente1.addDispositivo(aire);
-        actuadorAire = new ActuadorAAcondicionado(aire);
-        actuadorHel = new ActuadorHeladera(hel);
 
-        //creacion de consumos
+//
+//        actuadorAire = new ActuadorAAcondicionado(aire);
+//        actuadorHel = new ActuadorHeladera(hel);
+//
+//        //creacion de consumos
         sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date d = sdf.parse("12/12/2018");
         Date e = sdf.parse("18/12/2018");
         Date f = sdf.parse("19/12/2018");
         Date g = sdf.parse("21/12/2018");
-
+//
         cons1 = new Consumo(hel, 1200, d, e);
         cons2 = new Consumo(hel, 2100, f, g);
         hel.addConsumo(cons1);
         hel.addConsumo(cons2);
-
-        cons3 = new Consumo(hel, 3400, d, e);
-        cons4 = new Consumo(hel, 4300, f, g);
+//
+        cons3 = new Consumo(aire, 3400, d, e);
+        cons4 = new Consumo(aire, 4300, f, g);
         aire.addConsumo(cons3);
         aire.addConsumo(cons4);
 
-
-        //creacion de transformadores y Zonas
-        sanTelmo = new Zona("San Telmo", -34.6210356, -58.373654, 300);
-        trafo = new Transformador( 34.61, 44.41, sanTelmo);
-        trafo.addCliente(cliente1);
-
-        // persisto
-        EntityTransaction transaction = entityManager.getTransaction();
-        transaction.begin();
-        entityManager.persist(sanTelmo);
-        entityManager.persist(trafo);
-        entityManager.persist(cons1);
-        entityManager.persist(cons2);
-        entityManager.persist(cons3);
-        entityManager.persist(cons4);
-        entityManager.persist(actuadorAire);
-        entityManager.persist(actuadorHel);
-        entityManager.persist(hel);
-        entityManager.persist(aire);
-        entityManager.persist(cliente1);
-        transaction.commit();
+        dao.addClient(cliente1);
+//
+//
+//        //creacion de transformadores y Zonas
+//        sanTelmo = new Zona("San Telmo", -34.6210356, -58.373654, 300);
+//        trafo = new Transformador( 34.61, 44.41, sanTelmo);
+//        trafo.addCliente(cliente1);
+//
+//        // persisto
+//        EntityTransaction transaction = entityManager.getTransaction();
+//        transaction.begin();
+//        entityManager.persist(sanTelmo);
+//        entityManager.persist(trafo);
+//        entityManager.persist(cons1);
+//        entityManager.persist(cons2);
+//        entityManager.persist(cons3);
+//        entityManager.persist(cons4);
+//        entityManager.persist(actuadorAire);
+//        entityManager.persist(actuadorHel);
+//        entityManager.persist(hel);
+//        entityManager.persist(aire);
+//        entityManager.persist(cliente1);
+//        transaction.commit();
 
     }
 

@@ -43,17 +43,19 @@
                     <i class="fas fa-table"></i>
                     Alta de Dispositivos
                 </div>
+
                 <div class="card-body">
 
                     <form class="form-label-group" action="/altaDispositivo" method="POST">
 
                         <div class="form-group col-md-8 " title="tipo" id="sm">
-                            <label class="radio-inline"><input name="tipo" value="int" type="radio" checked >Dispositivo Inteligente</label>
-                            <label class="radio-inline"><input name="tipo" value="est" type="radio" >Dispositivo Estandar</label>
+                            <label class="radio-inline"><input name="tipo" value="int" type="radio" checked>Dispositivo
+                                Inteligente</label>
+                            <label class="radio-inline"><input name="tipo" value="est" type="radio">Dispositivo Estandar</label>
                         </div>
 
                         <div class="form-group col-md-8 ">
-                            <select class="form-control" title = "dispositivo" name="dispositivo" id="sm">
+                            <select class="form-control" title="dispositivo" name="dispositivo" id="sm">
                                 <option value="" selected disabled>Dispositivo</option>
                                 {{#each dispositivos}}
                                     <option value={{nombre}}>{{nombre}}</option>
@@ -64,7 +66,7 @@
                         <div class="form-group col-md-8 ">
                             <label for="InputNombreDispositivo" class="sr-only">Nombre del dispositivo</label>
                             <input type="text" class="form-control" id="InputNombreDispositivo"
-                                   placeholder="nombre" value="{{nombre}}" name="nombre"/>
+                                   placeholder="Nombre" value="{{nombre}}" name="nombre"/>
                         </div>
 
                         <div class="form-group col-md-8 ">
@@ -74,7 +76,7 @@
                         </div>
 
                         <div class="form-group col-md-8 " title="estado" id="sm">
-                            <select name="estado" >
+                            <select name="estado">
                                 <option value="activo">Activo</option>
                                 <option value="ahorro">Ahorro</option>
                                 <option value="apagado">Apagado</option>
@@ -82,7 +84,7 @@
                         </div>
 
                         <div class="form-group col-md-8 ">
-                            <select class="form-control" title = "cliente" name="cliente" id="sm">
+                            <select class="form-control" title="cliente" name="cliente" id="sm">
                                 <option value="" selected disabled>Asignar a cliente:</option>
                                 {{#each clientes}}
                                     <option value={{username}}>{{nombre}} {{apellido}}</option>
@@ -91,7 +93,7 @@
                         </div>
 
                         <div class="form-group col-md-8 " title="bajoConsumo" id="sm">
-                            <label class="radio-inline"><input name="bajoConsumo" value="true" type="radio" >Bajo Consumo</label>
+                            <label class="radio-inline"><input name="bajoConsumo" value="true" type="radio">Bajo Consumo</label>
                         </div>
 
                         <div class="form-group" align="right">

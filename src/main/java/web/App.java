@@ -31,7 +31,7 @@ public class App
 
         BackgroundProcesses bkgP = new BackgroundProcesses();
 
-        LoadData.Load();
+//        LoadData.Load();
 
         Spark.port(9000);
         staticFileLocation("/webResources");
@@ -50,6 +50,7 @@ public class App
         AltaDispositivoController.init();
         ReportesController.init();
         EstadoHogarController.init();
+
     }
 
     public static App getInstance() {

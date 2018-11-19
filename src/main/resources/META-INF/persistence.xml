@@ -114,7 +114,7 @@
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
             <property name="use_sql_comments" value="true" />
-            <property name="hibernate.hbm2ddl.auto" value="create-drop" />
+            <!--<property name="hibernate.hbm2ddl.auto" value="create-drop" />-->
         </properties>
 
     </persistence-unit>
@@ -140,7 +140,7 @@
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
             <property name="use_sql_comments" value="true" />
-            <property name="hibernate.hbm2ddl.auto" value="create-drop" />
+            <!--<property name="hibernate.hbm2ddl.auto" value="create-drop" />-->
         </properties>
 
     </persistence-unit>
@@ -178,7 +178,7 @@
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
             <property name="use_sql_comments" value="true" />
-            <property name="hibernate.hbm2ddl.auto" value="create-drop" />
+            <!--<property name="hibernate.hbm2ddl.auto" value="create-update" />-->
         </properties>
 
     </persistence-unit>
