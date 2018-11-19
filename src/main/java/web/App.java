@@ -2,6 +2,7 @@ package web;
 
 import ar.edu.utn.frba.dds.Categoria;
 import ar.edu.utn.frba.dds.Cliente;
+import ar.edu.utn.frba.dds.GeneradorReportes;
 import ar.edu.utn.frba.dds.helpers.BackgroundProcesses;
 import spark.Spark;
 import spark.debug.DebugScreen;
@@ -11,6 +12,7 @@ import web.controllers.Admin.HogarController;
 import web.controllers.Admin.ReportesController;
 import web.controllers.LogoutController;
 import web.controllers.client.EstadoHogarController;
+import web.controllers.client.UploadController;
 import web.controllers.login.LoginController;
 
 import java.text.ParseException;
@@ -41,6 +43,10 @@ public class App
 
         startControllers();
         handle404();
+      //  while(true) {
+      //      GeneradorReportes.getInstance().generarReportes();
+     //   }
+
     }
 
     private static void startControllers(){
@@ -51,6 +57,7 @@ public class App
         ReportesController.init();
         EstadoHogarController.init();
         TransformadoresController.init();
+        UploadController.init();
 
     }
 

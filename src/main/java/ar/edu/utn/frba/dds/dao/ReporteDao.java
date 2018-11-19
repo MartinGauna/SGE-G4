@@ -21,4 +21,12 @@ public class ReporteDao extends BaseDao{
 
     public List<ReporteTransformador> listReporteTrafo() { return list(ReporteTransformador.class); }
 
+    public void addReporte(Reporte c){
+        save(c);
+    }
+
+    public void addReporteTrafo(ReporteTransformador c){
+        save(c);
+    }
+
 }
