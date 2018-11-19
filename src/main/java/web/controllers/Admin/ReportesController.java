@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReportesController extends MainController {
+
     private static final String REPORTES = "/admin/reportes.hbs";
     private static ReportesModel model;
 

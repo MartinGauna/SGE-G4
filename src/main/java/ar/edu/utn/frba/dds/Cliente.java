@@ -177,6 +177,11 @@ public class Cliente extends Usuario {
 
 
     public void addDispositivo(Dispositivo disp) {
+        if (this.dispositivos == null) {
+            this.dispositivos = new ArrayList<Dispositivo>();
+        }
+        disp.setCliente(this);
+
         this.dispositivos.add(disp);
         if (isInteligente(disp)) this.setPuntaje(this.getPuntaje() + puntosPorInteligente);
         else this.setPuntaje(this.getPuntaje() + puntosPorEstandard);

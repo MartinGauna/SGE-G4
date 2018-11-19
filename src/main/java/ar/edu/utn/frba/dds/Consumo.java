@@ -17,7 +17,7 @@ public class Consumo {
 	private int id;
 
 	@ManyToOne(fetch = FetchType.LAZY, targetEntity = DispositivoInteligente.class)
-	@JoinColumn(name = "idDispositivo", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_TRANSFORMADOR"))
+	@JoinColumn(name = "idDispositivo", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_CONSUMO"))
     private Dispositivo dispositivo;
     @NotNull
 	private int watts;

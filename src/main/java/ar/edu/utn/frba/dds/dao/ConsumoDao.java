@@ -22,4 +22,21 @@ public class ConsumoDao extends BaseDao{
 
         return result;
     }
+
+    private Consumo consumoExists(Consumo e) {
+        return consumoExists(e.getId());
+    }
+
+    private Consumo consumoExists(int id) { return getByPropertyValue(Consumo.class, "id", id); }
+
+
+    public void addConsumoIfNotExists(Consumo d){
+        Consumo d2 = consumoExists(d);
+        if (d2 != null){
+            update(d2);
+        }else{
+            save(d);
+        }
+    }
+
 }

@@ -52,6 +52,9 @@ public class Transformador {
     }
 
     public void addCliente(Cliente cliente) {
+        if (this.clientes == null ) {
+            this.clientes = new ArrayList<Cliente>();
+        }
         this.clientes.add(cliente);
     }
 

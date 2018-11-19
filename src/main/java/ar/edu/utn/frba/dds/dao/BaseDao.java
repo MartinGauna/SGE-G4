@@ -264,4 +264,18 @@ public class BaseDao implements Dao {
         }
         return manager;
     }
+
+    public void persistList(List<Object> ol) {
+        try {
+            begin();
+            ol.forEach(o -> persist(o));
+            commit();
+        } catch (Exception ex) {
+            rollback();
+        }
+        finally {
+            close();
+        }
+    }
+
 }

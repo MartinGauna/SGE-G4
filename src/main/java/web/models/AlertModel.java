@@ -47,4 +47,23 @@ public class AlertModel {
     public void setHideAlert(){
         setShowAlert(false);
     }
+
+    private static AlertModel alert(String message){
+        AlertModel a = new AlertModel();
+        a.setShowAlert(true);
+        a.setMessage(message);
+        return a;
+    }
+
+    public static AlertModel success(String message){
+        AlertModel a = alert(message);
+        a.setIsSuccess(true);
+        return a;
+    }
+
+    public static AlertModel failed(String message){
+        AlertModel a = alert(message);
+        a.setIsSuccess(false);
+        return a;
+    }
 }

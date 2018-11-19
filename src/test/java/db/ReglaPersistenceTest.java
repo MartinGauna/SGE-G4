@@ -35,8 +35,8 @@ public class ReglaPersistenceTest {
     public void setUp() {
         this.aire = new DispositivoInteligenteAAcondicionado("Aire Comedor", 1200, "apagado", false);
         this.actuadorAire = new ActuadorAAcondicionado(aire);
-        this.sensorTemperatura = new SensorTemperatura(1);
-        this.sensorHumedad = new SensorHumedad(1);
+        this.sensorTemperatura = new SensorTemperatura(1, aire);
+        this.sensorHumedad = new SensorHumedad(1, aire);
         this.condiciones = new ArrayList<>();
         this.temperatura = sensorTemperatura.getMedicion();
         this.humedad = sensorHumedad.getMedicion();

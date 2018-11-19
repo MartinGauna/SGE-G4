@@ -37,5 +37,31 @@
     "telefono": 44444444,
     "categoria": null,
     "disp": []
+  },
+  {
+    "nombre": "Bart",
+    "apellido": "Simpson",
+    "domicilio": "Calle Falsa 123",
+    "user": "bart@cliente",
+    "password": "1234",
+    "fechaAlta": {},
+    "tipoDoc": "DNI",
+    "numeroDoc": 44444444,
+    "telefono": 44444444,
+    "categoria": null,
+    "disp": []
+  },
+  {
+    "nombre": "Homero",
+    "apellido": "Simpson",
+    "domicilio": "Bar de Moe",
+    "user": "homero@cliente",
+    "password": "1234",
+    "fechaAlta": {},
+    "tipoDoc": "DNI",
+    "numeroDoc": 55555555,
+    "telefono": 44444444,
+    "categoria": null,
+    "disp": []
   }
 ]

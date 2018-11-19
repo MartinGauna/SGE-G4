@@ -1,9 +1,9 @@
 package ar.edu.utn.frba.dds.dispositivo;
 
-import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.Consumo;
 import ar.edu.utn.frba.dds.actuador.Actuador;
 import ar.edu.utn.frba.dds.dispositivo.estadosDispositivo.Context;
+import ar.edu.utn.frba.dds.sensor.Sensor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -24,6 +24,10 @@ public class DispositivoInteligente extends Dispositivo {
     @OneToOne(fetch = FetchType.LAZY, targetEntity = Actuador.class)
     @JoinColumn(name = "idDispositivo", referencedColumnName = "id")
     Actuador actuador;
+
+    @OneToMany(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "idDispositivo", referencedColumnName = "id")
+    List<Sensor> sensores;
 
     @Transient
     List<Integer> periodos;
@@ -52,6 +56,14 @@ public class DispositivoInteligente extends Dispositivo {
 
         //Add to Consumo list
         addConsumo(consumoI);
+    }
+
+    public List<Sensor> getSensores() {
+        return sensores;
+    }
+
+    public void addSensor(Sensor sensor) {
+        sensores.add(sensor);
     }
 
     public void addConsumo(Consumo consumoI) {

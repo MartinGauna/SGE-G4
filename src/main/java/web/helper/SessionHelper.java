@@ -16,9 +16,15 @@ public class SessionHelper {
     private SessionHelper() {
     }
 
+    public static String getUserSession(Request request){
+        return request.session().attribute(SESSION);
+    }
+
     public static void setSession(Request request, Usuario user){
         request.session().attribute(SESSION,user.userSession());
+
     }
+
 
     public static Boolean existSession(Request request){
         return request.session().attribute(SESSION) != null;
