@@ -17,7 +17,7 @@ import web.controllers.MainController;
 
 public class UploadController extends MainController {
 
-    public static final String HTML = "/cliente/upload.hbs";
+    public static final String HTML = "/cliente/uploadFile.hbs";
 
     public static void init() {
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();

@@ -6,12 +6,12 @@ package web;
 public class Router {
 
     private static final String LOGIN = "/login";
-    private static final String HOME = "/home";
+    private static final String HOME = "/estadoHogar";
     private static final String LOGOUT = "/logout";
     private static final String ADMIN_HOGARES = "/hogares";
     private static final String ALTA_DISPOSITIVO = "/altaDispositivo";
     private static final String REPORTES = "/reportes";
-    private static final String UPLOAD = "/upload";
+    private static final String UPLOAD = "/uploadFile";
 
 
     public static String loginPath(){
