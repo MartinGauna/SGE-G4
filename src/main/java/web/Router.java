@@ -9,7 +9,7 @@ public class Router {
     private static final String HOME = "/home";
     private static final String LOGOUT = "/logout";
     private static final String ADMIN_HOGARES = "/hogares";
-    private static final String ALTA_DISPOSITIVO = "/altadispositivo";
+    private static final String ALTA_DISPOSITIVO = "/altaDispositivo";
     private static final String REPORTES = "/reportes";
 
 

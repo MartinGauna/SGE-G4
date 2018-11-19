@@ -100,6 +100,7 @@ public class App
         LogoutController.init();
         AltaDispositivoController.init();
         ReportesController.init();
+        AltaDispositivoController.init();
     }
 
     public static App getInstance() {
