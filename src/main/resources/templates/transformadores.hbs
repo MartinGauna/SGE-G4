@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Mapa con la ubicacion de los tranformadores de SGE">
+        <meta name="author" content="grupo 4">
+        <link rel="icon" href="./favicon.ico">
+
+        <title>SGE-G4 Transformadores</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../styles/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../styles/vendor/bootstrap/css/bootstrap-grid.min.css" rel="stylesheet">
+
+
+        <!-- Custom styles for this template -->
+        <!--<link href="../styles/css/signin.css" rel="stylesheet">-->
+
+        <style>
+            /* Set the size of the div element that contains the map */
+            #map {
+                height: 600px;  /* The height is 400 pixels */
+                width: 100%;  /* The width is the width of the web page */
+            }
+        </style>
+    </head>
+    <body class="text-center">
+        {{>commons/header.hbs}}
+        <!--The div element for the map -->
+        <div id="map"></div>
+        <script>
+            // Initialize and add the map
+            function initMap() {
+                // TODO Make this load from the database
+                let locations = [
+
+                ];
+
+
+                // The location of Uluru
+                let medrano = {lat: -34.598444, lng: -58.41355};
+                // The map, centered at Uluru
+                let map = new google.maps.Map(
+                    document.getElementById('map'), {zoom: 15, center: medrano});
+                // The marker, positioned at Uluru
+                let marker = new google.maps.Marker({position: medrano, map: map});
+            }
+        </script>
+        <!--Load the API from the specified URL
+        * The async attribute allows the browser to render the page while the API loads
+        * The key parameter will contain your own API key (which is not needed for this tutorial)
+        * The callback parameter executes the initMap() function
+        -->
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCapp6xgpbffnXtlEmBAjYonkrQozcPiY4&callback=initMap">
+        </script>
+    </body>
+</html>

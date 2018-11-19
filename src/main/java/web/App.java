@@ -5,6 +5,7 @@ import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.helpers.BackgroundProcesses;
 import spark.Spark;
 import spark.debug.DebugScreen;
+//import spark.template.handlebars.HandlebarsTemplateEngine;
 import web.controllers.Admin.AltaDispositivoController;
 import web.controllers.Admin.HogarController;
 import web.controllers.Admin.ReportesController;
@@ -24,9 +25,11 @@ public class App
 	List<Categoria> categorias = new ArrayList<Categoria>();
 	Cliente loggedClient;
 	LoadData l = null;
+//    private static HandlebarsTemplateEngine engine;
 
 
     public static void main( String[] args ) throws ParseException {
+//        engine = new HandlebarsTemplateEngine ();
 
         BackgroundProcesses bkgP = new BackgroundProcesses();
 
@@ -37,16 +40,29 @@ public class App
         DebugScreen.enableDebugScreen();
 
         startControllers();
+        handle404();
     }
 
-    public static void startControllers(){
+    private static void startControllers(){
         HogarController.init();
         LoginController.init();
         LogoutController.init();
         AltaDispositivoController.init();
         ReportesController.init();
         EstadoHogarController.init();
+        TransformadoresController.init();
 
+    }
+
+    private static void handle404() {
+        Spark.notFound("<html><body><h1>Custom 404 handling</h1></body></html>");
+//        Spark.get("*", (req, res) -> {
+//            if(!req.pathInfo().startsWith("/")){
+//                res.status(404);
+//                return HandlebarsTemplateEngine.render ;
+//            }
+//            return null;
+//        });
     }
 
     public static App getInstance() {
