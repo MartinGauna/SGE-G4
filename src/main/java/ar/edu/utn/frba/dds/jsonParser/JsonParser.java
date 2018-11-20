@@ -1,15 +1,14 @@
 package ar.edu.utn.frba.dds.jsonParser;
 
 import ar.edu.utn.frba.dds.*;
+import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
+import java.io.*;
 import java.lang.reflect.Type;
 import java.util.List;
 
@@ -62,6 +61,30 @@ public  class JsonParser {
         Type DispositivoListType = new TypeToken<List<DispositivoInteligente>>() {}.getType();
         List<DispositivoInteligente> dispositivos;
         try(Reader reader = new InputStreamReader(JsonParser.class.getResourceAsStream(config.getProperty("jsonDispositivosInteligentes")), "UTF-8")){
+            Gson gson = new GsonBuilder().create();
+            dispositivos = gson.fromJson(reader, DispositivoListType);
+        }
+        return dispositivos;
+    }
+
+    // Dispositivo Inteligente from JSON file
+    public List<DispositivoInteligente> loadDIFromFile(File f) throws IOException {
+        Type DispositivoListType = new TypeToken<List<DispositivoInteligente>>() {}.getType();
+        List<DispositivoInteligente> dispositivos;
+
+        try(Reader reader = new InputStreamReader(new FileInputStream(f), "UTF-8")){
+            Gson gson = new GsonBuilder().create();
+            dispositivos = gson.fromJson(reader, DispositivoListType);
+        }
+        return dispositivos;
+    }
+
+    // Dispositivo Estandard from JSON file
+    public List<Estandard> loadDEFromFile(File f) throws IOException {
+        Type DispositivoListType = new TypeToken<List<Estandard>>() {}.getType();
+        List<Estandard> dispositivos;
+
+        try(Reader reader = new InputStreamReader(new FileInputStream(f), "UTF-8")){
             Gson gson = new GsonBuilder().create();
             dispositivos = gson.fromJson(reader, DispositivoListType);
         }
