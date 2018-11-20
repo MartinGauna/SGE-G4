@@ -1,9 +1,13 @@
 package ar.edu.utn.frba.dds;
 
+import ar.edu.utn.frba.dds.dao.ClientDao;
+import ar.edu.utn.frba.dds.dao.ReporteDao;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -15,11 +19,31 @@ public class GeneradorReportes {
 
     public static GeneradorReportes instance = null;
 
+    ReporteDao rdao = new ReporteDao();
+
     public static GeneradorReportes getInstance() {
         if(instance == null) {
             instance = new GeneradorReportes();
         }
         return instance;
+    }
+
+    public void generarReportes(List<Cliente> listCli, List<Transformador> listTrafo) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date fechaInicio = sdf.parse("15/12/2018");
+        Date fechaFin = sdf.parse("17/12/2018");
+        Cliente cli;
+        for (int i = 0; i < listCli.size(); i++ ){
+            cli = listCli.get(i);
+            rdao.addReporte(generarReporteConsumoHogar(cli, fechaInicio, fechaFin));
+            rdao.addReporte(generarReporteConsumoEstandard(cli, fechaInicio, fechaFin));
+            rdao.addReporte(generarReporteConsumoInteligente(cli, fechaInicio, fechaFin));
+        }
+        Transformador trafo;
+        for (int i = 0; i < listTrafo.size(); i++){
+            trafo = listTrafo.get(i);
+            rdao.addReporteTrafo(generarReporteTransformador(trafo, fechaInicio, fechaFin));
+        }
     }
 
     public Reporte generarReporteConsumoHogar(Cliente cliente, Date fechaInicio, Date fechaFin) {
@@ -28,12 +52,12 @@ public class GeneradorReportes {
         int consumoTotal = 0;
 
         List<Dispositivo> dispositivos = cliente.getDispositivos();
-
-        for(int i = 0; i < dispositivos.size(); i++){
-            Dispositivo dispositivo = dispositivos.get(i);
-            consumoTotal += dispositivo.getConsumoTotal(fechaInicio, fechaFin);
+        if(dispositivos != null) {
+            for (int i = 0; i < dispositivos.size(); i++) {
+                Dispositivo dispositivo = dispositivos.get(i);
+                consumoTotal += dispositivo.getConsumoTotal(fechaInicio, fechaFin);
+            }
         }
-
         reporte = "El horgar de: " + cliente.getApellido();
 
         if(consumoTotal == 0) {
@@ -50,10 +74,11 @@ public class GeneradorReportes {
         int consumoTotal = 0;
         int consumoPromedio = 0;
         List<DispositivoInteligente> dispositivoInteligentes = cliente.getDispositivosInteligentes();
-
-        for(int i = 0; i < dispositivoInteligentes.size(); i++) {
-            DispositivoInteligente disp = dispositivoInteligentes.get(i);
-            consumoTotal += disp.getConsumoTotal(fechaInicio, fechaFin);
+        if(dispositivoInteligentes != null) {
+            for (int i = 0; i < dispositivoInteligentes.size(); i++) {
+                DispositivoInteligente disp = dispositivoInteligentes.get(i);
+                consumoTotal += disp.getConsumoTotal(fechaInicio, fechaFin);
+            }
         }
 
         if(consumoTotal > 0){
@@ -71,10 +96,11 @@ public class GeneradorReportes {
         int consumoTotal = 0;
         int consumoPromedio = 0;
         List<Estandard> dispositivoEstandards = cliente.getDispositivosEstandars();
-
-        for(int i = 0; i < dispositivoEstandards.size(); i++) {
-            Estandard disp = dispositivoEstandards.get(i);
-            consumoTotal += disp.getConsumoTotal(fechaInicio, fechaFin);
+        if(dispositivoEstandards != null) {
+            for (int i = 0; i < dispositivoEstandards.size(); i++) {
+                Estandard disp = dispositivoEstandards.get(i);
+                consumoTotal += disp.getConsumoTotal(fechaInicio, fechaFin);
+            }
         }
 
         if(consumoTotal > 0){

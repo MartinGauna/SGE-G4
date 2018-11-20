@@ -47,15 +47,15 @@
                         <table class="table table-bordered" id="clientTable" width="100%" cellspacing="0">
                             <thead>
                             <tr>
-                                <th width="60%">Cliente</th>
+                                <th width="30%">Cliente</th>
                                 <th>Reporte</th>
                             </tr>
                             </thead>
                             <tbody>
                             {{#each tableReporte}}
                             <tr>
-                                <td>{{cliente.domicilio}}</td>
-                                <td>{{consumoTotal}}</td>
+                                <td>{{reporte.clienteId}}</td>
+                                <td>{{reporte.reporte}}</td>
                             </tr>
                             {{/each}}
 
@@ -82,8 +82,8 @@
                             <tbody>
                             {{#each tableReporteTrafo}}
                             <tr>
-                                <td>{{cliente.domicilio}}</td>
-                                <td>{{consumoTotal}}</td>
+                                <td>{{reporteTrafo.transformadorId}}</td>
+                                <td>{{reporteTrafo.reporte}}</td>
                             </tr>
                             {{/each}}
 

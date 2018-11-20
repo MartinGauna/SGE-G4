@@ -8,6 +8,7 @@ public class ReportesTable {
     }
 
     public void setReporte(Reporte reporte) {
+        reporte.setClienteName();
         this.reporte = reporte;
     }
 

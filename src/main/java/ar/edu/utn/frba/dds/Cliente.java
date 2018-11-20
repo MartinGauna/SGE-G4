@@ -101,8 +101,10 @@ public class Cliente extends Usuario {
     public void ahorroAutomatico() {
         if (ahorroAutomatico) {
             List<DispositivoInteligente> dispositivosParaApagar = adapterSimplex.getDispositivosParaApagar(this.getDispositivosInteligentes());
-            for (DispositivoInteligente disp : dispositivosParaApagar) {
-                disp.apagar();
+            if (dispositivosParaApagar != null) {
+                for (DispositivoInteligente disp : dispositivosParaApagar) {
+                    disp.apagar();
+                }
             }
             ;
         }
@@ -142,10 +144,12 @@ public class Cliente extends Usuario {
 
     public List<DispositivoInteligente> getDispositivosInteligentes() {
         List<DispositivoInteligente> out = new ArrayList<DispositivoInteligente>();
-        for (Dispositivo d : this.dispositivos) {
-            if (d instanceof DispositivoInteligente) {
-                DispositivoInteligente di = (DispositivoInteligente) d;
-                out.add(di);
+        if(this.dispositivos != null) {
+            for (Dispositivo d : this.dispositivos) {
+                if (d instanceof DispositivoInteligente) {
+                    DispositivoInteligente di = (DispositivoInteligente) d;
+                    out.add(di);
+                }
             }
         }
         return out;
@@ -153,10 +157,12 @@ public class Cliente extends Usuario {
 
     public List<Estandard> getDispositivosEstandars() {
         List<Estandard> out = new ArrayList<Estandard>();
-        for (Dispositivo d : this.dispositivos) {
-            if (d instanceof Estandard) {
-                Estandard de = (Estandard) d;
-                out.add(de);
+        if(this.dispositivos != null) {
+            for (Dispositivo d : this.dispositivos) {
+                if (d instanceof Estandard) {
+                    Estandard de = (Estandard) d;
+                    out.add(de);
+                }
             }
         }
         return out;

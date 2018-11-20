@@ -24,6 +24,7 @@ public class LoginController extends MainController {
         Spark.get(Router.loginPath(),LoginController::showLogin,engine);
         Spark.post(Router.loginPath(),LoginController::checkLogin,engine);
 
+
     }
     private static ModelAndView showLogin(Request request, Response response) {
         if (SessionHelper.existSession(request)){
