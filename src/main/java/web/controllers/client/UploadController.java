@@ -55,6 +55,22 @@ public class UploadController extends MainController {
         alertModel = null;
         getCurrentClient(request);
 
+        /*
+        * TODO: en el hbs el "form" tiene la siguiente estructura:
+        * <form class="form-label-group" action="/uploadFile" method="POST" enctype="multipart/form-data">
+        * el "enctype" tiene ese valor para que pueda enviarse en el request el archivo subido.
+        * pero ademas de esto necesito que en el request se envie el valor del radiobutton seleccionado,
+        * pero llega como null.
+        * (se probó sacar el "enctype". Si lo saco, llega el valor del radiobutton y no el archivo.
+        * basicamente si viaja una cosa no viaja la otra)
+        *
+        * Habria que encontrar la forma de que en el mismo request se envien ambas cosas.
+        * posible solucion:hacer una funcion de jquery o algo por el estilo
+        * que arme un request concatenando ambas cosas
+        * */
+
+
+
         try {
             request.raw().setAttribute("org.eclipse.jetty.multipartConfig",multipartConfigElement);
             File f = FileUtils.getFileWithPath(request.raw().getPart("file"));
@@ -81,7 +97,7 @@ public class UploadController extends MainController {
 
     private static void setupMultipleElementConfig(){
         multipartConfigElement = new MultipartConfigElement(
-                "/resources",100000000 , 100000000, 1024);
+                "/tmp",100000000 , 100000000, 1024);
     }
 
     private static void getCurrentClient(Request request) {

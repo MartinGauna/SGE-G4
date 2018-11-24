@@ -39,7 +39,7 @@
             <div class="card card-register mx-auto mt-5">
                 <div class="card-header">Subir Archivo</div>
                 <div class="card-body">
-                    <form action="/uploadFile" method="POST" enctype="multipart/form-data">
+                    <form class="form-label-group" action="/uploadFile" method="POST" enctype="multipart/form-data">
 
                         <div class="form-group col-md-8 " title="tipo" id="sm">
                             <label class="radio-inline"><input name="tipo" value="int" type="radio" checked>Dispositivo
@@ -51,20 +51,22 @@
                             <input class="file" id="inputFile" name="file" aria-describedby="fileHelp" placeholder="Archivo a cargar" type="file" accept=".json,.png" />
                         </div>
                         <button class="btn btn-primary btn-block" type="submit"> Subir </button>
+                        {{#if showAlert}}
+                            {{#if isSuccess}}
+                                <div class="alert alert-success mx-auto mt-5 card-login">
+                                    <strong>iujuu!!</strong> {{message}}
+                                </div>
+                            {{else}}
+                                <div class="alert alert-danger mx-auto mt-5 card-login">
+                                    <strong>Upss!!</strong> {{message}}
+                                </div>
+                            {{/if}}
+                        {{/if}}
+
                     </form>
                 </div>
             </div>
-            {{#if showAlert}}
-                {{#if isSuccess}}
-                    <div class="alert alert-success mx-auto mt-5 card-login">
-                        <strong>iujuu!!</strong> {{message}}
-                    </div>
-                {{else}}
-                    <div class="alert alert-danger mx-auto mt-5 card-login">
-                        <strong>Upss!!</strong> {{message}}
-                    </div>
-                {{/if}}
-            {{/if}}
+
 
     </div>
     <!-- /.content-wrapper -->
