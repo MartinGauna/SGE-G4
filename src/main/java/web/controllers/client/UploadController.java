@@ -59,28 +59,24 @@ public class UploadController extends MainController {
                 File fInteligente = FileUtils.getFileWithPath(filePartInteligente);
                 List<DispositivoInteligente> dispositivoInteligenteList = null;
                 DispositivoDao dispositivoDao = new DispositivoDao();
-
-                try{
-                    dispositivoInteligenteList = jp.loadDIFromFile(fInteligente);
-                    dispositivoInteligenteList.forEach(d -> dispositivoDao.addDispositivoIfNotExists(d));
+                dispositivoInteligenteList = jp.loadDIFromFile(fInteligente);
+                dispositivoInteligenteList.forEach(d -> dispositivoDao.addDispositivoIfNotExists(d));
+                //alertModel.setIsSuccess(true);
                 } catch (IOException e) {
                  e.printStackTrace();
                 }
-
-             }}
+             }
             if(filePartEstandard.getSize() > 0)
             {   try (InputStream inputStream = filePartEstandard.getInputStream()) {
                 File fEstandar = FileUtils.getFileWithPath(filePartEstandard);
                 List<Estandard> dispositivoEstandard = null;
                 DispositivoDao dispositivoDao = new DispositivoDao();
-
-                try {
-                    dispositivoEstandard = jp.loadDEFromFile(fEstandar);
-                    dispositivoEstandard.forEach(d -> dispositivoDao.addDispositivoIfNotExists(d));
-                } catch (IOException e) {
+                dispositivoEstandard = jp.loadDEFromFile(fEstandar);
+                dispositivoEstandard.forEach(d -> dispositivoDao.addDispositivoIfNotExists(d));
+                //alertModel = AlertHelper.success();
+            } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }
             }
 
             return new ModelAndView(alertModel,HTML);
