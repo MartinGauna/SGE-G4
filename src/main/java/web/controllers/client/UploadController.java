@@ -5,6 +5,7 @@ import ar.edu.utn.frba.dds.dao.ClientDao;
 import ar.edu.utn.frba.dds.dao.DispositivoDao;
 import ar.edu.utn.frba.dds.dispositivo.DIFactory;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
+import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import ar.edu.utn.frba.dds.exception.InvalidFileFormatException;
 import ar.edu.utn.frba.dds.exception.ParserErrorException;
 import ar.edu.utn.frba.dds.jsonParser.JsonParser;
@@ -15,15 +16,22 @@ import spark.Response;
 import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import web.Router;
-
+import web.controllers.MainController;
 import web.helper.AlertHelper;
 import web.models.AlertModel;
-import web.controllers.MainController;
+
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Part;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
 
+@WebServlet(urlPatterns = {"/uploadFile/*"})
+@MultipartConfig(location="/tmp", fileSizeThreshold=1024*1024, maxFileSize=1024*1024*5, maxRequestSize=1024*1024*5*5)
 public class UploadController extends MainController {
 
     public static final String HTML = "/cliente/uploadFile.hbs";
@@ -36,24 +44,64 @@ public class UploadController extends MainController {
 
     public static void init() {
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
+        AlertModel alertModel = null;
         setupMultipleElementConfig();
         Spark.get(Router.uploadPath(),UploadController::load,engine);
-        Spark.post(Router.uploadPath(),UploadController::upload,engine);
+        //Spark.post(Router.uploadPath(),UploadController::upload,engine);
+        JsonParser jp = new JsonParser();
+        Spark.post("/uploadFile", (req, res) -> {
+            req.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("D:/tmp"));
+            Part filePartInteligente = req.raw().getPart("inputFileInteligente");
+            Part filePartEstandard = req.raw().getPart("inputFileStandard");
+            if(filePartInteligente.getSize() > 0)
+            {
+                try (InputStream inputStream = filePartInteligente.getInputStream()) {
+                File fInteligente = FileUtils.getFileWithPath(filePartInteligente);
+                List<DispositivoInteligente> dispositivoInteligenteList = null;
+                DispositivoDao dispositivoDao = new DispositivoDao();
+                dispositivoInteligenteList = jp.loadDIFromFile(fInteligente);
+                dispositivoInteligenteList.forEach(d -> dispositivoDao.addDispositivoIfNotExists(d));
+                //alertModel.setIsSuccess(true);
+                } catch (IOException e) {
+                 e.printStackTrace();
+                }
+             }
+            if(filePartEstandard.getSize() > 0)
+            {   try (InputStream inputStream = filePartEstandard.getInputStream()) {
+                File fEstandar = FileUtils.getFileWithPath(filePartEstandard);
+                List<Estandard> dispositivoEstandard = null;
+                DispositivoDao dispositivoDao = new DispositivoDao();
+                dispositivoEstandard = jp.loadDEFromFile(fEstandar);
+                dispositivoEstandard.forEach(d -> dispositivoDao.addDispositivoIfNotExists(d));
+                //alertModel = AlertHelper.success();
+            } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            return new ModelAndView(alertModel,HTML);
+        });
+
     }
+
 
     private static ModelAndView load (Request request, Response response){
         sessionExist(request, response);
         return new ModelAndView(AlertHelper.none(),HTML);
     }
 
-    public static ModelAndView upload (Request request, Response response){
+    public static ModelAndView upload (Request request, Response response) throws ServletException, IOException{
+
         cdao = new ClientDao();
         ddao = new DispositivoDao();
         AlertModel alertModel;
         JsonParser jp = new JsonParser();
-        String tipo = request.queryParams("tipo");
+        //Part tipoPart = request.raw().getPart("tipo");
+        //String tipo = tipoPart.toString();
+        //String tipo = request.queryParams("tipo");
+
         alertModel = null;
-        getCurrentClient(request);
+        //getCurrentClient(request);
 
         /*
         * TODO: en el hbs el "form" tiene la siguiente estructura:
@@ -72,16 +120,14 @@ public class UploadController extends MainController {
 
 
         try {
-            request.raw().setAttribute("org.eclipse.jetty.multipartConfig",multipartConfigElement);
-            File f = FileUtils.getFileWithPath(request.raw().getPart("file"));
+            //request.raw().setAttribute("org.eclipse.jetty.multipartConfig",multipartConfigElement);
+            request.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("C:/tmp"));
+            File fEstandard = FileUtils.getFileWithPath(request.raw().getPart("inputFileStandard"));
+            File fInteligente = FileUtils.getFileWithPath(request.raw().getPart("inputFileInteligente"));
 
-            if(tipo.equals("DispositivoInteligente")) {
-                jp.loadDIFromFile(f);
-            } else {
-                jp.loadDEFromFile(f);
-            }
+            if(fEstandard.exists()) {jp.loadDEFromFile(fEstandard);}
+            if(fInteligente.exists()){jp.loadDEFromFile(fInteligente);}
             alertModel = AlertHelper.success();
-
         }catch (InvalidFileFormatException ex){
             alertModel = AlertHelper.failed(ex.getMessage());
         }catch (ParserErrorException e){
@@ -96,8 +142,7 @@ public class UploadController extends MainController {
     }
 
     private static void setupMultipleElementConfig(){
-        multipartConfigElement = new MultipartConfigElement(
-                "/tmp",100000000 , 100000000, 1024);
+       multipartConfigElement = new MultipartConfigElement("/temps",100000000 , 100000000, 1024);
     }
 
     private static void getCurrentClient(Request request) {
