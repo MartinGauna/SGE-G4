@@ -12,6 +12,7 @@ public class Router {
     private static final String ALTA_DISPOSITIVO = "/altaDispositivo";
     private static final String REPORTES = "/reportes";
     private static final String TRANSFORMADORES = "/transformadores";
+    private static final String TRANSFORMADORESJSON = "/transformadores/json";
     private static final String UPLOAD = "/uploadFile";
 
 
@@ -34,6 +35,7 @@ public class Router {
     public static String reportesPath() { return REPORTES; }
 
     public static String transformadoresPath() { return TRANSFORMADORES; }
+    public static String transformadoresJsonPath() { return TRANSFORMADORESJSON; }
 
     public static String uploadPath(){
         return UPLOAD;
