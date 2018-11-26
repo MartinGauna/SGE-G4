@@ -12,7 +12,6 @@ import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import web.Router;
 import web.controllers.MainController;
-import web.helper.SessionHelper;
 import web.models.AlertModel;
 import web.models.EstadoHogarModel;
 import web.models.views.HogaresTable;
@@ -33,7 +32,6 @@ public class EstadoHogarController extends MainController{
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
         Spark.get(Router.homePath(), EstadoHogarController::showHome,engine);
         initModel();
-
     }
     private static ModelAndView showHome(Request request, Response response) {
 
