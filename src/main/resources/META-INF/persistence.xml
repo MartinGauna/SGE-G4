@@ -42,7 +42,7 @@
         <properties>
             <property name="hibernate.archive.autodetection" value="class"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
-            <property name="hibernate.connection.url" value="jdbc:mysql://h2cwrn74535xdazj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com/rre81dqaosibe1n3?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC" />
+            <property name="hibernate.connection.url" value="mysql://lo3bihst1g6w4bha:fi3tea4wau8uq0cj@h2cwrn74535xdazj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/rre81dqaosibe1n3" />
             <property name="hibernate.connection.username" value="lo3bihst1g6w4bha" />
             <property name="hibernate.connection.password" value="fi3tea4wau8uq0cj" />
 
