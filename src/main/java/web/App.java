@@ -11,6 +11,7 @@ import web.controllers.Admin.AltaDispositivoController;
 import web.controllers.Admin.HogarController;
 import web.controllers.Admin.ReportesController;
 import web.controllers.LogoutController;
+import web.controllers.client.EstadoDispositivoController;
 import web.controllers.client.EstadoHogarController;
 import web.controllers.client.UploadController;
 import web.controllers.login.LoginController;
@@ -58,7 +59,7 @@ public class App
         EstadoHogarController.init();
         TransformadoresController.init();
         UploadController.init();
-
+        EstadoDispositivoController.init();
     }
 
     private static void handle404() {
