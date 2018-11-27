@@ -2,15 +2,14 @@ package web;
 
 import ar.edu.utn.frba.dds.Categoria;
 import ar.edu.utn.frba.dds.Cliente;
-import ar.edu.utn.frba.dds.GeneradorReportes;
 import ar.edu.utn.frba.dds.helpers.BackgroundProcesses;
 import spark.Spark;
 import spark.debug.DebugScreen;
-//import spark.template.handlebars.HandlebarsTemplateEngine;
 import web.controllers.Admin.AltaDispositivoController;
 import web.controllers.Admin.HogarController;
 import web.controllers.Admin.ReportesController;
 import web.controllers.LogoutController;
+import web.controllers.client.AltaReglasController;
 import web.controllers.client.EstadoDispositivoController;
 import web.controllers.client.EstadoHogarController;
 import web.controllers.client.UploadController;
@@ -22,6 +21,8 @@ import java.util.List;
 
 
 import static spark.Spark.staticFileLocation;
+
+//import spark.template.handlebars.HandlebarsTemplateEngine;
 
 public class App 
 {
@@ -56,11 +57,14 @@ public class App
         LoginController.init();
         LogoutController.init();
         AltaDispositivoController.init();
+        web.controllers.client.AltaDispositivoController.init();
         ReportesController.init();
         EstadoHogarController.init();
         TransformadoresController.init();
         UploadController.init();
         EstadoDispositivoController.init();
+        AltaReglasController.init();
+
     }
 
     private static void handle404() {

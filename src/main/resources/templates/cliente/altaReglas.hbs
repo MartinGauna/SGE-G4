@@ -41,57 +41,52 @@
             <div class="card mb-3">
                 <div class="card-header">
                     <i class="fas fa-table"></i>
-                    Alta de Dispositivos
+                    Alta de reglas
                 </div>
 
                 <div class="card-body">
 
-                    <form class="form-label-group" action="/altaDispositivoCliente" method="POST">
-
-                        <div class="form-group col-md-8 " title="tipo" id="sm">
-                            <label class="radio-inline"><input name="tipo" value="int" type="radio" checked>Dispositivo
-                                Inteligente</label>
-                            <label class="radio-inline"><input name="tipo" value="est" type="radio">Dispositivo Estandar</label>
-                        </div>
+                    <form class="form-label-group" action="/altaReglas" method="POST">
 
                         <div class="form-group col-md-8 ">
-                            Tipo
-                            <select class="form-control" title="dispositivo" name="dispositivo" id="sm">
+                            Dispositivos disponibles/Actuadores
+                            <select class="form-control" title="actuador" name="actuador" id="sm">
                                 {{#each dispositivos}}
-                                    <option value={{nombre}}>{{nombre}}</option>
+                                    <option value={{id}}>{{nombre}}</option>
                                 {{/each}}
                             </select>
                         </div>
 
                         <div class="form-group col-md-8 ">
-                            Nombre del dispositivo
-                            <input type="text" class="form-control" id="InputNombreDispositivo"
-                                   placeholder="Nombre" value="{{nombre}}" name="nombre"/>
-                        </div>
-
-                        <div class="form-group col-md-8 ">
-                            Consumo
-                            <input type="text" class="form-control" id="InputConsumoDispositivo"
-                                   placeholder="consumo" value="{{consumoHora}}" name="consumoHora"/>
-                        </div>
-
-                        <div class="form-group col-md-8 " title="estado" id="sm">
-                            Estado
-                            <select name="estado">
-                                <option value="activo">Activo</option>
-                                <option value="ahorro">Ahorro</option>
-                                <option value="apagado">Apagado</option>
+                            Acción
+                            <select class="form-control" title="accion" name="accion" id="sm">
+                                <option value="prenderDispositivo">Prender</option>
+                                <option value="apagarDispositivo">Apagar</option>
+                                <option value="cambiarModoAAhorro">Modo Ahorro</option>
                             </select>
                         </div>
 
-                        <div class="form-group col-md-8 " title="bajoConsumo" id="sm">
-                            <label class="radio-inline"><input name="bajoConsumo" value="true" type="radio">Bajo Consumo</label>
+                        <div class="form-group col-md-8 ">
+                        Condicion
+                        <select class="form-control" title="sensor" name="sensor" id="sensor">
+                                <option value="humedad">Humedad</option>
+                                <option value="luz">Luz</option>
+                                <option value="movimiento">Movimiento</option>
+                                <option value="temperatura">Temperatura</option>
+                        </select>
+                        <select class="form-control" title="criterio" name="criterio" id="criterio">
+                                <option value="mayor">></option>
+                                <option value="igual">=</option>
+                                <option value="menor"><</option>
+                        </select>
+                        <input type="text" class="form-control" id="valorCondicion" placeholder="Valor a comparar" value="{{consumoHora}}" name="valorCondicion"/>
+
                         </div>
 
-                        <div class="form-group" align="right">
+
+                            <div class="form-group" align="right">
                             <p>
-                                <button class="btn btn-lg btn-primary" type="submit">Crear Dispositivo</button>
-                                <!--<button class="btn btn-lg btn-danger"  onclick="deleteMethodology()">Cancelar</button>-->
+                                <button class="btn btn-lg btn-primary" type="submit">Crear regla</button>
                             </p>
 
                             {{#if showAlert}}
@@ -109,19 +104,12 @@
                         </div>
                     </form>
                 </div>
-                <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
             </div>
 
 
-            <!--<p class="small text-center text-muted my-5">-->
-            <!--<em>More table examples coming soon...</em>-->
-            <!--</p>-->
-
         </div>
-        <!-- /.container-fluid -->
 
     </div>
-    <!-- /.content-wrapper -->
 
 </div>
 <!-- /#wrapper -->
