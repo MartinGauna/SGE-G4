@@ -19,6 +19,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import static spark.Spark.staticFileLocation;
 
 //import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -67,6 +68,10 @@ public class App
     }
 
     private static void handle404() {
+        Spark.get("/", (request, response) -> {
+            response.redirect("/estadoHogar");
+            return "";
+        });
         Spark.notFound("<html><body><h1>Custom 404 handling</h1></body></html>");
 //        Spark.get("*", (req, res) -> {
 //            if(!req.pathInfo().startsWith("/")){
