@@ -5,7 +5,7 @@ package web;
  */
 public class Router {
 
-    private static final String LOGIN = "/login";
+    private static final String LOGIN = "/";
     private static final String HOME = "/estadoHogar";
     private static final String LOGOUT = "/logout";
     private static final String ADMIN_HOGARES = "/hogares";
