@@ -1,0 +1,27 @@
+[
+  {
+    "nombre": "Aire acondicionado",
+     "consumoHora": 1.02,
+    "estado": "activo"
+  },
+  {
+    "nombre":"Aire acondicionado",
+    "consumoHora": 1.013,
+    "estado": "activo"
+  },
+  {
+    "nombre":"Televisor",
+    "consumoHora": 0.04,
+    "estado": "activo"
+  },
+  {
+    "nombre":"Televisor",
+    "consumoHora": 0.055,
+    "estado": "activo"
+  },
+  {
+    "nombre":"Heladera",
+    "consumoHora": 0.09,
+    "estado": "activo"
+	}
+]
