@@ -56,12 +56,14 @@ public class App
         LoginController.init();
         LogoutController.init();
         AltaDispositivoController.init();
+        web.controllers.client.AltaDispositivoController.init();
         ReportesController.init();
         EstadoHogarController.init();
         TransformadoresController.init();
         UploadController.init();
         EstadoDispositivoController.init();
         AltaReglasController.init();
+
     }
 
     private static void handle404() {
