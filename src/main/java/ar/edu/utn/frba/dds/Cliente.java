@@ -40,7 +40,7 @@ public class Cliente extends Usuario {
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Categoria.class)
     public Categoria categoria;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Transformador.class)
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Transformador.class)
     @JoinColumn(name = "idTransformador", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_TRANSFORMADOR"))
     private Transformador transformador;
 

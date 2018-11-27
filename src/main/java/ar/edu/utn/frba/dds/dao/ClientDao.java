@@ -32,8 +32,8 @@ public class ClientDao extends BaseDao {
             }
         }
 
-
-        return list; }
+        return list;
+    }
 
     private Cliente clientExists(Cliente e) {
         return clientExists(e.getNumeroDoc());

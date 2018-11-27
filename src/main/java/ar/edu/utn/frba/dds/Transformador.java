@@ -23,6 +23,10 @@ public class Transformador {
         return listaDeTransformadores;
     }
 
+    public void setClientes(List<Cliente> clientes) {
+        this.clientes = clientes;
+    }
+
     @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "idTransformador", referencedColumnName = "id")
     private List<Cliente> clientes;
