@@ -6,13 +6,19 @@ import com.google.gson.JsonArray;
 import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
+
+import javax.json.Json;
 
 
 public class TransformadoresModel {
 
     private List<Transformador> transformadoresList;
-    private String transformadoresJson;
+
+    private JSONObject transformadoresJson;
+
 
     public List<Transformador> getTransformadoresList() {
         return transformadoresList;
@@ -22,15 +28,33 @@ public class TransformadoresModel {
         this.transformadoresList = transformadoresList;
     }
 
+    public JSONObject getTransformadoresJson() {
+        return transformadoresJson;
+    }
+
     public TransformadoresModel() {
         this.transformadoresList = new ArrayList<Transformador>();
     }
 
     public TransformadoresModel(List<Transformador> transformadores) {
-        Gson gson = new Gson();
+        transformadoresJson = new JSONObject();
+        JSONArray data = new JSONArray();
+
 
         this.transformadoresList = transformadores;
-        this.transformadoresJson = gson.toJson(transformadores);
+        transformadores.forEach(transformador -> {
+            JSONObject tJson = new JSONObject();
+            tJson.put("id", transformador.getId());
+            tJson.put("lat", transformador.getLatitud());
+            tJson.put("lng", transformador.getLongitud());
+            data.put(tJson);
+        });
+
+        transformadoresJson.put("data", data);
+
+
+
+//        this.transformadoresString = gson.toJson(transformadores);
 //        this.transformadoresJson = new ObjectMapper().readValue(gson.toJson(transformadores), JsonNode.class);
     }
 }

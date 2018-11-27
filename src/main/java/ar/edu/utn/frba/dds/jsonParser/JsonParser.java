@@ -116,10 +116,10 @@ public  class JsonParser {
     // Transformadores
     public List<Transformador> loadTransformadorJSON() throws IOException{
 
-	    //Borro todos los transformadores existentes en memoria
-        List<Transformador> transformadoresViejos = Transformador.getAll();
-        for (Transformador t : transformadoresViejos)
-        {t = null;}
+//	    //Borro todos los transformadores existentes en memoria
+//        List<Transformador> transformadoresViejos = Transformador.getAll();
+//        for (Transformador t : transformadoresViejos)
+//        {t = null;}
 
         //Importo los transformadores nuevos
 	    Type TransformadorListType = new TypeToken<List<Transformador>>() {}.getType();
