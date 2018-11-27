@@ -9,10 +9,7 @@ import web.controllers.Admin.AltaDispositivoController;
 import web.controllers.Admin.HogarController;
 import web.controllers.Admin.ReportesController;
 import web.controllers.LogoutController;
-import web.controllers.client.AltaReglasController;
-import web.controllers.client.EstadoDispositivoController;
-import web.controllers.client.EstadoHogarController;
-import web.controllers.client.UploadController;
+import web.controllers.client.*;
 import web.controllers.login.LoginController;
 
 import java.text.ParseException;
@@ -64,6 +61,7 @@ public class App
         UploadController.init();
         EstadoDispositivoController.init();
         AltaReglasController.init();
+        ReglaController.init();
 
     }
 

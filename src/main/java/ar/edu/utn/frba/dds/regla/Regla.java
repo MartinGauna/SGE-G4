@@ -48,6 +48,12 @@ public class Regla implements Observer{
     public int getId() {
         return id;
     }
+    public String getMethodName() {
+        return methodname;
+    }
+    public int getActuadorID() {
+        return actuador.getId();
+    }
     public void ejecutar(){
         char previous_logic_factor;
         //Resultado del update es TRUE por default (por si no tiene ninguna condicion)
