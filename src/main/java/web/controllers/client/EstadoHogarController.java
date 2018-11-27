@@ -33,7 +33,7 @@ public class EstadoHogarController extends MainController{
 
     public static void init() {
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
-        Spark.get(Router.homePath(), EstadoHogarController::showHome,engine);
+        Spark.get(Router.homePath(), EstadoHogarController::showHome, engine);
         initModel();
     }
     private static ModelAndView showHome(Request request, Response response) {
