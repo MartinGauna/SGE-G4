@@ -39,7 +39,7 @@ public class App
 
 //        LoadData.Load();
 
-        Spark.port(9000);
+        Spark.port(3306);
         staticFileLocation("/webResources");
         DebugScreen.enableDebugScreen();
 
