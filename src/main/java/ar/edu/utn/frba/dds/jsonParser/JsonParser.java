@@ -1,15 +1,14 @@
 package ar.edu.utn.frba.dds.jsonParser;
 
 import ar.edu.utn.frba.dds.*;
+import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
+import java.io.*;
 import java.lang.reflect.Type;
 import java.util.List;
 
@@ -27,7 +26,7 @@ public  class JsonParser {
             Gson gson = new GsonBuilder().create();
             clientes = gson.fromJson(reader, ClientListType);
             clientes.forEach(cliente -> {
-                if(cliente.getCategoria().getNombre() == null){
+                if(cliente.getCategoria() == null){
                     cliente.setCategoria(new Categoria("R1"));
                 }
             });
@@ -68,6 +67,30 @@ public  class JsonParser {
         return dispositivos;
     }
 
+    // Dispositivo Inteligente from JSON file
+    public List<DispositivoInteligente> loadDIFromFile(File f) throws IOException {
+        Type DispositivoListType = new TypeToken<List<DispositivoInteligente>>() {}.getType();
+        List<DispositivoInteligente> dispositivos;
+
+        try(Reader reader = new InputStreamReader(new FileInputStream(f), "UTF-8")){
+            Gson gson = new GsonBuilder().create();
+            dispositivos = gson.fromJson(reader, DispositivoListType);
+        }
+        return dispositivos;
+    }
+
+    // Dispositivo Estandard from JSON file
+    public List<Estandard> loadDEFromFile(File f) throws IOException {
+        Type DispositivoListType = new TypeToken<List<Estandard>>() {}.getType();
+        List<Estandard> dispositivos;
+
+        try(Reader reader = new InputStreamReader(new FileInputStream(f), "UTF-8")){
+            Gson gson = new GsonBuilder().create();
+            dispositivos = gson.fromJson(reader, DispositivoListType);
+        }
+        return dispositivos;
+    }
+
     // Categorias
     public List<Categoria> loadCategoriasJSON() throws IOException{
         Type CategoriasListType = new TypeToken<List<Categoria>>() {}.getType();
@@ -93,10 +116,10 @@ public  class JsonParser {
     // Transformadores
     public List<Transformador> loadTransformadorJSON() throws IOException{
 
-	    //Borro todos los transformadores existentes en memoria
-        List<Transformador> transformadoresViejos = Transformador.getAll();
-        for (Transformador t : transformadoresViejos)
-        {t = null;}
+//	    //Borro todos los transformadores existentes en memoria
+//        List<Transformador> transformadoresViejos = Transformador.getAll();
+//        for (Transformador t : transformadoresViejos)
+//        {t = null;}
 
         //Importo los transformadores nuevos
 	    Type TransformadorListType = new TypeToken<List<Transformador>>() {}.getType();

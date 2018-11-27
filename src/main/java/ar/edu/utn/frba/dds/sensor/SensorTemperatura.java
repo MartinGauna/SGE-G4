@@ -1,6 +1,7 @@
 package ar.edu.utn.frba.dds.sensor;
 
 import ar.edu.utn.frba.dds.Magnitud;
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
@@ -24,6 +25,16 @@ public class SensorTemperatura extends Sensor {
         //Agregado por Matias para replicar comportamiento de SensorHumedad -->
         this.setIntervalo(intervalo);
     }
+
+    public SensorTemperatura(long intervalo, DispositivoInteligente d) {
+
+        //Agregado por Matias: paso el intervalo como parametro (antes estaba hardcodeado en intervalo: 0
+        super(intervalo, "°C", 40, d);
+
+        //Agregado por Matias para replicar comportamiento de SensorHumedad -->
+        this.setIntervalo(intervalo);
+    }
+
 
     @Override
     public Magnitud getMedicion() {

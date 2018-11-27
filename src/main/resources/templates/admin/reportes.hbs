@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Hogares</title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="./styles/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="./styles/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Page level plugin CSS-->
+    <link href="./styles/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="./styles/css/sb-admin.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+{{>commons/header.hbs}}
+
+<div id="wrapper">
+
+    {{>admin/navBar.hbs}}
+
+    <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- DataTables Example -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Reportes de Clientes</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="clientTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th width="30%">Cliente</th>
+                                <th>Reporte</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each tableReporte}}
+                            <tr>
+                                <td>{{reporte.clienteId}}</td>
+                                <td>{{reporte.reporte}}</td>
+                            </tr>
+                            {{/each}}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TODO Separar en otro tab -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Reportes de Transformadores</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="transforTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th width="60%">Transformador</th>
+                                <th>Reporte</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each tableReporteTrafo}}
+                            <tr>
+                                <td>{{reporteTrafo.transformadorId}}</td>
+                                <td>{{reporteTrafo.reporte}}</td>
+                            </tr>
+                            {{/each}}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
+            </div>
+
+            <!--<p class="small text-center text-muted my-5">-->
+            <!--<em>More table examples coming soon...</em>-->
+            <!--</p>-->
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- /.content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+{{>commons/logoutModal.hbs}}
+
+{{>commons/scripts.hbs}}
+
+</body>
+
+</html>

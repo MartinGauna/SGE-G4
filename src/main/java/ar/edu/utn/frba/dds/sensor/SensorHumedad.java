@@ -1,6 +1,7 @@
 package ar.edu.utn.frba.dds.sensor;
 
 import ar.edu.utn.frba.dds.Magnitud;
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
@@ -18,6 +19,11 @@ public class SensorHumedad extends Sensor{
 
     public SensorHumedad(long intervalo) {
         super(intervalo, "RH", 100);
+        this.setIntervalo(intervalo);
+    }
+
+    public SensorHumedad(long intervalo, DispositivoInteligente d) {
+        super(intervalo, "RH", 100, d);
         this.setIntervalo(intervalo);
     }
 

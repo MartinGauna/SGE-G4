@@ -40,7 +40,7 @@ public class Cliente extends Usuario {
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Categoria.class)
     public Categoria categoria;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Transformador.class)
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Transformador.class)
     @JoinColumn(name = "idTransformador", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_TRANSFORMADOR"))
     private Transformador transformador;
 
@@ -101,8 +101,10 @@ public class Cliente extends Usuario {
     public void ahorroAutomatico() {
         if (ahorroAutomatico) {
             List<DispositivoInteligente> dispositivosParaApagar = adapterSimplex.getDispositivosParaApagar(this.getDispositivosInteligentes());
-            for (DispositivoInteligente disp : dispositivosParaApagar) {
-                disp.apagar();
+            if (dispositivosParaApagar != null) {
+                for (DispositivoInteligente disp : dispositivosParaApagar) {
+                    disp.apagar();
+                }
             }
             ;
         }
@@ -142,10 +144,12 @@ public class Cliente extends Usuario {
 
     public List<DispositivoInteligente> getDispositivosInteligentes() {
         List<DispositivoInteligente> out = new ArrayList<DispositivoInteligente>();
-        for (Dispositivo d : this.dispositivos) {
-            if (d instanceof DispositivoInteligente) {
-                DispositivoInteligente di = (DispositivoInteligente) d;
-                out.add(di);
+        if(this.dispositivos != null) {
+            for (Dispositivo d : this.dispositivos) {
+                if (d instanceof DispositivoInteligente) {
+                    DispositivoInteligente di = (DispositivoInteligente) d;
+                    out.add(di);
+                }
             }
         }
         return out;
@@ -153,10 +157,12 @@ public class Cliente extends Usuario {
 
     public List<Estandard> getDispositivosEstandars() {
         List<Estandard> out = new ArrayList<Estandard>();
-        for (Dispositivo d : this.dispositivos) {
-            if (d instanceof Estandard) {
-                Estandard de = (Estandard) d;
-                out.add(de);
+        if(this.dispositivos != null) {
+            for (Dispositivo d : this.dispositivos) {
+                if (d instanceof Estandard) {
+                    Estandard de = (Estandard) d;
+                    out.add(de);
+                }
             }
         }
         return out;
@@ -177,6 +183,11 @@ public class Cliente extends Usuario {
 
 
     public void addDispositivo(Dispositivo disp) {
+        if (this.dispositivos == null) {
+            this.dispositivos = new ArrayList<Dispositivo>();
+        }
+        disp.setCliente(this);
+
         this.dispositivos.add(disp);
         if (isInteligente(disp)) this.setPuntaje(this.getPuntaje() + puntosPorInteligente);
         else this.setPuntaje(this.getPuntaje() + puntosPorEstandard);

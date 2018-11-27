@@ -21,6 +21,10 @@ public class ActuadorLavarropas extends Actuador {
     public ActuadorLavarropas() {
     }
 
+    public DispositivoInteligenteLavarropas getDispositivo() {
+        return lr;
+    }
+
     public void prenderDispositivo() {lr.encender();
     }
     public void apagarDispositivo() {

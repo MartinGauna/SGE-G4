@@ -20,6 +20,10 @@ public class ActuadorMicro extends Actuador {
     public ActuadorMicro() {
     }
 
+    public DispositivoInteligenteMicro getDispositivo() {
+        return micro;
+    }
+
     public void prenderDispositivo() {micro.encender();
     }
     public void apagarDispositivo() {

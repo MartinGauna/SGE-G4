@@ -25,7 +25,8 @@ public class Dispositivo {
     @Enumerated(EnumType.STRING)
     @Column
     public Context estado;
-    @OneToOne(fetch = FetchType.LAZY, targetEntity = Cliente.class)
+
+    @OneToOne(fetch = FetchType.EAGER , targetEntity = Cliente.class)
     @JoinColumn(name = "idCliente", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_CLIENTE"))
     private Cliente cliente;
 
@@ -82,6 +83,14 @@ public class Dispositivo {
     public Context getEstado() {
         return estado;
 
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
     }
 
     @Override

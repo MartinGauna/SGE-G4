@@ -135,3 +135,5 @@ local.properties
 /target/
 
 *.iml
+pom.xml
+src/main/resources/META-INF/persistence.xml

@@ -13,14 +13,14 @@ import javax.validation.constraints.NotNull;
 @Table
 public class Transformador {
 
-    static ArrayList<Transformador> listaDeTransformadores = new ArrayList<Transformador>();
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
-    public static ArrayList<Transformador> getListaDeTransformadores() {
-        return listaDeTransformadores;
+
+    public void setClientes(List<Cliente> clientes) {
+        this.clientes = clientes;
     }
 
     @OneToMany(cascade = {CascadeType.ALL})
@@ -32,7 +32,7 @@ public class Transformador {
     @NotNull
     double longitud;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Zona.class)
+    @ManyToOne(cascade = {CascadeType.ALL}, targetEntity = Zona.class)
     @JoinColumn(name = "idZona", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_ZONA"))
     private Zona zona;
 
@@ -41,7 +41,6 @@ public class Transformador {
         this.longitud = longitud;
         this.zona = zona;
         this.clientes = new ArrayList<Cliente>();
-        listaDeTransformadores.add(this);
     }
 
     public Transformador() {
@@ -52,6 +51,9 @@ public class Transformador {
     }
 
     public void addCliente(Cliente cliente) {
+        if (this.clientes == null ) {
+            this.clientes = new ArrayList<Cliente>();
+        }
         this.clientes.add(cliente);
     }
 
@@ -59,17 +61,16 @@ public class Transformador {
         return clientes;
     }
 
-    static public ArrayList<Transformador> getAll() {
-        return listaDeTransformadores;
-    }
 
     public int getConsumoTotal() {
         int consumoTotal = 0;
         for (Cliente cliente : clientes) {
             List<Dispositivo> dispositivos = cliente.getDispositivos();
-            for (Dispositivo disp : dispositivos) {
+            if(dispositivos != null) {
+                for (Dispositivo disp : dispositivos) {
 
-                consumoTotal += disp.getConsumoTotal();
+                    consumoTotal += disp.getConsumoTotal();
+                }
             }
         }
         return consumoTotal;
@@ -79,9 +80,11 @@ public class Transformador {
         int consumoTotal = 0;
         for (Cliente cliente : clientes) {
             List<Dispositivo> dispositivos = cliente.getDispositivos();
-            for (Dispositivo disp : dispositivos) {
+            if(dispositivos != null) {
+                for (Dispositivo disp : dispositivos) {
 
-                consumoTotal += disp.getConsumoTotal(fechaInicio, fechaFin);
+                    consumoTotal += disp.getConsumoTotal(fechaInicio, fechaFin);
+                }
             }
         }
         return consumoTotal;

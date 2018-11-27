@@ -2,6 +2,8 @@ package ar.edu.utn.frba.dds.sensor;
 
 import ar.edu.utn.frba.dds.Categoria;
 import ar.edu.utn.frba.dds.Magnitud;
+import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.regla.Observable;
 import ar.edu.utn.frba.dds.regla.Observer;
 
@@ -18,6 +20,10 @@ public abstract class Sensor implements Observable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = DispositivoInteligente.class)
+    @JoinColumn(name = "idDispositivo", referencedColumnName = "id")
+    private DispositivoInteligente dispositivo;
 
     @NotNull
     private long intervalo;
@@ -91,6 +97,17 @@ public abstract class Sensor implements Observable {
         Timer timer = new Timer("Medir");
         timer.schedule(task,0,  intervalo);
     }
+
+    public Sensor(long intervalo, String magnitud, int maxVal, DispositivoInteligente d) {
+        this.intervalo=intervalo;
+        this.magnitud = new Magnitud(0, magnitud);
+        this.dispositivo = d;
+        medirTask task = new medirTask(this.magnitud,maxVal);
+        task.run();
+        Timer timer = new Timer("Medir");
+        timer.schedule(task,0,  intervalo);
+    }
+
 
     public abstract Magnitud getMedicion();
 

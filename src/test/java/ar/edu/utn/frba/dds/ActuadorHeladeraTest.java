@@ -2,7 +2,7 @@ package ar.edu.utn.frba.dds;
 
 import ar.edu.utn.frba.dds.actuador.Actuador;
 import ar.edu.utn.frba.dds.actuador.ActuadorHeladera;
-import ar.edu.utn.frba.dds.dispositivo.DIFactoryMethod;
+import ar.edu.utn.frba.dds.dispositivo.DIFactory;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteHeladera;
 import ar.edu.utn.frba.dds.dispositivo.estadosDispositivo.Activo;
@@ -17,12 +17,12 @@ import static org.junit.Assert.assertEquals;
 public class ActuadorHeladeraTest {
 
     private DispositivoInteligente heladera;
-    private DIFactoryMethod fm;
+    private DIFactory fm;
     private Actuador actuador;
 
     @Before
     public void setUp() throws Exception {
-        fm = new DIFactoryMethod();
+        fm = new DIFactory();
         heladera  = fm.crearDispositivo("Heladera", 20, "activo",false);
         actuador = this.heladera.getActuador();
     }

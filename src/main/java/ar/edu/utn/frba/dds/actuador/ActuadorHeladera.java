@@ -22,6 +22,11 @@ public class ActuadorHeladera extends Actuador {
     public ActuadorHeladera() {
     }
 
+    public DispositivoInteligenteHeladera getDispositivo() {
+        return heladera;
+    }
+
+
     public void prenderDispositivo() {
         heladera.encender();
     }
