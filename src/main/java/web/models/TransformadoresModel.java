@@ -10,8 +10,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 
-import javax.json.Json;
-
 
 public class TransformadoresModel {
 
