@@ -13,15 +13,11 @@ import javax.validation.constraints.NotNull;
 @Table
 public class Transformador {
 
-    static ArrayList<Transformador> listaDeTransformadores = new ArrayList<Transformador>();
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
-    public static ArrayList<Transformador> getListaDeTransformadores() {
-        return listaDeTransformadores;
-    }
 
     public void setClientes(List<Cliente> clientes) {
         this.clientes = clientes;
@@ -45,7 +41,6 @@ public class Transformador {
         this.longitud = longitud;
         this.zona = zona;
         this.clientes = new ArrayList<Cliente>();
-        listaDeTransformadores.add(this);
     }
 
     public Transformador() {
@@ -66,9 +61,6 @@ public class Transformador {
         return clientes;
     }
 
-    static public ArrayList<Transformador> getAll() {
-        return listaDeTransformadores;
-    }
 
     public int getConsumoTotal() {
         int consumoTotal = 0;

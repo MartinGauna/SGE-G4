@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Alta Dispositivo</title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="./styles/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="./styles/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Page level plugin CSS-->
+    <link href="./styles/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="./styles/css/sb-admin.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+{{>commons/header.hbs}}
+
+<div id="wrapper">
+
+    {{>cliente/navBar.hbs}}
+
+    <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- DataTables Example -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Alta de Dispositivos
+                </div>
+
+                <div class="card-body">
+
+                    <form class="form-label-group" action="/altaDispositivoCliente" method="POST">
+
+                        <div class="form-group col-md-8 " title="tipo" id="sm">
+                            <label class="radio-inline"><input name="tipo" value="int" type="radio" checked>Dispositivo
+                                Inteligente</label>
+                            <label class="radio-inline"><input name="tipo" value="est" type="radio">Dispositivo Estandar</label>
+                        </div>
+
+                        <div class="form-group col-md-8 ">
+                            <select class="form-control" title="dispositivo" name="dispositivo" id="sm">
+                                <option value="" selected disabled>Dispositivo</option>
+                                {{#each dispositivos}}
+                                    <option value={{nombre}}>{{nombre}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-8 ">
+                            <label for="InputNombreDispositivo" class="sr-only">Nombre del dispositivo</label>
+                            <input type="text" class="form-control" id="InputNombreDispositivo"
+                                   placeholder="Nombre" value="{{nombre}}" name="nombre"/>
+                        </div>
+
+                        <div class="form-group col-md-8 ">
+                            <label for="InputConsumoDispositivo" class="sr-only">Consumo Dispositivo</label>
+                            <input type="text" class="form-control" id="InputConsumoDispositivo"
+                                   placeholder="consumo" value="{{consumoHora}}" name="consumoHora"/>
+                        </div>
+
+                        <div class="form-group col-md-8 " title="estado" id="sm">
+                            <select name="estado">
+                                <option value="activo">Activo</option>
+                                <option value="ahorro">Ahorro</option>
+                                <option value="apagado">Apagado</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-8 " title="bajoConsumo" id="sm">
+                            <label class="radio-inline"><input name="bajoConsumo" value="true" type="radio">Bajo Consumo</label>
+                        </div>
+
+                        <div class="form-group" align="right">
+                            <p>
+                                <button class="btn btn-lg btn-primary" type="submit">Crear Dispositivo</button>
+                                <!--<button class="btn btn-lg btn-danger"  onclick="deleteMethodology()">Cancelar</button>-->
+                            </p>
+
+                            {{#if showAlert}}
+                                {{#if isSuccess}}
+                                    <div class="alert alert-success mx-auto mt-5 card-login">
+                                        <strong>iujuu!!</strong> {{message}}
+                                    </div>
+                                {{else}}
+                                    <div class="alert alert-danger mx-auto mt-5 card-login">
+                                        <strong>Upss!!</strong> {{message}}
+                                    </div>
+                                {{/if}}
+                            {{/if}}
+
+                        </div>
+                    </form>
+                </div>
+                <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
+            </div>
+
+
+            <!--<p class="small text-center text-muted my-5">-->
+            <!--<em>More table examples coming soon...</em>-->
+            <!--</p>-->
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- /.content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+{{>commons/logoutModal.hbs}}
+
+{{>commons/scripts.hbs}}
+
+
+</body>
+
+</html>

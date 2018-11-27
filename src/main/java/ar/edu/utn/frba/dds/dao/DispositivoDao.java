@@ -31,6 +31,7 @@ public class DispositivoDao extends BaseDao{
             if( d instanceof DispositivoInteligente){
                 Actuador a = ((DispositivoInteligente) d).getActuador();
                 persistList(new ArrayList<Object>() {{add(a); add(d);}});
+                save(d);
             }
             else {
                 save(d);
