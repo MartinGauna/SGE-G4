@@ -12,6 +12,7 @@ public class Router {
     private static final String ALTA_DISPOSITIVO = "/altaDispositivo";
     private static final String ALTA_DISPOSITIVO_CLIENTE = "/altaDispositivoCliente";
     private static final String ALTA_REGLAS = "/altaReglas";
+    private static final String REGLAS = "/reglas";
     private static final String REPORTES = "/reportes";
     private static final String TRANSFORMADORES = "/transformadores";
     private static final String TRANSFORMADORESJSON = "/transformadores/json";
@@ -39,6 +40,7 @@ public class Router {
     public static String altaDispositivoClientePath() { return ALTA_DISPOSITIVO_CLIENTE; }
 
     public static String reportesPath() { return REPORTES; }
+    public static String reglasPath() { return REGLAS; }
 
     public static String transformadoresPath() { return TRANSFORMADORES; }
     public static String transformadoresJsonPath() { return TRANSFORMADORESJSON; }
