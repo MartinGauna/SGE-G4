@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS --port 3306 -cp target/classes/web/App.class grupo4
+web: java $JAVA_OPTS -cp target/classes/web/App.class grupo4 --port 3306
