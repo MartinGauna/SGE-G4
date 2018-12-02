@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* grupo4
+web: java $JAVA_OPTS -cp target/classes/web/App.class grupo4
