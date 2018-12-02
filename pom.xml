@@ -182,6 +182,21 @@
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>2.1.1</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>war</goal>
+                            </goals>
+                            <configuration>
+                                <classifier>web</classifier>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
                     <version>3.0.1</version>
                     <executions>
