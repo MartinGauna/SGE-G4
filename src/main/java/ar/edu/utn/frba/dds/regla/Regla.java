@@ -5,7 +5,6 @@ import ar.edu.utn.frba.dds.actuador.Actuador;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -31,11 +30,7 @@ public class Regla implements Observer{
     public Regla(Actuador actuador, String methodname,  List<Condicion> condiciones) {
         this.actuador = actuador;
         this.methodname = methodname;
-        if(condiciones != null) {
-            this.condiciones = condiciones;
-        } else {
-            this.condiciones = new ArrayList<Condicion>();
-        }
+        this.condiciones = condiciones;
     }
 
     public void addCondiciones(List<Condicion> condiciones)
@@ -45,10 +40,6 @@ public class Regla implements Observer{
             this.condiciones.add(c);
         }
     }
-    public void addCondicion(Condicion condicion)
-    {
-            this.condiciones.add(condicion);
-    }
     public Regla() {
     }
 
@@ -56,12 +47,6 @@ public class Regla implements Observer{
 
     public int getId() {
         return id;
-    }
-    public String getMethodName() {
-        return methodname;
-    }
-    public int getActuadorID() {
-        return actuador.getId();
     }
     public void ejecutar(){
         char previous_logic_factor;

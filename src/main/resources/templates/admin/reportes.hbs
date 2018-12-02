@@ -36,78 +36,63 @@
     <div id="content-wrapper">
 
         <div class="container-fluid">
-<ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#rCli">Reportes de Clientes</a></li>
-  <li><a data-toggle="tab" href="#rTrafo">Reportes Transformadores</a></li>
-</ul>
 
-<div class="tab-content">
-  <div id="rCli" class="tab-pane fade in active">
-    <p>
-                <!-- DataTables Example -->
-                <div class="card mb-3">
-                    <div class="card-header">
-                        <i class="fas fa-table"></i>
-                        Reportes de Clientes</div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="clientTable" width="100%" cellspacing="0">
-                                <thead>
-                                <tr>
-                                    <th width="30%">Cliente</th>
-                                    <th>Reporte</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {{#each tableReporte}}
-                                <tr>
-                                    <td>{{reporte.clienteId}}</td>
-                                    <td>{{reporte.reporte}}</td>
-                                </tr>
-                                {{/each}}
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-    </p>
-  </div>
-  <div id="rTrafo" class="tab-pane fade">
-    <p>
+            <!-- DataTables Example -->
             <div class="card mb-3">
-                    <div class="card-header">
-                        <i class="fas fa-table"></i>
-                        Reportes de Transformadores</div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="transforTable" width="100%" cellspacing="0">
-                                <thead>
-                                <tr>
-                                    <th width="60%">Transformador</th>
-                                    <th>Reporte</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {{#each tableReporteTrafo}}
-                                <tr>
-                                    <td>{{reporteTrafo.transformadorId}}</td>
-                                    <td>{{reporteTrafo.reporte}}</td>
-                                </tr>
-                                {{/each}}
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Reportes de Clientes</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="clientTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th width="30%">Cliente</th>
+                                <th>Reporte</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each tableReporte}}
+                            <tr>
+                                <td>{{reporte.clienteId}}</td>
+                                <td>{{reporte.reporte}}</td>
+                            </tr>
+                            {{/each}}
 
-                                </tbody>
-                            </table>
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
-                    <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
                 </div>
-    </p>
-  </div>
-</div>
-
+            </div>
 
             <!-- TODO Separar en otro tab -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Reportes de Transformadores</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="transforTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th width="60%">Transformador</th>
+                                <th>Reporte</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each tableReporteTrafo}}
+                            <tr>
+                                <td>{{reporteTrafo.transformadorId}}</td>
+                                <td>{{reporteTrafo.reporte}}</td>
+                            </tr>
+                            {{/each}}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
+            </div>
 
             <!--<p class="small text-center text-muted my-5">-->
             <!--<em>More table examples coming soon...</em>-->

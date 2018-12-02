@@ -44,19 +44,87 @@
                     Hogares</div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="reglasTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="medicionesTable" width="100%" cellspacing="0">
                             <thead>
                             <tr>
-                                <th width="60%">Reglas</th>
-
+                                <th width="60%">Hogar</th>
+                                <th>Mediciones</th>
                             </tr>
                             </thead>
                             <tbody>
                             {{#each table}}
                             <!--<tr>-->
-                                <!--<td>{{regla.id}}</td>-->
-                                <!--<td>{{regla.accion}}</td>-->
-                                <!--<td>{{regla.idActuador}}</td>-->
+                                <!--<td>{{cliente.domicilio}}</td>-->
+                                <!--<td>{{consumoTotal}}</td>-->
+                            <!--</tr>-->
+                            {{/each}}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
+            </div>
+            <div class="card mb-3">
+                <div class="card-header">
+                    Consumo</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <h4>Consumo del último periodo</h4>
+                        <!--TODO Agregar consumo del ultimo periodo-->
+                        <label>{{}}</label>
+                        </table>
+                    </div>
+                </div>
+                <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
+            </div>
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Dispositivos</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dispositivosTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th width="60%">Hogar</th>
+                                <th>Dispositivos</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!--TODO Agregar los dispositivos y sus estados.-->
+                            {{#each table}}
+                            <!--<tr>-->
+                            <!--<td>{{cliente.domicilio}}</td>-->
+                            <!--<td>{{consumoTotal}}</td>-->
+                            <!--</tr>-->
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Reglas activas</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th width="60%">Hogar</th>
+                                <th>Reglas Activas</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!--TODO Agregar las reglas activas para este usr.-->
+                            {{#each table}}
+                            <!--<tr>-->
+                            <!--<td>{{cliente.domicilio}}</td>-->
+                            <!--<td>{{consumoTotal}}</td>-->
                             <!--</tr>-->
                             {{/each}}
 
@@ -67,8 +135,8 @@
                 <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
             </div>
 
-
-
+        </div>
+        <!-- /.container-fluid -->
 
     </div>
     <!-- /.content-wrapper -->

@@ -1,12 +1,10 @@
 package web.controllers.client;
 
 import ar.edu.utn.frba.dds.Cliente;
-import ar.edu.utn.frba.dds.Consumo;
 import ar.edu.utn.frba.dds.dao.ClientDao;
 import ar.edu.utn.frba.dds.dao.ConsumoDao;
 import ar.edu.utn.frba.dds.dao.DispositivoDao;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
-import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -19,7 +17,6 @@ import web.models.EstadoHogarModel;
 import web.models.views.HogaresTable;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 public class EstadoHogarController extends MainController{
@@ -44,9 +41,8 @@ public class EstadoHogarController extends MainController{
         currentClient = cdao.getCliente(userID);
 
         alert.setHideAlert();
-        int ultimoConsumo = getUltimoConsumo();
-        model.setConsumoUltimo(ultimoConsumo);
-        return new ModelAndView(model, ESTADO_HOGAR);
+
+        return new ModelAndView(alert, ESTADO_HOGAR);
     }
 
     private static void initModel() {
@@ -58,23 +54,4 @@ public class EstadoHogarController extends MainController{
         List<Dispositivo> tableDispositivos = new ArrayList<>();
         tableDispositivos =  ddao.getAllDI(currentClient);
     }
-
-    public static int getUltimoConsumo(){
-        int consumo = 0;
-        List<DispositivoInteligente> listDI = currentClient.getDispositivosInteligentes();
-        Calendar cal = Calendar.getInstance();
-        for (int i = 0; i < listDI.size(); i++){
-            DispositivoInteligente di = listDI.get(i);
-            for (int it = 0; it < di.getConsumos().size(); it++){
-                Consumo c = di.getConsumos().get(it);
-                //if (cal.get(Calendar.MONTH) == c.getFechaInicio().getMonth()){
-                if (11 == c.getFechaInicio().getMonth()){
-                    consumo += c.getWatts();
-                }
-            }
-        }
-        return consumo;
-    }
-
-
 }

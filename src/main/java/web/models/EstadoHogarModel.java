@@ -10,9 +10,10 @@ import java.util.List;
 public class EstadoHogarModel {
 
     private List<Consumo> consumos;
-    private int consumoUltimo;
+    private Consumo consumoUltimo;
     private List<Dispositivo> dispositivos;
     private List<Regla> reglas;
+
 
     /*=== GETTERS AND SETTERS ===*/
     public List<Consumo> getConsumos() {
@@ -23,11 +24,11 @@ public class EstadoHogarModel {
         this.consumos = consumos;
     }
 
-    public int getConsumoUltimo() {
+    public Consumo getConsumoUltimo() {
         return consumoUltimo;
     }
 
-    public void setConsumoUltimo(int consumoUltimo) {
+    public void setConsumoUltimo(Consumo consumoUltimo) {
         this.consumoUltimo = consumoUltimo;
     }
 
@@ -48,9 +49,11 @@ public class EstadoHogarModel {
     }
 
 
+
+
     public EstadoHogarModel() {
         this.consumos = new ArrayList<Consumo>();
-        consumoUltimo = 0;
+        consumoUltimo = new Consumo();
         dispositivos = new ArrayList<Dispositivo>();
         reglas =  new ArrayList<Regla>();
     }

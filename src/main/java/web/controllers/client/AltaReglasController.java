@@ -4,7 +4,11 @@ package web.controllers.client;
 import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.Magnitud;
 import ar.edu.utn.frba.dds.actuador.*;
-import ar.edu.utn.frba.dds.dao.*;
+import ar.edu.utn.frba.dds.dao.ActuadorDao;
+import ar.edu.utn.frba.dds.dao.ClientDao;
+import ar.edu.utn.frba.dds.dao.DispositivoDao;
+import ar.edu.utn.frba.dds.dao.ReglaDao;
+import ar.edu.utn.frba.dds.dao.CondicionDao;
 import ar.edu.utn.frba.dds.exception.IncompleteFormException;
 import ar.edu.utn.frba.dds.regla.Condicion;
 import ar.edu.utn.frba.dds.regla.Regla;
@@ -19,7 +23,6 @@ import web.controllers.MainController;
 import web.models.AlertModel;
 import web.models.AltaReglasModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.Long.parseLong;
@@ -35,8 +38,6 @@ public class AltaReglasController extends MainController {
     private static ReglaDao reglaDao = new ReglaDao();
     private static ActuadorDao actuadorDao = new ActuadorDao();
     private static CondicionDao condicionDao = new CondicionDao();
-    private static BaseDao bdao = new BaseDao();
-
     public static void init() {
 
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
@@ -65,7 +66,7 @@ public class AltaReglasController extends MainController {
         try {
             Actuador actuador;
             Sensor sensor;
-            int actuadorTipo = Integer.parseInt(request.queryParams("actuador"));
+            String actuadorTipo = request.queryParams("actuador");
             String methodName = request.queryParams("accion");
             char criterio = request.queryParams("criterio").charAt(0);
             String sensorTitulo = request.queryParams("sensor");
@@ -80,29 +81,24 @@ public class AltaReglasController extends MainController {
             Magnitud magnitud = sensor.getMagnitud();
             Long magnituddelsensor =  magnitud.getValor();
 
-            if(actuadorTipo == 0){ actuador = new ActuadorAAcondicionado();}
-            else if(actuadorTipo == 1){ actuador = new ActuadorHeladera();}
-            else if(actuadorTipo == 2){ actuador = new ActuadorLavarropas();}
-            else if(actuadorTipo == 3){ actuador = new ActuadorLuz();}
-            else if(actuadorTipo == 4){ actuador = new ActuadorMicro();}
-            else if(actuadorTipo == 5){ actuador = new ActuadorPC();}
-            else if(actuadorTipo == 6){ actuador = new ActuadorPlancha();}
-            else if(actuadorTipo == 7){ actuador = new ActuadorTV();}
-            else if(actuadorTipo == 8){ actuador = new ActuadorVentilador();}
+            if(actuadorTipo == "Aire Acondicionado"){ actuador = new ActuadorAAcondicionado();}
+            else if(actuadorTipo == "Heladera"){ actuador = new ActuadorHeladera();}
+            else if(actuadorTipo == "Lavarropas"){ actuador = new ActuadorLavarropas();}
+            else if(actuadorTipo == "Luz"){ actuador = new ActuadorLuz();}
+            else if(actuadorTipo == "Microondas"){ actuador = new ActuadorMicro();}
+            else if(actuadorTipo == "PC"){ actuador = new ActuadorPC();}
+            else if(actuadorTipo == "Plancha"){ actuador = new ActuadorPlancha();}
+            else if(actuadorTipo == "TV"){ actuador = new ActuadorTV();}
+            else if(actuadorTipo == "Ventilador"){ actuador = new ActuadorVentilador();}
             else {actuador = new ActuadorVentilador();}
-            Condicion condicion = new Condicion(criterio,magnituddelsensor,valorCondicion);
+
+
             Regla regla = new Regla(actuador,methodName,null);
-            regla.addCondicion(condicion);
+            Condicion condicion = new Condicion(criterio,magnituddelsensor,valorCondicion);
 
-            List<Object> persist = new ArrayList<>();
-            persist.add(actuador);
-            persist.add(regla);
-            persist.add(condicion);
-//            actuadorDao.addActuadorIfNotExists(actuador);
-//            reglaDao.addReglaIfNotExists(regla);
-//            condicionDao.persist(condicion);
-
-            bdao.persistList(persist);
+            actuadorDao.addActuadorIfNotExists(actuador);
+            reglaDao.addReglaIfNotExists(regla);
+            condicionDao.persist(condicion);
 
             model.success("La regla fue creado con exito");
         }catch (IncompleteFormException ex){
