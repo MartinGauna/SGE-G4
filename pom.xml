@@ -228,6 +228,23 @@
                         </archive>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>com.heroku.sdk</groupId>
+                    <artifactId>heroku-maven-plugin</artifactId>
+                    <version>0.4.4</version>
+                    <configuration>
+                        <jdkVersion>1.8</jdkVersion>
+                        <!-- Use your own application name -->
+                        <appName>grupo4</appName>
+                        <processTypes>
+                            <!-- Tell Heroku how to launch your application -->
+                            <!-- You might have to remove the ./ in front   -->
+                            <!--<web>java -jar ./target/my-app-1.0-jar-with-dependencies.jar</web>-->
+                            <web>java $JAVA_OPTS -cp target/classes:target/dependency/* web/App</web>
+                        </processTypes>
+                    </configuration>
+                </plugin>
+
 			<!-- Maven Shade Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
