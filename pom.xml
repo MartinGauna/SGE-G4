@@ -237,7 +237,7 @@
                             <transformers>
                                 <!-- add Main-Class to manifest file -->
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>App</mainClass>
+                                    <mainClass>web/App</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
