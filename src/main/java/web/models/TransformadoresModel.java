@@ -45,6 +45,7 @@ public class TransformadoresModel {
             tJson.put("id", transformador.getId());
             tJson.put("lat", transformador.getLatitud());
             tJson.put("lng", transformador.getLongitud());
+            tJson.put("consumo", transformador.getConsumoTotal());
             data.put(tJson);
         });
 
