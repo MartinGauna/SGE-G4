@@ -19,8 +19,6 @@ public class EstadoHogarModel {
     //dispositivos
     private List<EstadoDispositivosTable> tableDispositivos;
 
-
-
     /*=== GETTERS AND SETTERS ===*/
     public List<Consumo> getConsumos() {
         return consumos;
