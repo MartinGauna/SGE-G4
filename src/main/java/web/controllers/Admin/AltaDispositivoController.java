@@ -37,17 +37,13 @@ public class AltaDispositivoController extends MainController {
 
     private static ModelAndView load(Request request, Response response) {
         sessionExist(request, response);
+        updateModel();
         return new ModelAndView (model, ALTADISPOSITIVO); // TODO add 'Dispositivo' model
     }
 
     private static void initModel() {
-
         model = new AltaDispositivoModel();
-        List<Cliente> cls = clientDao.list();
-
-        for (Cliente c : cls) {
-            model.getClientes().add(c);
-        }
+        fillModel();
     }
 
     public static ModelAndView crearDispositivo(Request request, Response response){
@@ -92,6 +88,25 @@ public class AltaDispositivoController extends MainController {
         }
         return dispositivo;
 
+    }
+
+
+    private static void fillModel() {
+        List<Cliente> cls = clientDao.list();
+
+        for (Cliente c : cls) {
+            model.getClientes().add(c);
+        }
+    }
+
+    private static void updateModel() {
+        List<Cliente> cls = clientDao.list();
+
+        for (Cliente c : cls) {
+            if (!model.getClientes().contains(c)) {
+                model.getClientes().add(c);
+            }
+        }
     }
 
 }

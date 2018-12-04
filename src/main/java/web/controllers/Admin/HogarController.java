@@ -37,7 +37,7 @@ public class HogarController extends MainController {
 
     private static ModelAndView showHogares(Request request, Response response) {
         sessionExist(request, response);
-
+        fillTable();
         return new ModelAndView (model, HOGARES); // TODO add 'hogares' model
     }
 
@@ -45,18 +45,6 @@ public class HogarController extends MainController {
 
         model = new HogaresModel();
 
-        List<HogaresTable> table = new ArrayList<HogaresTable>();
-        List<Cliente> cls = cdao.list();
-
-        for (Cliente c : cls) {
-            HogaresTable row = new HogaresTable();
-            row.setCliente(c);
-            row.setConsumoTotal(getAllConsumosByHogar(c));
-
-            table.add(row);
-        }
-
-        model.setTable(table);
     }
 
     private static long getAllConsumosByHogar(Cliente c) {
@@ -74,5 +62,20 @@ public class HogarController extends MainController {
              }
         }
         return consumoTotal;
+    }
+
+    private static void fillTable() {
+        List<HogaresTable> table = new ArrayList<HogaresTable>();
+        List<Cliente> cls = cdao.list();
+
+        for (Cliente c : cls) {
+            HogaresTable row = new HogaresTable();
+            row.setCliente(c);
+            row.setConsumoTotal(getAllConsumosByHogar(c));
+
+            table.add(row);
+        }
+
+        model.setTable(table);
     }
 }
