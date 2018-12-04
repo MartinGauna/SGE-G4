@@ -16,6 +16,7 @@ import web.Router;
 import web.controllers.MainController;
 import web.models.AlertModel;
 import web.models.EstadoHogarModel;
+import web.models.views.EstadoDispositivosTable;
 import web.models.views.HogaresTable;
 
 import java.util.ArrayList;
@@ -42,7 +43,8 @@ public class EstadoHogarController extends MainController{
         String userSession =  request.session().attribute("user");
         Integer userID = Integer.parseInt(userSession.substring(0,userSession.indexOf("-")));
         currentClient = cdao.getCliente(userID);
-
+        fillDispositivosTable();
+        //updateDispositivosTable();
         alert.setHideAlert();
         int ultimoConsumo = getUltimoConsumo();
         model.setConsumoUltimo(ultimoConsumo);
@@ -55,8 +57,8 @@ public class EstadoHogarController extends MainController{
 
         List<HogaresTable> table = new ArrayList<HogaresTable>();
         List<Cliente> cls = cdao.list();
-        List<Dispositivo> tableDispositivos = new ArrayList<>();
-        tableDispositivos =  ddao.getAllDI(currentClient);
+        //List<Dispositivo> tableDispositivos = new ArrayList<>();
+        //tableDispositivos =  ddao.getAllDI(currentClient);
     }
 
     public static int getUltimoConsumo(){
@@ -77,4 +79,39 @@ public class EstadoHogarController extends MainController{
     }
 
 
+    private static void fillDispositivosTable() {
+
+        List<EstadoDispositivosTable> table = new ArrayList<EstadoDispositivosTable>();
+        List<Dispositivo> dispositivos = ddao.getAllDI(currentClient);
+
+        for (Dispositivo d : dispositivos) {
+            EstadoDispositivosTable row = new EstadoDispositivosTable();
+            row.setDispositivo(d);
+            row.setEstado(d.getEstado().name());
+            table.add(row);
+        }
+
+        model.setTableDispositivos(table);
+    }
+
+//    private static void updateDispositivosTable() {
+//
+//        List<EstadoDispositivosTable> table = new ArrayList<EstadoDispositivosTable>();
+//        List<Dispositivo> dispositivos = ddao.getAllDI(currentClient);
+//        boolean exists = false;
+//
+//        for (Dispositivo d : dispositivos) {
+//            for (EstadoDispositivosTable di : model.getTableDispositivos()) {
+//                if (d == di.getDispositivo()) {
+//                    exists = true;
+//                }
+//                if (!exists) {
+//                    EstadoDispositivosTable row = new EstadoDispositivosTable();
+//                    row.setDispositivo(d);
+//                    row.setEstado(d.getEstado().name());
+//                    model.getTableDispositivos().add(row);
+//                }
+//            }
+//        }
+//    }
 }
