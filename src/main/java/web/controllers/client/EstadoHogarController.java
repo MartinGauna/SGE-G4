@@ -1,10 +1,12 @@
 package web.controllers.client;
 
 import ar.edu.utn.frba.dds.Cliente;
+import ar.edu.utn.frba.dds.Consumo;
 import ar.edu.utn.frba.dds.dao.ClientDao;
 import ar.edu.utn.frba.dds.dao.ConsumoDao;
 import ar.edu.utn.frba.dds.dao.DispositivoDao;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -18,6 +20,7 @@ import web.models.views.EstadoDispositivosTable;
 import web.models.views.HogaresTable;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class EstadoHogarController extends MainController{

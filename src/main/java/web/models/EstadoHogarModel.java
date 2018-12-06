@@ -16,11 +16,8 @@ public class EstadoHogarModel {
     private List<Dispositivo> dispositivos;
     private List<Regla> reglas;
 
-<<<<<<< HEAD
-=======
     //dispositivos
     private List<EstadoDispositivosTable> tableDispositivos;
->>>>>>> entrega4
 
     /*=== GETTERS AND SETTERS ===*/
     public List<Consumo> getConsumos() {
