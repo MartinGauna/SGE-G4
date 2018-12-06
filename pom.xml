@@ -235,8 +235,8 @@
                         <processTypes>
                             <!-- Tell Heroku how to launch your application -->
                             <!-- You might have to remove the ./ in front   -->
-                            <!--<web>java -jar ./target/my-app-1.0-jar-with-dependencies.jar</web>-->
-                            <web>java $JAVA_OPTS -cp target/classes:target/dependency/* web/App</web>
+                            <web>java -jar ./target/grupo4-1.0.jar</web>
+
                         </processTypes>
                     </configuration>
                 </plugin>
