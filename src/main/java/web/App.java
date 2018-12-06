@@ -70,7 +70,7 @@ public class App
         EstadoHogarController.init();
         TransformadoresController.init();
         UploadController.init();
-        EstadoDispositivoController.init();
+        //EstadoDispositivoController.init();
         AltaReglasController.init();
 
     }
