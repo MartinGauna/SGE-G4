@@ -44,23 +44,25 @@
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
 
 
-            <!-- HEROKU DATABASE
-            <property name="hibernate.connection.url" value="mysql://lo3bihst1g6w4bha:fi3tea4wau8uq0cj@h2cwrn74535xdazj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/rre81dqaosibe1n3" />
-            <property name="hibernate.connection.username" value="lo3bihst1g6w4bha" />
-            <property name="hibernate.connection.password" value="fi3tea4wau8uq0cj" />
-            -->
+            <!-- HEROKU DATABASE-->
+            <property name="hibernate.connection.url" value="jdbc:mysql://b11e53903fcdbf:2d627525@us-cdbr-iron-east-01.cleardb.net/heroku_3225f8d1e147e98?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC" />
+            <property name="hibernate.connection.username" value="b11e53903fcdbf" />
+            <property name="hibernate.connection.password" value="2d627525" />
+
+            <!-- MATIAS DATABASE -->
+            <!--
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/sge?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC" />
             <property name="hibernate.connection.username" value="root" />
             <property name="hibernate.connection.password" value="@Erosmith92" />
-
+            -->
 
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
             <property name="use_sql_comments" value="true" />
 
-            <property name="hibernate.hbm2ddl.auto" value="update" />
-            <!--<property name="hibernate.hbm2ddl.auto" value="create-drop" />-->
+            <!--<property name="hibernate.hbm2ddl.auto" value="update" />-->
+            <property name="hibernate.hbm2ddl.auto" value="create-drop" />
 
         </properties>
 
