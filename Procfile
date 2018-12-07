@@ -1,1 +1,1 @@
-web: java -jar target/grupo4.jar
+web: java -Dserver.port=$PORT -jar target/grupo4.jar
