@@ -1,0 +1,16 @@
+drop database if exists SGE;
+
+CREATE DATABASE IF NOT EXISTS SGE;
+
+/* -------------------------------------
+ *  DROPS
+ * -------------------------------------
+ */
+
+DROP TABLE IF EXISTS transformador;
+DROP TABLE IF EXISTS Zona;
+DROP TABLE IF EXISTS CLIENTE;
+DROP TABLE IF EXISTS ADMINISTRADOR;
+DROP TABLE IF EXISTS CATEGORIA;
+DROP TABLE IF EXISTS HIBERNATE_SEQUENCE;
+DROP TABLE IF EXISTS USUARIO;

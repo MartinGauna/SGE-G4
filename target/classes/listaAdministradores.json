@@ -1,0 +1,29 @@
+[
+  {
+    "nombre": "John",
+    "apellido": "Doe",
+    "domicilio": "Calle Falsa 123",
+    "user": "admin@admin",
+    "password": "1234",
+    "fechaAlta": {},
+    "legajo": 123123
+  },
+  {
+    "nombre": "Johnne",
+    "apellido": "Doe",
+    "domicilio": "Calle Falsa 456",
+    "user": "admin1",
+    "password": "ssss",
+    "fechaAlta": {},
+    "legajo": 124124
+  },
+  {
+    "nombre": "Admin3",
+    "apellido": "Doe3",
+    "domicilio": "Calle Falsa 789",
+    "user": "admin2",
+    "password": "dddd",
+    "fechaAlta": {},
+    "legajo": 124125
+  }
+]
