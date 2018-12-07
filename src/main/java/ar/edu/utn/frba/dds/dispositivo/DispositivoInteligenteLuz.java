@@ -1,6 +1,9 @@
 package ar.edu.utn.frba.dds.dispositivo;
 
 import ar.edu.utn.frba.dds.actuador.ActuadorLuz;
+import ar.edu.utn.frba.dds.sensor.SensorHumedad;
+import ar.edu.utn.frba.dds.sensor.SensorLuz;
+import ar.edu.utn.frba.dds.sensor.SensorTemperatura;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -30,6 +33,8 @@ public class DispositivoInteligenteLuz extends DispositivoInteligente {
         ActuadorLuz actuador = new ActuadorLuz(this);
         this.setActuador(actuador);
         this.setLuminosidad(20);
+
+        this.sensores.add(new SensorLuz(1, this));
     }
 
     public int getLuminosidad() {

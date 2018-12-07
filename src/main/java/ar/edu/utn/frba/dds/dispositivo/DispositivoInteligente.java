@@ -48,6 +48,7 @@ public class DispositivoInteligente extends Dispositivo {
         this.consumo = new ArrayList<Consumo>();
         this.actuador = null;
         this.initializePeriods();
+        this.sensores = new ArrayList<Sensor>();
     }
 
     public void addConsumo(int watts, Date fechaInicio, Date fechaFinal) {

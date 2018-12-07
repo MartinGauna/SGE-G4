@@ -2,10 +2,12 @@ package web.controllers.client;
 
 
 import ar.edu.utn.frba.dds.Cliente;
+import ar.edu.utn.frba.dds.dao.BaseDao;
 import ar.edu.utn.frba.dds.dao.ClientDao;
 import ar.edu.utn.frba.dds.dao.DispositivoDao;
 import ar.edu.utn.frba.dds.dispositivo.DIFactory;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import ar.edu.utn.frba.dds.exception.IncompleteFormException;
 import spark.ModelAndView;
@@ -19,6 +21,7 @@ import web.helper.SessionHelper;
 import web.models.AlertModel;
 import web.models.AltaDispositivoClienteModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AltaDispositivoController extends MainController {
@@ -27,6 +30,9 @@ public class AltaDispositivoController extends MainController {
     private static AltaDispositivoClienteModel model;
     private static ClientDao clientDao = new ClientDao();
     private static DispositivoDao dispositivoDao = new DispositivoDao();
+    private static BaseDao bdao = new BaseDao();
+    private static Cliente client = null;
+
     private static AlertModel alert = new AlertModel(false,"",false);
 
     public static void init() {
@@ -37,6 +43,7 @@ public class AltaDispositivoController extends MainController {
     }
 
     private static ModelAndView load(Request request, Response response) {
+        getCurrentClient(request);
         sessionExist(request, response);
         return new ModelAndView (model, ALTADISPOSITIVOCLIENTE); // TODO add 'Dispositivo' model
     }
@@ -79,34 +86,36 @@ public class AltaDispositivoController extends MainController {
         String username = SessionHelper.getUserSession(request).substring(2);
         boolean bajoConsumo = Boolean.valueOf(request.queryParams("bajoConsumo"));
 
-
         Dispositivo dispositivo;
-        Cliente cliente = clientDao.clientExists(username);
         DIFactory fm = new DIFactory();
-        if(tipo == "int")
-        {
+        if (tipo.equals("int")) {
             try {
-                dispositivo = fm.crearDispositivoFromPOST(tipo,disp,nombre,consumo, estado, cliente, bajoConsumo);
-                dispositivoDao.addDispositivoIfNotExists(dispositivo);
-                clientDao.addClientIfNotExists(cliente);
-            }catch (NullPointerException ex){
+                dispositivo = fm.crearDispositivoFromPOST(tipo, disp, nombre, consumo, estado, client, bajoConsumo);
+                dispositivoDao.addDispositivoInteligenteIfNotExists((DispositivoInteligente) dispositivo);
+                clientDao.addClientIfNotExists(client);
+            } catch (NullPointerException ex) {
                 throw new IncompleteFormException();
             }
-        }
-        else
-        {
-            try{
-            dispositivo = new Estandard();
-            dispositivo.setConsumoHora(consumo);
-            dispositivo.setNombre(nombre);
-            dispositivo.setCliente(cliente);
-            dispositivoDao.addDispositivoIfNotExists(dispositivo);
-            } catch (NullPointerException ex){
-            throw new IncompleteFormException();
-        }
+        } else {
+            try {
+                dispositivo = new Estandard();
+                dispositivo.setConsumoHora(consumo);
+                dispositivo.setNombre(nombre);
+                dispositivo.setCliente(client);
+                dispositivoDao.addDispositivoIfNotExists(dispositivo);
+            } catch (NullPointerException ex) {
+                throw new IncompleteFormException();
+            }
         }
         return dispositivo;
 
     }
+
+    private static void getCurrentClient(Request request) {
+        String userSession =  request.session().attribute("user");
+        Integer userID = Integer.parseInt(userSession.substring(0,userSession.indexOf("-")));
+        client = clientDao.getCliente(userID);
+    }
+
 
 }

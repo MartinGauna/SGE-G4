@@ -50,7 +50,7 @@ public class HogarController extends MainController {
     private static long getAllConsumosByHogar(Cliente c) {
         long consumoTotal = 0;
 
-        List<Dispositivo> dispositivos = ddao.getAllDI(c);
+        List<Dispositivo> dispositivos = ddao.getAllDispositivos(c);
 
         for (Dispositivo d : dispositivos) {
              List<Consumo> consumos =  codao.getConsumo(d);

@@ -2,6 +2,8 @@ package ar.edu.utn.frba.dds.dispositivo;
 
 import ar.edu.utn.frba.dds.Consumo;
 import ar.edu.utn.frba.dds.actuador.ActuadorAAcondicionado;
+import ar.edu.utn.frba.dds.sensor.SensorHumedad;
+import ar.edu.utn.frba.dds.sensor.SensorTemperatura;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -32,6 +34,9 @@ public class DispositivoInteligenteAAcondicionado extends DispositivoInteligente
         this.setActuador(actuador);
         this.setTemperatura(24);
         this.setEsBajoConsumo(esBajoConsumo);
+
+        this.sensores.add(new SensorTemperatura(1, this));
+        this.sensores.add(new SensorHumedad(1, this));
     }
 
     public int getTemperatura() {
