@@ -54,7 +54,7 @@ public class EstadoDispositivoController extends MainController {
     private static void fillTable() {
 
         List<EstadoDispositivosTable> table = new ArrayList<EstadoDispositivosTable>();
-        List<Dispositivo> dispositivos = ddao.getAllDI(cliente);
+        List<Dispositivo> dispositivos = ddao.getAllDispositivos(cliente);
 
         for (Dispositivo d : dispositivos) {
             EstadoDispositivosTable row = new EstadoDispositivosTable();

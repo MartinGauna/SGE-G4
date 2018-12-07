@@ -1,6 +1,8 @@
 package ar.edu.utn.frba.dds.dispositivo;
 
 import ar.edu.utn.frba.dds.actuador.ActuadorHeladera;
+import ar.edu.utn.frba.dds.sensor.SensorHumedad;
+import ar.edu.utn.frba.dds.sensor.SensorTemperatura;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -28,6 +30,9 @@ public class DispositivoInteligenteHeladera extends DispositivoInteligente {
         ActuadorHeladera actuador = new ActuadorHeladera(this);
         this.setActuador(actuador);
         this.setIntensidad(0);
+
+        this.sensores.add(new SensorTemperatura(1, this));
+        this.sensores.add(new SensorHumedad(1, this));
     }
 
     public int getIntensidad() {

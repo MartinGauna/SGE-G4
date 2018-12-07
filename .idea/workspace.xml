@@ -7,17 +7,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81bec36d-4c6c-43a4-879e-e683ba32d7de" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/grupo4_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/grupo4_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/jsonParser/JsonParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/jsonParser/JsonParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/web/controllers/client/UploadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/web/controllers/client/UploadController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/webResources/styles/vendor/chart.js/Chart.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/webResources/styles/vendor/chart.js/Chart.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/webResources/styles/vendor/chart.js/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/webResources/styles/vendor/chart.js/Chart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/zonas.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zonas.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/grupo4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/grupo4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/models/views/MedicionesTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/DispositivoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/DispositivoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dispositivo/DIFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dispositivo/DIFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dispositivo/DispositivoInteligente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dispositivo/DispositivoInteligente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dispositivo/DispositivoInteligenteAAcondicionado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dispositivo/DispositivoInteligenteAAcondicionado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dispositivo/DispositivoInteligenteHeladera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dispositivo/DispositivoInteligenteHeladera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dispositivo/DispositivoInteligenteLavarropas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dispositivo/DispositivoInteligenteLavarropas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dispositivo/DispositivoInteligenteLuz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dispositivo/DispositivoInteligenteLuz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dispositivo/DispositivoInteligenteVentilador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dispositivo/DispositivoInteligenteVentilador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/controllers/Admin/AltaDispositivoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/controllers/Admin/AltaDispositivoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/controllers/Admin/HogarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/controllers/Admin/HogarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/controllers/client/AltaDispositivoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/controllers/client/AltaDispositivoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/controllers/client/EstadoDispositivoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/controllers/client/EstadoDispositivoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/controllers/client/EstadoHogarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/controllers/client/EstadoHogarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/models/EstadoHogarModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/models/EstadoHogarModel.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,7 +53,20 @@
     <option name="HIDE_WARNINGS" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="EstadoHogarController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/web/controllers/client/EstadoHogarController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="463">
+              <caret line="146" column="16" lean-forward="true" selection-start-line="146" selection-start-column="16" selection-end-line="146" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -198,7 +215,34 @@
               <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
@@ -560,6 +604,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
@@ -908,16 +953,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/web/controllers/client/EstadoHogarController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="69" column="65" lean-forward="true" selection-start-line="69" selection-start-column="65" selection-end-line="69" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/web/models/EstadoHogarModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1081,6 +1116,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/web/controllers/client/EstadoHogarController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="146" column="16" lean-forward="true" selection-start-line="146" selection-start-column="16" selection-end-line="146" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

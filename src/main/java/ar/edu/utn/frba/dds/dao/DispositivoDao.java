@@ -4,13 +4,18 @@ import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.actuador.Actuador;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
+import ar.edu.utn.frba.dds.sensor.Sensor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DispositivoDao extends BaseDao{
 
-    public List<Dispositivo> getAllDI(Cliente user) {
+    public List<DispositivoInteligente> getAllDI(Cliente user) {
+        return getListByPropertyValue(DispositivoInteligente.class, "idCliente", user);
+    }
+
+    public List<Dispositivo> getAllDispositivos(Cliente user) {
         return getListByPropertyValue(Dispositivo.class, "idCliente", user);
     }
 
@@ -23,19 +28,35 @@ public class DispositivoDao extends BaseDao{
     private Dispositivo dispositivoExists(String nombre) { return getByPropertyValue(Dispositivo.class, "nombre", nombre); }
 
 
-    public void addDispositivoIfNotExists(Dispositivo d){
-        Dispositivo d2 = dispositivoExists(d);
+    public void addDispositivoIfNotExists(Object d){
+        Dispositivo d2 = dispositivoExists((Dispositivo)d);
         if (d2 != null){
             update(d2);
         }else{
-            if( d instanceof DispositivoInteligente){
-                Actuador a = ((DispositivoInteligente) d).getActuador();
-                persistList(new ArrayList<Object>() {{add(a); add(d);}});
-                save(d);
+            save(d);
+        }
+    }
+
+    public void addDispositivoInteligenteIfNotExists(DispositivoInteligente d) {
+        Dispositivo d2 = dispositivoExists((Dispositivo) d);
+        if (d2 != null) {
+            update(d2);
+        } else {
+            List topersist = new ArrayList();
+
+            if (!d.getSensores().isEmpty()) {
+                for(Sensor s: d.getSensores()) {
+                    topersist.add(s.getMagnitud());
+                    topersist.add(s);
+                }
             }
-            else {
-                save(d);
-            }
+
+            Actuador a = ((DispositivoInteligente) d).getActuador();
+            topersist.add(a);
+            topersist.add(d);
+
+            persistList(topersist);
+            save(d);
         }
     }
 }

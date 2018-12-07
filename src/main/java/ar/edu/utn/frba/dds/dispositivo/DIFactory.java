@@ -45,8 +45,10 @@ public class DIFactory {
                     default:
                         d = null;
                 }
-            } else if (tipo.equals("est")) {
 
+
+            } else if (tipo.equals("est")) {
+                d = new Estandard(nombre,(int)consumo,estado);
             }
 
         } catch (Exception ex) {

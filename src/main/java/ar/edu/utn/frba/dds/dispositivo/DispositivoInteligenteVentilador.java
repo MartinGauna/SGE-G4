@@ -1,6 +1,8 @@
 package ar.edu.utn.frba.dds.dispositivo;
 
 import ar.edu.utn.frba.dds.actuador.ActuadorVentilador;
+import ar.edu.utn.frba.dds.sensor.SensorHumedad;
+import ar.edu.utn.frba.dds.sensor.SensorTemperatura;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -28,6 +30,7 @@ public class DispositivoInteligenteVentilador extends DispositivoInteligente {
         ActuadorVentilador actuador = new ActuadorVentilador(this);
         this.setActuador(actuador);
 
+        this.sensores.add(new SensorTemperatura(1, this));
     }
 
 }

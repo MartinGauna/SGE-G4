@@ -21,7 +21,7 @@ public class DispositivoInteligenteLavarropas extends DispositivoInteligente {
     }
 
     public DispositivoInteligenteLavarropas(String nombre, double consumoHora, String estado,boolean esBajoConsumo) {
-        super(nombre, consumoHora, estado,30,6);
+        super(nombre, consumoHora, estado, 30, 6);
         this.uso_minimo = 6;
         this.uso_maximo = 30;
         ActuadorLavarropas actuador = new ActuadorLavarropas(this);

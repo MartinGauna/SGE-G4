@@ -6,6 +6,7 @@ import ar.edu.utn.frba.dds.dao.ClientDao;
 import ar.edu.utn.frba.dds.dao.DispositivoDao;
 import ar.edu.utn.frba.dds.dispositivo.DIFactory;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.exception.IncompleteFormException;
 import spark.ModelAndView;
 import spark.Request;
@@ -81,7 +82,13 @@ public class AltaDispositivoController extends MainController {
 
         try {
             dispositivo = fm.crearDispositivoFromPOST(tipo,disp,nombre,consumo, estado, cliente, bajoConsumo);
-            dispositivoDao.addDispositivoIfNotExists(dispositivo);
+
+            if (tipo.equals("int")) {
+                dispositivoDao.addDispositivoInteligenteIfNotExists((DispositivoInteligente) dispositivo);
+            }
+            else {
+                dispositivoDao.addDispositivoIfNotExists(dispositivo);
+            }
             clientDao.addClientIfNotExists(cliente);
         }catch (NullPointerException ex){
             throw new IncompleteFormException();

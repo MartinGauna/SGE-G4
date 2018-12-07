@@ -4,6 +4,7 @@ import ar.edu.utn.frba.dds.Consumo;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.regla.Regla;
 import web.models.views.EstadoDispositivosTable;
+import web.models.views.MedicionesTable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,9 @@ public class EstadoHogarModel {
 
     //dispositivos
     private List<EstadoDispositivosTable> tableDispositivos;
+
+    //mediciones
+    private List<MedicionesTable> tableMediciones;
 
     /*=== GETTERS AND SETTERS ===*/
     public List<Consumo> getConsumos() {
@@ -60,6 +64,13 @@ public class EstadoHogarModel {
         this.tableDispositivos = tableDispositivos;
     }
 
+    public List<MedicionesTable> getTableMediciones() {
+        return tableMediciones;
+    }
+
+    public void setTableMediciones(List<MedicionesTable> tableMediciones) {
+        this.tableMediciones = tableMediciones;
+    }
 
 
 
@@ -69,5 +80,6 @@ public class EstadoHogarModel {
         dispositivos = new ArrayList<Dispositivo>();
         reglas =  new ArrayList<Regla>();
         tableDispositivos = new ArrayList<EstadoDispositivosTable>();
+        tableMediciones = new ArrayList<MedicionesTable>();
     }
 }
