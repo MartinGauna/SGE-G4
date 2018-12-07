@@ -6,7 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81bec36d-4c6c-43a4-879e-e683ba32d7de" name="Default" comment="" />
+    <list default="true" id="81bec36d-4c6c-43a4-879e-e683ba32d7de" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.hbs" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,7 +33,7 @@
     <SUITE FILE_PATH="coverage/SGE_G4$UsuarioDaoTest_getUser.ic" NAME="UsuarioDaoTest.getUser Coverage Results" MODIFIED="1540868014658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>ar.edu.utn.frba.dds.dao.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SGE_G4$App__1_.ic" NAME="App (1) Coverage Results" MODIFIED="1541986011805" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/SGE_G4$App__1_.ic" NAME="App (1) Coverage Results" MODIFIED="1544203294996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>web.*</FILTER>
     </SUITE>
   </component>
@@ -41,29 +46,57 @@
       <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/web/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
+            <state relative-caret-position="34">
+              <caret line="38" column="23" lean-forward="true" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="persistence.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="62" column="81" selection-start-line="62" selection-start-column="81" selection-end-line="62" selection-end-column="81" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/BaseDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="536">
+              <caret line="204" selection-start-line="204" selection-end-line="204" />
               <folding>
-                <element signature="e#942#953#0" expanded="true" />
+                <element signature="e#1261#1262#0" expanded="true" />
+                <element signature="e#1305#1306#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Procfile" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Procfile">
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/web/controllers/login/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="42" selection-start-column="42" selection-end-column="42" />
+            <state relative-caret-position="170">
+              <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="login.hbs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="244" column="24" lean-forward="true" selection-start-line="244" selection-start-column="24" selection-end-line="244" selection-end-column="24" />
+            <state relative-caret-position="100">
+              <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Router.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/web/Router.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-85">
+              <caret line="13" column="53" selection-start-line="13" selection-start-column="53" selection-end-line="13" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -88,6 +121,7 @@
       <find>card-login</find>
       <find>cliente</find>
       <find>assembly</find>
+      <find>/login</find>
     </findStrings>
     <replaceStrings>
       <replace>ar.edu.utn.frba.dds.helpers.ojalgo</replace>
@@ -120,7 +154,6 @@
         <option value="$PROJECT_DIR$/src/main/java/web/helper/AlertHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/UsuarioDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/web/controllers/login/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/login.hbs" />
         <option value="$PROJECT_DIR$/src/main/java/web/models/views/DispositivosTable.java" />
         <option value="$PROJECT_DIR$/src/main/java/web/controllers/Admin/ReportesController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/cliente/uploadFile.hbs" />
@@ -139,7 +172,6 @@
         <option value="$PROJECT_DIR$/src/main/java/web/controllers/client/AltaReglasController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/cliente/altaDispositivoCliente.hbs" />
         <option value="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/ClientDao.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/ReglaDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/regla/Regla.java" />
         <option value="$PROJECT_DIR$/src/main/java/web/models/ReglasModel.java" />
@@ -149,9 +181,11 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/cliente/reglas.hbs" />
         <option value="$PROJECT_DIR$/src/main/java/web/models/EstadoHogarModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/web/controllers/client/EstadoHogarController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/web/App.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/Procfile" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/web/App.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/login.hbs" />
       </list>
     </option>
   </component>
@@ -190,6 +224,69 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="cliente" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Local Unit Tests">
           <expand>
@@ -212,28 +309,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SearchEverywhereHistoryKey" value="/login&#9;FILE&#9;file://C:/Matias/Facultad/Diseno de sistemas/SGE-G4/src/main/resources/templates/login.hbs" />
     <property name="ToolWindowEvent Log.ShowToolbar" value="false" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
@@ -256,13 +336,15 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Matias\Facultad\Diseno de sistemas\SGE-G4\src\main\resources\view\img" />
+      <recent name="C:\Matias\Facultad\Diseno de sistemas\SGE-G4\src\main\resources\view" />
+      <recent name="C:\Matias\Facultad\Diseno de sistemas\SGE-G4\src\main\resources\templates" />
+      <recent name="C:\Matias\Facultad\Diseno de sistemas\SGE-G4\src\main\resources\public\templates" />
+      <recent name="C:\Matias\Facultad\Diseno de sistemas\SGE-G4\src\main\resources\public" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ar.edu.utn.frba.dds" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Matias\Facultad\Diseno de sistemas\SGE-G4\src\main\resources\templates\cliente" />
-      <recent name="C:\Matias\Facultad\Diseno de sistemas\SGE-G4\src\main\resources\templates" />
-      <recent name="C:\Matias\Facultad\Diseno de sistemas\SGE-G4\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="web.models" />
@@ -271,12 +353,10 @@
       <recent name="ar.edu.utn.frba.dds.dao" />
       <recent name="ar.edu.utn.frba.dds.dispositivo" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Matias\Facultad\Diseno de sistemas\SGE-G4\src\main\resources\view\img" />
-      <recent name="C:\Matias\Facultad\Diseno de sistemas\SGE-G4\src\main\resources\view" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Matias\Facultad\Diseno de sistemas\SGE-G4\src\main\resources\templates\cliente" />
       <recent name="C:\Matias\Facultad\Diseno de sistemas\SGE-G4\src\main\resources\templates" />
-      <recent name="C:\Matias\Facultad\Diseno de sistemas\SGE-G4\src\main\resources\public\templates" />
-      <recent name="C:\Matias\Facultad\Diseno de sistemas\SGE-G4\src\main\resources\public" />
+      <recent name="C:\Matias\Facultad\Diseno de sistemas\SGE-G4\src\main\resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -570,19 +650,19 @@
       <window_info anchor="bottom" auto_hide="true" id="Event Log" order="7" sideWeight="0.5030257" side_tool="true" weight="0.3250825" />
       <window_info anchor="right" id="Maven Projects" order="6" show_stripe_button="false" weight="0.32828686" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32838285" />
-      <window_info anchor="bottom" x="3" y="15" width="1292" height="762" id="Run" order="2" sideWeight="0.4969743" weight="0.34541985" />
+      <window_info anchor="bottom" x="3" y="15" width="1292" height="762" id="Run" order="2" sideWeight="0.4969743" weight="0.34488449" />
+      <window_info anchor="right" id="Coverage" order="8" sideWeight="0.50132626" side_tool="true" weight="0.18683812" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4968102" weight="0.32673267" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Designer" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2655068" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26928896" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" show_stripe_button="false" weight="0.24940239" />
       <window_info id="UI Designer" order="5" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49848714" weight="0.37953794" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49848714" visible="true" weight="0.3778878" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Coverage" order="8" sideWeight="0.50132626" side_tool="true" weight="0.18683812" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -594,29 +674,29 @@
       <window_info anchor="bottom" id="DB Execution Console" order="11" weight="0.32972136" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Coverage" order="8" sideWeight="0.50132626" side_tool="true" weight="0.18683812" />
-      <window_info anchor="bottom" x="3" y="15" width="1292" height="762" id="Run" order="2" sideWeight="0.4969743" weight="0.29867986" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32838285" />
       <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info id="Image Layers" order="2" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49615383" weight="0.32673267" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25037822" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" show_stripe_button="false" weight="0.24940239" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32838285" />
+      <window_info anchor="bottom" x="3" y="15" width="1292" height="762" id="Run" order="2" sideWeight="0.4969743" weight="0.29867986" />
       <window_info anchor="right" id="DB Browser" order="9" sideWeight="0.49867374" weight="0.18683812" />
       <window_info id="Designer" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3278867" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25037822" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49848714" visible="true" weight="0.4389439" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4968102" weight="0.32673267" />
+      <window_info anchor="right" id="Coverage" order="8" sideWeight="0.50132626" side_tool="true" weight="0.18683812" />
       <window_info anchor="bottom" auto_hide="true" id="Event Log" order="8" sideWeight="0.5030257" side_tool="true" weight="0.3250825" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="3" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49615383" weight="0.32673267" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4968102" weight="0.32673267" />
       <window_info anchor="right" id="Maven Projects" order="6" show_stripe_button="false" weight="0.32828686" />
       <window_info id="Favorites" order="6" side_tool="true" />
     </layout-to-restore>
@@ -725,10 +805,10 @@
           <option name="timeStamp" value="198" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/BaseDao.java</url>
-          <line>204</line>
+          <url>file://$PROJECT_DIR$/src/main/java/web/controllers/login/LoginController.java</url>
+          <line>42</line>
           <properties />
-          <option name="timeStamp" value="200" />
+          <option name="timeStamp" value="211" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url />
@@ -739,7 +819,7 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="209" />
+      <option name="time" value="212" />
     </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
@@ -751,20 +831,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/com/sparkjava/spark-core/2.7.2/spark-core-2.7.2.jar!/spark/TemplateViewRouteImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/regla/Condicion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="12" column="19" lean-forward="true" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/Dao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="97">
@@ -895,28 +961,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/cliente/altaReglas.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="52" column="33" lean-forward="true" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/web/models/AltaDispositivoClienteModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/BaseDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="200" selection-start-line="200" selection-end-line="200" />
-          <folding>
-            <element signature="e#1261#1262#0" expanded="true" />
-            <element signature="e#1305#1306#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -962,13 +1010,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/web/Router.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="13" column="53" selection-start-line="13" selection-start-column="53" selection-end-line="13" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/cliente/navBar.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
@@ -1000,13 +1041,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/web/models/views/ReglaTable.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/web/controllers/Admin/AltaDispositivoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="17" column="39" lean-forward="true" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/web/controllers/Admin/HogarController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1038,13 +1072,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="24" column="59" lean-forward="true" selection-start-line="24" selection-start-column="59" selection-end-line="24" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2298" />
@@ -1069,8 +1096,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="244" column="24" lean-forward="true" selection-start-line="244" selection-start-column="24" selection-end-line="244" selection-end-column="24" />
+        <state relative-caret-position="4148">
+          <caret line="244" column="24" selection-start-line="244" selection-start-column="24" selection-end-line="244" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -1081,20 +1108,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/web/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
-          <folding>
-            <element signature="e#942#953#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="42" selection-start-column="42" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="62" column="81" selection-start-line="62" selection-start-column="81" selection-end-line="62" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/BaseDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="536">
+          <caret line="204" selection-start-line="204" selection-end-line="204" />
+          <folding>
+            <element signature="e#1261#1262#0" expanded="true" />
+            <element signature="e#1305#1306#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/web/controllers/Admin/AltaDispositivoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-162">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/web/Router.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-85">
+          <caret line="13" column="53" selection-start-line="13" selection-start-column="53" selection-end-line="13" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/web/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="38" column="23" lean-forward="true" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/web/controllers/login/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/cliente/altaReglas.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="48" column="61" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
         </state>
       </provider>
     </entry>
