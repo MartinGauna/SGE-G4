@@ -10,7 +10,6 @@ import web.controllers.Admin.HogarController;
 import web.controllers.Admin.ReportesController;
 import web.controllers.LogoutController;
 import web.controllers.client.AltaReglasController;
-import web.controllers.client.EstadoDispositivoController;
 import web.controllers.client.EstadoHogarController;
 import web.controllers.client.UploadController;
 import web.controllers.login.LoginController;
@@ -18,7 +17,6 @@ import web.controllers.login.LoginController;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
-
 
 import static spark.Spark.staticFileLocation;
 
@@ -80,7 +78,7 @@ public class App
             response.redirect("/estadoHogar");
             return "";
         });
-        Spark.notFound("<html><body><h1>Custom 404 handling</h1></body></html>");
+      //  Spark.notFound("<html><body><h1>Custom 404 handling</h1></body></html>");
 //        Spark.get("*", (req, res) -> {
 //            if(!req.pathInfo().startsWith("/")){
 //                res.status(404);

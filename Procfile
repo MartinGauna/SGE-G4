@@ -1,1 +1,1 @@
-web: java -jar target/grupo4-1.0.jar
+web: java -jar target/grupo4.jar
