@@ -7,8 +7,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81bec36d-4c6c-43a4-879e-e683ba32d7de" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/controllers/client/EstadoHogarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/controllers/client/EstadoHogarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grupo4.iml" beforeDir="false" afterPath="$PROJECT_DIR$/grupo4.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/webResources/styles/vendor/chart.js/Chart.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/webResources/styles/vendor/chart.js/Chart.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/webResources/styles/vendor/chart.js/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/webResources/styles/vendor/chart.js/Chart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zonas.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zonas.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,7 +48,7 @@
     <option name="HIDE_WARNINGS" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -164,8 +172,30 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Local Unit Tests">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="SGE-G4" type="cbb8eebc:String" user="SGE-G4" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="SGE-G4" type="cbb8eebc:String" user="SGE-G4" />
+              <item name="src/test/java" type="cbb8eebc:String" user="src/test/java" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="SGE-G4" type="cbb8eebc:String" user="SGE-G4" />
+              <item name="src/test/java" type="cbb8eebc:String" user="src/test/java" />
+              <item name="ar/edu/utn/frba/dds" type="cbb8eebc:String" user="ar/edu/utn/frba/dds" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -189,21 +219,6 @@
               <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="dds" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -213,34 +228,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="META-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Local Unit Tests">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="SGE-G4" type="cbb8eebc:String" user="SGE-G4" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="SGE-G4" type="cbb8eebc:String" user="SGE-G4" />
-              <item name="src/test/java" type="cbb8eebc:String" user="src/test/java" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="SGE-G4" type="cbb8eebc:String" user="SGE-G4" />
-              <item name="src/test/java" type="cbb8eebc:String" user="src/test/java" />
-              <item name="ar/edu/utn/frba/dds" type="cbb8eebc:String" user="ar/edu/utn/frba/dds" />
             </path>
           </expand>
           <select />
@@ -256,7 +243,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -578,7 +565,7 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
       <window_info anchor="right" id="DB Browser" order="9" sideWeight="0.49867374" weight="0.18683812" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49615383" weight="0.32633588" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49615383" weight="0.3250825" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="DB Execution Console" order="8" weight="0.32972136" />
@@ -587,54 +574,54 @@
       <window_info anchor="right" id="Maven Projects" order="6" show_stripe_button="false" weight="0.32828686" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32838285" />
       <window_info anchor="bottom" x="3" y="15" width="1292" height="762" id="Run" order="2" sideWeight="0.4969743" weight="0.34488449" />
-      <window_info anchor="right" id="Coverage" order="8" sideWeight="0.50132626" side_tool="true" weight="0.18683812" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4968102" weight="0.32673267" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Designer" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26928896" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3278867" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27760968" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" show_stripe_button="false" weight="0.24940239" />
       <window_info id="UI Designer" order="5" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" auto_hide="true" x="0" y="0" width="1366" height="728" id="Debug" order="3" sideWeight="0.49848714" weight="0.3778878" />
+      <window_info anchor="bottom" auto_hide="true" x="0" y="0" width="1366" height="728" id="Debug" order="3" sideWeight="0.49848714" weight="0.13531353" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="8" sideWeight="0.50132626" side_tool="true" weight="0.18683812" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3278867" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info id="Designer" order="4" />
+      <window_info anchor="bottom" id="DB Execution Console" order="11" weight="0.32972136" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="bottom" x="3" y="15" width="1292" height="762" id="Run" order="2" sideWeight="0.4969743" weight="0.34488449" />
-      <window_info anchor="right" id="Ant Build" order="1" show_stripe_button="false" weight="0.24940239" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3278867" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26928896" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="DB Execution Console" order="11" weight="0.32972136" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Capture Tool" order="3" />
-      <window_info id="UI Designer" order="5" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49848714" visible="true" weight="0.3778878" />
-      <window_info anchor="right" id="Maven Projects" order="6" show_stripe_button="false" weight="0.32828686" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4968102" weight="0.32673267" />
-      <window_info anchor="bottom" auto_hide="true" id="Event Log" order="8" sideWeight="0.5030257" side_tool="true" weight="0.3250825" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32838285" />
       <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49615383" weight="0.32633588" />
-      <window_info anchor="right" id="Coverage" order="8" sideWeight="0.50132626" side_tool="true" weight="0.18683812" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26928896" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" show_stripe_button="false" weight="0.24940239" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
+      <window_info anchor="bottom" x="3" y="15" width="1292" height="762" id="Run" order="2" sideWeight="0.4969743" weight="0.34488449" />
       <window_info anchor="right" id="DB Browser" order="9" sideWeight="0.49867374" weight="0.18683812" />
+      <window_info id="Designer" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3278867" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49848714" visible="true" weight="0.3778878" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Coverage" order="8" sideWeight="0.50132626" side_tool="true" weight="0.18683812" />
+      <window_info anchor="bottom" auto_hide="true" id="Event Log" order="8" sideWeight="0.5030257" side_tool="true" weight="0.3250825" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4968102" weight="0.32673267" />
+      <window_info anchor="right" id="Maven Projects" order="6" show_stripe_button="false" weight="0.32828686" />
+      <window_info id="Favorites" order="6" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -929,21 +916,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2298" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
     <entry file="file://$PROJECT_DIR$/grupo4.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-844" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coverage-error.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-412" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/coverage-error.log" />
     <entry file="file://$PROJECT_DIR$/.classpath">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -958,27 +937,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="18" lean-forward="true" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Procfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="42" selection-start-column="42" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
+    <entry file="file://$PROJECT_DIR$/Procfile" />
     <entry file="file://$PROJECT_DIR$/src/main/java/web/controllers/Admin/AltaDispositivoController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-162">
           <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1014,10 +978,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="536">
           <caret line="204" selection-start-line="204" selection-end-line="204" />
-          <folding>
-            <element signature="e#1261#1262#0" expanded="true" />
-            <element signature="e#1305#1306#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1026,18 +986,12 @@
         <state relative-caret-position="-204" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/transformadores.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/jsonParser/JsonParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config.cfg">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/web/App.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1085,16 +1039,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-449">
           <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="48" column="168" selection-start-line="48" selection-start-column="168" selection-end-line="48" selection-end-column="168" />
+        <state relative-caret-position="34">
+          <caret line="47" column="35" lean-forward="true" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
         </state>
       </provider>
     </entry>
