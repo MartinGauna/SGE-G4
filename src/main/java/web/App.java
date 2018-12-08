@@ -6,6 +6,7 @@ import ar.edu.utn.frba.dds.helpers.BackgroundProcesses;
 import spark.Spark;
 import spark.debug.DebugScreen;
 import web.controllers.Admin.AltaDispositivoController;
+import web.controllers.Admin.GenerarReporteController;
 import web.controllers.Admin.HogarController;
 import web.controllers.Admin.ReportesController;
 import web.controllers.LogoutController;
@@ -62,6 +63,7 @@ public class App
         //EstadoDispositivoController.init();
         AltaReglasController.init();
         ReglaController.init();
+        GenerarReporteController.init();
 
     }
 

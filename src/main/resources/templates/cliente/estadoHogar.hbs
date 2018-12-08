@@ -34,29 +34,42 @@
     {{>cliente/navBar.hbs}}
 
     <div id="content-wrapper">
+        <div class="container-fluid">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Consumo del último periodo:
+                </div>
+                <div class="card-body">
+                    <div>
+                        {{consumoUltimo}} watts
+                    </div>
+                </div>
+                <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
+            </div>
+        </div>
 
         <div class="container-fluid">
-
             <!-- DataTables Example -->
             <div class="card mb-3">
                 <div class="card-header">
                     <i class="fas fa-table"></i>
-                    Hogares</div>
+                    Últimas mediciones
+                </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="medicionesTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                             <tr>
-                                <th width="60%">Hogar</th>
-                                <th>Mediciones</th>
+                                <th width="50%">Dispositivo inteligente</th>
+                                <th>Medicion</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {{#each table}}
-                            <tr>
-                                <td>{{cliente.domicilio}}</td>
-                                <td>{{consumoTotal}}</td>
-                            </tr>
+                            {{#each tableMediciones}}
+                                <tr>
+                                    <td>{{dispositivo}}</td>
+                                    <td>{{variable}}: {{magnitud}} {{unidad}}</td>
+                                </tr>
                             {{/each}}
 
                             </tbody>
@@ -65,36 +78,30 @@
                 </div>
                 <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
             </div>
-            <div class="card mb-3">
-                <div class="card-header">
-                    Consumo del último periodo:</div>
-                <div class="card-body">
-                    <div >
-                        {{consumoUltimo}} watts
-                    </div>
-                </div>
-                <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
-            </div>
+        </div>
+        <div class="container-fluid">
+            <!-- DataTables Example -->
             <div class="card mb-3">
                 <div class="card-header">
                     <i class="fas fa-table"></i>
-                    Dispositivos</div>
+                    Dispositivos
+                </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dispositivosTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                             <tr>
-                                <th width="60%">Dispositivo</th>
+                                <th width="50%">Dispositivo</th>
                                 <th>Estado</th>
                             </tr>
                             </thead>
                             <tbody>
                             <!--TODO Agregar los dispositivos y sus estados.-->
                             {{#each tableDispositivos}}
-                            <tr>
-                            <td>{{dispositivo.nombre}}</td>
-                            <td>{{dispositivo.estado}}</td>
-                            </tr>
+                                <tr>
+                                    <td>{{dispositivo.nombre}}</td>
+                                    <td>{{dispositivo.estado}}</td>
+                                </tr>
                             {{/each}}
                             </tbody>
                         </table>
@@ -102,27 +109,30 @@
                 </div>
                 <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
             </div>
-
+        </div>
+        <div class="container-fluid">
+            <!-- DataTables Example -->
             <div class="card mb-3">
                 <div class="card-header">
                     <i class="fas fa-table"></i>
-                    Reglas activas</div>
+                    Reglas activas
+                </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                             <tr>
-                                <th width="60%">Hogar</th>
+                                <th width="50%">Hogar</th>
                                 <th>Reglas Activas</th>
                             </tr>
                             </thead>
                             <tbody>
                             <!--TODO Agregar las reglas activas para este usr.-->
                             {{#each table}}
-                            <!--<tr>-->
-                            <!--<td>{{cliente.domicilio}}</td>-->
-                            <!--<td>{{consumoTotal}}</td>-->
-                            <!--</tr>-->
+                                <!--<tr>-->
+                                <!--<td>{{cliente.domicilio}}</td>-->
+                                <!--<td>{{consumoTotal}}</td>-->
+                                <!--</tr>-->
                             {{/each}}
 
                             </tbody>
