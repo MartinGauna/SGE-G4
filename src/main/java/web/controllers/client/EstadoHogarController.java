@@ -19,7 +19,6 @@ import web.controllers.MainController;
 import web.models.AlertModel;
 import web.models.EstadoHogarModel;
 import web.models.views.EstadoDispositivosTable;
-import web.models.views.HogaresTable;
 import web.models.views.MedicionesTable;
 
 import java.util.ArrayList;

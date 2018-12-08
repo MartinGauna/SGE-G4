@@ -37,7 +37,8 @@
         <class>ar.edu.utn.frba.dds.actuador.ActuadorVentilador</class>
         <class>ar.edu.utn.frba.dds.regla.Condicion</class>
         <class>ar.edu.utn.frba.dds.regla.Regla</class>
-
+        <class>ar.edu.utn.frba.dds.Reporte</class>
+        <class>ar.edu.utn.frba.dds.ReporteTransformador</class>
 
         <properties>
             <property name="hibernate.archive.autodetection" value="class"/>
@@ -45,7 +46,7 @@
 
 
             <!-- HEROKU DATABASE-->
-            <property name="hibernate.connection.url" value="jdbc:mysql://b11e53903fcdbf:2d627525@us-cdbr-iron-east-01.cleardb.net/heroku_3225f8d1e147e98?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC" />
+            <property name="hibernate.connection.url" value="jdbc:mysql://b11e53903fcdbf:2d627525@us-cdbr-iron-east-01.cleardb.net/heroku_3225f8d1e147e98?reconnect=true" />
             <property name="hibernate.connection.username" value="b11e53903fcdbf" />
             <property name="hibernate.connection.password" value="2d627525" />
 
