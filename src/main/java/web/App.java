@@ -37,7 +37,7 @@ public class App
 
         BackgroundProcesses bkgP = new BackgroundProcesses();
 
-        LoadData.Load();
+       // LoadData.Load();
 
         Spark.port(getHerokuAssignedPort());
         staticFileLocation("/webResources");
@@ -72,7 +72,7 @@ public class App
         //EstadoDispositivoController.init();
         AltaReglasController.init();
 
-        ReglaController.init();
+       // ReglaController.init();
         GenerarReporteController.init();
 
     }
