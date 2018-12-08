@@ -7,16 +7,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81bec36d-4c6c-43a4-879e-e683ba32d7de" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/controllers/Admin/GenerarReporteController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/models/AltaReporteModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/altaReporte.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grupo4.iml" beforeDir="false" afterPath="$PROJECT_DIR$/grupo4.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/webResources/styles/vendor/chart.js/Chart.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/webResources/styles/vendor/chart.js/Chart.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/webResources/styles/vendor/chart.js/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/webResources/styles/vendor/chart.js/Chart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/zonas.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zonas.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/GeneradorReportes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/GeneradorReportes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/Router.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/controllers/Admin/ReportesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/controllers/Admin/ReportesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/controllers/client/AltaReglasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/controllers/client/AltaReglasController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/navBar.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/navBar.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cliente/estadoHogar.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cliente/estadoHogar.hbs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,7 +49,32 @@
     <option name="HIDE_WARNINGS" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/web/App.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="373">
+              <caret line="74" column="14" selection-start-line="74" selection-start-column="14" selection-end-line="74" selection-end-column="14" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AltaReglasController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/web/controllers/client/AltaReglasController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="58">
+              <caret line="68" selection-start-line="68" selection-end-line="68" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -115,7 +141,6 @@
         <option value="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/BaseDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/cliente/altaReglas.hbs" />
         <option value="$PROJECT_DIR$/src/main/java/web/models/AltaReglasModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/web/controllers/client/AltaReglasController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/cliente/altaDispositivoCliente.hbs" />
         <option value="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/ClientDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/ReglaDao.java" />
@@ -129,11 +154,12 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/login.hbs" />
-        <option value="$PROJECT_DIR$/src/main/java/web/App.java" />
         <option value="$PROJECT_DIR$/src/main/resources/listaClientes.json" />
         <option value="$PROJECT_DIR$/src/main/java/web/LoadData.java" />
         <option value="$PROJECT_DIR$/src/main/java/web/controllers/client/EstadoHogarController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/web/App.java" />
+        <option value="$PROJECT_DIR$/src/main/java/web/controllers/client/AltaReglasController.java" />
       </list>
     </option>
   </component>
@@ -158,7 +184,7 @@
   <component name="MavenRunner">
     <option name="skipTests" value="true" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-83" />
     <option name="y" value="157" />
     <option name="width" value="1376" />
@@ -219,15 +245,34 @@
               <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
               <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -561,6 +606,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
@@ -680,50 +726,50 @@
           <option name="timeStamp" value="116" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/test/java/ar/edu/utn/frba/dds/dao/UsuarioDaoTest.java</url>
           <line>17</line>
           <properties />
           <option name="timeStamp" value="134" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/test/java/ar/edu/utn/frba/dds/dao/UsuarioDaoTest.java</url>
           <line>11</line>
           <properties />
           <option name="timeStamp" value="136" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/test/java/ar/edu/utn/frba/dds/dao/UsuarioDaoTest.java</url>
           <line>13</line>
           <properties />
           <option name="timeStamp" value="137" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/test/java/ar/edu/utn/frba/dds/dao/UsuarioDaoTest.java</url>
           <line>21</line>
           <properties />
           <option name="timeStamp" value="146" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/main/java/web/controllers/client/UploadController.java</url>
           <line>140</line>
           <properties />
           <option name="timeStamp" value="167" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/main/java/web/controllers/client/UploadController.java</url>
           <line>129</line>
           <properties />
           <option name="timeStamp" value="168" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/main/java/web/controllers/client/UploadController.java</url>
           <line>94</line>
           <properties />
           <option name="timeStamp" value="179" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url />
-          <line>101</line>
+          <url>file://$PROJECT_DIR$/src/main/java/web/controllers/client/AltaReglasController.java</url>
+          <line>108</line>
           <properties />
           <option name="timeStamp" value="198" />
         </line-breakpoint>
@@ -801,17 +847,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="33" column="5" selection-start-line="31" selection-start-column="3" selection-end-line="33" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/web/controllers/client/AltaReglasController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#crearRegla#0;class#AltaReglasController#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -993,13 +1028,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/web/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/ClientDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
@@ -1049,6 +1077,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/web/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="74" column="14" selection-start-line="74" selection-start-column="14" selection-end-line="74" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/web/controllers/client/AltaReglasController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="68" selection-start-line="68" selection-end-line="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
@@ -1068,7 +1116,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited />
+          <last-edited>No facets are configured</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1127,7 +1175,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited />
+          <last-edited>Maven: antlr:antlr:2.7.7</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

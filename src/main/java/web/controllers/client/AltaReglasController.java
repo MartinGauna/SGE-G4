@@ -62,15 +62,22 @@ public class AltaReglasController extends MainController {
         }
     }
 
-    public static ModelAndView crearRegla(Request request, Response response){
+    public static ModelAndView crearRegla(Request request, Response response) {
         try {
             Actuador actuador;
             Sensor sensor;
             String actuadorTipo = request.queryParams("actuador");
+
+
+
+            //datos del form:
+//            int actuadorTipo = Integer.parseInt(request.queryParams("actuador"));
+
             String methodName = request.queryParams("accion");
             char criterio = request.queryParams("criterio").charAt(0);
             String sensorTitulo = request.queryParams("sensor");
             Long valorCondicion = parseLong(request.queryParams("valorCondicion"));
+
 
             if(sensorTitulo == "Humedad"){sensor = new SensorHumedad();}
             else if(sensorTitulo == "Luz"){sensor = new SensorLuz();}

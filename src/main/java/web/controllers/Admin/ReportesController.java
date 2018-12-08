@@ -39,7 +39,7 @@ public class ReportesController extends MainController {
     private static ModelAndView showReportes(Request request, Response response) throws ParseException {
         List<Cliente> listCliente = cdao.list();
         List<Transformador> listTrafo = tdao.list();
-        GeneradorReportes.getInstance().generarReportes(listCliente, listTrafo);
+        //GeneradorReportes.getInstance().generarReportes(listCliente, listTrafo);
         sessionExist(request, response);
 
         return new ModelAndView (model, REPORTES); // TODO add 'hogares' model

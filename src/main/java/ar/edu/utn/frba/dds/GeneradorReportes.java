@@ -19,7 +19,7 @@ public class GeneradorReportes {
 
     public static GeneradorReportes instance = null;
 
-    ReporteDao rdao = new ReporteDao();
+    public static ReporteDao rdao = new ReporteDao();
 
     public static GeneradorReportes getInstance() {
         if(instance == null) {
@@ -119,5 +119,9 @@ public class GeneradorReportes {
         ReporteTransformador reporteTransformador = new ReporteTransformador(transformador.getId(), fechaInicio, fechaFin, reporte);
         return reporteTransformador;
 }
+
+    public static ReporteDao getRdao() {
+        return rdao;
+    }
 
 }
