@@ -10,7 +10,7 @@ import java.util.List;
 
 public class AltaReglasModel {
 
-    private DispositivosTable dispositivosDisponibles;
+    private List<Dispositivo> dispositivosDisponibles;
     private List<Cliente> clientes;
     private Boolean isSuccess;
     private String message;
@@ -18,9 +18,8 @@ public class AltaReglasModel {
 
 
     public AltaReglasModel() {
-        dispositivosDisponibles = new DispositivosTable();
+        dispositivosDisponibles = new ArrayList<>();
         clientes = new ArrayList<>();
-
     }
 
     public boolean isShowAlert() {
@@ -32,7 +31,7 @@ public class AltaReglasModel {
     }
 
     public List<Dispositivo> getDispositivos() {
-        return this.dispositivosDisponibles.getDispositivosDisponibles();
+        return dispositivosDisponibles;
     }
 
     public List<Cliente> getClientes() {

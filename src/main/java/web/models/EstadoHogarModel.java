@@ -5,6 +5,7 @@ import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.regla.Regla;
 import web.models.views.EstadoDispositivosTable;
 import web.models.views.MedicionesTable;
+import web.models.views.ReglaTable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,13 +16,15 @@ public class EstadoHogarModel {
     private List<Consumo> consumos;
     private int consumoUltimo;
     private List<Dispositivo> dispositivos;
-    private List<Regla> reglas;
 
     //dispositivos
     private List<EstadoDispositivosTable> tableDispositivos;
 
     //mediciones
     private List<MedicionesTable> tableMediciones;
+
+    //Reglas
+    private List<ReglaTable> tableReglas;
 
     /*=== GETTERS AND SETTERS ===*/
     public List<Consumo> getConsumos() {
@@ -40,12 +43,12 @@ public class EstadoHogarModel {
         this.consumoUltimo = consumoUltimo;
     }
 
-    public List<Regla> getReglas() {
-        return reglas;
+    public List<ReglaTable> getReglas() {
+        return tableReglas;
     }
 
-    public void setReglas(List<Regla> reglas) {
-        this.reglas = reglas;
+    public void setReglas(List<ReglaTable> reglas) {
+        this.tableReglas = reglas;
     }
 
     public List<Dispositivo> getDispositivos() {
@@ -73,11 +76,11 @@ public class EstadoHogarModel {
     }
 
     public EstadoHogarModel() {
-        this.consumos = new ArrayList<Consumo>();
+        this.consumos = new ArrayList<>();
         consumoUltimo = 0;
-        dispositivos = new ArrayList<Dispositivo>();
-        reglas =  new ArrayList<Regla>();
-        tableDispositivos = new ArrayList<EstadoDispositivosTable>();
-        tableMediciones = new ArrayList<MedicionesTable>();
+        dispositivos = new ArrayList<>();
+        tableReglas =  new ArrayList<>();
+        tableDispositivos = new ArrayList<>();
+        tableMediciones = new ArrayList<>();
     }
 }

@@ -53,7 +53,7 @@
             <div class="card mb-3">
                 <div class="card-header">
                     <i class="fas fa-table"></i>
-                    Últimas mediciones
+                    Ultimas mediciones
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -84,6 +84,38 @@
             <div class="card mb-3">
                 <div class="card-header">
                     <i class="fas fa-table"></i>
+                    Reglas
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th width="50%">Dispositivo inteligente</th>
+                                <th>regla</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each reglas}}
+                                <tr>
+                                    <td>{{dispositivo}}</td>
+                                    <td>{{accion}}</td>
+                                </tr>
+                            {{/each}}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+        <div class="container-fluid">
+            <!-- DataTables Example -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
                     Dispositivos
                 </div>
                 <div class="card-body">
@@ -96,7 +128,6 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <!--TODO Agregar los dispositivos y sus estados.-->
                             {{#each tableDispositivos}}
                                 <tr>
                                     <td>{{dispositivo.nombre}}</td>
@@ -110,41 +141,6 @@
                 <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
             </div>
         </div>
-        <div class="container-fluid">
-            <!-- DataTables Example -->
-            <div class="card mb-3">
-                <div class="card-header">
-                    <i class="fas fa-table"></i>
-                    Reglas activas
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                            <tr>
-                                <th width="50%">Hogar</th>
-                                <th>Reglas Activas</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <!--TODO Agregar las reglas activas para este usr.-->
-                            {{#each table}}
-                                <!--<tr>-->
-                                <!--<td>{{cliente.domicilio}}</td>-->
-                                <!--<td>{{consumoTotal}}</td>-->
-                                <!--</tr>-->
-                            {{/each}}
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
-            </div>
-
-        </div>
-        <!-- /.container-fluid -->
-
     </div>
     <!-- /.content-wrapper -->
 

@@ -5,7 +5,11 @@ import ar.edu.utn.frba.dds.dao.ActuadorDao;
 import ar.edu.utn.frba.dds.dao.ClientDao;
 import ar.edu.utn.frba.dds.dao.DispositivoDao;
 import ar.edu.utn.frba.dds.dao.ReglaDao;
+import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
+import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import ar.edu.utn.frba.dds.regla.Regla;
+import ar.edu.utn.frba.dds.sensor.Sensor;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -14,6 +18,7 @@ import spark.template.handlebars.HandlebarsTemplateEngine;
 import web.Router;
 import web.controllers.MainController;
 import web.models.ReglasModel;
+import web.models.views.MedicionesTable;
 import web.models.views.ReglaTable;
 
 import java.util.ArrayList;
@@ -45,7 +50,18 @@ public class ReglaController extends MainController {
 
         model = new ReglasModel();
 
+        List<Dispositivo> dispositivos = ddao.getAllDispositivos(cliente);
+
+        for (Dispositivo d : dispositivos) {
+            if (!(d instanceof Estandard)) {
+                if (!((DispositivoInteligente) d).getSensores().isEmpty()) {
+                    // solo inserto dispositivos inteligentes que posean sensores
+                    model.getDispositivos().add(d);
+                }
+            }
+        }
     }
+
 
     private static void getCurrentClient(Request request) {
         String userSession =  request.session().attribute("user");
@@ -61,7 +77,7 @@ public class ReglaController extends MainController {
         for (Regla r : reglas) {
             ReglaTable row = new ReglaTable();
             row.setAccion(r.getMethodName());
-            row.setActuadorID(r.getActuadorID());
+            //row.setDispositivo(d);
 
             table.add(row);
         }

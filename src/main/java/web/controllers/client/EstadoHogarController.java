@@ -5,9 +5,11 @@ import ar.edu.utn.frba.dds.Consumo;
 import ar.edu.utn.frba.dds.dao.ClientDao;
 import ar.edu.utn.frba.dds.dao.ConsumoDao;
 import ar.edu.utn.frba.dds.dao.DispositivoDao;
+import ar.edu.utn.frba.dds.dao.ReglaDao;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
+import ar.edu.utn.frba.dds.regla.Regla;
 import ar.edu.utn.frba.dds.sensor.Sensor;
 import spark.ModelAndView;
 import spark.Request;
@@ -21,6 +23,7 @@ import web.models.EstadoHogarModel;
 import web.models.views.EstadoDispositivosTable;
 import web.models.views.HogaresTable;
 import web.models.views.MedicionesTable;
+import web.models.views.ReglaTable;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -32,7 +35,7 @@ public class EstadoHogarController extends MainController{
     private static AlertModel alert = new AlertModel(false,"",false);
     private static ClientDao cdao = new ClientDao();
     private static DispositivoDao ddao = new DispositivoDao();
-    private static ConsumoDao codao = new ConsumoDao();
+    private static ReglaDao rdao = new ReglaDao();
     private static Cliente currentClient;
 
     public static void init() {
@@ -48,6 +51,7 @@ public class EstadoHogarController extends MainController{
         currentClient = cdao.getCliente(userID);
         fillMedicionesTable();
         fillDispositivosTable();
+        fillReglasTable();
         //updateDispositivosTable();
         alert.setHideAlert();
         int ultimoConsumo = getUltimoConsumo();
@@ -120,6 +124,26 @@ public class EstadoHogarController extends MainController{
 
         model.setTableMediciones(table);
     }
+
+    private static void fillReglasTable() {
+
+        List<ReglaTable> table = new ArrayList<>();
+        List<Dispositivo> dispositivos = ddao.getAllDispositivos(currentClient);
+
+        for (Dispositivo d : dispositivos) {
+            if (!(d instanceof Estandard)) {
+                Regla r = rdao.getReglaByActuadorID(((DispositivoInteligente) d).getActuador().getId());
+                if (r != null) {
+                    ReglaTable row = new ReglaTable();
+                    row.setAccion(r.getMethodName());
+                    row.setDispositivo(d.getNombre());
+                    table.add(row);
+                }
+            }
+        }
+            model.setReglas(table);
+    }
+
 
 //    private static void updateDispositivosTable() {
 //

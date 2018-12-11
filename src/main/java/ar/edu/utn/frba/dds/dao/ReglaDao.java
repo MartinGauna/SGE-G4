@@ -10,6 +10,10 @@ public class ReglaDao extends BaseDao {
         return getListByPropertyValue(Regla.class, "idActuador", id);
     }
 
+    public Regla getReglaByActuadorID(int id) {
+        return getByPropertyValue(Regla.class, "idActuador", id);
+    }
+
     public void addReglaIfNotExists(Regla regla){
                 save(regla);
     }
