@@ -27,7 +27,6 @@ public class App
 	private static App instance = null;
 	List<Categoria> categorias = new ArrayList<Categoria>();
 	Cliente loggedClient;
-	LoadData l = null;
 //    private static HandlebarsTemplateEngine engine;
 
 
@@ -36,7 +35,7 @@ public class App
 
         BackgroundProcesses bkgP = new BackgroundProcesses();
 
-//        LoadData.Load();
+        LoadData.Load();
 
         Spark.port(9000);
         staticFileLocation("/webResources");

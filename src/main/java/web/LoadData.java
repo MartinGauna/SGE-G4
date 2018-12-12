@@ -10,6 +10,7 @@ import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteHeladera;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteTV;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import ar.edu.utn.frba.dds.jsonParser.JsonParser;
+import ar.edu.utn.frba.dds.sensor.Sensor;
 
 import javax.persistence.EntityTransaction;
 import java.io.IOException;
@@ -31,7 +32,7 @@ public class LoadData {
     private static TransformadorDao tdao = new TransformadorDao();
 
     public static void Load() throws ParseException {
-
+        List<Object> toPersist = new ArrayList<>();
         List<Categoria> categorias = null;
         List<Cliente> clientes = null;
         List<Administrador> admins = null;
@@ -45,7 +46,7 @@ public class LoadData {
         //Lista de Categorias
         try {
             categorias = jsonParser.loadCategoriasJSON();
-            categorias.forEach(c ->cadao.addCategoriaIfNotExists(c));
+            toPersist.addAll(categorias);
         } catch (
                 IOException e) {
             e.printStackTrace();
@@ -62,7 +63,7 @@ public class LoadData {
         //Lista de zonas
         try {
             zonas = jsonParser.loadZonaJSON();
-            zonas.forEach(zona -> zdao.addZonaIfNotExists(zona));
+            toPersist.addAll(zonas);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -79,7 +80,7 @@ public class LoadData {
             Transformador t3 = trafos.get(2);
             t3.setZona(zonas.get(1));
 
-            trafos.forEach(trafo -> tdao.addTransformadorIfNotExists(trafo));
+            toPersist.addAll(trafos);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -87,7 +88,7 @@ public class LoadData {
         //lista de Administradores
         try {
             admins = jsonParser.loadAdministradoresJSON();
-            admins.forEach(a -> adao.addAdminIfNotExists(a));
+            toPersist.addAll(admins);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -120,7 +121,7 @@ public class LoadData {
             c5.setTransformador(trafos.get(1));
             c5.setCategoria(categorias.get(2));
 
-            clientes.forEach(c ->cldao.addClientIfNotExists(c));
+            toPersist.addAll(clientes);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -148,15 +149,21 @@ public class LoadData {
         dispositivo.addConsumo(cons1);
         dispositivo.addConsumo(cons2);
 
+        if(!dispositivo.getSensores().isEmpty()) {
+            for (Sensor s : dispositivo.getSensores()) {
+                toPersist.add(s.getMagnitud());
+            }
+        }
+
         List<Object> listToPersist = new ArrayList<>();
         listToPersist.add(actuador);
         listToPersist.add(dispositivo);
         listToPersist.add(cons1);
         listToPersist.add(cons2);
         listToPersist.add(dispositivo);
-        bdao.persistList(listToPersist);
+        toPersist.addAll(listToPersist);
 
-        cldao.addClientIfNotExists(c1);
+        toPersist.add(c1);
 
 
         //TV
@@ -174,16 +181,21 @@ public class LoadData {
         tv.addConsumo(cons3);
         tv.addConsumo(cons4);
 
-        List<Object> list2 = new ArrayList<>();
+        if(!tv.getSensores().isEmpty()) {
+            for (Sensor s : tv.getSensores()) {
+                toPersist.add(s.getMagnitud());
+            }
+        }
+            List<Object> list2 = new ArrayList<>();
         list2.add(a2);
         list2.add(tv);
         list2.add(cons3);
         list2.add(cons4);
         list2.add(tv);
 
-        bdao.persistList(list2);
+        toPersist.addAll(list2);
 
-        cldao.addClientIfNotExists(c2);
+        toPersist.add(c2);
 
 
         //Aire
@@ -200,6 +212,12 @@ public class LoadData {
         aire.addConsumo(cons5);
         aire.addConsumo(cons6);
 
+        if(!aire.getSensores().isEmpty()) {
+            for (Sensor s : aire.getSensores()) {
+                toPersist.add(s.getMagnitud());
+            }
+        }
+
         List<Object> list3 = new ArrayList<>();
         list3.add(a3);
         list3.add(aire);
@@ -207,9 +225,10 @@ public class LoadData {
         list3.add(cons6);
         list3.add(aire);
 
-        bdao.persistList(list3);
+        toPersist.addAll(list3);
 
-        cldao.addClientIfNotExists(c3);
+        toPersist.add(c3);
 
+        bdao.persistList(toPersist);
     }
 }
