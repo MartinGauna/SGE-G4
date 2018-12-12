@@ -5,7 +5,7 @@ import ar.edu.utn.frba.dds.dao.ReporteDao;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
-
+import mongo.MongoDb;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,6 +16,7 @@ public class GeneradorReportes {
     public static int CONSUMO_HOGAR=0;
     public static int CONSUMO_INTELIGENTE=1;
     public static int CONSUMO_ESTANDAR=2;
+    MongoDb mongo = MongoDb.getInstance();
 
     public static GeneradorReportes instance = null;
 
@@ -66,6 +67,8 @@ public class GeneradorReportes {
             reporte = reporte + " registro un consumo de: " + consumoTotal + " watts.";
         }
         Reporte reporte1 = new Reporte(cliente.getId(), fechaInicio, fechaFin, reporte, CONSUMO_HOGAR);
+        mongo.guardarReporte(reporte1);
+
         return reporte1;
     }
 
@@ -88,6 +91,9 @@ public class GeneradorReportes {
         reporte = "El hogar de: " + cliente.getApellido() + " tuvo un consumo promedio de: ";
         reporte = reporte + consumoPromedio + " watts en el periodo de: " + fechaInicio + " a: " + fechaFin;
         Reporte reporte1 = new Reporte(cliente.getId(), fechaInicio, fechaFin, reporte, CONSUMO_INTELIGENTE);
+
+        mongo.guardarReporte(reporte1);
+
         return reporte1;
     }
 
@@ -110,13 +116,19 @@ public class GeneradorReportes {
         reporte = "El hogar de: " + cliente.getApellido() + " tuvo un consumo promedio de: ";
         reporte = reporte + consumoPromedio + " watts en el periodo de: " + fechaInicio + " a: " + fechaFin;
         Reporte reporte1 = new Reporte(cliente.getId(), fechaInicio, fechaFin, reporte, CONSUMO_ESTANDAR);
+
+        mongo.guardarReporte(reporte1);
+
         return reporte1;
     }
 
-    public ReporteTransformador generarReporteTransformador(Transformador transformador, Date fechaInicio, Date fechaFin){
+    public ReporteTransformador generarReporteTransformador(Transformador transformador, Date fechaInicio, Date fechaFin) {
         String reporte;
         reporte = "El consumo del transformador fue: " + transformador.getConsumoTotal(fechaInicio, fechaFin) + " watts.";
         ReporteTransformador reporteTransformador = new ReporteTransformador(transformador.getId(), fechaInicio, fechaFin, reporte);
+
+        mongo.guardarReporteTrafo(reporteTransformador);
+
         return reporteTransformador;
 }
 
