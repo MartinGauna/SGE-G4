@@ -5,7 +5,6 @@ ar\edu\utn\frba\dds\actuador\ActuadorMicro.class
 ar\edu\utn\frba\dds\jsonParser\JsonParser$1.class
 ar\edu\utn\frba\dds\dispositivo\estadosDispositivo\Activo.class
 ar\edu\utn\frba\dds\dispositivo\estadosDispositivo\Apagado.class
-ar\edu\utn\frba\dds\dao\DispositivoDao$1.class
 ar\edu\utn\frba\dds\dispositivo\InstanciasDispositivo\DispositivoInteligenteHeladeraConFreezer.class
 ar\edu\utn\frba\dds\dao\ActuadorDao.class
 ar\edu\utn\frba\dds\dispositivo\InstanciasDispositivo\DispositivoInteligenteTV40.class

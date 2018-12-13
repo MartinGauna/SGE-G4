@@ -26,6 +26,7 @@ C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\ar\edu\utn\frba\dds\C
 C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\ar\edu\utn\frba\dds\dispositivo\InstanciasDispositivo\DispositivoInteligentePCEscritorio.java
 C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\ar\edu\utn\frba\dds\dao\ActuadorDao.java
 C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\ar\edu\utn\frba\dds\actuador\ActuadorVentilador.java
+C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\web\models\views\MedicionesTable.java
 C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\web\models\AlertModel.java
 C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\ar\edu\utn\frba\dds\exception\InvalidFileFormatException.java
 C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\ar\edu\utn\frba\dds\dao\SensorDao.java
@@ -65,6 +66,7 @@ C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\ar\edu\utn\frba\dds\d
 C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\web\models\LoginModel.java
 C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\ar\edu\utn\frba\dds\dao\UsuarioDao.java
 C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\ar\edu\utn\frba\dds\sensor\SensorLuz.java
+C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\web\controllers\Admin\GenerarReporteController.java
 C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\web\models\EstadoDispositivosModel.java
 C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\ar\edu\utn\frba\dds\dispositivo\DispositivoInteligenteLavarropas.java
 C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\ar\edu\utn\frba\dds\sensor\SensorTemperatura.java
@@ -86,6 +88,7 @@ C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\web\models\Transforma
 C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\ar\edu\utn\frba\dds\dispositivo\InstanciasDispositivo\DispositivoInteligenteHeladeraConFreezer.java
 C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\ar\edu\utn\frba\dds\dispositivo\InstanciasDispositivo\DispositivoInteligenteAAcondicionado3500.java
 C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\ar\edu\utn\frba\dds\helpers\AdapterSimplex.java
+C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\web\models\AltaReporteModel.java
 C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\ar\edu\utn\frba\dds\actuador\ActuadorPC.java
 C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\ar\edu\utn\frba\dds\dispositivo\DispositivoInteligentePlancha.java
 C:\matias\facultad\diseno de sistemas\sge-g4\src\main\java\web\controllers\login\LoginController.java
