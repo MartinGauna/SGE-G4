@@ -1,25 +1,25 @@
 package web.models;
 
-import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
-import web.models.views.DispositivosTable;
-
-import java.util.ArrayList;
+import web.models.views.ReglaTable;
 import java.util.List;
 
 
-public class AltaReglasModel {
+public class ReglasModel {
 
-    private List<Dispositivo> dispositivosDisponibles;
-    private List<Cliente> clientes;
+    private ReglaTable reglasDisposibles;
+    private List<ReglaTable> table;
     private Boolean isSuccess;
     private String message;
     private boolean showAlert;
 
+    public void setTable(List<ReglaTable> table) {
+        this.table = table;
+    }
 
-    public AltaReglasModel() {
-        dispositivosDisponibles = new ArrayList<>();
-        clientes = new ArrayList<>();
+    public ReglasModel() {
+        reglasDisposibles = new ReglaTable();
+
     }
 
     public boolean isShowAlert() {
@@ -31,15 +31,7 @@ public class AltaReglasModel {
     }
 
     public List<Dispositivo> getDispositivos() {
-        return dispositivosDisponibles;
-    }
-
-    public List<Cliente> getClientes() {
-        return clientes;
-    }
-
-    public void setClientes(List<Cliente> clientes) {
-        this.clientes = clientes;
+        return this.getDispositivos();
     }
 
     public Boolean getIsSuccess() {

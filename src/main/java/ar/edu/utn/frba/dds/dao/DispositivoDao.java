@@ -27,6 +27,13 @@ public class DispositivoDao extends BaseDao{
 
     private Dispositivo dispositivoExists(String nombre) { return getByPropertyValue(Dispositivo.class, "nombre", nombre); }
 
+    public Dispositivo getDispositivo(int id) {
+        return getById(Dispositivo.class,id);
+    }
+
+    public DispositivoInteligente getDI(int id) {
+        return getById(DispositivoInteligente.class,id);
+    }
 
     public void addDispositivoIfNotExists(Object d){
         Dispositivo d2 = dispositivoExists((Dispositivo)d);

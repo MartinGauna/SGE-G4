@@ -14,6 +14,11 @@ public class TransformadorDao extends BaseDao {
     public TransformadorDao() {
     }
 
+    public Transformador getTransformadorByID(int id) {
+        return getById(Transformador.class, id);
+    }
+
+
     private Transformador transformadorExists(Transformador t) {
         return transformadorExists(t.getId());
     }

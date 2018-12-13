@@ -5,6 +5,7 @@ import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.regla.Regla;
 import web.models.views.EstadoDispositivosTable;
 import web.models.views.MedicionesTable;
+import web.models.views.ReglaTable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,15 +14,17 @@ public class EstadoHogarModel {
 
     // consumo
     private List<Consumo> consumos;
-    private Consumo consumoUltimo;
+    private int consumoUltimo;
     private List<Dispositivo> dispositivos;
-    private List<Regla> reglas;
 
     //dispositivos
     private List<EstadoDispositivosTable> tableDispositivos;
 
     //mediciones
     private List<MedicionesTable> tableMediciones;
+
+    //Reglas
+    private List<ReglaTable> tableReglas;
 
     /*=== GETTERS AND SETTERS ===*/
     public List<Consumo> getConsumos() {
@@ -32,20 +35,20 @@ public class EstadoHogarModel {
         this.consumos = consumos;
     }
 
-    public Consumo getConsumoUltimo() {
+    public int getConsumoUltimo() {
         return consumoUltimo;
     }
 
-    public void setConsumoUltimo(Consumo consumoUltimo) {
+    public void setConsumoUltimo(int consumoUltimo) {
         this.consumoUltimo = consumoUltimo;
     }
 
-    public List<Regla> getReglas() {
-        return reglas;
+    public List<ReglaTable> getReglas() {
+        return tableReglas;
     }
 
-    public void setReglas(List<Regla> reglas) {
-        this.reglas = reglas;
+    public void setReglas(List<ReglaTable> reglas) {
+        this.tableReglas = reglas;
     }
 
     public List<Dispositivo> getDispositivos() {
@@ -72,14 +75,12 @@ public class EstadoHogarModel {
         this.tableMediciones = tableMediciones;
     }
 
-
-
     public EstadoHogarModel() {
-        this.consumos = new ArrayList<Consumo>();
-        consumoUltimo = new Consumo();
-        dispositivos = new ArrayList<Dispositivo>();
-        reglas =  new ArrayList<Regla>();
-        tableDispositivos = new ArrayList<EstadoDispositivosTable>();
-        tableMediciones = new ArrayList<MedicionesTable>();
+        this.consumos = new ArrayList<>();
+        consumoUltimo = 0;
+        dispositivos = new ArrayList<>();
+        tableReglas =  new ArrayList<>();
+        tableDispositivos = new ArrayList<>();
+        tableMediciones = new ArrayList<>();
     }
 }

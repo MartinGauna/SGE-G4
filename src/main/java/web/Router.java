@@ -18,6 +18,11 @@ public class Router {
     private static final String UPLOAD = "/uploadFile";
     private static final String ESTADO_DISPOSITIVOS = "/estadosDispositivos";
     private static final String GENERAR_REPORTE = "/generarReporte";
+    private static final String GENERAR_REPORTE_CLIENTES = "/generarReporteClientes";
+    private static final String GENERAR_REPORTE_TRANSFORMADOR = "/generarReporteTransformador";
+    private static final String BAJA_MODIFICACION_DISPOSITIVO = "/seleccionDispositivo";
+    private static final String BAJA_MODIFICACION_REGLA = "/seleccionRegla";
+    private static final String REGLAS = "/regla";
 
     public static String loginPath(){
         return LOGIN;
@@ -41,7 +46,10 @@ public class Router {
 
     public static String reportesPath() { return REPORTES; }
 
+    public static String reglasPath() { return REGLAS; }
+
     public static String transformadoresPath() { return TRANSFORMADORES; }
+
     public static String transformadoresJsonPath() { return TRANSFORMADORESJSON; }
 
     public static String uploadPath(){ return UPLOAD; }
@@ -50,4 +58,11 @@ public class Router {
 
     public static String generarReportePath(){ return GENERAR_REPORTE; }
 
+    public static String generarReporteClientesPath(){ return GENERAR_REPORTE_CLIENTES; }
+
+    public static String generarReporteTransformadorPath(){ return GENERAR_REPORTE_TRANSFORMADOR; }
+
+    public static String bajaModificacionDispositivoPath(){ return BAJA_MODIFICACION_DISPOSITIVO; }
+
+    public static String bajaModificacionReglaPath(){ return BAJA_MODIFICACION_REGLA; }
 }
