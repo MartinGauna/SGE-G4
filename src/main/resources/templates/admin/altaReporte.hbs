@@ -35,18 +35,31 @@
 
     <div id="content-wrapper">
 
+        {{#if showAlert1}}
+            {{#if isSuccess1}}
+                <div class="alert alert-success mx-auto mt-5 card-login">
+                    {{message}}
+                </div>
+            {{else}}
+                <div class="alert alert-danger mx-auto mt-5 card-login">
+                    {{message}}
+                </div>
+            {{/if}}
+        {{/if}}
+
+
         <div class="container-fluid">
 
             <!-- DataTables Example -->
             <div class="card mb-3">
                 <div class="card-header">
                     <i class="fas fa-table"></i>
-                    Alta de reportes
+                    Alta de reportes de clientes
                 </div>
 
                 <div class="card-body">
 
-                    <form class="form-label-group" action="/generarReporte" method="POST">
+                    <form class="form-label-group" action="/generarReporteClientes" method="POST">
 
                         <div class="form-group col-md-8 " title="estado" id="sm">
                             <select name="tipoReporte">
@@ -84,18 +97,6 @@
                                 <!--<button class="btn btn-lg btn-danger"  onclick="deleteMethodology()">Cancelar</button>-->
                             </p>
 
-                            {{#if showAlert}}
-                                {{#if isSuccess}}
-                                    <div class="alert alert-success mx-auto mt-5 card-login">
-                                        <strong>iujuu!!</strong> {{message}}
-                                    </div>
-                                {{else}}
-                                    <div class="alert alert-danger mx-auto mt-5 card-login">
-                                        <strong>Upss!!</strong> {{message}}
-                                    </div>
-                                {{/if}}
-                            {{/if}}
-
                         </div>
                     </form>
                 </div>
@@ -109,6 +110,59 @@
 
         </div>
         <!-- /.container-fluid -->
+        <div class="container-fluid">
+
+            <!-- DataTables Example -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Alta de reportes de transformadores
+                </div>
+
+                <div class="card-body">
+
+                    <form class="form-label-group" action="/generarReporteTransformador" method="POST">
+
+                        <div class="form-group col-md-8 ">
+                            <select class="form-control" title="transformador" name="transformador" id="sm">
+                                <option value="" selected disabled>transformador:</option>
+                                {{#each transformadores}}
+                                    <option value={{id}}>transformador {{id}} - latitud {{latitud}} longitud {{longitud}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-8 ">
+                            <label for="InputFechaInicio" class="">fecha de inicio</label>
+                            <input type="text" class="form-control" id="fechainicio"
+                                   placeholder="fechainicio" value="{{fechainicio}}" name="fechainicio"/>
+                        </div>
+
+                        <div class="form-group col-md-8 ">
+                            <label for="InputFechaFin" class="">fecha de fin</label>
+                            <input type="text" class="form-control" id="fechafin"
+                                   placeholder="fechafin" value="{{fechafin}}" name="fechafin"/>
+                        </div>
+
+
+                        <div class="form-group" align="right">
+                            <p>
+                                <button class="btn btn-lg btn-primary" type="submit">Crear reporte</button>
+                                <!--<button class="btn btn-lg btn-danger"  onclick="deleteMethodology()">Cancelar</button>-->
+                            </p>
+
+                            </div>
+                    </form>
+                </div>
+                <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
+            </div>
+
+
+            <!--<p class="small text-center text-muted my-5">-->
+            <!--<em>More table examples coming soon...</em>-->
+            <!--</p>-->
+
+        </div>
 
     </div>
     <!-- /.content-wrapper -->

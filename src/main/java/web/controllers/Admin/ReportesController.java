@@ -41,6 +41,7 @@ public class ReportesController extends MainController {
         List<Transformador> listTrafo = tdao.list();
         //GeneradorReportes.getInstance().generarReportes(listCliente, listTrafo);
         sessionExist(request, response);
+        fillTables();
 
         return new ModelAndView (model, REPORTES); // TODO add 'hogares' model
     }
@@ -48,32 +49,9 @@ public class ReportesController extends MainController {
     private static void initModel() {
 
         model = new ReportesModel();
-
-        List<ReportesTable> tableReporte = new ArrayList<ReportesTable>();
-        List<ReportesTrafosTable> tableReporteTrafo = new ArrayList<ReportesTrafosTable>();
-
-        List<Reporte> rep = rdao.listReporte();
-        List<ReporteTransformador> repT = rdao.listReporteTrafo();
-
-        for ( Reporte r : rep) {
-            ReportesTable row = new ReportesTable();
-            r.setClienteName();
-            row.setReporte(r);
-            tableReporte.add(row);
-        }
-        for ( ReporteTransformador r : repT) {
-            ReportesTrafosTable rowT = new ReportesTrafosTable();
-            rowT.setReporteTrafo(r);
-
-            tableReporteTrafo.add(rowT);
-        }
-
-        model.setTableReporte(tableReporte);
-        model.setTableReporteTrafo(tableReporteTrafo);
     }
 
     public void getReportesPorCliente(Cliente c) {
-
         List<ReportesTable> tableReporte = new ArrayList<ReportesTable>();
         List<Reporte> reportes = rdao.getReportePorCliente(c.getId());
 
@@ -89,7 +67,6 @@ public class ReportesController extends MainController {
     }
 
     public void getReportesPorTipo(int type) {
-
         List<ReportesTable> tableReporte = new ArrayList<ReportesTable>();
         List<Reporte> reportes = rdao.getReportePorCliente(type);
 
@@ -118,5 +95,31 @@ public class ReportesController extends MainController {
         }
 
         model.setTableReporteTrafo(tableReporte);
+    }
+
+    private static void fillTables() {
+
+        List<ReportesTable> tableReporte = new ArrayList<ReportesTable>();
+        List<ReportesTrafosTable> tableReporteTrafo = new ArrayList<ReportesTrafosTable>();
+
+        List<Reporte> rep = rdao.listReporte();
+        List<ReporteTransformador> repT = rdao.listReporteTrafo();
+
+        for ( Reporte r : rep) {
+            ReportesTable row = new ReportesTable();
+            r.setClienteName();
+            row.setReporte(r);
+            tableReporte.add(row);
+        }
+        for ( ReporteTransformador r : repT) {
+            ReportesTrafosTable rowT = new ReportesTrafosTable();
+            rowT.setReporteTrafo(r);
+
+            tableReporteTrafo.add(rowT);
+        }
+
+        model.setTableReporte(tableReporte);
+        model.setTableReporteTrafo(tableReporteTrafo);
+
     }
 }
