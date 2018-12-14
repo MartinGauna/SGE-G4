@@ -1,4 +1,4 @@
-function deleteDispositivo(){
+function deleteDispositivo() {
     $.ajax({
         url : "/dispositivo/delete",
         type: "post",
