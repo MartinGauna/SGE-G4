@@ -3,7 +3,6 @@ package web.controllers.client;
 import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.Consumo;
 import ar.edu.utn.frba.dds.dao.ClientDao;
-import ar.edu.utn.frba.dds.dao.ConsumoDao;
 import ar.edu.utn.frba.dds.dao.DispositivoDao;
 import ar.edu.utn.frba.dds.dao.ReglaDao;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
@@ -21,7 +20,6 @@ import web.controllers.MainController;
 import web.models.AlertModel;
 import web.models.EstadoHogarModel;
 import web.models.views.EstadoDispositivosTable;
-import web.models.views.HogaresTable;
 import web.models.views.MedicionesTable;
 import web.models.views.ReglaTable;
 
@@ -49,6 +47,7 @@ public class EstadoHogarController extends MainController{
         String userSession =  request.session().attribute("user");
         Integer userID = Integer.parseInt(userSession.substring(0,userSession.indexOf("-")));
         currentClient = cdao.getCliente(userID);
+        fillReglasTable();
         fillMedicionesTable();
         fillDispositivosTable();
         fillReglasTable();
@@ -134,6 +133,7 @@ public class EstadoHogarController extends MainController{
             if (!(d instanceof Estandard)) {
                 Regla r = rdao.getReglaByActuadorID(((DispositivoInteligente) d).getActuador().getId());
                 if (r != null) {
+                    r.ejecutar();
                     ReglaTable row = new ReglaTable();
                     row.setAccion(r.getMethodName());
                     row.setDispositivo(d.getNombre());
