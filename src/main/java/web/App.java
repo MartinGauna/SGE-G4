@@ -12,6 +12,7 @@ import web.controllers.Admin.ReportesController;
 import web.controllers.LogoutController;
 import web.controllers.client.AltaReglasController;
 import web.controllers.client.EstadoHogarController;
+import web.controllers.client.SimplexController;
 import web.controllers.client.UploadController;
 import web.controllers.login.LoginController;
 
@@ -36,7 +37,7 @@ public class App
 
         BackgroundProcesses bkgP = new BackgroundProcesses();
 
-        LoadData.Load();
+       // LoadData.Load();
 
 
         Spark.port(getHerokuAssignedPort());
@@ -71,7 +72,7 @@ public class App
         UploadController.init();
         //EstadoDispositivoController.init();
         AltaReglasController.init();
-
+        SimplexController.init();
        // ReglaController.init();
         GenerarReporteController.init();
 
