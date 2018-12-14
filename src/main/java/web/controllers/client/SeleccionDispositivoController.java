@@ -40,8 +40,8 @@ public class SeleccionDispositivoController extends MainController {
     public static void init() {
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
         Spark.get(Router.bajaModificacionDispositivoPath(), SeleccionDispositivoController::load, engine);
-        Spark.post(Router.bajaDispositivoPath(), SeleccionDispositivoController::delete, engine);
         Spark.post(Router.modificarDispositivoPath(), SeleccionDispositivoController::modificar, engine);
+        Spark.delete(Router.bajaDispositivoPath(), SeleccionDispositivoController::delete, engine);
         initModel();
     }
 
@@ -63,49 +63,17 @@ public class SeleccionDispositivoController extends MainController {
         Actuador actuador;
         Sensor sensor;
 
-        try {
-            //datos del form:
-            int dispID = Integer.parseInt(request.queryParams("dispositivo"));
-            DispositivoInteligente d = ddao.getDI(dispID);
-            List<Object> toDelete = new ArrayList<>();
+        //datos del form:
+        int dispID = Integer.parseInt(request.params(":id"));
+        DispositivoInteligente d = ddao.getDI(dispID);
+        List<Object> toDelete = new ArrayList<>();
 
-            toDelete.add(d);
+        toDelete.add(d);
 
-         /*   if (!(d instanceof Estandard)) {
-                sensor = d.getSensores();
-                actuador = d.getActuador();
-            }
-
-            Magnitud magnitud = sensor.getMagnitud();
-            Long magnituddelsensor = magnitud.getValor();
-
-            Condicion condicion = new Condicion(criterio, magnituddelsensor, valorCondicion);
-            Regla regla = new Regla(actuador, methodName, null);
-            regla.addCondicion(condicion);
-            condicion.setRegla(regla);
-
-
-            persist.add(regla);
-            persist.add(condicion);
-            //persist.add(magnitud);
-            //persist.add(sensor);
-            //persist.add(actuador);
-            //persist.add(d);*/
-
-
-            //bdao.deleteList(toDelete);
-        } catch (IncompleteFormException ex) {
-            response.status(410);
-            response.body(ex.getMessage());
-            model.failed(ex.getMessage());
-        } catch (Exception ex) {
-            response.status(400);
-            response.body("Ocurrio un error. Intenta nuevamente");
-            model.failed(ex.getMessage());
-        }
+        bdao.deleteList(toDelete);
 
         model.success("La regla fue creada con exito");
-        return new ModelAndView(model, SELECCION_DISPOSITIVO);
+        return new ModelAndView( updateModel(), SELECCION_DISPOSITIVO);
     }
 
     private static void getCurrentClient(Request request) {
@@ -114,9 +82,14 @@ public class SeleccionDispositivoController extends MainController {
         cliente = cdao.getCliente(userID);
     }
 
-
     public static ModelAndView modificar(Request request, Response response) {
 
         return new ModelAndView(model, SELECCION_DISPOSITIVO);
+    }
+
+    private static seleccionDispositivoModel updateModel(){
+        List<Dispositivo> dispositivos = ddao.getAllDispositivos(cliente);
+        model.setDispositivos(dispositivos);
+        return model;
     }
 }

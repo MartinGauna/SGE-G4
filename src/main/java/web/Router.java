@@ -23,7 +23,7 @@ public class Router {
     private static final String GENERAR_REPORTE_TRANSFORMADOR = "/generarReporteTransformador";
     private static final String BAJA_MODIFICACION_DISPOSITIVO = "/seleccionDispositivo";
     private static final String BAJA_MODIFICACION_REGLA = "/seleccionRegla";
-    private static final String BAJA_DISPOSITIVO = "/dispositivo/delete";
+    private static final String BAJA_DISPOSITIVO = "/seleccionDispositivo/:id";
     private static final String MODIFICAR_DISPOSITIVO = "/dispositivo/modificar";
     private static final String BAJA_REGLA = "/regla/delete";
     private static final String MODIFICAR_REGLA = "/regla/modificar";

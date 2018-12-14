@@ -29,6 +29,10 @@ public class seleccionDispositivoModel {
         return dispositivos;
     }
 
+    public void setDispositivos(List<Dispositivo> dispositivos) {
+        this.dispositivos = dispositivos;
+    }
+
     public Boolean getIsSuccess() {
         return isSuccess;
     }
