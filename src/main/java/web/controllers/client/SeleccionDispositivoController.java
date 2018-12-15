@@ -65,14 +65,13 @@ public class SeleccionDispositivoController extends MainController {
 
         //datos del form:
         int dispID = Integer.parseInt(request.params(":id"));
-        DispositivoInteligente d = ddao.getDI(dispID);
+        Dispositivo d = ddao.getDispositivo(dispID);
         List<Object> toDelete = new ArrayList<>();
 
         toDelete.add(d);
-
         bdao.deleteList(toDelete);
 
-        model.success("La regla fue creada con exito");
+        model.success("El dispositivo fue eliminado exitosamente");
         return new ModelAndView( updateModel(), SELECCION_DISPOSITIVO);
     }
 
@@ -88,8 +87,9 @@ public class SeleccionDispositivoController extends MainController {
     }
 
     private static seleccionDispositivoModel updateModel(){
+        model.getDispositivos().clear();
         List<Dispositivo> dispositivos = ddao.getAllDispositivos(cliente);
-        model.setDispositivos(dispositivos);
+        model.getDispositivos().addAll(dispositivos);
         return model;
     }
 }
