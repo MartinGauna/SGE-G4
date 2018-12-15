@@ -278,4 +278,17 @@ public class BaseDao implements Dao {
         }
     }
 
+    public void deleteList(List<Object> ol) {
+        try {
+            begin();
+            ol.forEach(o -> delete(o));
+            commit();
+        } catch (Exception ex) {
+            rollback();
+        }
+        finally {
+            close();
+        }
+    }
+
 }
