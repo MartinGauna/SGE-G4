@@ -68,7 +68,7 @@ public class Router {
     public static String generarReporteTransformadorPath(){ return GENERAR_REPORTE_TRANSFORMADOR; }
 
     public static String simplexPath(){ return SIMPLEX; }
-    
+
     public static String bajaModificacionDispositivoPath(){ return BAJA_MODIFICACION_DISPOSITIVO; }
 
     public static String bajaModificacionReglaPath(){ return BAJA_MODIFICACION_REGLA; }

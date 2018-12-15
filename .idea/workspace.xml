@@ -7,34 +7,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81bec36d-4c6c-43a4-879e-e683ba32d7de" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sparkjava_spark_core_2_7_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_client_9_4_8_v20171121.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_http_9_4_8_v20171121.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_io_9_4_8_v20171121.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_security_9_4_8_v20171121.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_server_9_4_8_v20171121.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_servlet_9_4_8_v20171121.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_util_9_4_8_v20171121.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_webapp_9_4_8_v20171121.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_xml_9_4_8_v20171121.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_api_9_4_8_v20171121.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_client_9_4_8_v20171121.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_common_9_4_8_v20171121.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_server_9_4_8_v20171121.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_servlet_9_4_8_v20171121.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/controllers/client/SeleccionDispositivoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/models/seleccionDispositivoModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/scripts/core.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/BaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/BaseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/ReglaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/ReglaDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dispositivo/DispositivoInteligente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dispositivo/DispositivoInteligente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/grupo4_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/grupo4_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/web/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/Router.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/controllers/client/EstadoHogarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/controllers/client/EstadoHogarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cliente/navBar.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cliente/navBar.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cliente/seleccionDispositivo.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cliente/seleccionDispositivo.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/scripts/dispositivo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/scripts/dispositivo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST (old).MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST (old).MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/dao/BaseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/dao/BaseDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/dao/ReglaDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/dao/ReglaDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/dispositivo/DispositivoInteligente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/dispositivo/DispositivoInteligente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/cliente/navBar.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/cliente/navBar.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/cliente/seleccionDispositivo.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/cliente/seleccionDispositivo.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/scripts/dispositivo.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/scripts/dispositivo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/web/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/Router.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/web/Router.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/controllers/client/EstadoHogarController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/web/controllers/client/EstadoHogarController.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,11 +54,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ReglaDao.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/ReglaDao.java">
+      <file leaf-file-name="persistence.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+            <state relative-caret-position="153">
+              <caret line="48" column="282" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="282" />
             </state>
           </provider>
         </entry>
@@ -152,7 +139,6 @@
         <option value="$PROJECT_DIR$/src/main/java/web/models/SimplexModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/web/controllers/client/SimplexController2.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/cliente/simplex 2.hbs" />
-        <option value="$PROJECT_DIR$/src/main/java/web/Router.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/cliente/navBar.hbs" />
         <option value="$PROJECT_DIR$/src/main/java/web/models/views/SimplexTable.java" />
         <option value="$PROJECT_DIR$/src/main/java/web/App.java" />
@@ -162,6 +148,7 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/cliente/simplex.hbs" />
         <option value="$PROJECT_DIR$/src/main/java/web/controllers/client/SimplexController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/ReglaDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/web/Router.java" />
       </list>
     </option>
   </component>
@@ -186,7 +173,7 @@
   <component name="MavenRunner">
     <option name="skipTests" value="true" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -233,16 +220,22 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="dds" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
               <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="dds" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -279,8 +272,8 @@
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/META-INF" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -718,85 +711,85 @@
           <option name="timeStamp" value="116" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/ar/edu/utn/frba/dds/dao/UsuarioDaoTest.java</url>
+          <url />
           <line>17</line>
           <properties />
           <option name="timeStamp" value="134" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/ar/edu/utn/frba/dds/dao/UsuarioDaoTest.java</url>
+          <url />
           <line>11</line>
           <properties />
           <option name="timeStamp" value="136" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/ar/edu/utn/frba/dds/dao/UsuarioDaoTest.java</url>
+          <url />
           <line>13</line>
           <properties />
           <option name="timeStamp" value="137" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/ar/edu/utn/frba/dds/dao/UsuarioDaoTest.java</url>
+          <url />
           <line>21</line>
           <properties />
           <option name="timeStamp" value="146" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/web/controllers/client/UploadController.java</url>
+          <url />
           <line>140</line>
           <properties />
           <option name="timeStamp" value="167" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/web/controllers/client/UploadController.java</url>
+          <url />
           <line>129</line>
           <properties />
           <option name="timeStamp" value="168" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/web/controllers/client/UploadController.java</url>
+          <url />
           <line>94</line>
           <properties />
           <option name="timeStamp" value="179" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/web/LoadData.java</url>
+          <url />
           <line>56</line>
           <properties />
           <option name="timeStamp" value="237" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/web/LoadData.java</url>
+          <url />
           <line>53</line>
           <properties />
           <option name="timeStamp" value="238" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/BaseDao.java</url>
+          <url />
           <line>273</line>
           <properties />
           <option name="timeStamp" value="247" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/web/controllers/Admin/HogarController.java</url>
+          <url />
           <line>40</line>
           <properties />
           <option name="timeStamp" value="261" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/web/controllers/client/SimplexController.java</url>
+          <url />
           <line>46</line>
           <properties />
           <option name="timeStamp" value="282" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/helpers/AdapterSimplex.java</url>
+          <url />
           <line>90</line>
           <properties />
           <option name="timeStamp" value="292" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/helpers/AdapterSimplex.java</url>
+          <url />
           <line>92</line>
           <properties />
           <option name="timeStamp" value="293" />
@@ -948,11 +941,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-561" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/web/models/views/HogaresTable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -997,13 +985,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/cliente/simplex 2.hbs" />
     <entry file="file://$PROJECT_DIR$/src/main/java/web/controllers/client/SimplexController2.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/web/Router.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-272">
-          <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/sparkjava/spark-core/2.5/spark-core-2.5.jar!/spark/http/matching/MatcherFilter.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
@@ -1182,8 +1163,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/ReglaDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        <state relative-caret-position="51">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/web/Router.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="48" column="282" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="282" />
         </state>
       </provider>
     </entry>
