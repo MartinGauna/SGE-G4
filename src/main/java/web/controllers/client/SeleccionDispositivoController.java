@@ -48,7 +48,9 @@ public class SeleccionDispositivoController extends MainController {
     private static ModelAndView load(Request request, Response response) {
         sessionExist(request, response);
         getCurrentClient(request);
+        model.setShowAlert(false);
         List<Dispositivo> dispositivos = ddao.getAllDispositivos(cliente);
+        model.getDispositivos().clear();
         dispositivos.forEach(d -> model.getDispositivos().add(d));
 
         return new ModelAndView(model, SELECCION_DISPOSITIVO);
@@ -90,6 +92,8 @@ public class SeleccionDispositivoController extends MainController {
         model.getDispositivos().clear();
         List<Dispositivo> dispositivos = ddao.getAllDispositivos(cliente);
         model.getDispositivos().addAll(dispositivos);
+        model.success("El dispositivo fue eliminado exitosamente");
+
         return model;
     }
 }

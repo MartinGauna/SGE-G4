@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Alta Reportes</title>
+    <title>baja-modificacion de dispositivos</title>
 
     <!-- Bootstrap core CSS-->
     <link href="./styles/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -67,7 +67,7 @@
 
 <div id="wrapper">
 
-    {{>admin/navBar.hbs}}
+    {{>cliente/navBar.hbs}}
 
     <div id="content-wrapper">
 
@@ -78,7 +78,7 @@
             <div class="card mb-3">
                 <div class="card-header">
                     <i class="fas fa-table"></i>
-                    Alta de reportes de transformadores
+                    Seleccion de dispositivos
                 </div>
 
                 <div class="card-body">
@@ -113,6 +113,18 @@
             <!--</p>-->
 
         </div>
+
+        {{#if showAlert}}
+            {{#if isSuccess}}
+                <div class="alert alert-success mx-auto mt-5 card-login">
+                    {{message}}
+                </div>
+            {{else}}
+                <div class="alert alert-danger mx-auto mt-5 card-login">
+                    {{message}}
+                </div>
+            {{/if}}
+        {{/if}}
 
     </div>
     <!-- /.content-wrapper -->

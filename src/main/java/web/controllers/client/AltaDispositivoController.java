@@ -45,6 +45,7 @@ public class AltaDispositivoController extends MainController {
     private static ModelAndView load(Request request, Response response) {
         getCurrentClient(request);
         sessionExist(request, response);
+        model.setShowAlert(false);
         return new ModelAndView (model, ALTADISPOSITIVOCLIENTE); // TODO add 'Dispositivo' model
     }
 

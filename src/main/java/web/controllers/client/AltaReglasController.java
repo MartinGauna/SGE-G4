@@ -53,7 +53,8 @@ public class AltaReglasController extends MainController {
         sessionExist(request, response);
        //MATIAS OJO
         getCurrentClient(request);
-
+        model.getDispositivos().clear();
+        model.setShowAlert(false);
         List<Dispositivo> dispositivos = ddao.getAllDispositivos(cliente);
 
         for (Dispositivo d : dispositivos) {
