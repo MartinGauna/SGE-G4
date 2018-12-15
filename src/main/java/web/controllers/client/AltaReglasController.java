@@ -47,7 +47,8 @@ public class AltaReglasController extends MainController {
     private static ModelAndView load(Request request, Response response) {
         sessionExist(request, response);
         getCurrentClient(request);
-
+        model.getDispositivos().clear();
+        model.setShowAlert(false);
         List<Dispositivo> dispositivos = ddao.getAllDispositivos(cliente);
 
         for (Dispositivo d : dispositivos) {
