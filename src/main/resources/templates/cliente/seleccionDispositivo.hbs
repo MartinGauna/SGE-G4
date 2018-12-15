@@ -27,6 +27,42 @@
 
 <body id="page-top">
 
+<script>
+    function deleteDispositivo() {
+        $.ajax({
+            url : "/seleccionDispositivo/" + getNameDispositivo(),
+            type: "delete",
+            success    : function(){
+                location.reload();
+            },
+            error: function (respondError) {
+                if(respondError.status == 410 || respondError.status == 400) {
+                    showAlertError("No se pudo eliminar el dispositivo seleccionado");
+                }else{
+                    showAlertError("Ocurrio un error. Intenta nuevamente");
+                }
+            }
+        });
+    }
+
+    function getValue(element) {
+        return element.value;
+    }
+
+    function getNameDispositivo() {
+        let select = getElement('idDisp');
+
+        return select.options[ select.selectedIndex].value;
+    }
+
+    function getElement(name) {
+        return document.getElementById(name);
+    }
+
+</script>
+
+
+
 {{>commons/header.hbs}}
 
 <div id="wrapper">
@@ -51,22 +87,20 @@
 
                         <div class="form-group col-md-8 ">
                             Dispositivos disponibles
-                            <select class="form-control" title="dispositivo" name="dispositivo" id="sm">
+                            <select class="form-control" title="dispositivo" name="dispositivo" id="idDisp">
                                 {{#each dispositivos}}
-                                    <option value={{id}}>{{nombre}}</option>
+                                    <option value={{id}} id={{id}}>{{nombre}}</option>
                                 {{/each}}
                             </select>
                         </div>
 
                         <div class="form-group" align="right">
-                            <p>
+
                                 <button class="btn btn-lg btn-danger" onclick="deleteDispositivo()">eliminar</button>
                                 <!--<button class="btn btn-lg btn-danger"  onclick="deleteMethodology()">Cancelar</button>-->
-                            </p>
-                            <p>
+
                                 <button class="btn btn-lg btn-primary" onclick="modificarDispositivo()">modificar</button>
                                 <!--<button class="btn btn-lg btn-danger"  onclick="deleteMethodology()">Cancelar</button>-->
-                            </p>
 
                         </div>
                     </form>

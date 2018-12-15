@@ -1,7 +1,11 @@
-function deleteDispositivo(){
+function getNameMethodology() {
+    return getElement('idDisp');
+}
+
+function deleteDispositivo() {
     $.ajax({
-        url : "/dispositivo/delete",
-        type: "post",
+        url : "/seleccionDispositivo",
+        type: "delete",
         success    : function(){
             location.reload();
         },
@@ -15,7 +19,7 @@ function deleteDispositivo(){
     });
 }
 
-function modificarDispositivo(){
+function modificarDispositivo() {
     $.ajax({
         url : "/dispositivo/modificar",
         type: "post",

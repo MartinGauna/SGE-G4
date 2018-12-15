@@ -15,7 +15,5 @@ public class ReglaDao extends BaseDao {
     }
 
     public void addReglaIfNotExists(Regla regla){
-                save(regla);
-
-    }
+                save(regla);    }
 }

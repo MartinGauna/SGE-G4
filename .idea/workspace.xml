@@ -7,53 +7,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81bec36d-4c6c-43a4-879e-e683ba32d7de" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage-error.log" beforeDir="false" afterPath="$PROJECT_DIR$/coverage-error.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dispositivo/Dispositivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dispositivo/Dispositivo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/helpers/AdapterSimplex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/helpers/AdapterSimplex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/regla/Regla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/regla/Regla.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sparkjava_spark_core_2_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_client_9_4_8_v20171121.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_http_9_4_8_v20171121.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_io_9_4_8_v20171121.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_security_9_4_8_v20171121.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_server_9_4_8_v20171121.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_servlet_9_4_8_v20171121.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_util_9_4_8_v20171121.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_webapp_9_4_8_v20171121.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_xml_9_4_8_v20171121.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_api_9_4_8_v20171121.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_client_9_4_8_v20171121.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_common_9_4_8_v20171121.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_server_9_4_8_v20171121.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_servlet_9_4_8_v20171121.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/controllers/client/SeleccionDispositivoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/models/seleccionDispositivoModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/scripts/core.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/BaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/BaseDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/ReglaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/ReglaDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dispositivo/DispositivoInteligente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dispositivo/DispositivoInteligente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/web/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/web/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/Router.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/controllers/Admin/HogarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/controllers/Admin/HogarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/controllers/client/AltaReglasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/controllers/client/AltaReglasController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/web/controllers/client/EstadoHogarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/controllers/client/EstadoHogarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/controllers/client/SimplexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/controllers/client/SimplexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/models/views/SimplexTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/models/views/SimplexTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cliente/simplex.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cliente/simplex.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ar/edu/utn/frba/dds/ClienteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ar/edu/utn/frba/dds/ClienteTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/Cliente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/GeneradorReportes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/GeneradorReportes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/dao/DispositivoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/dao/DispositivoDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/dao/ReglaDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/dao/ReglaDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/dao/TransformadorDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/dao/TransformadorDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/dispositivo/Dispositivo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/dispositivo/Dispositivo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/helpers/AdapterSimplex.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/jsonParser/JsonParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/jsonParser/JsonParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/regla/Regla.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ar/edu/utn/frba/dds/regla/Regla.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/altaReporte.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin/altaReporte.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/cliente/altaReglas.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/cliente/altaReglas.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/cliente/estadoHogar.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/cliente/estadoHogar.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/cliente/navBar.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/cliente/navBar.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/cliente/simplex.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/cliente/simplex.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/web/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/web/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/web/LoadData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/web/LoadData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/web/Router.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/web/Router.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/web/controllers/Admin/GenerarReporteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/web/controllers/Admin/GenerarReporteController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/web/controllers/Admin/HogarController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/web/controllers/Admin/HogarController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/web/controllers/Admin/ReportesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/web/controllers/Admin/ReportesController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/web/controllers/client/AltaReglasController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/web/controllers/client/AltaReglasController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/web/controllers/client/EstadoHogarController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/web/controllers/client/EstadoHogarController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/web/controllers/client/UploadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/web/controllers/client/UploadController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/web/models/AltaReglasModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/web/models/AltaReglasModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/web/models/AltaReporteModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/web/models/AltaReporteModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/web/models/EstadoHogarModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/web/models/EstadoHogarModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/webResources/styles/vendor/chart.js/Chart.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/webResources/styles/vendor/chart.js/Chart.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/webResources/styles/vendor/chart.js/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/webResources/styles/vendor/chart.js/Chart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/zonas.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zonas.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/grupo4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/grupo4.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ar/edu/utn/frba/dds/ClienteTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ar/edu/utn/frba/dds/ClienteTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ar/edu/utn/frba/dds/helpers/AdapterSimplexTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ar/edu/utn/frba/dds/helpers/AdapterSimplexTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cliente/navBar.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cliente/navBar.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cliente/seleccionDispositivo.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cliente/seleccionDispositivo.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/scripts/dispositivo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/scripts/dispositivo.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -85,7 +66,17 @@
     <option name="HIDE_WARNINGS" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="ReglaDao.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/ReglaDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -139,7 +130,6 @@
         <option value="$PROJECT_DIR$/src/main/java/web/models/AltaReglasModel.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/cliente/altaDispositivoCliente.hbs" />
         <option value="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/ClientDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/ReglaDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/web/models/ReglasModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/web/models/views/ReglaTable.java" />
         <option value="$PROJECT_DIR$/src/main/java/web/controllers/client/ReglaController.java" />
@@ -171,6 +161,7 @@
         <option value="$PROJECT_DIR$/src/main/java/web/controllers/login/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/cliente/simplex.hbs" />
         <option value="$PROJECT_DIR$/src/main/java/web/controllers/client/SimplexController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/ReglaDao.java" />
       </list>
     </option>
   </component>
@@ -217,6 +208,41 @@
             <path>
               <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
               <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dds" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SGE-G4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SGE-G4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dds" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -572,6 +598,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
@@ -795,13 +822,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar!/org/apache/commons/lang3/Validate.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="67" selection-start-line="67" selection-end-line="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/14.0.1/guava-14.0.1.jar!/com/google/common/cache/CacheLoader.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1157,6 +1177,13 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/edu/utn/frba/dds/dao/ReglaDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
         </state>
       </provider>
     </entry>

@@ -48,6 +48,7 @@ public class EstadoHogarController extends MainController {
         String userSession = request.session().attribute("user");
         Integer userID = Integer.parseInt(userSession.substring(0, userSession.indexOf("-")));
         currentClient = cdao.getCliente(userID);
+        fillReglasTable();
         fillMedicionesTable();
         fillDispositivosTable();
         fillReglasTable();
@@ -133,6 +134,7 @@ public class EstadoHogarController extends MainController {
             if (!(d instanceof Estandard)) {
                 Regla r = rdao.getReglaByActuadorID(((DispositivoInteligente) d).getActuador().getId());
                 if (r != null) {
+                    r.ejecutar();
                     ReglaTable row = new ReglaTable();
                     row.setAccion(r.getMethodName());
                     row.setDispositivo(d.getNombre());

@@ -73,6 +73,7 @@ public class App
 
        // ReglaController.init();
         GenerarReporteController.init();
+        SeleccionDispositivoController.init();
 
     }
 
