@@ -1,19 +1,17 @@
 package ar.edu.utn.frba.dds;
 
 import ar.edu.utn.frba.dds.dispositivo.Adaptador;
+import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
-import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.helpers.AdapterSimplex;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Optional;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table
@@ -99,7 +97,8 @@ public class Cliente extends Usuario {
     }
 
     public void ahorroAutomatico() {
-        if (ahorroAutomatico) {
+       //TO BE REVIEWED
+        /** if (ahorroAutomatico) {
             List<DispositivoInteligente> dispositivosParaApagar = adapterSimplex.getDispositivosParaApagar(this.getDispositivosInteligentes());
             if (dispositivosParaApagar != null) {
                 for (DispositivoInteligente disp : dispositivosParaApagar) {
@@ -107,7 +106,7 @@ public class Cliente extends Usuario {
                 }
             }
             ;
-        }
+        }**/
     }
 
     // Numero de Documento

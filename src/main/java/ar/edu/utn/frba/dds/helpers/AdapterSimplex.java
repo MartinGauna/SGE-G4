@@ -10,14 +10,12 @@ import org.apache.commons.math3.optim.nonlinear.scalar.GoalType;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.Integer.parseInt;
-
 public class AdapterSimplex {
 
     public PointValuePair solucion;
     Config config = new Config();
-    int consumoTotalOptimo = parseInt(config.getProperty("consumoTotalOptimo"));
-
+    //int consumoTotalOptimo = parseInt(config.getProperty("consumoTotalOptimo"));
+    int consumoTotalOptimo = 612;
 
     public List<Dispositivo> getDispositivosParaApagar(List<Dispositivo> dispositivos)
     {
@@ -63,8 +61,11 @@ public class AdapterSimplex {
         //RESTRICCION INICIAL
         for (int i = 0; i < restricciones.length; i++) {
 
-                restricciones[i] = dispositivos.get(i).getConsumoHora();
+                //restricciones[i] = dispositivos.get(i).getConsumoHora();
+            restricciones[i] = 1;
         }
+
+        //simplexFacade.agregarRestriccion(Relationship.LEQ, consumoTotalOptimo, restricciones);
 
         simplexFacade.agregarRestriccion(Relationship.LEQ, consumoTotalOptimo, restricciones);
 

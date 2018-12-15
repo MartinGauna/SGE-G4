@@ -75,7 +75,6 @@ public class HogarController extends MainController {
 
             table.add(row);
         }
-
         model.setTable(table);
     }
 }

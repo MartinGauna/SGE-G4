@@ -10,10 +10,7 @@ import web.controllers.Admin.GenerarReporteController;
 import web.controllers.Admin.HogarController;
 import web.controllers.Admin.ReportesController;
 import web.controllers.LogoutController;
-import web.controllers.client.AltaReglasController;
-import web.controllers.client.EstadoHogarController;
-import web.controllers.client.SimplexController;
-import web.controllers.client.UploadController;
+import web.controllers.client.*;
 import web.controllers.login.LoginController;
 
 import java.text.ParseException;
@@ -61,6 +58,7 @@ public class App
     }
 
     private static void startControllers(){
+        SimplexController.init();
         HogarController.init();
         LoginController.init();
         LogoutController.init();
@@ -72,7 +70,7 @@ public class App
         UploadController.init();
         //EstadoDispositivoController.init();
         AltaReglasController.init();
-        SimplexController.init();
+
        // ReglaController.init();
         GenerarReporteController.init();
 

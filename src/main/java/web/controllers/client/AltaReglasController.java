@@ -1,9 +1,8 @@
 package web.controllers.client;
 
-
 import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.Magnitud;
-import ar.edu.utn.frba.dds.actuador.Actuador;
+import ar.edu.utn.frba.dds.actuador.*;
 import ar.edu.utn.frba.dds.dao.*;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
@@ -52,7 +51,8 @@ public class AltaReglasController extends MainController {
 
     private static ModelAndView load(Request request, Response response) {
         sessionExist(request, response);
-       //MATIAS OJO getCurrentClient(request);
+       //MATIAS OJO
+        getCurrentClient(request);
 
         List<Dispositivo> dispositivos = ddao.getAllDispositivos(cliente);
 

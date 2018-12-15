@@ -24,6 +24,7 @@ public class Router {
     private static final String BAJA_MODIFICACION_REGLA = "/seleccionRegla";
     private static final String REGLAS = "/regla";
     private static final String SIMPLEX = "/simplex";
+    private static final String SIMPLEX2 = "/simplex2";
 
     public static String loginPath(){
         return LOGIN;
@@ -64,6 +65,7 @@ public class Router {
     public static String generarReporteTransformadorPath(){ return GENERAR_REPORTE_TRANSFORMADOR; }
 
     public static String simplexPath(){ return SIMPLEX; }
+    public static String simplexPath2(){ return SIMPLEX2; }
 
     public static String bajaModificacionDispositivoPath(){ return BAJA_MODIFICACION_DISPOSITIVO; }
 

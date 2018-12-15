@@ -3,7 +3,6 @@ package web.controllers.client;
 import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.Consumo;
 import ar.edu.utn.frba.dds.dao.ClientDao;
-import ar.edu.utn.frba.dds.dao.ConsumoDao;
 import ar.edu.utn.frba.dds.dao.DispositivoDao;
 import ar.edu.utn.frba.dds.dao.ReglaDao;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
@@ -28,10 +27,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class EstadoHogarController extends MainController{
+public class EstadoHogarController extends MainController {
     private static final String ESTADO_HOGAR = "/cliente/estadoHogar.hbs";
     private static EstadoHogarModel model;
-    private static AlertModel alert = new AlertModel(false,"",false);
+    private static AlertModel alert = new AlertModel(false, "", false);
     private static ClientDao cdao = new ClientDao();
     private static DispositivoDao ddao = new DispositivoDao();
     private static ReglaDao rdao = new ReglaDao();
@@ -42,19 +41,21 @@ public class EstadoHogarController extends MainController{
         Spark.get(Router.homePath(), EstadoHogarController::showHome, engine);
         initModel();
     }
-    private static ModelAndView showHome(Request request, Response response) {
-        sessionExist(request,response);
 
-        String userSession =  request.session().attribute("user");
-        Integer userID = Integer.parseInt(userSession.substring(0,userSession.indexOf("-")));
+    private static ModelAndView showHome(Request request, Response response) {
+        sessionExist(request, response);
+
+        String userSession = request.session().attribute("user");
+        Integer userID = Integer.parseInt(userSession.substring(0, userSession.indexOf("-")));
         currentClient = cdao.getCliente(userID);
         fillMedicionesTable();
         fillDispositivosTable();
         fillReglasTable();
         //updateDispositivosTable();
         alert.setHideAlert();
-
-        return new ModelAndView(alert, ESTADO_HOGAR);
+        int ultimoConsumo = getUltimoConsumo();
+        model.setConsumoUltimo(ultimoConsumo);
+        return new ModelAndView(model, ESTADO_HOGAR);
     }
 
     private static void initModel() {
@@ -68,17 +69,16 @@ public class EstadoHogarController extends MainController{
         //tableDispositivos =  ddao.getAllDI(currentClient);
     }
 
-
-    public static int getUltimoConsumo(){
+    public static int getUltimoConsumo() {
         int consumo = 0;
         List<DispositivoInteligente> listDI = ddao.getAllDI(currentClient);
         Calendar cal = Calendar.getInstance();
-        for (int i = 0; i < listDI.size(); i++){
+        for (int i = 0; i < listDI.size(); i++) {
             DispositivoInteligente di = listDI.get(i);
-            for (int it = 0; it < di.getConsumos().size(); it++){
+            for (int it = 0; it < di.getConsumos().size(); it++) {
                 Consumo c = di.getConsumos().get(it);
                 //if (cal.get(Calendar.MONTH) == c.getFechaInicio().getMonth()){
-                if (11 == c.getFechaInicio().getMonth()){
+                if (11 == c.getFechaInicio().getMonth()) {
                     consumo += c.getWatts();
                 }
             }
@@ -100,7 +100,6 @@ public class EstadoHogarController extends MainController{
 
         model.setTableDispositivos(table);
     }
-
 
     private static void fillMedicionesTable() {
 
@@ -141,28 +140,6 @@ public class EstadoHogarController extends MainController{
                 }
             }
         }
-            model.setReglas(table);
+        model.setReglas(table);
     }
-
-
-//    private static void updateDispositivosTable() {
-//
-//        List<EstadoDispositivosTable> table = new ArrayList<EstadoDispositivosTable>();
-//        List<Dispositivo> dispositivos = ddao.getAllDI(currentClient);
-//        boolean exists = false;
-//
-//        for (Dispositivo d : dispositivos) {
-//            for (EstadoDispositivosTable di : model.getTableDispositivos()) {
-//                if (d == di.getDispositivo()) {
-//                    exists = true;
-//                }
-//                if (!exists) {
-//                    EstadoDispositivosTable row = new EstadoDispositivosTable();
-//                    row.setDispositivo(d);
-//                    row.setEstado(d.getEstado().name());
-//                    model.getTableDispositivos().add(row);
-//                }
-//            }
-//        }
-//    }
 }

@@ -12,6 +12,7 @@ import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import web.Router;
 import web.controllers.MainController;
+import web.models.AlertModel;
 import web.models.SimplexModel;
 import web.models.views.SimplexTable;
 
@@ -24,6 +25,7 @@ public class SimplexController extends MainController {
     private static ClientDao cdao = new ClientDao();
     private static DispositivoDao ddao = new DispositivoDao();
     private static Cliente currentClient;
+    private static AlertModel alert = new AlertModel(false,"",false);
 
     public static void init() {
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
@@ -38,10 +40,19 @@ public class SimplexController extends MainController {
         Integer userID = Integer.parseInt(userSession.substring(0, userSession.indexOf("-")));
         currentClient = cdao.getCliente(userID);
 
-        fillSimplexTable();
+        try
+            {
+                alert.setHideAlert();
+                fillSimplexTable();
+                return new spark.ModelAndView(model,SIMPLEX);
+            }
+        catch(Exception e)
+            {
+                alert.setShowAlertWithMessage("No existe solución dentro de los parámetros (máximo 612kWH).");
+                return new ModelAndView(alert, SIMPLEX);
+            }
 
-        return new ModelAndView(model, SIMPLEX);
-    }
+        }
 
     private static void initModel() {
 
@@ -55,17 +66,21 @@ public class SimplexController extends MainController {
         double indice = 0;
 
         adapterSimplex.reporteConsumoEficiente(dispositivos);
+
+        try{
        for(int i = 0;i < adapterSimplex.solucion.getPoint().length;i++)
        {
            indice = (adapterSimplex.solucion.getPoint()[i]);
 
            SimplexTable row = new SimplexTable();
            row.setDispositivo(dispositivos.get(i).getNombre());
-           row.setSimplexindex(indice);
+           row.setIndex(Double.toString(indice));
            table.add(row);
        }
+       }
+       catch(Exception e){}
 
-        model.setSimplexTable(table);
+       model.setSimplexTable(table);
     }
 
 }

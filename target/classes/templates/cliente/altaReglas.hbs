@@ -49,10 +49,10 @@
                     <form class="form-label-group" action="/altaReglas" method="POST">
 
                         <div class="form-group col-md-8 ">
-                            Dispositivos disponibles/Actuadores
-                            <select class="form-control" title="actuador" name="actuador" id="sm">
+                            Dispositivos disponibles
+                            <select class="form-control" title="dispositivo" name="dispositivo" id="sm">
                                 {{#each dispositivos}}
-                                    <option value={{id}}>{{nombre}}</option>
+                                        <option value={{id}}>{{nombre}}</option>
                                 {{/each}}
                             </select>
                         </div>
@@ -69,10 +69,10 @@
                         <div class="form-group col-md-8 ">
                         Condicion
                         <select class="form-control" title="sensor" name="sensor" id="sensor">
-                                <option value="humedad">Humedad</option>
-                                <option value="luz">Luz</option>
-                                <option value="movimiento">Movimiento</option>
-                                <option value="temperatura">Temperatura</option>
+                                <option value="SensorHumedad">Humedad</option>
+                                <option value="SensorLuz">Luz</option>
+                                <option value="SensorMovimiento">Movimiento</option>
+                                <option value="SensorTemperatura">Temperatura</option>
                         </select>
                         <select class="form-control" title="criterio" name="criterio" id="criterio">
                                 <option value="mayor">></option>
