@@ -5,13 +5,14 @@ package web;
  */
 public class Router {
 
-    private static final String LOGIN = "/";
+    private static final String LOGIN = "/login";
     private static final String HOME = "/estadoHogar";
     private static final String LOGOUT = "/logout";
     private static final String ADMIN_HOGARES = "/hogares";
     private static final String ALTA_DISPOSITIVO = "/altaDispositivo";
     private static final String ALTA_DISPOSITIVO_CLIENTE = "/altaDispositivoCliente";
     private static final String ALTA_REGLAS = "/altaReglas";
+    private static final String REGLAS = "/reglas";
     private static final String REPORTES = "/reportes";
     private static final String TRANSFORMADORES = "/transformadores";
     private static final String TRANSFORMADORESJSON = "/transformadores/json";
@@ -21,13 +22,12 @@ public class Router {
     private static final String GENERAR_REPORTE_CLIENTES = "/generarReporteClientes";
     private static final String GENERAR_REPORTE_TRANSFORMADOR = "/generarReporteTransformador";
     private static final String BAJA_MODIFICACION_DISPOSITIVO = "/seleccionDispositivo";
-    private static final String BAJA_MODIFICACION_REGLA = "/seleccionRegla";
-    private static final String REGLAS = "/regla";
-    private static final String SIMPLEX = "/simplex";
+    private static final String BAJA_MODIFICACION_REGLA = "/seleccionReglas";
     private static final String BAJA_DISPOSITIVO = "/seleccionDispositivo/:id";
-    private static final String MODIFICAR_DISPOSITIVO = "/dispositivo/modificar";
-    private static final String BAJA_REGLA = "/regla/delete";
-    private static final String MODIFICAR_REGLA = "/regla/modificar";
+    private static final String MODIFICAR_DISPOSITIVO = "seleccionDispositivo";
+    private static final String BAJA_REGLA = "/seleccionReglas/:id";
+    private static final String MODIFICAR_REGLA = "/seleccionReglas";
+    private static final String SIMPLEX = "/simplex";
 
     public static String loginPath(){
         return LOGIN;
