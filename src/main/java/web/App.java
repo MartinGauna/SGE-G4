@@ -63,7 +63,8 @@ public class App
         AltaReglasController.init();
         ReglaController.init();
         GenerarReporteController.init();
-
+        SeleccionDispositivoController.init();
+        SeleccionReglaController.init();
     }
 
     private static void handle404() {

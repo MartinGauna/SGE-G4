@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Alta Reportes</title>
+    <title>Baja-modificacion de reglas</title>
 
     <!-- Bootstrap core CSS-->
     <link href="./styles/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -27,11 +27,45 @@
 
 <body id="page-top">
 
+<script>
+    function deleteRegla() {
+        $.ajax({
+            url : "/seleccionReglas/" + getNameRegla(),
+            type: "delete",
+            success    : function(){
+                location.reload();
+            },
+            error: function (respondError) {
+                if(respondError.status == 410 || respondError.status == 400) {
+                    showAlertError("No se pudo eliminar la regla seleccionada");
+                }else{
+                    showAlertError("Ocurrio un error. Intenta nuevamente");
+                }
+            }
+        });
+    }
+
+    function getValue(element) {
+        return element.value;
+    }
+
+    function getNameRegla() {
+        let select = getElement('idRegla');
+
+        return select.options[ select.selectedIndex].value;
+    }
+
+    function getElement(name) {
+        return document.getElementById(name);
+    }
+
+</script>
+
 {{>commons/header.hbs}}
 
 <div id="wrapper">
 
-    {{>admin/navBar.hbs}}
+    {{>cliente/navBar.hbs}}
 
     <div id="content-wrapper">
 
@@ -42,18 +76,18 @@
             <div class="card mb-3">
                 <div class="card-header">
                     <i class="fas fa-table"></i>
-                    Alta de reportes de transformadores
+                    Seleccion de reglas
                 </div>
 
                 <div class="card-body">
 
-                    <form class="form-label-group" action="/seleccionRegla" method="POST">
+                    <form class="form-label-group" action="/seleccionReglas" method="POST">
 
                         <div class="form-group col-md-8 ">
-                            Dispositivos disponibles
-                            <select class="form-control" title="regla" name="regla" id="sm">
+                            Reglas disponibles
+                            <select class="form-control" title="regla" name="regla" id="idRegla">
                                 {{#each reglas}}
-                                    <option value={{id}}>{{dispositivo}} - {{accion}}</option>
+                                    <option value={{id}} id={{id}}>{{dispositivo}} - {{accion}}</option>
                                 {{/each}}
                             </select>
                         </div>
@@ -62,8 +96,6 @@
                             <p>
                                 <button class="btn btn-lg btn-danger" onclick="deleteRegla()">eliminar</button>
                                 <!--<button class="btn btn-lg btn-danger"  onclick="deleteMethodology()">Cancelar</button>-->
-                            </p>
-                            <p>
                                 <button class="btn btn-lg btn-primary" onclick="modificarRegla()">modificar</button>
                                 <!--<button class="btn btn-lg btn-danger"  onclick="deleteMethodology()">Cancelar</button>-->
                             </p>
@@ -79,6 +111,18 @@
             <!--</p>-->
 
         </div>
+
+        {{#if showAlert}}
+            {{#if isSuccess}}
+                <div class="alert alert-success mx-auto mt-5 card-login">
+                    {{message}}
+                </div>
+            {{else}}
+                <div class="alert alert-danger mx-auto mt-5 card-login">
+                    {{message}}
+                </div>
+            {{/if}}
+        {{/if}}
 
     </div>
     <!-- /.content-wrapper -->

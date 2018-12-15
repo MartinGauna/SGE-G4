@@ -22,7 +22,11 @@ public class Router {
     private static final String GENERAR_REPORTE_CLIENTES = "/generarReporteClientes";
     private static final String GENERAR_REPORTE_TRANSFORMADOR = "/generarReporteTransformador";
     private static final String BAJA_MODIFICACION_DISPOSITIVO = "/seleccionDispositivo";
-    private static final String BAJA_MODIFICACION_REGLA = "/seleccionRegla";
+    private static final String BAJA_MODIFICACION_REGLA = "/seleccionReglas";
+    private static final String BAJA_DISPOSITIVO = "/seleccionDispositivo/:id";
+    private static final String MODIFICAR_DISPOSITIVO = "seleccionDispositivo";
+    private static final String BAJA_REGLA = "/seleccionReglas/:id";
+    private static final String MODIFICAR_REGLA = "/seleccionReglas";
 
     public static String loginPath(){
         return LOGIN;
@@ -65,4 +69,12 @@ public class Router {
     public static String bajaModificacionDispositivoPath(){ return BAJA_MODIFICACION_DISPOSITIVO; }
 
     public static String bajaModificacionReglaPath(){ return BAJA_MODIFICACION_REGLA; }
+
+    public static String bajaDispositivoPath(){ return BAJA_DISPOSITIVO; }
+
+    public static String modificarDispositivoPath(){ return MODIFICAR_DISPOSITIVO; }
+
+    public static String modificarReglaPath(){ return MODIFICAR_REGLA; }
+
+    public static String bajaReglaPath(){ return BAJA_REGLA; }
 }

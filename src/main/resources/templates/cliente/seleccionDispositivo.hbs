@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Alta Reportes</title>
+    <title>baja-modificacion de dispositivos</title>
 
     <!-- Bootstrap core CSS-->
     <link href="./styles/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -27,11 +27,47 @@
 
 <body id="page-top">
 
+<script>
+    function deleteDispositivo() {
+        $.ajax({
+            url : "/seleccionDispositivo/" + getNameDispositivo(),
+            type: "delete",
+            success    : function(){
+                location.reload();
+            },
+            error: function (respondError) {
+                if(respondError.status == 410 || respondError.status == 400) {
+                    showAlertError("No se pudo eliminar el dispositivo seleccionado");
+                }else{
+                    showAlertError("Ocurrio un error. Intenta nuevamente");
+                }
+            }
+        });
+    }
+
+    function getValue(element) {
+        return element.value;
+    }
+
+    function getNameDispositivo() {
+        let select = getElement('idDisp');
+
+        return select.options[ select.selectedIndex].value;
+    }
+
+    function getElement(name) {
+        return document.getElementById(name);
+    }
+
+</script>
+
+
+
 {{>commons/header.hbs}}
 
 <div id="wrapper">
 
-    {{>admin/navBar.hbs}}
+    {{>cliente/navBar.hbs}}
 
     <div id="content-wrapper">
 
@@ -42,7 +78,7 @@
             <div class="card mb-3">
                 <div class="card-header">
                     <i class="fas fa-table"></i>
-                    Alta de reportes de transformadores
+                    Seleccion de dispositivos
                 </div>
 
                 <div class="card-body">
@@ -51,22 +87,20 @@
 
                         <div class="form-group col-md-8 ">
                             Dispositivos disponibles
-                            <select class="form-control" title="dispositivo" name="dispositivo" id="sm">
+                            <select class="form-control" title="dispositivo" name="dispositivo" id="idDisp">
                                 {{#each dispositivos}}
-                                    <option value={{id}}>{{nombre}}</option>
+                                    <option value={{id}} id={{id}}>{{nombre}}</option>
                                 {{/each}}
                             </select>
                         </div>
 
                         <div class="form-group" align="right">
-                            <p>
+
                                 <button class="btn btn-lg btn-danger" onclick="deleteDispositivo()">eliminar</button>
                                 <!--<button class="btn btn-lg btn-danger"  onclick="deleteMethodology()">Cancelar</button>-->
-                            </p>
-                            <p>
+
                                 <button class="btn btn-lg btn-primary" onclick="modificarDispositivo()">modificar</button>
                                 <!--<button class="btn btn-lg btn-danger"  onclick="deleteMethodology()">Cancelar</button>-->
-                            </p>
 
                         </div>
                     </form>
@@ -79,6 +113,18 @@
             <!--</p>-->
 
         </div>
+
+        {{#if showAlert}}
+            {{#if isSuccess}}
+                <div class="alert alert-success mx-auto mt-5 card-login">
+                    {{message}}
+                </div>
+            {{else}}
+                <div class="alert alert-danger mx-auto mt-5 card-login">
+                    {{message}}
+                </div>
+            {{/if}}
+        {{/if}}
 
     </div>
     <!-- /.content-wrapper -->
