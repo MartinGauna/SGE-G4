@@ -1,9 +1,9 @@
 package ar.edu.utn.frba.dds.actuador;
 
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteMicro;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Table
 @Entity
@@ -24,14 +24,14 @@ public class ActuadorMicro extends Actuador {
         return micro;
     }
 
-    public void prenderDispositivo() {micro.encender();
+    public void prenderDispositivo(DispositivoInteligente d) {d.encender();
     }
-    public void apagarDispositivo() {
-        micro.apagar();
+    public void apagarDispositivo(DispositivoInteligente d) {
+        d.apagar();
     }
 
-    public void cambiarModoAAhorro() {
-        micro.cambiarAmodoAhorro();
+    public void cambiarModoAAhorro(DispositivoInteligente d) {
+        d.cambiarAmodoAhorro();
     }
     public void cambiarModoAPrendido() {
         micro.encender();
