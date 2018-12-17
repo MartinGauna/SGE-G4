@@ -5,9 +5,6 @@ import ar.edu.utn.frba.dds.actuador.ActuadorHeladera;
 import ar.edu.utn.frba.dds.dispositivo.DIFactory;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteHeladera;
-import ar.edu.utn.frba.dds.dispositivo.estadosDispositivo.Activo;
-import ar.edu.utn.frba.dds.dispositivo.estadosDispositivo.Ahorro;
-import ar.edu.utn.frba.dds.dispositivo.estadosDispositivo.Apagado;
 import ar.edu.utn.frba.dds.dispositivo.estadosDispositivo.Context;
 import org.junit.Before;
 import org.junit.Test;
@@ -39,19 +36,19 @@ public class ActuadorHeladeraTest {
 
     @Test
     public void apagarHeladeraTest() {
-        actuador.apagarDispositivo();
+        actuador.apagarDispositivo(null);
         assertEquals(heladera.getEstado(),Context.string_Apagado);
     }
 
     @Test
     public void prenderHeladeraTest() {
-        actuador.prenderDispositivo();
+        actuador.prenderDispositivo(null);
         assertEquals(heladera.getEstado(),Context.string_Activo);
     }
 
     @Test
     public void heladeraModoAhorroTest() {
-        actuador.cambiarModoAAhorro();
+        actuador.cambiarModoAAhorro(null);
         assertEquals(heladera.getEstado(),Context.string_Ahorrro);
     }
 

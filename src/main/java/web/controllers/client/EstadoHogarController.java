@@ -2,6 +2,7 @@ package web.controllers.client;
 
 import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.Consumo;
+import ar.edu.utn.frba.dds.dao.BaseDao;
 import ar.edu.utn.frba.dds.dao.ClientDao;
 import ar.edu.utn.frba.dds.dao.DispositivoDao;
 import ar.edu.utn.frba.dds.dao.ReglaDao;
@@ -35,6 +36,7 @@ public class EstadoHogarController extends MainController {
     private static DispositivoDao ddao = new DispositivoDao();
     private static ReglaDao rdao = new ReglaDao();
     private static Cliente currentClient;
+    private static BaseDao bdao = new BaseDao();
 
     public static void init() {
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
@@ -130,16 +132,19 @@ public class EstadoHogarController extends MainController {
         List<ReglaTable> table = new ArrayList<>();
         List<Dispositivo> dispositivos = ddao.getAllDispositivos(currentClient);
 
-        for (Dispositivo d : dispositivos) {
+        for (int it = 0; it < dispositivos.size(); it ++) {
+            Dispositivo d = dispositivos.get(it);
             if (!(d instanceof Estandard)) {
-                Regla r = rdao.getReglaByActuadorID(((DispositivoInteligente) d).getActuador().getId());
-                if (r != null) {
-                    r.ejecutar();
-                    ReglaTable row = new ReglaTable();
-                    row.setAccion(r.getMethodName());
-                    row.setDispositivo(d.getNombre());
-                    table.add(row);
-                }
+                List<Regla> r = rdao.getAllReglas(((DispositivoInteligente) d).getActuador().getId());
+                    for(int i = 0; i < r.size(); i++) {
+                        Regla regla = r.get(i);
+                        regla.ejecutar((DispositivoInteligente) d);
+                        ReglaTable row = new ReglaTable();
+                        row.setAccion(regla.getMethodName());
+                        row.setDispositivo(d.getNombre());
+                        table.add(row);
+                        bdao.update(d);
+                    }
             }
         }
         model.setReglas(table);

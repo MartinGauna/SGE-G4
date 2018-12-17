@@ -1,10 +1,9 @@
 package ar.edu.utn.frba.dds.actuador;
 
-import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteAAcondicionado;
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligentePC;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Table
 @Entity
@@ -26,14 +25,14 @@ public class ActuadorPC extends Actuador {
         return pc;
     }
 
-    public void prenderDispositivo() {pc.encender();
+    public void prenderDispositivo(DispositivoInteligente d) {d.encender();
     }
-    public void apagarDispositivo() {
-        pc.apagar();
+    public void apagarDispositivo(DispositivoInteligente d) {
+        d.apagar();
     }
 
-    public void cambiarModoAAhorro() {
-        pc.cambiarAmodoAhorro();
+    public void cambiarModoAAhorro(DispositivoInteligente d) {
+        d.cambiarAmodoAhorro();
     }
     public void cambiarModoAPrendido() {
         pc.encender();

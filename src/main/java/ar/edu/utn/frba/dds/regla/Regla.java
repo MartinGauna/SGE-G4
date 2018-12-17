@@ -1,6 +1,7 @@
 package ar.edu.utn.frba.dds.regla;
 
 import ar.edu.utn.frba.dds.actuador.Actuador;
+import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -70,7 +71,7 @@ public class Regla implements Observer{
         return actuador;
     }
 
-    public void ejecutar(){
+    public void ejecutar(DispositivoInteligente d){
         char previous_logic_factor;
         //Resultado del update es TRUE por default (por si no tiene ninguna condicion)
         boolean result = true;
@@ -114,8 +115,13 @@ public class Regla implements Observer{
         if(result)
         {
             try {
+<<<<<<< HEAD
                 //Obtener el metodo con el nombre pasado para el actuador
                 actuador.getClass().getDeclaredMethod(methodname).invoke(actuador);
+=======
+            //Obtener el metodo con el nombre pasado para el actuador
+            actuador.getClass().getDeclaredMethod(methodname, DispositivoInteligente.class).invoke(actuador, d);
+>>>>>>> 961ec072e01ce815e523efc056f3ecf9a3fb3b77
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (InvocationTargetException e) {
