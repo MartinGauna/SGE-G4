@@ -70,7 +70,7 @@ public class AltaDispositivoController extends MainController {
         String tipo = request.queryParams("tipo");
         String disp = request.queryParams("dispositivo");
         String nombre = request.queryParams("nombre");
-        double consumo = Double.parseDouble(request.queryParams("consumoHora"));
+        double consumo = Double.parseDouble(request.queryParams("consumo"));
         String estado = request.queryParams("estado");
         String username = request.queryParams("cliente");
         boolean bajoConsumo = Boolean.valueOf(request.queryParams("bajoConsumo"));
