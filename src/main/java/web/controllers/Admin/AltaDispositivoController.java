@@ -38,8 +38,9 @@ public class AltaDispositivoController extends MainController {
 
     private static ModelAndView load(Request request, Response response) {
         sessionExist(request, response);
+        model.setShowAlert(false);
         updateModel();
-        return new ModelAndView (model, ALTADISPOSITIVO); // TODO add 'Dispositivo' model
+        return new ModelAndView (model, ALTADISPOSITIVO);
     }
 
     private static void initModel() {
