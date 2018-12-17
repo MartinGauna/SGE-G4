@@ -27,6 +27,104 @@
 
 <body id="page-top">
 
+<script>
+
+    function crearReporteCliente() {
+        let inicio = getfechaInicio1();
+        let fin = getfechaFin1();
+        validateDatefromInput(inicio, fin, "/generarReporteClientes");
+    }
+
+    function crearReporteTransformador() {
+        let inicio = getfechaInicio2();
+        let fin = getfechaFin2();
+        validateDatefromInput(inicio, fin, "/generarReporteTransformador");
+    }
+
+
+    function validateDatefromInput(inicio, fin, urlClientes) {
+
+        if (!isValidDate(inicio)) {
+            alert("el formato de fecha de inicio es incorrecto. Verificar");
+        } else if (!isValidDate(fin)) {
+            alert("el formato de fecha de fin es incorrecto. Verificar");
+        }
+        else {
+            $.ajax({
+                url: urlClientes,
+                type: "post",
+                success: function () {
+                    location.reload();
+                },
+                error: function (respondError) {
+                    if (respondError.status == 410 || respondError.status == 400) {
+                        showAlertError("No se pudo crear el reporte");
+                    } else {
+                        showAlertError("Ocurrio un error. Intenta nuevamente");
+                    }
+                }
+            });
+        }
+    };
+
+    function isValidDate(dateString) {
+        // First check for the pattern
+        if (!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(dateString))
+            return false;
+
+        // Parse the date parts to integers
+        let parts = dateString.split("/");
+        let day = parseInt(parts[0], 10);
+        let month = parseInt(parts[1], 10);
+        let year = parseInt(parts[2], 10);
+
+        // Check the ranges of month and year
+        if (year < 1000 || year > 3000 || month == 0 || month > 12)
+            return false;
+
+        var monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+        // Adjust for leap years
+        if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
+            monthLength[1] = 29;
+
+        // Check the range of the day
+        return day > 0 && day <= monthLength[month - 1];
+    };
+
+    function showAlertError(message){
+        var myDiv = document.getElementById('alertMessage');
+        myDiv.innerHTML = "<strong>Error: </strong> " + message;
+        showElement(getElement('alertMessage'));
+    }
+
+    function getfechaInicio1() {
+        let select = getElement('fechainicio1');
+        return select.value;
+    }
+
+    function getfechaFin1() {
+        let select = getElement('fechafin1');
+        return select.value;
+    }
+
+    function getfechaInicio2() {
+        let select = getElement('fechainicio2');
+        return select.value;
+    }
+
+    function getfechaFin2() {
+        let select = getElement('fechafin2');
+        return select.value;
+    }
+
+    function getElement(name) {
+        return document.getElementById(name);
+    }
+
+</script>
+
+
 {{>commons/header.hbs}}
 
 <div id="wrapper">
@@ -59,10 +157,11 @@
 
                 <div class="card-body">
 
-                    <form class="form-label-group" action="/generarReporteClientes" method="POST">
+                    <form class="form-group" action="/generarReporteClientes" method="POST">
 
                         <div class="form-group col-md-8 " title="estado" id="sm">
-                            <select name="tipoReporte">
+                            <select class="form-control" name="tipoReporte" required="required">
+                                <option value="" selected disabled>tipo de consumo:</option>
                                 <option value="1">Consumo Hogar</option>
                                 <option value="2">Consumo Dispositivos Inteligentes</option>
                                 <option value="3">Consumo Dispositivos Estandard</option>
@@ -70,7 +169,7 @@
                         </div>
 
                         <div class="form-group col-md-8 ">
-                            <select class="form-control" title="cliente" name="cliente" id="sm">
+                            <select class="form-control" title="cliente" name="cliente" id="sm" required="required">
                                 <option value="" selected disabled>cliente:</option>
                                 {{#each clientes}}
                                     <option value={{username}}>{{nombre}} {{apellido}}</option>
@@ -79,21 +178,21 @@
                         </div>
 
                         <div class="form-group col-md-8 ">
-                            <label for="InputFechaInicio" class="">fecha de inicio</label>
-                            <input type="text" class="form-control" id="fechainicio"
-                                   placeholder="fechainicio" value="{{fechainicio}}" name="fechainicio"/>
+                            <input type="text" class="form-control" id="fechainicio1" required="required"
+                                   placeholder="fecha de inicio (dd/mm/aaaa)" value="{{fechainicio}}"
+                                   name="fechainicio1"/>
                         </div>
 
                         <div class="form-group col-md-8 ">
-                            <label for="InputFechaFin" class="">fecha de fin</label>
-                            <input type="text" class="form-control" id="fechafin"
-                                   placeholder="fechafin" value="{{fechafin}}" name="fechafin"/>
+                            <input type="text" class="form-control" id="fechafin1" required="required"
+                                   placeholder="fecha de fin (dd/mm/aaaa)" value="{{fechafin}}" name="fechafin1"/>
                         </div>
 
 
                         <div class="form-group" align="right">
                             <p>
-                                <button class="btn btn-lg btn-primary" type="submit">Crear reporte</button>
+                                <button class="btn btn-lg btn-primary" onclick="crearReporteCliente()">Crear reporte
+                                </button>
                                 <!--<button class="btn btn-lg btn-danger"  onclick="deleteMethodology()">Cancelar</button>-->
                             </p>
 
@@ -121,37 +220,37 @@
 
                 <div class="card-body">
 
-                    <form class="form-label-group" action="/generarReporteTransformador" method="POST">
+                    <form class="form-group" action="/generarReporteTransformador" method="POST">
 
                         <div class="form-group col-md-8 ">
                             <select class="form-control" title="transformador" name="transformador" id="sm">
                                 <option value="" selected disabled>transformador:</option>
                                 {{#each transformadores}}
-                                    <option value={{id}}>transformador {{id}} - latitud {{latitud}} longitud {{longitud}}</option>
+                                    <option value={{id}}>transformador {{id}} - latitud {{latitud}}
+                                        longitud {{longitud}}</option>
                                 {{/each}}
                             </select>
                         </div>
 
                         <div class="form-group col-md-8 ">
-                            <label for="InputFechaInicio" class="">fecha de inicio</label>
-                            <input type="text" class="form-control" id="fechainicio"
-                                   placeholder="fechainicio" value="{{fechainicio}}" name="fechainicio"/>
+                            <input type="text" class="form-control" id="fechainicio2" required="required"
+                                   placeholder="fecha de inicio (dd/mm/aaaa)" value="{{fechainicio}}"
+                                   name="fechainicio2"/>
                         </div>
 
                         <div class="form-group col-md-8 ">
-                            <label for="InputFechaFin" class="">fecha de fin</label>
-                            <input type="text" class="form-control" id="fechafin"
-                                   placeholder="fechafin" value="{{fechafin}}" name="fechafin"/>
+                            <input type="text" class="form-control" id="fechafin2" required="required"
+                                   placeholder="fecha de fin (dd/mm/aaaa)" value="{{fechafin}}" name="fechafin2"/>
                         </div>
 
 
                         <div class="form-group" align="right">
                             <p>
-                                <button class="btn btn-lg btn-primary" type="submit">Crear reporte</button>
+                                <button class="btn btn-lg btn-primary" onclick="crearReporteTransformador()">Crear reporte</button>
                                 <!--<button class="btn btn-lg btn-danger"  onclick="deleteMethodology()">Cancelar</button>-->
                             </p>
 
-                            </div>
+                        </div>
                     </form>
                 </div>
                 <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->

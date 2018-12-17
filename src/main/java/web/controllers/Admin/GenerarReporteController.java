@@ -70,8 +70,8 @@ public class GenerarReporteController extends MainController {
         //model.getAlert().setHideAlert();
 
         String tipo = request.queryParams("tipoReporte");
-        String inicio = request.queryParams("fechainicio");
-        String fin = request.queryParams("fechafin");
+        String inicio = request.queryParams("fechainicio1");
+        String fin = request.queryParams("fechafin1");
         String username = request.queryParams("cliente");
 
         Cliente cliente = clientDao.clientExists(username);
@@ -127,8 +127,8 @@ public class GenerarReporteController extends MainController {
         //model.getAlert().setHideAlert();
 
 
-        String inicio = request.queryParams("fechainicio");
-        String fin = request.queryParams("fechafin");
+        String inicio = request.queryParams("fechainicio2");
+        String fin = request.queryParams("fechafin2");
         int trafoID = Integer.parseInt(request.queryParams("transformador"));
         Transformador t = tdao.getTransformadorByID(trafoID);
 
