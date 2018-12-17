@@ -46,7 +46,7 @@
 
                 <div class="card-body">
 
-                    <form class="form-label-group" action="/altaDispositivoCliente" method="POST">
+                    <form class="form-group" action="/altaDispositivoCliente" method="POST">
 
                         <div class="form-group col-md-8 " title="tipo" id="sm">
                             <label class="radio-inline"><input name="tipo" value="int" type="radio" checked>Dispositivo
@@ -55,8 +55,7 @@
                         </div>
 
                         <div class="form-group col-md-8 ">
-                            Tipo
-                            <select class="form-control" title="dispositivo" name="dispositivo" id="sm">
+                            <select class="form-control" title="tipo de dispositivo" name="dispositivo" id="sm" required="required">
                                 {{#each dispositivos}}
                                     <option value={{nombre}}>{{nombre}}</option>
                                 {{/each}}
@@ -64,20 +63,17 @@
                         </div>
 
                         <div class="form-group col-md-8 ">
-                            Nombre del dispositivo
-                            <input type="text" class="form-control" id="InputNombreDispositivo"
+                            <input type="text" class="form-control" id="InputNombreDispositivo" required="required"
                                    placeholder="Nombre" value="{{nombre}}" name="nombre"/>
                         </div>
 
                         <div class="form-group col-md-8 ">
-                            Consumo
-                            <input type="text" class="form-control" id="InputConsumoDispositivo"
+                            <input type="text" class="form-control" id="InputConsumoDispositivo" required="required"
                                    placeholder="consumo" value="{{consumoHora}}" name="consumoHora"/>
                         </div>
 
-                        <div class="form-group col-md-8 " title="estado" id="sm">
-                            Estado
-                            <select name="estado">
+                        <div class="form-group col-md-8 " title="estado" id="sm" required="required">
+                            <select class="form-control" name="estado">
                                 <option value="activo">Activo</option>
                                 <option value="ahorro">Ahorro</option>
                                 <option value="apagado">Apagado</option>
