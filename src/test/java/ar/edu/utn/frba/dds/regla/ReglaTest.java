@@ -91,7 +91,7 @@ public class ReglaTest {
 
         Regla regla_test_1 = new Regla(actuadorAire,"prenderDispositivo",condiciones);
         System.out.println("Procesando regla...");
-        regla_test_1.ejecutar();
+        regla_test_1.ejecutar(null);
 
         System.out.println("Estado final del dispositivo: " + aire.getEstado());
 
@@ -134,7 +134,7 @@ public class ReglaTest {
 
         Regla regla_test_2 = new Regla(actuadorAire,"prenderDispositivo",condiciones);
         System.out.println("Procesando regla...");
-        regla_test_2.ejecutar();
+        regla_test_2.ejecutar(null);
 
         System.out.println("Estado final del dispositivo: " + aire.getEstado());
 
@@ -177,7 +177,7 @@ public class ReglaTest {
 
         Regla regla_test_3 = new Regla(actuadorAire,"prenderDispositivo",condiciones);
         System.out.println("Procesando regla...");
-        regla_test_3.ejecutar();
+        regla_test_3.ejecutar(null);
 
         System.out.println("Estado final del dispositivo: " + aire.getEstado());
 
@@ -220,7 +220,7 @@ public class ReglaTest {
 
         Regla regla_test_4 = new Regla(actuadorAire,"prenderDispositivo",condiciones);
         System.out.println("Procesando regla...");
-        regla_test_4.ejecutar();
+        regla_test_4.ejecutar(null);
 
         System.out.println("Estado final del dispositivo: " + aire.getEstado());
 
@@ -263,7 +263,7 @@ public class ReglaTest {
 
         Regla regla_test_5 = new Regla(actuadorAire,"prenderDispositivo",condiciones);
         System.out.println("Procesando regla...");
-        regla_test_5.ejecutar();
+        regla_test_5.ejecutar(null);
 
         System.out.println("Estado final del dispositivo: " + aire.getEstado());
 
@@ -306,7 +306,7 @@ public class ReglaTest {
 
         Regla regla_test_6 = new Regla(actuadorAire,"prenderDispositivo",condiciones);
         System.out.println("Procesando regla...");
-        regla_test_6.ejecutar();
+        regla_test_6.ejecutar(null);
 
         System.out.println("Estado final del dispositivo: " + aire.getEstado());
 

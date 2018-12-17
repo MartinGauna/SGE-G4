@@ -83,7 +83,7 @@ public class ReglaPersistenceTest {
 
         Context einicial = dispPersistido.getEstado();
         System.out.println("Estado inicial del dispositivo: " + einicial);
-        reglaPersistida.ejecutar();
+        reglaPersistida.ejecutar(null);
         Context efinal = dispPersistido.getEstado();
         System.out.println("Estado final del dispositivo: " + efinal);
         assertNotSame(einicial, efinal);

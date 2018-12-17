@@ -4,7 +4,6 @@ import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteHeladera;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Table
 @Entity
@@ -27,15 +26,15 @@ public class ActuadorHeladera extends Actuador {
     }
 
 
-    public void prenderDispositivo() {
-        heladera.encender();
+    public void prenderDispositivo(DispositivoInteligente d) {
+        d.encender();
     }
-    public void apagarDispositivo() {
-        heladera.apagar();
+    public void apagarDispositivo(DispositivoInteligente d) {
+        d.apagar();
     }
 
-    public void cambiarModoAAhorro() {
-        heladera.cambiarAmodoAhorro();
+    public void cambiarModoAAhorro(DispositivoInteligente d) {
+        d.cambiarAmodoAhorro();
     }
     public void cambiarModoAPrendido() {
         heladera.encender();
