@@ -1,11 +1,16 @@
 package ar.edu.utn.frba.dds;
 
+import ar.edu.utn.frba.dds.dao.ConsumoDao;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
+import ar.edu.utn.frba.dds.dispositivo.Estandard;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 
 
 @Entity
@@ -70,5 +75,31 @@ public class Consumo {
 	public void setDispositivo(Dispositivo dispositivo) {
 		this.dispositivo = dispositivo;
 	}
+
+    public static Consumo createConsumo(Dispositivo disp) throws ParseException {
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+        Random rand = new Random();
+        int valor = rand.nextInt((int) disp.getConsumoHora());
+        int inicio = rand.nextInt(31);
+        int fin = rand.nextInt(31);
+
+        if (fin < inicio) {
+            int aux = inicio;
+            inicio = fin;
+            fin = aux;
+        }
+
+        Date d = sdf.parse(inicio + "/12/2018");
+        Date e = sdf.parse(fin + "/12/2018");
+        Consumo cons1 = new Consumo(disp, valor, d, e);
+
+        if(!(disp instanceof Estandard)) {
+            ((DispositivoInteligente) disp).addConsumo(cons1);
+        }
+
+        return cons1;
+    }
 
 }

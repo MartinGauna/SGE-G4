@@ -2,6 +2,8 @@ package web.controllers.client;
 
 
 import ar.edu.utn.frba.dds.Cliente;
+import ar.edu.utn.frba.dds.Consumo;
+import ar.edu.utn.frba.dds.actuador.Actuador;
 import ar.edu.utn.frba.dds.dao.BaseDao;
 import ar.edu.utn.frba.dds.dao.ClientDao;
 import ar.edu.utn.frba.dds.dao.DispositivoDao;
@@ -10,6 +12,7 @@ import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import ar.edu.utn.frba.dds.exception.IncompleteFormException;
+import ar.edu.utn.frba.dds.sensor.Sensor;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -21,8 +24,11 @@ import web.helper.SessionHelper;
 import web.models.AlertModel;
 import web.models.AltaDispositivoClienteModel;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static ar.edu.utn.frba.dds.Consumo.createConsumo;
 
 public class AltaDispositivoController extends MainController {
 
@@ -76,7 +82,7 @@ public class AltaDispositivoController extends MainController {
         return new ModelAndView (model, ALTADISPOSITIVOCLIENTE);
     }
 
-    private static Dispositivo parseRequest(Request request) {
+    private static void parseRequest(Request request) throws ParseException {
         //model.getAlert().setHideAlert();
 
         String tipo = request.queryParams("tipo");
@@ -88,12 +94,24 @@ public class AltaDispositivoController extends MainController {
         boolean bajoConsumo = Boolean.valueOf(request.queryParams("bajoConsumo"));
 
         Dispositivo dispositivo;
+        Consumo cons;
+        List<Object> topersist = new ArrayList<>();
+
         DIFactory fm = new DIFactory();
         if (tipo.equals("int")) {
             try {
                 dispositivo = fm.crearDispositivoFromPOST(tipo, disp, nombre, consumo, estado, client, bajoConsumo);
-                dispositivoDao.addDispositivoInteligenteIfNotExists((DispositivoInteligente) dispositivo);
-                clientDao.addClientIfNotExists(client);
+                //dispositivoDao.addDispositivoInteligenteIfNotExists((DispositivoInteligente) dispositivo);
+
+                if (!((DispositivoInteligente)dispositivo).getSensores().isEmpty()) {
+                    for (Sensor s : ((DispositivoInteligente)dispositivo).getSensores()) {
+                        topersist.add(s.getMagnitud());
+                        topersist.add(s);
+                    }
+                }
+                Actuador a = ((DispositivoInteligente) dispositivo).getActuador();
+                topersist.add(a);
+
             } catch (NullPointerException ex) {
                 throw new IncompleteFormException();
             }
@@ -103,13 +121,17 @@ public class AltaDispositivoController extends MainController {
                 dispositivo.setConsumoHora(consumo);
                 dispositivo.setNombre(nombre);
                 dispositivo.setCliente(client);
-                dispositivoDao.addDispositivoIfNotExists(dispositivo);
+                //dispositivoDao.addDispositivoIfNotExists(dispositivo);
             } catch (NullPointerException ex) {
                 throw new IncompleteFormException();
             }
         }
-        return dispositivo;
 
+        cons = createConsumo(dispositivo);
+        topersist.add(dispositivo);
+        topersist.add(cons);
+        bdao.persistList(topersist);
+        clientDao.addClientIfNotExists(client);
     }
 
     private static void getCurrentClient(Request request) {

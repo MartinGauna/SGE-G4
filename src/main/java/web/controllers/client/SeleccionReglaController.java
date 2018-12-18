@@ -97,7 +97,7 @@ public class SeleccionReglaController extends MainController {
         for (DispositivoInteligente d : dispositivos) {
                 Regla r = rdao.getReglaByActuadorID((d.getActuador().getId()));
                 if (r != null) {
-                    r.ejecutar();
+                    r.ejecutar(d);
                     ReglaPullDown row = new ReglaPullDown();
                     row.setId(r.getId());
                     row.setAccion(r.getMethodName());
