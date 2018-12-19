@@ -5,6 +5,7 @@ import ar.edu.utn.frba.dds.dao.ClientDao;
 import ar.edu.utn.frba.dds.dao.ReporteDao;
 import ar.edu.utn.frba.dds.dao.TransformadorDao;
 
+import mongo.MongoDb;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -28,6 +29,7 @@ public class ReportesController extends MainController {
     private static ClientDao cdao = new ClientDao();
     private static TransformadorDao tdao = new TransformadorDao();
     private static ReporteDao rdao = new ReporteDao();
+    private static MongoDb mongo = MongoDb.getInstance();
 
 
     public static void init() {
@@ -102,8 +104,8 @@ public class ReportesController extends MainController {
         List<ReportesTable> tableReporte = new ArrayList<ReportesTable>();
         List<ReportesTrafosTable> tableReporteTrafo = new ArrayList<ReportesTrafosTable>();
 
-        List<Reporte> rep = rdao.listReporte();
-        List<ReporteTransformador> repT = rdao.listReporteTrafo();
+        List<Reporte> rep = mongo.getReportesClientes();
+        List<ReporteTransformador> repT = mongo.getReportesTranformadores();
 
         for ( Reporte r : rep) {
             ReportesTable row = new ReportesTable();
