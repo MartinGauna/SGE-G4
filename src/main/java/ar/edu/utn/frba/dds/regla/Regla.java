@@ -115,13 +115,8 @@ public class Regla implements Observer{
         if(result)
         {
             try {
-<<<<<<< HEAD
                 //Obtener el metodo con el nombre pasado para el actuador
-                actuador.getClass().getDeclaredMethod(methodname).invoke(actuador);
-=======
-            //Obtener el metodo con el nombre pasado para el actuador
-            actuador.getClass().getDeclaredMethod(methodname, DispositivoInteligente.class).invoke(actuador, d);
->>>>>>> 961ec072e01ce815e523efc056f3ecf9a3fb3b77
+                actuador.getClass().getDeclaredMethod(methodname, DispositivoInteligente.class).invoke(actuador, d);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (InvocationTargetException e) {

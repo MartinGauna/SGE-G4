@@ -48,7 +48,7 @@
                         <span style="font-family:arial;font-size:14">
                             En esta pantalla usted podra obtener los indices SIMPLEX para sus dispositivos.
                             <br>El objetivo del presente análisis, es hallar una combinación óptima de las horas de uso de los electrodomésticos en su hogar, que favorezca la mitigación parcial de los cortes de suministro eléctrico durante el verano en la Ciudad.
-                        El calculo esta basado en un total de 612Kwh mensuales, cuyo consumo fue comprobado como optimo por varios estudios estadísticos.
+                        El calculo esta basado en un total de 612kW mensuales, cuyo consumo fue comprobado como optimo por varios estudios estadísticos.
                             <br>Sea eficiente, sea <b>SIMPLEX</b>.
 
                             </span>
@@ -58,14 +58,14 @@
                             <thead>
                             <tr>
                                 <th width="60%">Dispositivo</th>
-                                <th>Indice</th>
+                                <th>Consumo optimo</th>
                             </tr>
                             </thead>
                             <tbody>
                             {{#each table}}
                                 <tr>
                                     <td>{{dispositivo}}</td>
-                                    <td>{{index}}</td>
+                                    <td>{{index}}kW</td>
                                 </tr>
                             {{/each}}
 
@@ -73,6 +73,9 @@
                         </table>
 
                     </div>
+                </div></br>
+                    {{#if eficiente}}<span style="font-family:arial;font-size:14;color:#1f871d;">Su hogar es eficiente. Felicitaciones! Su consumo durante el último periodo es de {{ultimoConsumo}}kW siendo el consumo eficiente esperado de 612kW.</span>
+                    {{else}}<span style="font-family:arial;font-size:14;color:#af1f1f;">Su hogar no es eficiente. Su consumo durante el último periodo es de {{ultimoConsumo}}kW siendo el consumo eficiente esperado de 612kW.</span>{{/if}}
                 </div>
                 {{#if showAlert}}
                     <div class="alert alert-danger mx-auto mt-5 card-login" style="-webkit-animation: bounce 800ms ease-out;

@@ -62,7 +62,7 @@ public class SeleccionReglaController extends MainController {
 
     public static ModelAndView delete(Request request, Response response) {
 
-       //datos del form:
+        //datos del form:
         int reglaID = Integer.parseInt(request.params(":id"));
         Regla r = rdao.getReglaByID(reglaID);
         List<Object> toDelete = new ArrayList<>();
@@ -95,14 +95,14 @@ public class SeleccionReglaController extends MainController {
         List<DispositivoInteligente> dispositivos = ddao.getAllDI(cliente);
 
         for (DispositivoInteligente d : dispositivos) {
-                Regla r = rdao.getReglaByActuadorID((d.getActuador().getId()));
-                if (r != null) {
-                    r.ejecutar();
-                    ReglaPullDown row = new ReglaPullDown();
-                    row.setId(r.getId());
-                    row.setAccion(r.getMethodName());
-                    row.setDispositivo(d.getNombre());
-                    model.getReglas().add(row);
+            Regla r = rdao.getReglaByActuadorID((d.getActuador().getId()));
+            if (r != null) {
+                r.ejecutar(d);
+                ReglaPullDown row = new ReglaPullDown();
+                row.setId(r.getId());
+                row.setAccion(r.getMethodName());
+                row.setDispositivo(d.getNombre());
+                model.getReglas().add(row);
             }
         }
     }

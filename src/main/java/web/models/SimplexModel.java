@@ -10,7 +10,8 @@ public class SimplexModel {
 
     //indicesSimplex
     private List<SimplexTable> table;
-
+    private int ultimoConsumo;
+    private boolean eficiente;
     /*=== GETTERS AND SETTERS ===*/
 
 
@@ -29,5 +30,20 @@ public class SimplexModel {
 
     public List<SimplexTable> getTable() {
         return table;
+    }
+
+    public void setUltimoConsumo(int ultimoConsumo) {
+        this.ultimoConsumo = ultimoConsumo;
+    }
+
+    public int getUltimoConsumo() {
+        return ultimoConsumo;
+    }
+    public void setEficiente(boolean eficiente) {
+        this.eficiente = eficiente;
+    }
+
+    public boolean getEficiente() {
+        return eficiente;
     }
 }

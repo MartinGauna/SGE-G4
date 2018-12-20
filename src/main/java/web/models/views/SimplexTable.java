@@ -3,9 +3,9 @@ package web.models.views;
 public class SimplexTable {
 
     private String dispositivo;
-    private String index;
+    private int index;
 
-    public SimplexTable(String dispositivo, String index) {
+    public SimplexTable(String dispositivo, int index) {
         this.dispositivo = dispositivo;
         this.index = index;
     }
@@ -17,7 +17,7 @@ public class SimplexTable {
         return dispositivo;
     }
 
-    public String getIndex() {
+    public int getIndex() {
         return index;
     }
 
@@ -25,7 +25,7 @@ public class SimplexTable {
         this.dispositivo = dispositivo;
     }
 
-    public void setIndex(String index) {
+    public void setIndex(int index) {
         this.index = index;
     }
 
