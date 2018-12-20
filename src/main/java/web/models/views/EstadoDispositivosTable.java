@@ -5,10 +5,12 @@ import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 public class EstadoDispositivosTable {
     private Dispositivo dispositivo;
     private String estado;
+    private double consumo;
 
-    public EstadoDispositivosTable(Dispositivo d, String estado) {
+    public EstadoDispositivosTable(Dispositivo d, String estado, double consumo) {
         this.dispositivo = d;
         this.estado = estado;
+        this.consumo = consumo;
     }
 
     public EstadoDispositivosTable() {
@@ -30,4 +32,11 @@ public class EstadoDispositivosTable {
         this.estado = e;
     }
 
+    public double getConsumo() {
+        return consumo;
+    }
+
+    public void setConsumo(double consumo) {
+        this.consumo = consumo;
+    }
 }

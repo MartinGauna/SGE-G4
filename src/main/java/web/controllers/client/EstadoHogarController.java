@@ -98,6 +98,7 @@ public class EstadoHogarController extends MainController {
             EstadoDispositivosTable row = new EstadoDispositivosTable();
             row.setDispositivo(d);
             row.setEstado(d.getEstado().name());
+            row.setConsumo(d.getConsumoTotal());
             table.add(row);
         }
 

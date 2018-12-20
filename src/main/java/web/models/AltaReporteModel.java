@@ -123,8 +123,8 @@ public class AltaReporteModel {
     }
 
     public void failed(String message){
+        this.setShowAlert1(true);
         this.setIsSuccess1(false);
-        this.setIsSuccess2(false);
         this.setMessage(message);
     }
 }
