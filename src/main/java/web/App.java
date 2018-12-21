@@ -35,7 +35,7 @@ public class App
 
         BackgroundProcesses bkgP = new BackgroundProcesses();
 
-        LoadData.Load();
+        //LoadData.Load();
 
         Spark.port(9000);
         staticFileLocation("/webResources");

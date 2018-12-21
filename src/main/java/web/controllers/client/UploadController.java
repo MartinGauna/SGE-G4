@@ -1,14 +1,19 @@
 package web.controllers.client;
 
 import ar.edu.utn.frba.dds.Cliente;
+import ar.edu.utn.frba.dds.Consumo;
+import ar.edu.utn.frba.dds.actuador.Actuador;
+import ar.edu.utn.frba.dds.dao.BaseDao;
 import ar.edu.utn.frba.dds.dao.ClientDao;
 import ar.edu.utn.frba.dds.dao.DispositivoDao;
 import ar.edu.utn.frba.dds.dispositivo.DIFactory;
+import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import ar.edu.utn.frba.dds.exception.InvalidFileFormatException;
 import ar.edu.utn.frba.dds.exception.ParserErrorException;
 import ar.edu.utn.frba.dds.jsonParser.JsonParser;
+import ar.edu.utn.frba.dds.sensor.Sensor;
 import ar.edu.utn.frba.dds.utils.FileUtils;
 import spark.ModelAndView;
 import spark.Request;
@@ -28,7 +33,10 @@ import javax.servlet.http.Part;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
+
+import static ar.edu.utn.frba.dds.Consumo.createConsumo;
 
 @WebServlet(urlPatterns = {"/uploadFile/*"})
 @MultipartConfig(location="/tmp", fileSizeThreshold=1024*1024, maxFileSize=1024*1024*5, maxRequestSize=1024*1024*5*5)
@@ -40,28 +48,51 @@ public class UploadController extends MainController {
     private static ClientDao cdao;
     DIFactory fm = new DIFactory();
     private static Cliente currentClient;
+    private static BaseDao bdao = new BaseDao();
 
 
     public static void init() {
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
         AlertModel alertModel = null;
+        cdao = new ClientDao();
+        ddao = new DispositivoDao();
         setupMultipleElementConfig();
         Spark.get(Router.uploadPath(),UploadController::load,engine);
         //Spark.post(Router.uploadPath(),UploadController::upload,engine);
         JsonParser jp = new JsonParser();
         Spark.post("/uploadFile", (req, res) -> {
             req.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("D:/tmp"));
+            getCurrentClient(req);
             Part filePartInteligente = req.raw().getPart("inputFileInteligente");
             Part filePartEstandard = req.raw().getPart("inputFileStandard");
             if(filePartInteligente.getSize() > 0)
             {
                 try (InputStream inputStream = filePartInteligente.getInputStream()) {
-                File fInteligente = FileUtils.getFileWithPath(filePartInteligente);
-                List<DispositivoInteligente> dispositivoInteligenteList = null;
-                DispositivoDao dispositivoDao = new DispositivoDao();
-                dispositivoInteligenteList = jp.loadDIFromFile(fInteligente);
-                dispositivoInteligenteList.forEach(d -> dispositivoDao.addDispositivoIfNotExists(d));
-                //alertModel.setIsSuccess(true);
+                    File fInteligente = FileUtils.getFileWithPath(filePartInteligente);
+                    List<Dispositivo> dispositivoInteligenteList = null;
+                    DispositivoDao dispositivoDao = new DispositivoDao();
+                    dispositivoInteligenteList = jp.loadDIFromFile(fInteligente, currentClient);
+                    Dispositivo d = null;
+                    Consumo cons = null;
+                    for (int i = 0; i < dispositivoInteligenteList.size(); i++) {
+                    //dispositivoInteligenteList.forEach(d -> dispositivoDao.addDispositivoIfNotExists(d));
+                        //dispositivoDao.addDispositivoIfNotExists(dispositivoInteligenteList.get(i));
+                        List<Object> topersist = new ArrayList<>();
+                        d = dispositivoInteligenteList.get(i);
+                        if (!((DispositivoInteligente)d).getSensores().isEmpty()) {
+                            for (Sensor s : ((DispositivoInteligente)d).getSensores()) {
+                                topersist.add(s.getMagnitud());
+                                topersist.add(s);
+                            }
+                        }
+                        Actuador a = ((DispositivoInteligente) d).getActuador();
+                        topersist.add(a);
+                        cons = createConsumo(d);
+                        topersist.add(d);
+                        topersist.add(cons);
+                        bdao.persistList(topersist);
+                    }
+                    //alertModel.setIsSuccess(true);
                 } catch (IOException e) {
                  e.printStackTrace();
                 }
@@ -92,8 +123,6 @@ public class UploadController extends MainController {
 
     public static ModelAndView upload (Request request, Response response) throws ServletException, IOException{
 
-        cdao = new ClientDao();
-        ddao = new DispositivoDao();
         AlertModel alertModel;
         JsonParser jp = new JsonParser();
         //Part tipoPart = request.raw().getPart("tipo");

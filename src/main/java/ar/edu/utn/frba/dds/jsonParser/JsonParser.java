@@ -1,15 +1,14 @@
 package ar.edu.utn.frba.dds.jsonParser;
 
 import ar.edu.utn.frba.dds.*;
-import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
-import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
-import ar.edu.utn.frba.dds.dispositivo.Estandard;
+import ar.edu.utn.frba.dds.dispositivo.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -68,15 +67,16 @@ public  class JsonParser {
     }
 
     // Dispositivo Inteligente from JSON file
-    public List<DispositivoInteligente> loadDIFromFile(File f) throws IOException {
-        Type DispositivoListType = new TypeToken<List<DispositivoInteligente>>() {}.getType();
-        List<DispositivoInteligente> dispositivos;
+    public List<Dispositivo> loadDIFromFile(File f, Cliente cli) throws IOException {
+        Type DispositivoListType = new TypeToken<List<helperDisp>>() {}.getType();
+        List<helperDisp> dispositivos;
 
         try(Reader reader = new InputStreamReader(new FileInputStream(f), "UTF-8")){
             Gson gson = new GsonBuilder().create();
             dispositivos = gson.fromJson(reader, DispositivoListType);
         }
-        return dispositivos;
+        List<Dispositivo> disp = contrustDI(dispositivos, cli);
+        return disp;
     }
 
     // Dispositivo Estandard from JSON file
@@ -129,5 +129,16 @@ public  class JsonParser {
             transformadores = gson.fromJson(reader, TransformadorListType);
         }
         return transformadores;
+    }
+
+    public List<Dispositivo> contrustDI(List<helperDisp> dips, Cliente cli){
+        DIFactory fm = new DIFactory();
+        List<Dispositivo> dispositivoInteligentes = new ArrayList<>();
+        for(int i = 0; i < dips.size(); i++){
+            helperDisp h = dips.get(i);
+            Dispositivo d = fm.crearDispositivoFromPOST("int",h.tipo,h.nombre,h.consumoHora,h.estado,cli,h.bajoConsumo);
+            dispositivoInteligentes.add(d);
+        }
+        return dispositivoInteligentes;
     }
 }
