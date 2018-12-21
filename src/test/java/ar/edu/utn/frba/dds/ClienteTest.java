@@ -2,6 +2,7 @@ package ar.edu.utn.frba.dds;
 
 
 import ar.edu.utn.frba.dds.dispositivo.DIFactory;
+import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import ar.edu.utn.frba.dds.helpers.AdapterSimplex;
@@ -25,7 +26,7 @@ public class ClienteTest {
     private DispositivoInteligente d1;
     private DispositivoInteligente d2;
     private DispositivoInteligente d3;
-    private List<DispositivoInteligente> dispositivoInteligenteList = new ArrayList<>() ;
+    private List<Dispositivo> dispositivoInteligenteList = new ArrayList<>() ;
     private AdapterSimplex adapterSimplex = new AdapterSimplex();
 
 

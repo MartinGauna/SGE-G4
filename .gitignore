@@ -132,8 +132,6 @@ local.properties
 .cache-main
 .scala_dependencies
 .worksheet
-/target/
+target/
 
 *.iml
-pom.xml
-src/main/resources/META-INF/persistence.xml

@@ -12,15 +12,12 @@ import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import ar.edu.utn.frba.dds.jsonParser.JsonParser;
 import ar.edu.utn.frba.dds.sensor.Sensor;
 
-import javax.persistence.EntityTransaction;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import static spark.Spark.staticFileLocation;
 
 public class LoadData {
 
@@ -100,25 +97,25 @@ public class LoadData {
             //asignacion de categorias y transformadores
             Cliente c1 = clientes.get(0);
 
-            Transformador t = trafos.get(0);
 
-            c1.setTransformador(t);
+
+            //c1.setTransformador(trafos.get(0));
             c1.setCategoria(categorias.get(0));
 
             Cliente c2 = clientes.get(1);
-            c2.setTransformador(trafos.get(0));
+            //c2.setTransformador(trafos.get(0));
             c2.setCategoria(categorias.get(1));
 
             Cliente c3 = clientes.get(2);
-            c3.setTransformador(trafos.get(0));
+            //c3.setTransformador(trafos.get(0));
             c3.setCategoria(categorias.get(2));
 
             Cliente c4 = clientes.get(3);
-            c4.setTransformador(trafos.get(1));
+            //c4.setTransformador(trafos.get(1));
             c4.setCategoria(categorias.get(1));
 
             Cliente c5 = clientes.get(4);
-            c5.setTransformador(trafos.get(1));
+            //c5.setTransformador(trafos.get(1));
             c5.setCategoria(categorias.get(2));
 
             toPersist.addAll(clientes);

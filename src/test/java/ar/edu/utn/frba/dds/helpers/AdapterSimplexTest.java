@@ -2,6 +2,7 @@ package ar.edu.utn.frba.dds.helpers;
 
 import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.dispositivo.DIFactory;
+import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +12,7 @@ import java.util.List;
 
 public class AdapterSimplexTest {
 private Cliente client;
-private List<DispositivoInteligente> dispositivoInteligenteList = new ArrayList<>() ;
+private List<Dispositivo> dispositivoInteligenteList = new ArrayList<>() ;
 private AdapterSimplex adapterSimplex = new AdapterSimplex();
 private DIFactory fm;
 private DIFactory fm2;

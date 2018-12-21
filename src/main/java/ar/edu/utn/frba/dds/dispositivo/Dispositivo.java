@@ -1,8 +1,6 @@
 package ar.edu.utn.frba.dds.dispositivo;
 
 import ar.edu.utn.frba.dds.Cliente;
-import ar.edu.utn.frba.dds.Consumo;
-import ar.edu.utn.frba.dds.Transformador;
 import ar.edu.utn.frba.dds.dispositivo.estadosDispositivo.Context;
 
 import javax.persistence.*;
@@ -91,6 +89,31 @@ public class Dispositivo {
 
     public Cliente getCliente() {
         return cliente;
+    }
+
+    public int getUsoMinimo(){
+        if(this instanceof DispositivoInteligenteAAcondicionado){return 90;}
+        else if(this instanceof DispositivoInteligenteLuz){return 90;}
+        else if(this instanceof DispositivoInteligenteTV){return 90;}
+        else if(this instanceof DispositivoInteligenteLavarropas){return 6;}
+        else if(this instanceof DispositivoInteligentePC){return 60;}
+        else if(this instanceof DispositivoInteligenteMicro){return 3;}
+        else if(this instanceof DispositivoInteligentePlancha){return 3;}
+        else if(this instanceof DispositivoInteligenteVentilador){return 120;}
+        else if(this instanceof DispositivoInteligenteHeladera){return 90;}
+        else return 0;
+    }
+    public int getUsoMaximo(){
+        if(this instanceof DispositivoInteligenteAAcondicionado){return 360;}
+        else if(this instanceof DispositivoInteligenteLuz){return 360;}
+        else if(this instanceof DispositivoInteligenteTV){return 360;}
+        else if(this instanceof DispositivoInteligenteLavarropas){return 30;}
+        else if(this instanceof DispositivoInteligentePC){return 360;}
+        else if(this instanceof DispositivoInteligenteMicro){return 15;}
+        else if(this instanceof DispositivoInteligentePlancha){return 30;}
+        else if(this instanceof DispositivoInteligenteVentilador){return 360;}
+        else if(this instanceof DispositivoInteligenteHeladera){return 360;}
+        else return 0;
     }
 
     @Override

@@ -1,6 +1,5 @@
 package web.controllers.client;
 
-
 import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.Magnitud;
 import ar.edu.utn.frba.dds.actuador.*;
@@ -31,11 +30,17 @@ public class AltaReglasController extends MainController {
 
     private static final String ALTA_REGLAS = "/cliente/altaReglas.hbs";
     private static AltaReglasModel model;
+    private static ClientDao clientDao = new ClientDao();
+    private static DispositivoDao dispositivoDao = new DispositivoDao();
+    private static AlertModel alert = new AlertModel(false,"",false);
+    private static ReglaDao reglaDao = new ReglaDao();
+    private static ActuadorDao actuadorDao = new ActuadorDao();
+    private static CondicionDao condicionDao = new CondicionDao();
+
     private static Cliente cliente;
     private static ClientDao cdao = new ClientDao();
     private static DispositivoDao ddao = new DispositivoDao();
     private static BaseDao bdao = new BaseDao();
-
 
     public static void init() {
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
@@ -46,6 +51,7 @@ public class AltaReglasController extends MainController {
 
     private static ModelAndView load(Request request, Response response) {
         sessionExist(request, response);
+       //MATIAS OJO
         getCurrentClient(request);
         model.getDispositivos().clear();
         model.setShowAlert(false);
@@ -71,6 +77,7 @@ public class AltaReglasController extends MainController {
 
         try {
             //datos del form:
+
             int dispID = Integer.parseInt(request.queryParams("dispositivo"));
             String methodName = request.queryParams("accion");
             char criterio = request.queryParams("criterio").charAt(0);
@@ -82,6 +89,7 @@ public class AltaReglasController extends MainController {
             actuador = d.getActuador();
 
             Magnitud magnitud = sensor.getMagnitud();
+
             Long magnituddelsensor = magnitud.getValor();
 
             Condicion condicion = new Condicion(criterio, magnituddelsensor, valorCondicion);

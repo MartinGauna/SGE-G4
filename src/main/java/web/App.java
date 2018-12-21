@@ -17,7 +17,6 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import static spark.Spark.staticFileLocation;
 
 //import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -37,7 +36,7 @@ public class App
 
         //LoadData.Load();
 
-        Spark.port(9000);
+        Spark.port(getHerokuAssignedPort());
         staticFileLocation("/webResources");
         DebugScreen.enableDebugScreen();
 
@@ -49,7 +48,16 @@ public class App
 
     }
 
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+    }
+
     private static void startControllers(){
+        SimplexController.init();
         HogarController.init();
         LoginController.init();
         LogoutController.init();
@@ -61,7 +69,8 @@ public class App
         UploadController.init();
         //EstadoDispositivoController.init();
         AltaReglasController.init();
-        ReglaController.init();
+
+       // ReglaController.init();
         GenerarReporteController.init();
         SeleccionDispositivoController.init();
         SeleccionReglaController.init();
@@ -72,7 +81,7 @@ public class App
             response.redirect("/estadoHogar");
             return "";
         });
-        Spark.notFound("<html><body><h1>Custom 404 handling</h1></body></html>");
+      //  Spark.notFound("<html><body><h1>Custom 404 handling</h1></body></html>");
 //        Spark.get("*", (req, res) -> {
 //            if(!req.pathInfo().startsWith("/")){
 //                res.status(404);

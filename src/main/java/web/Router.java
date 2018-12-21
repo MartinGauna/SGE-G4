@@ -5,7 +5,8 @@ package web;
  */
 public class Router {
 
-    private static final String LOGIN = "/login";
+    //private static final String LOGIN = "/login";
+    private static final String LOGIN = "/";
     private static final String HOME = "/estadoHogar";
     private static final String LOGOUT = "/logout";
     private static final String ADMIN_HOGARES = "/hogares";
@@ -27,6 +28,7 @@ public class Router {
     private static final String MODIFICAR_DISPOSITIVO = "seleccionDispositivo";
     private static final String BAJA_REGLA = "/seleccionReglas/:id";
     private static final String MODIFICAR_REGLA = "/seleccionReglas";
+    private static final String SIMPLEX = "/simplex";
 
     public static String loginPath(){
         return LOGIN;
@@ -65,6 +67,8 @@ public class Router {
     public static String generarReporteClientesPath(){ return GENERAR_REPORTE_CLIENTES; }
 
     public static String generarReporteTransformadorPath(){ return GENERAR_REPORTE_TRANSFORMADOR; }
+
+    public static String simplexPath(){ return SIMPLEX; }
 
     public static String bajaModificacionDispositivoPath(){ return BAJA_MODIFICACION_DISPOSITIVO; }
 

@@ -48,7 +48,7 @@ public class Regla implements Observer{
     }
     public void addCondicion(Condicion condicion)
     {
-            this.condiciones.add(condicion);
+        this.condiciones.add(condicion);
     }
     public Regla() {
     }
@@ -115,14 +115,14 @@ public class Regla implements Observer{
         if(result)
         {
             try {
-            //Obtener el metodo con el nombre pasado para el actuador
-            actuador.getClass().getDeclaredMethod(methodname, DispositivoInteligente.class).invoke(actuador, d);
+                //Obtener el metodo con el nombre pasado para el actuador
+                actuador.getClass().getDeclaredMethod(methodname, DispositivoInteligente.class).invoke(actuador, d);
             } catch (IllegalAccessException e) {
-            e.printStackTrace();
+                e.printStackTrace();
             } catch (InvocationTargetException e) {
-            e.printStackTrace();
+                e.printStackTrace();
             } catch (NoSuchMethodException e) {
-            e.printStackTrace();
+                e.printStackTrace();
             }
         }
 

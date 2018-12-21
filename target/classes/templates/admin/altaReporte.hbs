@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Alta Reportes</title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="./styles/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="./styles/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Page level plugin CSS-->
+    <link href="./styles/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="./styles/css/sb-admin.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+<script>
+
+    function crearReporteCliente() {
+        let inicio = getfechaInicio1();
+        let fin = getfechaFin1();
+        validateDatefromInput(inicio, fin, "/generarReporteClientes");
+    }
+
+    function crearReporteTransformador() {
+        let inicio = getfechaInicio2();
+        let fin = getfechaFin2();
+        validateDatefromInput(inicio, fin, "/generarReporteTransformador");
+    }
+
+
+    function validateDatefromInput(inicio, fin, urlClientes) {
+
+        if (!isValidDate(inicio)) {
+            alert("el formato de fecha de inicio es incorrecto. Verificar");
+        } else if (!isValidDate(fin)) {
+            alert("el formato de fecha de fin es incorrecto. Verificar");
+        }
+        else {
+            $.ajax({
+                url: urlClientes,
+                type: "post",
+                success: function () {
+                    location.reload();
+                },
+                error: function (respondError) {
+                    if (respondError.status == 410 || respondError.status == 400) {
+                        showAlertError("No se pudo crear el reporte");
+                    } else {
+                        showAlertError("Ocurrio un error. Intenta nuevamente");
+                    }
+                }
+            });
+        }
+    };
+
+    function isValidDate(dateString) {
+        // First check for the pattern
+        if (!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(dateString))
+            return false;
+
+        // Parse the date parts to integers
+        let parts = dateString.split("/");
+        let day = parseInt(parts[0], 10);
+        let month = parseInt(parts[1], 10);
+        let year = parseInt(parts[2], 10);
+
+        // Check the ranges of month and year
+        if (year < 1000 || year > 3000 || month == 0 || month > 12)
+            return false;
+
+        var monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+        // Adjust for leap years
+        if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
+            monthLength[1] = 29;
+
+        // Check the range of the day
+        return day > 0 && day <= monthLength[month - 1];
+    };
+
+    function showAlertError(message){
+        var myDiv = document.getElementById('alertMessage');
+        myDiv.innerHTML = "<strong>Error: </strong> " + message;
+        showElement(getElement('alertMessage'));
+    }
+
+    function getfechaInicio1() {
+        let select = getElement('fechainicio1');
+        return select.value;
+    }
+
+    function getfechaFin1() {
+        let select = getElement('fechafin1');
+        return select.value;
+    }
+
+    function getfechaInicio2() {
+        let select = getElement('fechainicio2');
+        return select.value;
+    }
+
+    function getfechaFin2() {
+        let select = getElement('fechafin2');
+        return select.value;
+    }
+
+    function getElement(name) {
+        return document.getElementById(name);
+    }
+
+</script>
+
+
+{{>commons/header.hbs}}
+
+<div id="wrapper">
+
+    {{>admin/navBar.hbs}}
+
+    <div id="content-wrapper">
+
+        {{#if showAlert1}}
+            {{#if isSuccess1}}
+                <div class="alert alert-success mx-auto mt-5 card-login">
+                    {{message}}
+                </div>
+            {{else}}
+                <div class="alert alert-danger mx-auto mt-5 card-login">
+                    {{message}}
+                </div>
+            {{/if}}
+        {{/if}}
+
+
+        <div class="container-fluid">
+
+            <!-- DataTables Example -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Alta de reportes de clientes
+                </div>
+
+                <div class="card-body">
+
+                    <form class="form-group" action="/generarReporteClientes" method="POST">
+
+                        <div class="form-group col-md-8 " title="estado" id="sm">
+                            <select class="form-control" name="tipoReporte" required="required">
+                                <option value="" selected disabled>tipo de consumo:</option>
+                                <option value="1">Consumo Hogar</option>
+                                <option value="2">Consumo Dispositivos Inteligentes</option>
+                                <option value="3">Consumo Dispositivos Estandard</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-8 ">
+                            <select class="form-control" title="cliente" name="cliente" id="sm" required="required">
+                                <option value="" selected disabled>cliente:</option>
+                                {{#each clientes}}
+                                    <option value={{username}}>{{nombre}} {{apellido}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-8 ">
+                            <input type="text" class="form-control" id="fechainicio1" required="required"
+                                   placeholder="fecha de inicio (dd/mm/aaaa)" value="{{fechainicio}}"
+                                   name="fechainicio1"/>
+                        </div>
+
+                        <div class="form-group col-md-8 ">
+                            <input type="text" class="form-control" id="fechafin1" required="required"
+                                   placeholder="fecha de fin (dd/mm/aaaa)" value="{{fechafin}}" name="fechafin1"/>
+                        </div>
+
+
+                        <div class="form-group" align="right">
+                            <p>
+                                <button class="btn btn-lg btn-primary" onclick="crearReporteCliente()">Crear reporte
+                                </button>
+                                <!--<button class="btn btn-lg btn-danger"  onclick="deleteMethodology()">Cancelar</button>-->
+                            </p>
+
+                        </div>
+                    </form>
+                </div>
+                <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
+            </div>
+
+
+            <!--<p class="small text-center text-muted my-5">-->
+            <!--<em>More table examples coming soon...</em>-->
+            <!--</p>-->
+
+        </div>
+        <!-- /.container-fluid -->
+        <div class="container-fluid">
+
+            <!-- DataTables Example -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Alta de reportes de transformadores
+                </div>
+
+                <div class="card-body">
+
+                    <form class="form-group" action="/generarReporteTransformador" method="POST">
+
+                        <div class="form-group col-md-8 ">
+                            <select class="form-control" title="transformador" name="transformador" id="sm">
+                                <option value="" selected disabled>transformador:</option>
+                                {{#each transformadores}}
+                                    <option value={{id}}>transformador {{id}} - latitud {{latitud}}
+                                        longitud {{longitud}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-8 ">
+                            <input type="text" class="form-control" id="fechainicio2" required="required"
+                                   placeholder="fecha de inicio (dd/mm/aaaa)" value="{{fechainicio}}"
+                                   name="fechainicio2"/>
+                        </div>
+
+                        <div class="form-group col-md-8 ">
+                            <input type="text" class="form-control" id="fechafin2" required="required"
+                                   placeholder="fecha de fin (dd/mm/aaaa)" value="{{fechafin}}" name="fechafin2"/>
+                        </div>
+
+
+                        <div class="form-group" align="right">
+                            <p>
+                                <button class="btn btn-lg btn-primary" onclick="crearReporteTransformador()">Crear reporte</button>
+                                <!--<button class="btn btn-lg btn-danger"  onclick="deleteMethodology()">Cancelar</button>-->
+                            </p>
+
+                        </div>
+                    </form>
+                </div>
+                <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
+            </div>
+
+
+            <!--<p class="small text-center text-muted my-5">-->
+            <!--<em>More table examples coming soon...</em>-->
+            <!--</p>-->
+
+        </div>
+
+    </div>
+    <!-- /.content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+{{>commons/logoutModal.hbs}}
+
+{{>commons/scripts.hbs}}
+
+
+</body>
+
+</html>
