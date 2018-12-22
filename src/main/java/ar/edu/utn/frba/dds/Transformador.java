@@ -1,5 +1,6 @@
 package ar.edu.utn.frba.dds;
 
+import ar.edu.utn.frba.dds.dao.TransformadorDao;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.Zona;
 
@@ -78,6 +79,8 @@ public class Transformador {
 
     public int getConsumoTotal(Date fechaInicio, Date fechaFin) {
         int consumoTotal = 0;
+        TransformadorDao tdao = new TransformadorDao();
+        tdao.fillClientTrafo(this,this.clientes);
         for (Cliente cliente : clientes) {
             List<Dispositivo> dispositivos = cliente.getDispositivos();
             if(dispositivos != null) {
@@ -108,5 +111,9 @@ public class Transformador {
 
     public double getLongitud() {
         return longitud;
+    }
+
+    public void fetchClientes(){
+
     }
 }
