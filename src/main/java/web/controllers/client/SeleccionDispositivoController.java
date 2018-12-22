@@ -82,9 +82,20 @@ public class SeleccionDispositivoController extends MainController {
         Sensor sensor;
 
         System.out.println(request.body());
-        //datos del form:
-//        int dispID = Integer.parseInt();
-//        Dispositivo d = ddao.getDispositivo(dispID);
+        String[] parameters = request.body().split("&");
+
+        int dispId = Integer.parseInt((parameters[0].split("="))[1]);
+        String nombre = (parameters[1].split("="))[1];
+        String estado = (parameters[2].split("="))[1];
+        double consumoHora = Double.parseDouble((parameters[3].split("="))[1]);
+
+        Dispositivo d = ddao.getDispositivo(dispId);
+        d.setConsumoHora(consumoHora);
+        d.setNombre(nombre);
+        d.setEstado(estado);
+
+        BaseDao bdao = new BaseDao();
+        bdao.update(d);
 
         model.success("El dispositivo fue modificado exitosamente");
         return new ModelAndView( updateModel(), SELECCION_DISPOSITIVO);

@@ -20,6 +20,24 @@ public class Dispositivo {
     private String nombre;
     @NotNull
     private double consumoHora;
+
+    public void setEstado(String estado) {
+        switch (estado) {
+            case "ahorro":
+                this.estado = Context.string_Ahorrro;
+                break;
+            case "apagado":
+                this.estado = Context.string_Apagado;
+                break;
+            case "activo":
+                this.estado = Context.string_Activo;
+                break;
+            default:
+                this.estado = Context.string_Activo;
+                break;
+        }
+    }
+
     @Enumerated(EnumType.STRING)
     @Column
     public Context estado;
