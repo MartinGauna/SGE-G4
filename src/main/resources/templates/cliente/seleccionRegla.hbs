@@ -16,6 +16,7 @@
 
     <!-- Custom fonts for this template-->
     <link href="./styles/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="./styles/vendor/fontawesome-free/css/v4-shims.min.css" rel="stylesheet" type="text/css">
 
     <!-- Page level plugin CSS-->
     <link href="./styles/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
@@ -23,43 +24,13 @@
     <!-- Custom styles for this template-->
     <link href="./styles/css/sb-admin.css" rel="stylesheet">
 
+
+    <script src="./styles/vendor/jquery/jquery.min.js"></script>
+    <script src="./scripts/seleccionRegla.js"></script>
+
 </head>
 
 <body id="page-top">
-
-<script>
-    function deleteRegla() {
-        $.ajax({
-            url : "/seleccionReglas/" + getNameRegla(),
-            type: "delete",
-            success    : function(){
-                location.reload();
-            },
-            error: function (respondError) {
-                if(respondError.status == 410 || respondError.status == 400) {
-                    showAlertError("No se pudo eliminar la regla seleccionada");
-                }else{
-                    showAlertError("Ocurrio un error. Intenta nuevamente");
-                }
-            }
-        });
-    }
-
-    function getValue(element) {
-        return element.value;
-    }
-
-    function getNameRegla() {
-        let select = getElement('idRegla');
-
-        return select.options[ select.selectedIndex].value;
-    }
-
-    function getElement(name) {
-        return document.getElementById(name);
-    }
-
-</script>
 
 {{>commons/header.hbs}}
 
@@ -81,27 +52,28 @@
 
                 <div class="card-body">
 
-                    <form class="form-label-group" action="/seleccionReglas" method="POST">
-
-                        <div class="form-group col-md-8 ">
-                            Reglas disponibles
-                            <select class="form-control" title="regla" name="regla" id="idRegla">
-                                {{#each reglas}}
-                                    <option value={{id}} id={{id}}>{{dispositivo}} - {{accion}}</option>
-                                {{/each}}
-                            </select>
-                        </div>
-
-                        <div class="form-group" align="right">
-                            <p>
-                                <button class="btn btn-lg btn-danger" onclick="deleteRegla()">eliminar</button>
-                                <!--<button class="btn btn-lg btn-danger"  onclick="deleteMethodology()">Cancelar</button>-->
-                                <button class="btn btn-lg btn-primary" onclick="modificarRegla()">modificar</button>
-                                <!--<button class="btn btn-lg btn-danger"  onclick="deleteMethodology()">Cancelar</button>-->
-                            </p>
-
-                        </div>
-                    </form>
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th width="">Id</th>
+                            <th>Dispositivo</th>
+                            <th>Accion</th>
+                            <th width="5%">Modificar</th>
+                            <th width="5%">Borrar</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each reglas}}
+                            <tr>
+                                <td class="dispositivo"><input type="text" class="form-control"  value="{{id}}" name="id" disabled="true" /></td>
+                                <td class="dispositivo"><input type="text" class="form-control"  value="{{dispositivo}}" name="nombre" /></td>
+                                <td class="dispositivo"><input type="text" class="form-control"  value="{{accion}}" name="consumo" /></td>
+                                <td class="dispositivoModificar"><i class="fa fa-floppy-o" aria-hidden="true"></i></td>
+                                <td class="dispositivoDelete"><i class="fa fa-times"></i></td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
                 </div>
                 <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
             </div>
