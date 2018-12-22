@@ -95,15 +95,16 @@ public class SeleccionReglaController extends MainController {
         List<DispositivoInteligente> dispositivos = ddao.getAllDI(cliente);
 
         for (DispositivoInteligente d : dispositivos) {
-                Regla r = rdao.getReglaByActuadorID((d.getActuador().getId()));
-                if (r != null) {
-                    r.ejecutar(d);
-                    ReglaPullDown row = new ReglaPullDown();
-                    row.setId(r.getId());
-                    row.setAccion(r.getMethodName());
-                    row.setDispositivo(d.getNombre());
-                    model.getReglas().add(row);
-            }
+                    List<Regla> r = rdao.getAllReglas((d.getActuador().getId()));
+                    for(int i = 0; i < r.size(); i++){
+                        Regla regla = r.get(i);
+                        regla.ejecutar(d);
+                        ReglaPullDown row = new ReglaPullDown();
+                        row.setId(regla.getId());
+                        row.setAccion(regla.getMethodName());
+                        row.setDispositivo(d.getNombre());
+                        model.getReglas().add(row);
+                }
         }
     }
 }
