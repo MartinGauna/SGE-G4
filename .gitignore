@@ -135,3 +135,4 @@ local.properties
 target/
 
 *.iml
+persistence.xml
