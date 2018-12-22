@@ -1,16 +1,12 @@
 package web.controllers.client;
 
 import ar.edu.utn.frba.dds.Cliente;
-import ar.edu.utn.frba.dds.actuador.Actuador;
 import ar.edu.utn.frba.dds.dao.BaseDao;
 import ar.edu.utn.frba.dds.dao.ClientDao;
 import ar.edu.utn.frba.dds.dao.DispositivoDao;
 import ar.edu.utn.frba.dds.dao.ReglaDao;
-import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
-import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import ar.edu.utn.frba.dds.regla.Regla;
-import ar.edu.utn.frba.dds.sensor.Sensor;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -18,10 +14,8 @@ import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import web.Router;
 import web.controllers.MainController;
-import web.models.seleccionDispositivoModel;
 import web.models.seleccionReglaModel;
 import web.models.views.ReglaPullDown;
-import web.models.views.ReglaTable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +34,7 @@ public class SeleccionReglaController extends MainController {
     public static void init() {
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
         Spark.get(Router.bajaModificacionReglaPath(), SeleccionReglaController::load, engine);
-        Spark.post(Router.modificarReglaPath(), SeleccionReglaController::modificar, engine);
+        Spark.put(Router.modificarReglaPath(), SeleccionReglaController::modificar, engine);
         Spark.delete(Router.bajaReglaPath(), SeleccionReglaController::delete, engine);
         initModel();
     }
@@ -70,6 +64,7 @@ public class SeleccionReglaController extends MainController {
         toDelete.add(r);
         bdao.deleteList(toDelete);
 
+        model.success("La regla fue eliminada exitosamente");
         return new ModelAndView( updateModel(), SELECCION_REGLA);
     }
 
@@ -81,7 +76,10 @@ public class SeleccionReglaController extends MainController {
 
     public static ModelAndView modificar(Request request, Response response) {
         //todo
-        return new ModelAndView(model, SELECCION_REGLA);
+//        System.out.println(request.body());
+//
+        model.success("La regla fue modificado exitosamente");
+        return new ModelAndView( updateModel(), SELECCION_REGLA);
     }
 
     private static seleccionReglaModel updateModel(){
@@ -95,16 +93,16 @@ public class SeleccionReglaController extends MainController {
         List<DispositivoInteligente> dispositivos = ddao.getAllDI(cliente);
 
         for (DispositivoInteligente d : dispositivos) {
-                    List<Regla> r = rdao.getAllReglas((d.getActuador().getId()));
-                    for(int i = 0; i < r.size(); i++){
-                        Regla regla = r.get(i);
-                        regla.ejecutar(d);
-                        ReglaPullDown row = new ReglaPullDown();
-                        row.setId(regla.getId());
-                        row.setAccion(regla.getMethodName());
-                        row.setDispositivo(d.getNombre());
-                        model.getReglas().add(row);
-                }
+            List<Regla> r = rdao.getAllReglas((d.getActuador().getId()));
+            for(int i = 0; i < r.size(); i++){
+                Regla regla = r.get(i);
+                regla.ejecutar(d);
+                ReglaPullDown row = new ReglaPullDown();
+                row.setId(regla.getId());
+                row.setAccion(regla.getMethodName());
+                row.setDispositivo(d.getNombre());
+                model.getReglas().add(row);
+            }
         }
     }
 }
