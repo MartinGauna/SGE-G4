@@ -1,16 +1,12 @@
 package web.controllers.client;
 
 import ar.edu.utn.frba.dds.Cliente;
-import ar.edu.utn.frba.dds.Magnitud;
-import ar.edu.utn.frba.dds.actuador.*;
-import ar.edu.utn.frba.dds.dao.*;
+import ar.edu.utn.frba.dds.actuador.Actuador;
+import ar.edu.utn.frba.dds.dao.BaseDao;
+import ar.edu.utn.frba.dds.dao.ClientDao;
+import ar.edu.utn.frba.dds.dao.DispositivoDao;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
-import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
-import ar.edu.utn.frba.dds.dispositivo.Estandard;
-import ar.edu.utn.frba.dds.exception.IncompleteFormException;
-import ar.edu.utn.frba.dds.regla.Condicion;
-import ar.edu.utn.frba.dds.regla.Regla;
-import ar.edu.utn.frba.dds.sensor.*;
+import ar.edu.utn.frba.dds.sensor.Sensor;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -18,14 +14,10 @@ import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import web.Router;
 import web.controllers.MainController;
-import web.models.AlertModel;
-import web.models.AltaReglasModel;
 import web.models.seleccionDispositivoModel;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static java.lang.Long.parseLong;
 
 public class SeleccionDispositivoController extends MainController {
 
@@ -40,8 +32,9 @@ public class SeleccionDispositivoController extends MainController {
     public static void init() {
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
         Spark.get(Router.bajaModificacionDispositivoPath(), SeleccionDispositivoController::load, engine);
-        Spark.post(Router.modificarDispositivoPath(), SeleccionDispositivoController::modificar, engine);
+//        Spark.post(Router.modificarDispositivoPath(), SeleccionDispositivoController::modificar, engine);
         Spark.delete(Router.bajaDispositivoPath(), SeleccionDispositivoController::delete, engine);
+        Spark.put(Router.modificarDispositivoPath(), SeleccionDispositivoController::modificar, engine);
         initModel();
     }
 
@@ -85,7 +78,16 @@ public class SeleccionDispositivoController extends MainController {
 
     public static ModelAndView modificar(Request request, Response response) {
 
-        return new ModelAndView(model, SELECCION_DISPOSITIVO);
+        Actuador actuador;
+        Sensor sensor;
+
+        System.out.println(request.body());
+        //datos del form:
+//        int dispID = Integer.parseInt();
+//        Dispositivo d = ddao.getDispositivo(dispID);
+
+        model.success("El dispositivo fue modificado exitosamente");
+        return new ModelAndView( updateModel(), SELECCION_DISPOSITIVO);
     }
 
     private static seleccionDispositivoModel updateModel(){

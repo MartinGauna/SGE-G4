@@ -25,7 +25,7 @@ public class Router {
     private static final String BAJA_MODIFICACION_DISPOSITIVO = "/seleccionDispositivo";
     private static final String BAJA_MODIFICACION_REGLA = "/seleccionReglas";
     private static final String BAJA_DISPOSITIVO = "/seleccionDispositivo/:id";
-    private static final String MODIFICAR_DISPOSITIVO = "seleccionDispositivo";
+    private static final String MODIFICAR_DISPOSITIVO = "/seleccionDispositivo/";
     private static final String BAJA_REGLA = "/seleccionReglas/:id";
     private static final String MODIFICAR_REGLA = "/seleccionReglas";
     private static final String SIMPLEX = "/simplex";
