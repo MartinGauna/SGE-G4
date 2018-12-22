@@ -134,6 +134,7 @@ public class AltaDispositivoController extends MainController {
     }
 
     private static void updateModel() {
+        model.getClientes().clear();
         List<Cliente> cls = clientDao.list();
 
         for (Cliente c : cls) {
