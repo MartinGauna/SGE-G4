@@ -65,7 +65,7 @@
                                     infoWindow.setContent(name);
                                     infoWindow.open(map, marker);
                                 }
-                            })(marker, "Transformador: " + transformador.id + " consumo: " + transformador.consumo));
+                            })(marker, "Transformador: " + transformador.id + " Consumo: " + transformador.consumo + "&#13;&#10;" + "Latitud: "  + transformador.lat + " - Longitud: " + transformador.lng));
                         });
                     },
                     error: function (responseError) {
