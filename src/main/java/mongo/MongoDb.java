@@ -1,6 +1,7 @@
 package mongo;
 
 
+import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.Reporte;
 import ar.edu.utn.frba.dds.ReporteTransformador;
 import ar.edu.utn.frba.dds.dao.ReporteDao;
@@ -69,30 +70,34 @@ public class MongoDb {
         if (!collectionExists(collectionName)) {
             database.createCollection(collectionName);
         }
-        MongoCollection<Document> collection = database.getCollection(collectionName);
-        Document doc = new Document()
-        .append("fuente", "cliente")
-        .append("generadorId", reporte.clienteId)
-        .append("descripcion", reporte.reporte)
-        .append("fechaInicio", reporte.fechaInicio)
-        .append("fechaFin", reporte.fechaFin)
-        .append("type", reporte.type);
-        collection.insertOne(doc);
+        if(!checkIfReportAlreadyExist(reporte.fechaInicio,reporte.fechaFin,reporte.clienteId,reporte.type)) {
+            MongoCollection<Document> collection = database.getCollection(collectionName);
+            Document doc = new Document()
+                    .append("fuente", "cliente")
+                    .append("generadorId", reporte.clienteId)
+                    .append("descripcion", reporte.reporte)
+                    .append("fechaInicio", reporte.fechaInicio)
+                    .append("fechaFin", reporte.fechaFin)
+                    .append("type", reporte.type);
+            collection.insertOne(doc);
+        }
     }
 
     public void guardarReporteTrafo(ReporteTransformador reporte){
         if (!collectionExists(collectionName)) {
             database.createCollection(collectionName);
         }
-        MongoCollection<Document> collection = database.getCollection(collectionName);
-        Document doc = new Document()
-        .append("fuente", "transformador")
-        .append("generadorId", reporte.transformadorId)
-        .append("descripcion", reporte.reporte)
-        .append("fechaInicio", reporte.fechaInicio)
-        .append("fechaFin", reporte.fechaFin)
-        .append("type", 0);
-        collection.insertOne(doc);
+        if(!checkIfReportAlreadyExist(reporte.fechaInicio,reporte.fechaFin,reporte.transformadorId,0)) {
+            MongoCollection<Document> collection = database.getCollection(collectionName);
+            Document doc = new Document()
+                    .append("fuente", "transformador")
+                    .append("generadorId", reporte.transformadorId)
+                    .append("descripcion", reporte.reporte)
+                    .append("fechaInicio", reporte.fechaInicio)
+                    .append("fechaFin", reporte.fechaFin)
+                    .append("type", 0);
+            collection.insertOne(doc);
+        }
     }
 
     public List<Reporte> getReportesClientes(){
@@ -135,5 +140,27 @@ public class MongoDb {
             }
         }
         return listReport;
+    }
+
+    public boolean checkIfReportAlreadyExist(Date fechaIni, Date fechaF, int repoId,int type ){
+        MongoCollection<Document> col = database.getCollection(collectionName);
+        List<Reporte> listReport = new ArrayList<Reporte>();
+        try (MongoCursor<Document> cur = col.find().iterator()) {
+            while (cur.hasNext()) {
+                Document doc = cur.next();
+                List list = new ArrayList(doc.values());
+                if (list.get(1).equals("cliente")){
+                    Date fechaInicio = (Date) list.get(4);
+                    Date fechaFin = (Date) list.get(5);
+                    int id = (int)list.get(2);
+                    int tipo = (int) list.get(6);
+                    if(fechaF == fechaFin && fechaIni == fechaInicio && repoId == id && tipo == type)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }

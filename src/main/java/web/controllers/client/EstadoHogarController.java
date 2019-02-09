@@ -49,7 +49,7 @@ public class EstadoHogarController extends MainController {
         String userSession = request.session().attribute("user");
         Integer userID = Integer.parseInt(userSession.substring(0, userSession.indexOf("-")));
         currentClient = cdao.getCliente(userID);
-        fillReglasTable();
+        //fillReglasTable();
         fillMedicionesTable();
         fillDispositivosTable();
         fillReglasTable();

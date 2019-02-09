@@ -266,24 +266,12 @@ public class BaseDao implements Dao {
     }
 
     public void persistList(List<Object> ol) {
-        int cont = 5;
         try {
             begin();
             ol.forEach(o -> persist(o));
             commit();
         } catch (Exception ex) {
             rollback();
-            while (cont > 0){
-                try {
-                    begin();
-                    ol.forEach(o -> persist(o));
-                    commit();
-                    break;
-                } catch (Exception exe) {
-                    rollback();
-                }
-                cont = cont -1 ;
-            }
         }
         finally {
             close();
