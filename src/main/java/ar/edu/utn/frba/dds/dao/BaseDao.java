@@ -37,11 +37,17 @@ public class BaseDao implements Dao {
 
     @Override
     public <T> T getById(Class<T> clazz, Object id, boolean lock) {
-        if (lock) {
-            return getManager().find(clazz, id, LockModeType.PESSIMISTIC_WRITE);
-        } else {
-            return getManager().find(clazz, id);
-        }
+//TODO uno de los puntos donde salta el error de BD [issues/57]
+        //        try {
+            if (lock) {
+                return getManager().find(clazz, id, LockModeType.PESSIMISTIC_WRITE);
+            } else {
+                return getManager().find(clazz, id);
+            }
+//        } catch (EOFException e) {
+//
+//        }
+
     }
 
     @Override
