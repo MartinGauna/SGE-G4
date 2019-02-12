@@ -31,6 +31,7 @@ public class DispositivoDao extends BaseDao{
         return getById(Dispositivo.class,id);
     }
 
+
     public DispositivoInteligente getDI(int id) {
         return getById(DispositivoInteligente.class,id);
     }

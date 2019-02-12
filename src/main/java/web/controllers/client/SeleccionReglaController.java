@@ -76,8 +76,19 @@ public class SeleccionReglaController extends MainController {
 
     public static ModelAndView modificar(Request request, Response response) {
         //todo
-//        System.out.println(request.body());
-//
+        System.out.println(request.body());
+        String[] parameters = request.body().split("&");
+
+        int reglaID = Integer.parseInt((parameters[0].split("="))[1]);
+        String dispositivo = (parameters[1].split("="))[1];
+        String methodname = (parameters[2].split("="))[1];
+
+        Regla r = rdao.getReglaByID(reglaID);
+
+
+
+
+
         model.success("La regla fue modificado exitosamente");
         return new ModelAndView( updateModel(), SELECCION_REGLA);
     }

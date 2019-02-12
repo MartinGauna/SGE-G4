@@ -2,6 +2,20 @@ $(function() {
     console.log( "ready!" );
     $(".fa-floppy-o").click(enableEdit);
     $(".fa-times").click(deleteRegla);
+    $("select").each(function (index) {
+        // console.log( $(this)[0] );
+        const id = "#i-" + $(this)[0].id.substring($(this)[0].id.indexOf("-") + 1);
+        // console.log(id);
+        const value = $(id)[0].value;
+        // console.log(value);
+        if(value === "prenderDispositivo"){
+            $(this)[0][0].selected="selected";
+        } else if(value === "apagarDispositivo"){
+            $(this)[0][1].selected="selected";
+        } else if(value === "cambiarModoAAhorro") {
+            $(this)[0][2].selected="selected";
+        }
+    });
 });
 
 function enableEdit(event) {

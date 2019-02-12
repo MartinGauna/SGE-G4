@@ -23,15 +23,16 @@ public class Dispositivo {
 
     public void setEstado(String estado) {
         switch (estado) {
+            case "Ahorro":
             case "ahorro":
                 this.estado = Context.string_Ahorrro;
                 break;
+            case "Apagado":
             case "apagado":
                 this.estado = Context.string_Apagado;
                 break;
+            case "Activo":
             case "activo":
-                this.estado = Context.string_Activo;
-                break;
             default:
                 this.estado = Context.string_Activo;
                 break;

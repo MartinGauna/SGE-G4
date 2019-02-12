@@ -26,6 +26,7 @@
 
     <script src="./styles/vendor/jquery/jquery.min.js"></script>
     <script src="./scripts/seleccionDispositivo.js"></script>
+    <script src="./scripts/dispositivo.js"></script>
 
 </head>
 
@@ -72,16 +73,21 @@
                             </thead>
                             <tbody>
                             {{#each dispositivos}}
-                                <!--<form class="form-label-group" action="/seleccionDispositivo" method="POST">-->
                                     <tr>
                                         <td class="dispositivo"><input type="text" class="form-control"  value="{{id}}" name="id" disabled="true" /></td>
                                         <td class="dispositivo"><input type="text" class="form-control"  value="{{nombre}}" name="nombre" /></td>
-                                        <td class="dispositivo"><input type="text" class="form-control"  value="{{estado}}" name="consumo" /></td>
-                                        <td class="dispositivo"><input type="text" class="form-control" id="InputConsumoDispositivo"  value="{{consumoHora}}" name="consumoHora"/> </td>
+                                        <td class="dispositivo">
+                                            <input type="text" class="form-control" id="i-{{id}}" value="{{estado}}" name="consumo" style="display: none;" />
+                                            <select class="form-control" title="cliente" name="cliente" id="select-{{id}}" required="required">
+                                                    <option id="activo" value="Activo">Activo</option>
+                                                    <option id="apagado" value="Apagado">Apagado</option>
+                                                    <option id="ahorro" value="ahorro">ahorro</option>
+                                            </select>
+                                        </td>
+                                        <td class="dispositivo"><input type="number" class="form-control" id="InputConsumoDispositivo"  value="{{consumoHora}}" name="consumoHora"/> </td>
                                         <td class="dispositivoModificar"><i class="fa fa-floppy-o" aria-hidden="true"></i></td>
                                         <td class="dispositivoDelete"><i class="fa fa-times"></i></td>
                                     </tr>
-                                <!--</form>-->
                             {{/each}}
                             </tbody>
                         </table>
