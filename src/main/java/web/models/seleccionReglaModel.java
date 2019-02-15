@@ -1,9 +1,7 @@
 package web.models;
 
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
-import ar.edu.utn.frba.dds.regla.Regla;
 import web.models.views.ReglaPullDown;
-import web.models.views.ReglaTable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +10,7 @@ import java.util.List;
 public class seleccionReglaModel {
 
     private List<ReglaPullDown> reglas;
+    private List<Dispositivo> dispositivos;
     private Boolean isSuccess;
     private String message;
     private boolean showAlert;

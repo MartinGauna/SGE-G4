@@ -55,9 +55,10 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <th width="">Id</th>
-                            <th>Dispositivo</th>
+                            <th width="15%">Id</th>
+                            <th width="20%">Dispositivo</th>
                             <th>Accion</th>
+                            <th>Condición</th>
                             <th width="5%">Modificar</th>
                             <th width="5%">Borrar</th>
                         </tr>
@@ -69,7 +70,12 @@
                                     <input type="text" class="form-control"  value="{{id}}" name="id" disabled="true" />
                                 </td>
                                 <td class="dispositivo">
-                                    <input type="text" class="form-control"  value="{{dispositivo}}" name="nombre" />
+                                    <input type="text" class="form-control"  value="{{dispositivo}}" name="nombre" disabled="true"/>
+                                    <!--<select class="form-control" title="accion" name="accion" id="disp-{{id}}">-->
+                                        <!--{{#each dispositivos}}-->
+                                            <!--<option  value="{{id}}">{{id}} - {{nombre}}</option>-->
+                                        <!--{{/each}}-->
+                                    <!--</select>-->
                                 </td>
                                 <td class="dispositivo">
                                     <input type="text" class="form-control"  id="i-{{id}}" value="{{accion}}" name="consumo" style="display: none;"/>
@@ -78,6 +84,21 @@
                                         <option value="apagarDispositivo">Apagar</option>
                                         <option value="cambiarModoAAhorro">Modo Ahorro</option>
                                     </select>
+                                </td>
+                                <td>
+                                    <select class="form-control" title="sensor" name="sensor" id="sensor{{id}}">
+                                        <option value="SensorHumedad">Humedad</option>
+                                        <option value="SensorLuz">Luz</option>
+                                        <option value="SensorMovimiento">Movimiento</option>
+                                        <option value="SensorTemperatura">Temperatura</option>
+                                    </select>
+                                    <select class="form-control" title="accion" name="accion" id="cond{{id}}">
+                                        <option value=">">></option>
+                                        <option value="=">=</option>
+                                        <option value="<"><</option>
+                                    </select>
+                                    <input type="text" class="form-control" id="valorCondicion" placeholder="Valor a comparar" value="{{consumoHora}}" name="valor{{id}}"/>
+
                                 </td>
                                 <td class="dispositivoModificar"><i class="fa fa-floppy-o" aria-hidden="true"></i></td>
                                 <td class="dispositivoDelete"><i class="fa fa-times"></i></td>
