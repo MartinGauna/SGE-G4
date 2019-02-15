@@ -103,7 +103,7 @@ public class Cliente extends Usuario {
 
     public void ahorroAutomatico() {
          if (getSimplex() == 1) {
-             DispositivoDao ddao = new DispositivoDao();
+            DispositivoDao ddao = new DispositivoDao();
             List<Dispositivo> dispositivosParaApagar = adapterSimplex.getDispositivosParaApagar(ddao.getAllDispositivos(this));
             if (dispositivosParaApagar != null) {
                 for (Dispositivo disp : dispositivosParaApagar) {
