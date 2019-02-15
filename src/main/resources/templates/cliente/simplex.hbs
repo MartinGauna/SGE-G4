@@ -22,6 +22,7 @@
 
     <!-- Custom styles for this template-->
     <link href="./styles/css/sb-admin.css" rel="stylesheet">
+    <link href="./styles/css/toogle.css" rel="stylesheet">
 
 </head>
 
@@ -53,11 +54,13 @@
 
                             </span>
                         </div>
+                    </div>
                         <br>
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                             <tr>
                                 <th width="60%">Dispositivo</th>
+                                <th>Consumo real</th>
                                 <th>Consumo optimo</th>
                             </tr>
                             </thead>
@@ -65,6 +68,7 @@
                             {{#each table}}
                                 <tr>
                                     <td>{{dispositivo}}</td>
+                                    <td>{{consumoReal}}kW</td>
                                     <td>{{index}}kW</td>
                                 </tr>
                             {{/each}}
@@ -76,7 +80,7 @@
                 </div></br>
                     {{#if eficiente}}<span style="font-family:arial;font-size:14;color:#1f871d;">Su hogar es eficiente. Felicitaciones! Su consumo durante el último periodo es de {{ultimoConsumo}}kW siendo el consumo eficiente esperado de 612kW.</span>
                     {{else}}<span style="font-family:arial;font-size:14;color:#af1f1f;">Su hogar no es eficiente. Su consumo durante el último periodo es de {{ultimoConsumo}}kW siendo el consumo eficiente esperado de 612kW.</span>{{/if}}
-                </div>
+
                 {{#if showAlert}}
                     <div class="alert alert-danger mx-auto mt-5 card-login" style="-webkit-animation: bounce 800ms ease-out;
                                                                        -moz-animation: bounce 800ms ease-out;
@@ -85,8 +89,19 @@
                         <strong>Upss!!</strong> {{message}}.
                     </div>
                 {{/if}}
-                <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
-            </div>
+
+                <br>
+                <br>
+                <div>
+                    <form class="form-signin" action="/simplex" method="POST">
+                        <span style="font-family:arial;font-size:14">{{simplexAuto}}</span>
+                        <br>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">{{simplexAutoCTA}}</button>
+                    </form>
+                </div>
+        </div>
+
+    </div>
 
             <!--<p class="small text-center text-muted my-5">-->
             <!--<em>More table examples coming soon...</em>-->

@@ -68,7 +68,7 @@ public class DispositivoPersistenceTest {
         // creo un nuevo cliente
         Cliente cliente = new Cliente("CliName", "CliApell", "CliDom", "CliUser",
                 "CliPass", LocalDate.of(2018, 04, 28), "DNI",
-                87654321, 45555533, null, LocalDate.now(), true);
+                87654321, 45555533, null, LocalDate.now(), true,0);
 
         //creacion de dispositivo
         DispositivoInteligenteHeladera dispInt = new DispositivoInteligenteHeladera("Heladera", 123, "activo", false);

@@ -12,6 +12,8 @@ public class SimplexModel {
     private List<SimplexTable> table;
     private int ultimoConsumo;
     private boolean eficiente;
+    private String simplexAuto;
+    private String simplexAutoCTA;
     /*=== GETTERS AND SETTERS ===*/
 
 
@@ -45,5 +47,20 @@ public class SimplexModel {
 
     public boolean getEficiente() {
         return eficiente;
+    }
+    public void setSimplexAuto(String simplexAuto) {
+        this.simplexAuto = simplexAuto;
+    }
+
+    public String getSimplexAuto() {
+        return simplexAuto;
+    }
+
+    public void setSimplexAutoCTA(String simplexAutoCTA) {
+        this.simplexAutoCTA = simplexAutoCTA;
+    }
+
+    public String getSimplexAutoCTA() {
+        return simplexAutoCTA;
     }
 }

@@ -34,7 +34,7 @@ public class ClienteTest {
     public void setUp() throws Exception {
         this.client = new Cliente("CliName", "CliApell", "CliDom", "CliUser",
                 "CliPass", LocalDate.of(2018,04, 28),"DNI",
-                12345678, 45555533, null , LocalDate.now(),true);
+                12345678, 45555533, null , LocalDate.now(),true,0);
         /**
          - x0 -> Es un televisor LCD de 40” cuyo consumo kWh es 0.18
          - x1 -> Es un lavarropas Automático de 5 kg con calentamiento de agua cuyo consumo kwH es 0.875

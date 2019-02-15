@@ -21,7 +21,7 @@ private Zona sanTelmo;
         Date f = new Date(2018,12,12);
         //CASO 1
         Categoria cat1 = new Categoria("1");
-        Cliente client1 = new Cliente("Matias","Vivone", "Cossio 6005","matiasv@wings4u.com","123",LocalDate.now(),"DNI",36728917,112305,cat1, LocalDate.now(),true);
+        Cliente client1 = new Cliente("Matias","Vivone", "Cossio 6005","matiasv@wings4u.com","123",LocalDate.now(),"DNI",36728917,112305,cat1, LocalDate.now(),true,0);
         List<Cliente> clientes1 = new ArrayList<Cliente>();
         DispositivoInteligenteTV tv1 = new DispositivoInteligenteTV24("HD","activo");
         tv1.addConsumo(123, f,f);
@@ -36,7 +36,7 @@ private Zona sanTelmo;
 
         //CASO 2
         Categoria cat2 = new Categoria("1");
-        Cliente client2 = new Cliente("Nicolas","Mena", "Cossio 6005","matiasvivone@hotmail.com","123",LocalDate.now(),"DNI",36728917,112305,cat2, LocalDate.now(),false);
+        Cliente client2 = new Cliente("Nicolas","Mena", "Cossio 6005","matiasvivone@hotmail.com","123",LocalDate.now(),"DNI",36728917,112305,cat2, LocalDate.now(),false,0);
 
         List<Cliente> clientes2 = new ArrayList<Cliente>();
 

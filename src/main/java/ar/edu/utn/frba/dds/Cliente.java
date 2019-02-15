@@ -1,10 +1,12 @@
 package ar.edu.utn.frba.dds;
 
+import ar.edu.utn.frba.dds.dao.DispositivoDao;
 import ar.edu.utn.frba.dds.dispositivo.Adaptador;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import ar.edu.utn.frba.dds.helpers.AdapterSimplex;
+import javassist.expr.Instanceof;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -30,6 +32,8 @@ public class Cliente extends Usuario {
     private int telefono;
 
     private int puntaje;
+
+    private int simplex;
 
     private boolean ahorroAutomatico;
 
@@ -61,7 +65,7 @@ public class Cliente extends Usuario {
 //    }
 
     public Cliente(String nombre, String apellido, String domicilio, String user, String password, LocalDate fechaAlta,
-                   String tipoDoc, int numeroDoc, int telefono, Categoria categoria, LocalDate fechaAltaServicio, boolean ahorroAutomatico) {
+                   String tipoDoc, int numeroDoc, int telefono, Categoria categoria, LocalDate fechaAltaServicio, boolean ahorroAutomatico,int simplex) {
         super(nombre, apellido, domicilio, user, password, fechaAlta);
         this.tipoDoc = tipoDoc;
         this.numeroDoc = numeroDoc;
@@ -71,6 +75,7 @@ public class Cliente extends Usuario {
         this.dispositivos = new ArrayList<Dispositivo>();
         this.puntaje = 0;
         this.ahorroAutomatico = ahorroAutomatico;
+        this.simplex = simplex;
     }
 
     public Cliente() {
@@ -97,16 +102,16 @@ public class Cliente extends Usuario {
     }
 
     public void ahorroAutomatico() {
-       //TO BE REVIEWED
-        /** if (ahorroAutomatico) {
-            List<DispositivoInteligente> dispositivosParaApagar = adapterSimplex.getDispositivosParaApagar(this.getDispositivosInteligentes());
+         if (getSimplex() == 1) {
+             DispositivoDao ddao = new DispositivoDao();
+            List<Dispositivo> dispositivosParaApagar = adapterSimplex.getDispositivosParaApagar(ddao.getAllDispositivos(this));
             if (dispositivosParaApagar != null) {
-                for (DispositivoInteligente disp : dispositivosParaApagar) {
-                    disp.apagar();
+                for (Dispositivo disp : dispositivosParaApagar) {
+                    disp.setEstado("Apagado");
+                    ddao.save(disp);
                 }
             }
-            ;
-        }**/
+        }
     }
 
     // Numero de Documento
@@ -178,6 +183,15 @@ public class Cliente extends Usuario {
 
     public void setPuntaje(int puntaje) {
         this.puntaje = puntaje;
+    }
+
+    //simplex
+    public int getSimplex() {
+        return simplex;
+    }
+
+    public void setSimplex(int simplex) {
+        this.simplex = simplex;
     }
 
 

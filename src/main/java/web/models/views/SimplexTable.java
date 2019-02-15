@@ -4,6 +4,7 @@ public class SimplexTable {
 
     private String dispositivo;
     private int index;
+    private int consumoReal;
 
     public SimplexTable(String dispositivo, int index) {
         this.dispositivo = dispositivo;
@@ -21,12 +22,20 @@ public class SimplexTable {
         return index;
     }
 
+    public int getConsumoReal() {
+        return consumoReal;
+    }
+
     public void setDispositivo(String dispositivo) {
         this.dispositivo = dispositivo;
     }
 
     public void setIndex(int index) {
         this.index = index;
+    }
+
+    public void setConsumoReal(int consumoReal) {
+        this.consumoReal = consumoReal;
     }
 
 }
