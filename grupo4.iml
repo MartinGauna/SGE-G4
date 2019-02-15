@@ -77,5 +77,6 @@
     <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver:3.4.3" level="project" />
     <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver-core:3.4.3" level="project" />
     <orderEntry type="library" name="Maven: org.mongodb:bson:3.4.3" level="project" />
+    <orderEntry type="library" name="Maven: com.zaxxer:HikariCP:3.3.1" level="project" />
   </component>
 </module>
