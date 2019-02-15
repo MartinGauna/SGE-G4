@@ -31,7 +31,7 @@ public class ClientPersistenceTest {
         // creo un nuevo cliente
         Cliente cliente = new Cliente("CliName", "CliApell", "CliDom", "CliUser",
                 "CliPass", LocalDate.of(2018,04, 28),"DNI",
-                12345678, 45555533, null , LocalDate.now(),true);
+                12345678, 45555533, null , LocalDate.now(),true,0);
 
         // no esta persistido
         assertEquals(cliente.getId(), 0);
@@ -58,7 +58,7 @@ public class ClientPersistenceTest {
         // creo un nuevo cliente
         Cliente cliente = new Cliente("CliName", "CliApell", "CliDom", "CliUser",
                 "CliPass", LocalDate.of(2018,04, 28),"DNI",
-                87654321, 45555533, null , LocalDate.now(),true);
+                87654321, 45555533, null , LocalDate.now(),true,0);
 
         Zona almagro = new Zona("Almagro", -34.618680, -58.415423, 300);
         Zona sanTelmo = new Zona("San Telmo",-34.6210356,-58.373654,300);

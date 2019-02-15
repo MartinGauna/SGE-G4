@@ -33,7 +33,7 @@ public class BackgroundProcessesTest {
         Date f = new Date(2018,12,12);
 
         Categoria cat1 = new Categoria("1");
-        client1 = new Cliente("Matias","Vivone", "Cossio 6005","matiasv@wings4u.com","123",LocalDate.now(),"DNI",36728917,112305,cat1, LocalDate.now(),true);
+        client1 = new Cliente("Matias","Vivone", "Cossio 6005","matiasv@wings4u.com","123",LocalDate.now(),"DNI",36728917,112305,cat1, LocalDate.now(),true,0);
         fm = new DIFactory();
         fm2 = new DIFactory();
         fm3 = new DIFactory();
@@ -60,7 +60,7 @@ public class BackgroundProcessesTest {
 
     @Test
     public void automatizacionAhorroAutomatico() throws InterruptedException {
-     bkg.automatizacionAhorroAutomatico(client1,1000*5);
+     //bkg.automatizacionAhorroAutomatico(client1,1000*5);
      Thread.sleep(20000);
     }
 
