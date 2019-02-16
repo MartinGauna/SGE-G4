@@ -4,25 +4,27 @@ import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.dao.ClientDao;
 import org.omg.CORBA.Request;
 
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import static web.helper.SessionHelper.setSession;
 
 public class BackgroundProcesses {
 
-    Cliente currentClient = new Cliente();
+    List<Cliente> allClients;
     ClientDao cdao = new ClientDao();
 
-    public void automatizacionAhorroAutomatico(spark.Request request, long miliseconds) {
-    String userSession = request.session().attribute("user");
-    Integer userID = Integer.parseInt(userSession.substring(0, userSession.indexOf("-")));
+    public void automatizacionAhorroAutomatico(long miliseconds) {
 
     TimerTask task = new TimerTask() {
         @Override
         public void run() {
-            currentClient = cdao.getCliente(userID);
+            allClients = cdao.list();
+            for(int i = 0;i < allClients.size();i++)
+            {
+                allClients.get(i).ahorroAutomatico();
+            }
 
-            currentClient.ahorroAutomatico();
         }
     };
 
