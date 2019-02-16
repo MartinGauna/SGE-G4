@@ -33,7 +33,7 @@ public class App
 //        engine = new HandlebarsTemplateEngine ();
 
         BackgroundProcesses bkg = new BackgroundProcesses();
-        bkg.automatizacionAhorroAutomatico(120000);
+        bkg.automatizacionAhorroAutomatico(60000);
 
         //LoadData.Load();
 
