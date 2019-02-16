@@ -2,6 +2,7 @@ package ar.edu.utn.frba.dds.helpers;
 
 import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.dao.ClientDao;
+//import com.sun.security.ntlm.Client;
 import org.omg.CORBA.Request;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import static web.helper.SessionHelper.setSession;
 
 public class BackgroundProcesses {
 
-    List<Cliente> allClients;
+    List<Cliente>  allClients;
     ClientDao cdao = new ClientDao();
 
     public void automatizacionAhorroAutomatico(long miliseconds) {

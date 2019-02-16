@@ -32,7 +32,8 @@ public class App
     public static void main( String[] args ) throws ParseException {
 //        engine = new HandlebarsTemplateEngine ();
 
-        BackgroundProcesses bkgP = new BackgroundProcesses();
+        BackgroundProcesses bkg = new BackgroundProcesses();
+        bkg.automatizacionAhorroAutomatico(120000);
 
         //LoadData.Load();
 
@@ -74,9 +75,6 @@ public class App
         GenerarReporteController.init();
         SeleccionDispositivoController.init();
         SeleccionReglaController.init();
-
-        BackgroundProcesses bkg = new BackgroundProcesses();
-        bkg.automatizacionAhorroAutomatico(1000*90); //1000*30 aprox 20 seg
 
     }
 

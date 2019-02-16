@@ -57,7 +57,7 @@
             -->
             <property name="hibernate.connection.provider_class" value="com.zaxxer.hikari.hibernate.HikariConnectionProvider" />
             <property name="hibernate.hikari.minimumIdle" value="5" />
-            <property name="hibernate.hikari.maximumPoolSize" value="10" />
+            <property name="hibernate.hikari.maximumPoolSize" value="20" />
             <property name="hibernate.hikari.idleTimeout" value="0" />
             <property name="hibernate.hikari.dataSourceClassName" value="com.mysql.cj.jdbc.MysqlDataSource" />
             <property name="hibernate.hikari.dataSource.url" value="jdbc:mysql://b11e53903fcdbf:2d627525@us-cdbr-iron-east-01.cleardb.net/heroku_3225f8d1e147e98?reconnect=true&amp;useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;autoReconnect=true" />
@@ -67,12 +67,12 @@
             <property name="dataSource.prepStmtCacheSize" value="250" />
             <property name="dataSource.prepStmtCacheSqlLimit" value="2048" />
             <property name="dataSource.cacheResultSetMetadata" value="true" />
-            <property name="dataSource.cacheServerConfiguration" value="true" />-->
+            <property name="dataSource.cacheServerConfiguration" value="true" />
             <property name="dataSource.useServerPrepStmts" value="true" />
             <property name="dataSource.useLocalSessionState" value="true" />
             <property name="dataSource.rewriteBatchedStatements" value="true" />
             <property name="dataSource.elideSetAutoCommits" value="true" />
-            <property name="dataSource.maintainTimeStats" value="false" />
+            <property name="dataSource.maintainTimeStats" value="false" />-->
 
         </properties>
 
