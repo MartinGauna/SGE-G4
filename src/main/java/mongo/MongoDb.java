@@ -14,10 +14,7 @@ import org.bson.Document;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 
 public class MongoDb {
@@ -80,6 +77,8 @@ public class MongoDb {
                     .append("fechaFin", reporte.fechaFin)
                     .append("type", reporte.type);
             collection.insertOne(doc);
+        } else {
+            throw new EmptyStackException();
         }
     }
 
@@ -97,6 +96,8 @@ public class MongoDb {
                     .append("fechaFin", reporte.fechaFin)
                     .append("type", 0);
             collection.insertOne(doc);
+        } else {
+            throw new EmptyStackException();
         }
     }
 
@@ -154,7 +155,16 @@ public class MongoDb {
                     Date fechaFin = (Date) list.get(5);
                     int id = (int)list.get(2);
                     int tipo = (int) list.get(6);
-                    if(fechaF == fechaFin && fechaIni == fechaInicio && repoId == id && tipo == type)
+                    if(fechaF.compareTo(fechaFin) == 0 && fechaIni.compareTo(fechaInicio) == 0 && repoId == id && tipo == type)
+                    {
+                        return true;
+                    }
+                } else {
+                    Date fechaInicio = (Date) list.get(4);
+                    Date fechaFin = (Date) list.get(5);
+                    int id = (int)list.get(2);
+                    int tipo = (int) list.get(6);
+                    if(fechaF.compareTo(fechaFin) == 0 && fechaIni.compareTo(fechaInicio) == 0 && repoId == id && tipo == type)
                     {
                         return true;
                     }
