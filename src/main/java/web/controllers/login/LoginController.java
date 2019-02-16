@@ -52,7 +52,6 @@ public class LoginController extends MainController {
             alert.setHideAlert();
             setSession(request,u);
             if (dao.isClient(u) != null){
-                backgroundProcessInit(request);
                 response.redirect(Router.homePath());
             }
             else{
@@ -64,14 +63,5 @@ public class LoginController extends MainController {
         return new ModelAndView(alert,LOGIN);
     }
 
-    public static void backgroundProcessInit(Request request){
-        BackgroundProcesses bkg = new BackgroundProcesses();
-
-        String userSession = request.session().attribute("user");
-        Integer userID = Integer.parseInt(userSession.substring(0, userSession.indexOf("-")));
-        currentClient = cdao.getCliente(userID);
-
-        bkg.automatizacionAhorroAutomatico(request,1000*90); //1000*30 aprox 20 seg
-    }
 
 }
