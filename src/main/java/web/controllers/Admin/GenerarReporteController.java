@@ -20,6 +20,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.EmptyStackException;
 import java.util.List;
 
 public class GenerarReporteController extends MainController {
@@ -57,6 +58,8 @@ public class GenerarReporteController extends MainController {
             response.status(410);
             response.body(ex.getMessage());
             model.failed(ex.getMessage());
+        } catch (EmptyStackException ex) {
+            model.failed("Error: Se intento crear un reporte que ya existe");
         } catch (Exception ex) {
             response.status(400);
             response.body("Ocurrio un error. Intenta nuevamente");
@@ -114,6 +117,8 @@ public class GenerarReporteController extends MainController {
             response.status(410);
             response.body(ex.getMessage());
             model.failed(ex.getMessage());
+        } catch (EmptyStackException ex) {
+            model.failed("Error: Se intento crear un reporte que ya existe");
         } catch (Exception ex) {
             response.status(400);
             response.body("Ocurrio un error. Intenta nuevamente");
