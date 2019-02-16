@@ -50,7 +50,7 @@ function deleteRegla(event) {
     console.log(event);
     let entry = {};
     let rows = event.target.parentElement.parentElement.children;
-    entry.id = rows[0].firstChild.value;
+    entry.id = rows[0].childNodes[1].value;
 
     $.ajax({
         url : "/seleccionReglas/" + entry.id,
