@@ -4,6 +4,7 @@ import ar.edu.utn.frba.dds.exception.DuplicateValueException;
 import ar.edu.utn.frba.dds.factory.EntityFactory;
 import ar.edu.utn.frba.dds.models.QueryModel;
 import org.apache.lucene.queryparser.classic.QueryParser;
+import org.hibernate.Session;
 import org.hibernate.exception.ConstraintViolationException;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.jpa.Search;
@@ -106,6 +107,13 @@ public class BaseDao implements Dao {
     @SuppressWarnings("unchecked")
     protected <T> List<T> findByQuery(QueryModel details) {
         Query q = null;
+        getManager().clear();
+        //mavivo
+        details.setCacheable(false);
+        getManager().getEntityManagerFactory().getCache().evictAll();
+        manager.setProperty("javax.persistence.cache.retrieveMode",CacheRetrieveMode.BYPASS);
+        manager.setProperty("javax.persistence.cache.storeMode",   CacheStoreMode.BYPASS);
+
         if (details.getQueryName() != null) {
             q = getManager().createNamedQuery(details.getQueryName());
         } else if (details.getQuery() != null) {
@@ -123,6 +131,11 @@ public class BaseDao implements Dao {
         if (details.getCount() > -1) {
             q.setMaxResults(details.getCount());
         }
+
+        //mavivo
+        q.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS); // skip the L2 cache
+        getManager().getEntityManagerFactory().getCache().evictAll();
+
         return q.getResultList();
     }
 
