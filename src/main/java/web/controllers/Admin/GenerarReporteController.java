@@ -2,7 +2,6 @@ package web.controllers.Admin;
 
 import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.GeneradorReportes;
-import ar.edu.utn.frba.dds.Reporte;
 import ar.edu.utn.frba.dds.Transformador;
 import ar.edu.utn.frba.dds.dao.ClientDao;
 import ar.edu.utn.frba.dds.dao.TransformadorDao;
@@ -16,7 +15,6 @@ import web.Router;
 import web.controllers.MainController;
 import web.models.AltaReporteModel;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,7 +25,7 @@ public class GenerarReporteController extends MainController {
     private static AltaReporteModel model;
     private static ClientDao clientDao = new ClientDao();
     private static TransformadorDao tdao = new TransformadorDao();
-    private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     public static void init() {
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
