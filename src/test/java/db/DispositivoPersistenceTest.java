@@ -2,9 +2,6 @@ package db;
 
 import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.Consumo;
-import ar.edu.utn.frba.dds.Transformador;
-import ar.edu.utn.frba.dds.Zona;
-import ar.edu.utn.frba.dds.actuador.ActuadorHeladera;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteHeladera;
 import org.junit.Before;
@@ -25,7 +22,7 @@ import static org.junit.Assert.assertNotNull;
 
 public class DispositivoPersistenceTest {
 
-
+/*
     private EntityManager entityManager;
 
     @Before
@@ -130,6 +127,6 @@ public class DispositivoPersistenceTest {
         //verifico el cambio de nombre
         assertNotEquals(dispPersistido.getNombre(),nombrePrevio);
         assertEquals(dispPersistido.getNombre(),nombreNuevo);
-    }
+    }*/
 }
 

@@ -1,9 +1,7 @@
 package web;
 
 import ar.edu.utn.frba.dds.*;
-import ar.edu.utn.frba.dds.actuador.ActuadorAAcondicionado;
-import ar.edu.utn.frba.dds.actuador.ActuadorHeladera;
-import ar.edu.utn.frba.dds.actuador.ActuadorTV;
+import ar.edu.utn.frba.dds.actuador.Actuador;
 import ar.edu.utn.frba.dds.dao.*;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteAAcondicionado;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteHeladera;
@@ -132,7 +130,6 @@ public class LoadData {
         Cliente c1 = clientes.get(0);
         c1.addDispositivo(dispositivo);
 
-        ActuadorHeladera actuador = new ActuadorHeladera(dispositivo);
         //dispositivo.setActuador(actuador);
 
         //consumos del dispositivo
@@ -153,7 +150,6 @@ public class LoadData {
         }
 
         List<Object> listToPersist = new ArrayList<>();
-        listToPersist.add(actuador);
         listToPersist.add(dispositivo);
         listToPersist.add(cons1);
         listToPersist.add(cons2);
@@ -168,7 +164,6 @@ public class LoadData {
         Cliente c2 = clientes.get(3);
         c2.addDispositivo(tv);
 
-        ActuadorTV a2 = new ActuadorTV(tv);
         //dispositivo.setActuador(actuador);
 
         //consumos del dispositivo
@@ -183,8 +178,7 @@ public class LoadData {
                 toPersist.add(s.getMagnitud());
             }
         }
-            List<Object> list2 = new ArrayList<>();
-        list2.add(a2);
+        List<Object> list2 = new ArrayList<>();
         list2.add(tv);
         list2.add(cons3);
         list2.add(cons4);
@@ -200,9 +194,6 @@ public class LoadData {
         Cliente c3 = clientes.get(2);
         c3.addDispositivo(aire);
 
-        ActuadorAAcondicionado a3 = new ActuadorAAcondicionado(aire);
-        //dispositivo.setActuador(actuador);
-
         //consumos del dispositivo
         Consumo cons5 = new Consumo(aire, 1200, d, e);
         Consumo cons6 = new Consumo(aire, 2100, f, g);
@@ -216,7 +207,6 @@ public class LoadData {
         }
 
         List<Object> list3 = new ArrayList<>();
-        list3.add(a3);
         list3.add(aire);
         list3.add(cons5);
         list3.add(cons6);

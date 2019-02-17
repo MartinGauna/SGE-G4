@@ -85,8 +85,6 @@ public class UploadController extends MainController {
                                 topersist.add(s);
                             }
                         }
-                        Actuador a = ((DispositivoInteligente) d).getActuador();
-                        topersist.add(a);
                         cons = createConsumo(d);
                         topersist.add(d);
                         topersist.add(cons);

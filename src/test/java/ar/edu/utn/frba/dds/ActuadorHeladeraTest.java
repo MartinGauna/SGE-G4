@@ -1,7 +1,6 @@
 package ar.edu.utn.frba.dds;
 
 import ar.edu.utn.frba.dds.actuador.Actuador;
-import ar.edu.utn.frba.dds.actuador.ActuadorHeladera;
 import ar.edu.utn.frba.dds.dispositivo.DIFactory;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteHeladera;
@@ -13,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ActuadorHeladeraTest {
 
-    private DispositivoInteligente heladera;
+/*    private DispositivoInteligente heladera;
     private DIFactory fm;
     private Actuador actuador;
 
@@ -71,5 +70,5 @@ public class ActuadorHeladeraTest {
         actuadorHel.bajarIntensidad(30);
 
         assert(hel.getIntensidad() == 20);
-    }
+    }*/
 }

@@ -26,19 +26,9 @@
         <class>ar.edu.utn.frba.dds.sensor.SensorTemperatura</class>
         <class>ar.edu.utn.frba.dds.sensor.SensorMovimiento</class>
         <class>ar.edu.utn.frba.dds.actuador.Actuador</class>
-        <class>ar.edu.utn.frba.dds.actuador.ActuadorAAcondicionado</class>
-        <class>ar.edu.utn.frba.dds.actuador.ActuadorHeladera</class>
-        <class>ar.edu.utn.frba.dds.actuador.ActuadorLavarropas</class>
-        <class>ar.edu.utn.frba.dds.actuador.ActuadorLuz</class>
-        <class>ar.edu.utn.frba.dds.actuador.ActuadorMicro</class>
-        <class>ar.edu.utn.frba.dds.actuador.ActuadorPC</class>
-        <class>ar.edu.utn.frba.dds.actuador.ActuadorPlancha</class>
-        <class>ar.edu.utn.frba.dds.actuador.ActuadorTV</class>
-        <class>ar.edu.utn.frba.dds.actuador.ActuadorVentilador</class>
         <class>ar.edu.utn.frba.dds.regla.Condicion</class>
         <class>ar.edu.utn.frba.dds.regla.Regla</class>
-        <class>ar.edu.utn.frba.dds.Reporte</class>
-        <class>ar.edu.utn.frba.dds.ReporteTransformador</class>
+
 
         <properties>
 
@@ -53,7 +43,7 @@
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
             <property name="use_sql_comments" value="true" />
-            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.hbm2ddl.auto" value="create-drop" />
             <property name="hibernate.cache.use_query_cache" value = "false"/>
             <property name="hibernate.cache.use_second_level_cache" value="false" />
             <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider" />

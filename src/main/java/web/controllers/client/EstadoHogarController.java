@@ -22,6 +22,7 @@ import web.models.AlertModel;
 import web.models.EstadoHogarModel;
 import web.models.views.EstadoDispositivosTable;
 import web.models.views.MedicionesTable;
+import web.models.views.ReglaPullDown;
 import web.models.views.ReglaTable;
 
 import java.util.ArrayList;
@@ -132,21 +133,20 @@ public class EstadoHogarController extends MainController {
         List<ReglaTable> table = new ArrayList<>();
         List<Dispositivo> dispositivos = ddao.getAllDispositivos(currentClient);
 
-        for (int it = 0; it < dispositivos.size(); it ++) {
-            Dispositivo d = dispositivos.get(it);
-            if (!(d instanceof Estandard)) {
-                List<Regla> r = rdao.getAllReglas(((DispositivoInteligente) d).getActuador().getId());
-                    for(int i = 0; i < r.size(); i++) {
-                        Regla regla = r.get(i);
-                        regla.ejecutar((DispositivoInteligente) d);
-                        ReglaTable row = new ReglaTable();
-                        row.setAccion(regla.getMethodName());
-                        row.setDispositivo(d.getNombre());
-                        table.add(row);
-                        bdao.update(d);
-                    }
+        List<Regla> r = rdao.list();
+        int clienteId = 0;
+        for(int i = 0; i < r.size(); i++){
+            Regla regla = r.get(i);
+            clienteId = regla.getActuador().getDispositivo().getCliente().getId();
+            if(clienteId == currentClient.getId()) {
+                regla.ejecutar();
+                ReglaTable row = new ReglaTable();
+                row.setAccion(regla.getMethodName());
+                row.setDispositivo(regla.getActuador().getDispositivo().getNombre());
+                table.add(row);
             }
         }
+
         model.setReglas(table);
     }
 }

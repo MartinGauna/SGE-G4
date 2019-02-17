@@ -59,8 +59,6 @@ public class DispositivoDao extends BaseDao{
                 }
             }
 
-            Actuador a = ((DispositivoInteligente) d).getActuador();
-            topersist.add(a);
             topersist.add(d);
 
             persistList(topersist);

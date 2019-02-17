@@ -6,7 +6,6 @@ import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
 @Table
 public class Actuador {
 
@@ -40,11 +39,11 @@ public class Actuador {
     public void cambiarModoAAhorro(DispositivoInteligente d){
         d.cambiarAmodoAhorro();
     }
-    public void subir(){
-
+    public void subir(DispositivoInteligente d, int cantidad){
+        d.subir(cantidad);
     }
-    public void bajar(){
-
+    public void bajar(DispositivoInteligente d, int cantidad){
+        d.bajar(cantidad);
     }
 
     public int getId() {

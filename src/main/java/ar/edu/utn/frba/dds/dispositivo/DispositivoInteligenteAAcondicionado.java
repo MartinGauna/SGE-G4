@@ -1,7 +1,5 @@
 package ar.edu.utn.frba.dds.dispositivo;
 
-import ar.edu.utn.frba.dds.Consumo;
-import ar.edu.utn.frba.dds.actuador.ActuadorAAcondicionado;
 import ar.edu.utn.frba.dds.sensor.SensorHumedad;
 import ar.edu.utn.frba.dds.sensor.SensorTemperatura;
 
@@ -27,7 +25,6 @@ public class DispositivoInteligenteAAcondicionado extends DispositivoInteligente
         super(nombre, consumoHora, estado,360,90);
         this.setTemperatura(24);
         this.setEsBajoConsumo(esBajoConsumo);
-
         this.sensores.add(new SensorTemperatura(1, this));
         this.sensores.add(new SensorHumedad(1, this));
     }
@@ -40,13 +37,23 @@ public class DispositivoInteligenteAAcondicionado extends DispositivoInteligente
         this.temperatura = temperatura;
     }
 
-
     public boolean isEsBajoConsumo() {
         return esBajoConsumo;
     }
 
     public void setEsBajoConsumo(boolean esBajoConsumo) {
         this.esBajoConsumo = esBajoConsumo;
+    }
+
+    public void bajar(int cantidad) {
+        temperatura = temperatura - cantidad;
+        if(temperatura < 0){
+            temperatura = 0;
+        }
+    }
+
+    public void subir(int cantidad) {
+        temperatura = temperatura + cantidad;
     }
 
 }

@@ -109,9 +109,6 @@ public class AltaDispositivoController extends MainController {
                         topersist.add(s);
                     }
                 }
-                Actuador a = ((DispositivoInteligente) dispositivo).getActuador();
-                topersist.add(a);
-
             } catch (NullPointerException ex) {
                 throw new IncompleteFormException();
             }
