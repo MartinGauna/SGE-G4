@@ -86,27 +86,24 @@ public class AltaReglasController extends MainController {
             DispositivoInteligente d = ddao.getDI(dispID);
 
             sensor = getSensores(d, sensorTitulo);
-            actuador = d.getActuador();
+            //actuador = d.getActuador();
 
             Magnitud magnitud = sensor.getMagnitud();
 
             Long magnituddelsensor = magnitud.getValor();
 
             Condicion condicion = new Condicion(criterio, magnituddelsensor, valorCondicion);
-            Regla regla = new Regla(actuador, methodName, null);
+            Regla regla = new Regla(d, methodName, null);
             regla.addCondicion(condicion);
             condicion.setRegla(regla);
 
             List<Object> persist = new ArrayList<>();
             persist.add(regla);
             persist.add(condicion);
-            //persist.add(magnitud);
-            //persist.add(sensor);
-            //persist.add(actuador);
-            //persist.add(d);
             bdao.persistList(persist);
 
             model.success("La regla fue creada con exito");
+            regla.ejecutar();
 
         } catch (IncompleteFormException ex) {
             response.status(410);

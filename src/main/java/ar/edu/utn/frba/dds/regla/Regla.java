@@ -29,8 +29,9 @@ public class Regla implements Observer{
     @JoinColumn(name = "idRegla", referencedColumnName = "id")
     public List<Condicion> condiciones;
 
-    public Regla(Actuador actuador, String methodname,  List<Condicion> condiciones) {
-        this.actuador = actuador;
+    public Regla(DispositivoInteligente dispositvo, String methodname,  List<Condicion> condiciones) {
+        Actuador actuador1 = new Actuador(dispositvo);
+        actuador = actuador1;
         this.methodname = methodname;
         if(condiciones != null) {
             this.condiciones = condiciones;
@@ -71,29 +72,16 @@ public class Regla implements Observer{
         return actuador;
     }
 
-    public void ejecutar(DispositivoInteligente d){
-        char previous_logic_factor;
+    public void ejecutar(){
         //Resultado del update es TRUE por default (por si no tiene ninguna condicion)
         boolean result = true;
 
         //Iteramos las condiciones
-        for (Condicion condicion : condiciones) {
-            previous_logic_factor = condicion.getPrevious_logic_factor();
+        //for (Condicion condicion : condiciones) {
+        for (int i = 0; i < condiciones.size(); i++){
+            Condicion condicion = condiciones.get(i);
             //Si el factor es OR
-            if (previous_logic_factor == '|')
-            {
-                //Si la condicion no es verdadera entonces setear result en false
-                if (!condicion.evaluar() && result == false) {
-                    result = false;
-                }
-                if(result == true)
-                {break;}
-                else{result = true;}
-            }
 
-            //Si el factor es AND entonces me fijo cual fue el ultimo resultado de las condiciones anteriores
-            if (previous_logic_factor == '&')
-            {
                 //Si el resultado anterior es FALSO entonces salgo del FOR EACH
                 if(!result){break;}
 
@@ -101,7 +89,6 @@ public class Regla implements Observer{
                 if (!condicion.evaluar()) {
                     result = false;
                 }
-            }
 
             else
             {
@@ -116,7 +103,7 @@ public class Regla implements Observer{
         {
             try {
                 //Obtener el metodo con el nombre pasado para el actuador
-                actuador.getClass().getDeclaredMethod(methodname, DispositivoInteligente.class).invoke(actuador, d);
+                actuador.getClass().getDeclaredMethod(methodname, DispositivoInteligente.class).invoke(actuador, actuador.getDispositivo());
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (InvocationTargetException e) {

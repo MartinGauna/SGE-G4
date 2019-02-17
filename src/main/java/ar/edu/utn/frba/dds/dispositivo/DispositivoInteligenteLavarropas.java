@@ -24,8 +24,6 @@ public class DispositivoInteligenteLavarropas extends DispositivoInteligente {
         super(nombre, consumoHora, estado, 30, 6);
         this.uso_minimo = 6;
         this.uso_maximo = 30;
-        ActuadorLavarropas actuador = new ActuadorLavarropas(this);
-        this.setActuador(actuador);
 
     }
 

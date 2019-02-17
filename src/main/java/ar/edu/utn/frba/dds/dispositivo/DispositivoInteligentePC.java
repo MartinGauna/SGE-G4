@@ -24,9 +24,6 @@ public class DispositivoInteligentePC extends DispositivoInteligente {
         super(nombre, consumoHora, estado,360,90);
         this.uso_minimo = 360;
         this.uso_maximo = 60;
-        ActuadorPC actuador = new ActuadorPC(this);
-        this.setActuador(actuador);
-
     }
 
 }

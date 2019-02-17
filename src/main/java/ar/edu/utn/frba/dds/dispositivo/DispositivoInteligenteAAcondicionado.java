@@ -13,10 +13,7 @@ import javax.validation.constraints.NotNull;
 public class DispositivoInteligenteAAcondicionado extends DispositivoInteligente {
     @NotNull
     private int temperatura;
-    @NotNull
-    public int uso_maximo;
-    @NotNull
-    public int uso_minimo;
+
 
     @NotNull
     private  boolean esBajoConsumo;
@@ -28,10 +25,6 @@ public class DispositivoInteligenteAAcondicionado extends DispositivoInteligente
     public DispositivoInteligenteAAcondicionado(String nombre, double consumoHora, String estado, boolean esBajoConsumo)
     {
         super(nombre, consumoHora, estado,360,90);
-        this.uso_minimo = 90;
-        this.uso_maximo = 360;
-        ActuadorAAcondicionado actuador = new ActuadorAAcondicionado(this);
-        this.setActuador(actuador);
         this.setTemperatura(24);
         this.setEsBajoConsumo(esBajoConsumo);
 
@@ -47,13 +40,6 @@ public class DispositivoInteligenteAAcondicionado extends DispositivoInteligente
         this.temperatura = temperatura;
     }
 
-    @Override
-    public int getUso_minimo() {
-        return uso_minimo;
-    }
-    public int getUso_maximo() {
-        return uso_maximo;
-    }
 
     public boolean isEsBajoConsumo() {
         return esBajoConsumo;

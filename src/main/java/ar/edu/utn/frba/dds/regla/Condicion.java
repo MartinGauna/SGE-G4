@@ -20,20 +20,11 @@ public class Condicion {
     private char criterio;
 
     @NotNull
-    private char previous_logic_factor; //AND, OR, END
-
-    @NotNull
     private long magnitudDelSensor;
 
     @NotNull
     private long valor_condicion;
 
-    public Condicion(char criterio,  long magnitudDelSensor, long valor_condicion, char previous_logic_factor) {
-        this.criterio = criterio;
-        this.magnitudDelSensor = magnitudDelSensor;
-        this.valor_condicion = valor_condicion;
-        this.previous_logic_factor = previous_logic_factor;
-    }
     public Condicion(char criterio,  long magnitudDelSensor, long valor_condicion) {
         this.criterio = criterio;
         this.magnitudDelSensor = magnitudDelSensor;
@@ -41,10 +32,6 @@ public class Condicion {
     }
 
     public Condicion() {
-    }
-
-    public char getPrevious_logic_factor() {
-        return previous_logic_factor;
     }
 
     boolean evaluar ()
@@ -97,10 +84,6 @@ public class Condicion {
 
     public void setCriterio(char criterio) {
         this.criterio = criterio;
-    }
-
-    public void setPrevious_logic_factor(char previous_logic_factor) {
-        this.previous_logic_factor = previous_logic_factor;
     }
 
     public void setMagnitudDelSensor(long magnitudDelSensor) {

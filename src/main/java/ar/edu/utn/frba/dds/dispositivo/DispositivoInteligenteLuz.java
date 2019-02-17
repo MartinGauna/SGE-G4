@@ -30,8 +30,6 @@ public class DispositivoInteligenteLuz extends DispositivoInteligente {
         super(nombre, consumoHora, estado,360,90);
         this.uso_maximo = 360;
         this.uso_minimo = 90;
-        ActuadorLuz actuador = new ActuadorLuz(this);
-        this.setActuador(actuador);
         this.setLuminosidad(20);
 
         this.sensores.add(new SensorLuz(1, this));

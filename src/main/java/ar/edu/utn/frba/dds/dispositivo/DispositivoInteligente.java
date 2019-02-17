@@ -21,10 +21,6 @@ public class DispositivoInteligente extends Dispositivo {
     List<Consumo> consumo;
     //TODO: Cambiar actuador de interfaz a clase o implementarlo
 
-    @OneToOne(fetch = FetchType.LAZY, targetEntity = Actuador.class, orphanRemoval = true)
-    @JoinColumn(name = "idDispositivo", referencedColumnName = "id")
-    Actuador actuador;
-
     @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
     @JoinColumn(name = "idDispositivo", referencedColumnName = "id")
     List<Sensor> sensores;
@@ -46,7 +42,6 @@ public class DispositivoInteligente extends Dispositivo {
         this.uso_minimo = uso_minimo;
         this.uso_maximo = uso_maximo;
         this.consumo = new ArrayList<Consumo>();
-        this.actuador = null;
         this.initializePeriods();
         this.sensores = new ArrayList<Sensor>();
     }
@@ -87,13 +82,12 @@ public class DispositivoInteligente extends Dispositivo {
         this.estado = Context.string_Ahorrro;
     }
 
-    public Actuador getActuador() {
-        return actuador;
+    public void subir(){
+
     }
 
+    public void bajar(){
 
-    public void setActuador(Actuador actuador) {
-        this.actuador = actuador;
     }
 
     @Override

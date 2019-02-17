@@ -1,37 +1,16 @@
 [
   {
-    "nombre": "AAC11",
+    "nombre": "PruebaFinal1",
      "consumoHora": 13.02,
     "estado": "activo",
 	"bajoConsumo": false,
 	"tipo": "Aire"
   },
   {
-    "nombre":"AAC12",
+    "nombre":"PruebaFinal2",
     "consumoHora": 22.013,
     "estado": "activo",
 	"bajoConsumo": false,
 	"tipo": "Aire"
-  },
-  {
-    "nombre":"TV11",
-    "consumoHora": 14.04,
-    "estado": "activo",
-	"bajoConsumo": false,
-	"tipo": "TV"
-  },
-  {
-    "nombre":"TV12",
-    "consumoHora": 20.055,
-    "estado": "activo",
-	"bajoConsumo": false,
-	"tipo": "TV"
-  },
-  {
-    "nombre":"Heladera1",
-    "consumoHora": 30.09,
-    "estado": "activo",
-	"bajoConsumo": false,
-	"tipo": "Heladera"
-	}
+  }
 ]

@@ -22,9 +22,6 @@ public class DispositivoInteligenteMicro extends DispositivoInteligente {
         super(nombre, consumoHora, estado,15,3);
         this.uso_minimo = 3;
         this. uso_maximo = 15;
-        ActuadorMicro actuador = new ActuadorMicro(this);
-        this.setActuador(actuador);
-
     }
 
 }

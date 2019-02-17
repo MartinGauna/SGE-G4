@@ -46,9 +46,9 @@
 
             <property name="hibernate.archive.autodetection" value="class"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
-            <property name="hibernate.connection.url" value="jdbc:mysql://b11e53903fcdbf:2d627525@us-cdbr-iron-east-01.cleardb.net/heroku_3225f8d1e147e98?reconnect=true&amp;useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;autoReconnect=true" />
-            <property name="hibernate.connection.username" value="b11e53903fcdbf" />
-            <property name="hibernate.connection.password" value="2d627525" />
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/sge?reconnect=true&amp;useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;autoReconnect=true" />
+            <property name="hibernate.connection.username" value="root" />
+            <property name="hibernate.connection.password" value="root" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />

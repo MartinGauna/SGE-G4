@@ -27,8 +27,6 @@ public class DispositivoInteligenteHeladera extends DispositivoInteligente {
         super(nombre, consumoHora, estado,360,90);
         this.uso_minimo = 90;
         this. uso_maximo = 360;
-        ActuadorHeladera actuador = new ActuadorHeladera(this);
-        this.setActuador(actuador);
         this.setIntensidad(0);
 
         this.sensores.add(new SensorTemperatura(1, this));

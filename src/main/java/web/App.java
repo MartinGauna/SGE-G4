@@ -35,7 +35,7 @@ public class App
         BackgroundProcesses bkg = new BackgroundProcesses();
         bkg.automatizacionAhorroAutomatico(60000);
 
-        //LoadData.Load();
+        LoadData.Load();
 
         Spark.port(getHerokuAssignedPort());
         staticFileLocation("/webResources");
