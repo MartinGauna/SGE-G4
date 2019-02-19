@@ -93,7 +93,7 @@ public class AltaReglasController extends MainController {
             Long magnituddelsensor = magnitud.getValor();
 
             Condicion condicion = new Condicion(criterio, magnituddelsensor, valorCondicion);
-            Regla regla = new Regla(d, methodName, null);
+            Regla regla = new Regla(d, methodName, null, 0);
             regla.addCondicion(condicion);
             condicion.setRegla(regla);
 

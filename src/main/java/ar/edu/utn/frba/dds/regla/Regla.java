@@ -17,19 +17,21 @@ public class Regla implements Observer{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @OneToOne(fetch = FetchType.LAZY, targetEntity = Actuador.class)
+    @OneToOne(fetch = FetchType.LAZY, targetEntity = Actuador.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "idActuador", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_ACTUADOR"))
     private Actuador actuador;
 
     @NotNull
     protected String methodname;
 
+    private int cantidad;
+
     @NotNull
     @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "idRegla", referencedColumnName = "id")
     public List<Condicion> condiciones;
 
-    public Regla(DispositivoInteligente dispositvo, String methodname,  List<Condicion> condiciones) {
+    public Regla(DispositivoInteligente dispositvo, String methodname,  List<Condicion> condiciones, int cantidad) {
         Actuador actuador1 = new Actuador(dispositvo);
         actuador = actuador1;
         this.methodname = methodname;
@@ -38,6 +40,7 @@ public class Regla implements Observer{
         } else {
             this.condiciones = new ArrayList<Condicion>();
         }
+        this.cantidad = cantidad;
     }
 
     public void addCondiciones(List<Condicion> condiciones)
@@ -101,15 +104,22 @@ public class Regla implements Observer{
         //Si las condiciones dan True --> ejecuto el metodo pedido
         if(result)
         {
-            try {
-                //Obtener el metodo con el nombre pasado para el actuador
-                actuador.getClass().getDeclaredMethod(methodname, DispositivoInteligente.class).invoke(actuador, actuador.getDispositivo());
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            } catch (NoSuchMethodException e) {
-                e.printStackTrace();
+            switch (methodname){
+                case "prenderDispositivo":
+                    actuador.prenderDispositivo();
+                    break;
+                case "apagarDispositivo":
+                    actuador.apagarDispositivo();
+                    break;
+                case "cambiarModoAAhorro":
+                    actuador.cambiarModoAAhorro();
+                    break;
+                case "subir":
+                    actuador.subir(cantidad);
+                    break;
+                case "bajar":
+                    actuador.bajar(cantidad);
+                    break;
             }
         }
 

@@ -94,7 +94,6 @@ public class SeleccionDispositivoController extends MainController {
         d.setNombre(nombre);
         d.setEstado(estado);
 
-        BaseDao bdao = new BaseDao();
         bdao.update(d);
 
         model.success("El dispositivo fue modificado exitosamente");

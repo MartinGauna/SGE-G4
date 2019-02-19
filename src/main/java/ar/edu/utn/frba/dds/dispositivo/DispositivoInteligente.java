@@ -16,12 +16,12 @@ import java.util.List;
 @Table
 public class DispositivoInteligente extends Dispositivo {
 
-    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "idDispositivo", referencedColumnName = "id")
     List<Consumo> consumo;
     //TODO: Cambiar actuador de interfaz a clase o implementarlo
 
-    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "idDispositivo", referencedColumnName = "id")
     List<Sensor> sensores;
 
