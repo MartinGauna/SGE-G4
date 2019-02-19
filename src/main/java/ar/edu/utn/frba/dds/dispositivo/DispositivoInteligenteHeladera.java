@@ -1,6 +1,5 @@
 package ar.edu.utn.frba.dds.dispositivo;
 
-import ar.edu.utn.frba.dds.actuador.ActuadorHeladera;
 import ar.edu.utn.frba.dds.sensor.SensorHumedad;
 import ar.edu.utn.frba.dds.sensor.SensorTemperatura;
 
@@ -13,10 +12,6 @@ public class DispositivoInteligenteHeladera extends DispositivoInteligente {
     @NotNull
     private int intensidad;
     @NotNull
-    private int uso_maximo;
-    @NotNull
-    private int uso_minimo;
-    @NotNull
     private  boolean esBajoConsumo;
 
     protected DispositivoInteligenteHeladera(){
@@ -25,10 +20,8 @@ public class DispositivoInteligenteHeladera extends DispositivoInteligente {
 
     public DispositivoInteligenteHeladera(String nombre, double consumoHora, String estado, boolean esBajoConsumo) {
         super(nombre, consumoHora, estado,360,90);
-        this.uso_minimo = 90;
-        this. uso_maximo = 360;
         this.setIntensidad(0);
-
+        this.esBajoConsumo = esBajoConsumo;
         this.sensores.add(new SensorTemperatura(1, this));
         this.sensores.add(new SensorHumedad(1, this));
     }
@@ -39,5 +32,16 @@ public class DispositivoInteligenteHeladera extends DispositivoInteligente {
 
     public void setIntensidad(int intensidad) {
         this.intensidad = intensidad;
+    }
+
+    public void bajar(int cantidad) {
+        intensidad = intensidad - cantidad;
+        if(intensidad < 0){
+            intensidad = 0;
+        }
+    }
+
+    public void subir(int cantidad) {
+        intensidad = intensidad + cantidad;
     }
 }

@@ -109,8 +109,6 @@ public class AltaDispositivoController extends MainController {
                         topersist.add(s);
                     }
                 }
-                Actuador a = ((DispositivoInteligente) dispositivo).getActuador();
-                topersist.add(a);
             }
             topersist.add(dispositivo);
             topersist.add(cons);

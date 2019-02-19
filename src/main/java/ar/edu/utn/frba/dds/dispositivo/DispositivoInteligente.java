@@ -82,11 +82,11 @@ public class DispositivoInteligente extends Dispositivo {
         this.estado = Context.string_Ahorrro;
     }
 
-    public void subir(){
+    public void subir(int cantidad){
 
     }
 
-    public void bajar(){
+    public void bajar(int cantidad){
 
     }
 

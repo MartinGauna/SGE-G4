@@ -1,10 +1,7 @@
 package db;
 
 import ar.edu.utn.frba.dds.*;
-import ar.edu.utn.frba.dds.actuador.ActuadorAAcondicionado;
-import ar.edu.utn.frba.dds.actuador.ActuadorHeladera;
 import ar.edu.utn.frba.dds.dao.ClientDao;
-import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteAAcondicionado;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteHeladera;
@@ -17,7 +14,6 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 
 public class ConsumoPersistenceTest {
@@ -27,8 +23,6 @@ public class ConsumoPersistenceTest {
     private Cliente cliente1;
     private DispositivoInteligenteHeladera hel;
     private DispositivoInteligenteAAcondicionado aire;
-    private ActuadorAAcondicionado actuadorAire;
-    private ActuadorHeladera actuadorHel;
     private Consumo cons1;
     private Consumo cons2;
     private Consumo cons3;

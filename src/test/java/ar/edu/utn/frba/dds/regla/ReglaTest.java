@@ -1,6 +1,5 @@
 package ar.edu.utn.frba.dds.regla;
 
-import ar.edu.utn.frba.dds.actuador.ActuadorAAcondicionado;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligenteAAcondicionado;
 import ar.edu.utn.frba.dds.sensor.SensorHumedad;
 import ar.edu.utn.frba.dds.sensor.SensorLuz;
@@ -11,7 +10,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 public class ReglaTest {
-    private DispositivoInteligenteAAcondicionado aire;
+ /*   private DispositivoInteligenteAAcondicionado aire;
     private ActuadorAAcondicionado actuadorAire;
     private SensorTemperatura sensorTemperatura;
     private SensorHumedad sensorHumedad;
@@ -34,11 +33,11 @@ public class ReglaTest {
        this.humedad = sensorHumedad.getMedicion().getValor();
 
 
-        /** TEST DESCRIPTION: Encender Aire Acondicionario SII:
+        *//** TEST DESCRIPTION: Encender Aire Acondicionario SII:
          * a) Temperatura > 23° y Humedad > 90%
          * OR
          * b) Temperatura >28°
-         **/
+         **//*
 
     }
 
@@ -313,5 +312,5 @@ public class ReglaTest {
         System.out.println("-------");
 
         System.out.println("******* FIN TEST 6 ******* ");
-    }
+    }*/
 }

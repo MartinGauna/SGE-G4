@@ -1,5 +1,6 @@
 package ar.edu.utn.frba.dds.dao;
 
+import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.regla.Regla;
 
 import java.util.List;
@@ -18,6 +19,6 @@ public class ReglaDao extends BaseDao {
         return getByPropertyValue(Regla.class, "id", id);
     }
 
-    public void addReglaIfNotExists(Regla regla){
-                save(regla);    }
+    public void addReglaIfNotExists(Regla regla){ save(regla);    }
+    public List<Regla> list() {return list(Regla.class);}
 }
