@@ -1,6 +1,7 @@
 package ar.edu.utn.frba.dds;
 
 import ar.edu.utn.frba.dds.dao.ClientDao;
+import ar.edu.utn.frba.dds.dao.DispositivoDao;
 import ar.edu.utn.frba.dds.dao.ReporteDao;
 import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
@@ -51,8 +52,8 @@ public class GeneradorReportes {
         String reporte;
 
         int consumoTotal = 0;
-
-        List<Dispositivo> dispositivos = cliente.getDispositivos();
+        DispositivoDao ddao = new DispositivoDao();
+        List<Dispositivo> dispositivos = ddao.getAllDispositivos(cliente);
         if(dispositivos != null) {
             for (int i = 0; i < dispositivos.size(); i++) {
                 Dispositivo dispositivo = dispositivos.get(i);
