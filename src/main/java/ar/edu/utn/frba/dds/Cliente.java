@@ -30,16 +30,17 @@ public class Cliente extends Usuario {
     private int numeroDoc;
     @NotNull
     private int telefono;
-
+    @NotNull
     private int puntaje;
-
+    @NotNull
     private int simplex;
-
+    @NotNull
     private boolean ahorroAutomatico;
 
 
+
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Categoria.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "idCategoria", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_CATEGORIA"))
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Categoria.class)
     public Categoria categoria;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Transformador.class)

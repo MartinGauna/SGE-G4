@@ -16,12 +16,12 @@ import java.util.List;
 @Table
 public class DispositivoInteligente extends Dispositivo {
 
-    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "idDispositivo", referencedColumnName = "id")
     List<Consumo> consumo;
     //TODO: Cambiar actuador de interfaz a clase o implementarlo
 
-    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "idDispositivo", referencedColumnName = "id")
     List<Sensor> sensores;
 
@@ -94,7 +94,7 @@ public class DispositivoInteligente extends Dispositivo {
     public int getConsumoTotal(Date fechaInicio, Date fechaFinal) {
         int total = 0;
         for(int i=0; i < consumo.size(); i++) {
-            if((consumo.get(i).getFechaInicio().after(fechaInicio) || (consumo.get(i).getFechaFinal()).before(fechaFinal))) {
+            if((consumo.get(i).getFechaInicio().after(fechaInicio) && (consumo.get(i).getFechaFinal()).before(fechaFinal))) {
             	total += consumo.get(i).getWatts();
             }
         }

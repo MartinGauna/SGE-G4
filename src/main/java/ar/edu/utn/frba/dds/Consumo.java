@@ -91,8 +91,9 @@ public class Consumo {
             fin = aux;
         }
 
-        Date d = sdf.parse(inicio + "/12/2018");
-        Date e = sdf.parse(fin + "/12/2018");
+
+        Date d = sdf.parse(sdf.format(new Date()));
+        Date e = sdf.parse(sdf.format(new Date()));
         Consumo cons1 = new Consumo(disp, valor, d, e);
 
         if(!(disp instanceof Estandard)) {

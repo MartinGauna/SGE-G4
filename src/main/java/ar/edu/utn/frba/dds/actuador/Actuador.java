@@ -1,5 +1,6 @@
 package ar.edu.utn.frba.dds.actuador;
 
+import ar.edu.utn.frba.dds.dao.BaseDao;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 
 
@@ -12,7 +13,8 @@ public class Actuador {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
+    @Transient
+    private BaseDao bdao = new BaseDao();
     public DispositivoInteligente getDispositivo() {
         return disp;
     }
@@ -29,21 +31,28 @@ public class Actuador {
         disp = dispositivoInteligente;
     }
 
-    public void prenderDispositivo(DispositivoInteligente d){
-        d.encender();
+    public Actuador (){}
+
+    public void prenderDispositivo(){
+        disp.encender();
+        bdao.update(disp);
     }
-    public void apagarDispositivo(DispositivoInteligente d){
-        d.apagar();
+    public void apagarDispositivo(){
+        disp.apagar();
+        bdao.update(disp);
     }
 
-    public void cambiarModoAAhorro(DispositivoInteligente d){
-        d.cambiarAmodoAhorro();
+    public void cambiarModoAAhorro(){
+        disp.cambiarAmodoAhorro();
+        bdao.update(disp);
     }
-    public void subir(DispositivoInteligente d, int cantidad){
-        d.subir(cantidad);
+    public void subir(int cantidad){
+        disp.subir(cantidad);
+        bdao.update(disp);
     }
-    public void bajar(DispositivoInteligente d, int cantidad){
-        d.bajar(cantidad);
+    public void bajar(int cantidad){
+        disp.bajar(cantidad);
+        bdao.update(disp);
     }
 
     public int getId() {
