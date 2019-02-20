@@ -22,7 +22,7 @@ public class BackgroundProcessesTest {
     private List<DispositivoInteligente> dispositivoInteligenteList = new ArrayList<>() ;
     private AdapterSimplex adapterSimplex = new AdapterSimplex();
     private Cliente client1;
-    private BackgroundProcesses bkg = new BackgroundProcesses();
+    private BackgroundProcesses bkg = BackgroundProcesses.getInstance();
     @Before
     public void setUp() throws Exception {
         /**
