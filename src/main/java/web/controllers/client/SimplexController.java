@@ -59,12 +59,14 @@ public class SimplexController extends MainController {
         if(simplexAuto == 0){
             currentClient.setSimplex(1);
             simplexAuto = 1;
-            cdao.addClientIfNotExists(currentClient);
+            cdao.update(currentClient);
+            //cdao.addClientIfNotExists(currentClient);
         }
         else {
             currentClient.setSimplex(0);
             simplexAuto = 0;
-            cdao.addClientIfNotExists(currentClient);
+            cdao.update(currentClient);
+            //cdao.addClientIfNotExists(currentClient);
         }
 
         fillSimplexTable();
