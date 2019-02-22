@@ -23,7 +23,7 @@ public class Actuador {
         this.disp = disp;
     }
 
-    @OneToOne(fetch = FetchType.LAZY, targetEntity = DispositivoInteligente.class)
+    @OneToOne(fetch = FetchType.EAGER, targetEntity = DispositivoInteligente.class)
     @JoinColumn(name = "idDispositivo", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_ACTUADOR"))
     private DispositivoInteligente disp = null;
 

@@ -23,6 +23,10 @@
     <!-- Custom styles for this template-->
     <link href="./styles/css/sb-admin.css" rel="stylesheet">
 
+    <script src="./styles/vendor/jquery/jquery.min.js"></script>
+
+    <script src="./scripts/altaRegla.js"></script>
+
 </head>
 
 <body id="page-top">
@@ -50,20 +54,23 @@
 
                         <div class="form-group col-md-8 ">
                             Dispositivos disponibles
-                            <select class="form-control" title="dispositivo" name="dispositivo" id="sm">
+                            <select class="form-control select-Accion" title="dispositivo" name="dispositivo" id="sm">
                                 {{#each dispositivos}}
-                                        <option  value="{{id}}">{{id}} - {{nombre}}</option>
+                                        <option  value="{{id}}"> {{id}} - {{nombre}} </option>
                                 {{/each}}
                             </select>
                         </div>
 
                         <div class="form-group col-md-8 ">
                             Acción
-                            <select class="form-control" title="accion" name="accion" id="sm">
+                            <select class="form-control" title="accion" name="accion" id="accion">
                                 <option value="prenderDispositivo">Prender</option>
                                 <option value="apagarDispositivo">Apagar</option>
                                 <option value="cambiarModoAAhorro">Modo Ahorro</option>
+                                <option value="subir">Subir</option>
+                                <option value="bajar">Bajar</option>
                             </select>
+                            <input type="text" class="form-control"  id="cantidad" value="0" name="cantidad" />
                         </div>
 
                         <div class="form-group col-md-8 ">
@@ -75,9 +82,9 @@
                                 <option value="SensorTemperatura">Temperatura</option>
                         </select>
                         <select class="form-control" title="criterio" name="criterio" id="criterio">
-                                <option value=">">></option>
-                                <option value="=">=</option>
-                                <option value="<"><</option>
+                                <option value=">">Mayor</option>
+                                <option value="=">Igual</option>
+                                <option value="<">Menor</option>
                         </select>
                         <input type="text" class="form-control" id="valorCondicion" placeholder="Valor a comparar" value="{{consumoHora}}" name="valorCondicion"/>
 
@@ -92,11 +99,11 @@
                             {{#if showAlert}}
                                 {{#if isSuccess}}
                                     <div class="alert alert-success mx-auto mt-5 card-login">
-                                        <strong>iujuu!!</strong> {{message}}
+                                        <strong>Regla creada!!</strong> {{message}}
                                     </div>
                                 {{else}}
                                     <div class="alert alert-danger mx-auto mt-5 card-login">
-                                        <strong>Upss!!</strong> {{message}}
+                                        <strong>Error al crear la regla!!</strong> {{message}}
                                     </div>
                                 {{/if}}
                             {{/if}}

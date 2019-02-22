@@ -71,19 +71,17 @@
                                 </td>
                                 <td class="dispositivo">
                                     <input type="text" class="form-control"  value="{{dispositivo}}" name="nombre" disabled="true"/>
-                                    <!--<select class="form-control" title="accion" name="accion" id="disp-{{id}}">-->
-                                        <!--{{#each dispositivos}}-->
-                                            <!--<option  value="{{id}}">{{id}} - {{nombre}}</option>-->
-                                        <!--{{/each}}-->
-                                    <!--</select>-->
                                 </td>
                                 <td class="dispositivo">
                                     <input type="text" class="form-control"  id="i-{{id}}" value="{{accion}}" name="consumo" style="display: none;"/>
-                                    <select class="form-control" title="accion" name="accion" id="select-{{id}}">
+                                    <select class="form-control accion" title="accion" name="accion" id="select-{{id}}">
                                         <option value="prenderDispositivo">Prender</option>
                                         <option value="apagarDispositivo">Apagar</option>
                                         <option value="cambiarModoAAhorro">Modo Ahorro</option>
+                                        <option value="subir">Subir</option>
+                                        <option value="bajar">Bajar</option>
                                     </select>
+                                    <input type="text" class="form-control"  id="cantidad-{{id}}" value="{{cantidad}}" name="cantidad" />
                                 </td>
                                 <td>
                                     <select class="form-control" title="sensor" name="sensor" id="sensor{{id}}">
@@ -92,12 +90,12 @@
                                         <option value="SensorMovimiento">Movimiento</option>
                                         <option value="SensorTemperatura">Temperatura</option>
                                     </select>
-                                    <select class="form-control" title="accion" name="accion" id="cond{{id}}">
-                                        <option value=">">></option>
-                                        <option value="=">=</option>
-                                        <option value="<"><</option>
+                                    <select class="form-control" title="condicion" name="condicion" id="cond{{id}}">
+                                        <option value=">">Mayor</option>
+                                        <option value="=">Igual</option>
+                                        <option value="<">Menor</option>
                                     </select>
-                                    <input type="text" class="form-control" id="valorCondicion" placeholder="Valor a comparar" value="{{consumoHora}}" name="valor{{id}}"/>
+                                    <input type="text" class="form-control" id="valorCondicion" placeholder="Valor a comparar" value="{{valorCondicion}}" name="valor{{id}}"/>
 
                                 </td>
                                 <td class="dispositivoModificar"><i class="fa fa-floppy-o" aria-hidden="true"></i></td>

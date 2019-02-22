@@ -5,7 +5,6 @@ import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,14 +16,22 @@ public class Regla implements Observer{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @OneToOne(fetch = FetchType.LAZY, targetEntity = Actuador.class, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, targetEntity = Actuador.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "idActuador", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_ACTUADOR"))
     private Actuador actuador;
 
+    public void setMethodname(@NotNull String methodname) {
+        this.methodname = methodname;
+    }
+
     @NotNull
     protected String methodname;
-
     private int cantidad;
+
+    @NotNull
+    public List<Condicion> getCondiciones() {
+        return condiciones;
+    }
 
     @NotNull
     @OneToMany(cascade = {CascadeType.ALL})
@@ -75,7 +82,7 @@ public class Regla implements Observer{
         return actuador;
     }
 
-    public void ejecutar(){
+    public void ejecutar() {
         //Resultado del update es TRUE por default (por si no tiene ninguna condicion)
         boolean result = true;
 
@@ -124,4 +131,13 @@ public class Regla implements Observer{
         }
 
     }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
 }

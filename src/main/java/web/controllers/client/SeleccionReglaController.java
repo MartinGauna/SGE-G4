@@ -1,12 +1,12 @@
 package web.controllers.client;
 
 import ar.edu.utn.frba.dds.Cliente;
-import ar.edu.utn.frba.dds.dao.BaseDao;
-import ar.edu.utn.frba.dds.dao.ClientDao;
-import ar.edu.utn.frba.dds.dao.DispositivoDao;
-import ar.edu.utn.frba.dds.dao.ReglaDao;
+import ar.edu.utn.frba.dds.Magnitud;
+import ar.edu.utn.frba.dds.dao.*;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
+import ar.edu.utn.frba.dds.regla.Condicion;
 import ar.edu.utn.frba.dds.regla.Regla;
+import ar.edu.utn.frba.dds.sensor.*;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -29,19 +29,20 @@ public class SeleccionReglaController extends MainController {
     private static DispositivoDao ddao = new DispositivoDao();
     private static ReglaDao rdao = new ReglaDao();
     private static BaseDao bdao = new BaseDao();
+    private static CondicionDao condicionDao = new CondicionDao();
 
 
     public static void init() {
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
         Spark.get(Router.bajaModificacionReglaPath(), SeleccionReglaController::load, engine);
-        Spark.put(Router.modificarReglaPath(), SeleccionReglaController::modificar, engine);
+        Spark.post(Router.modificarReglaPath(), SeleccionReglaController::modificar, engine);
         Spark.delete(Router.bajaReglaPath(), SeleccionReglaController::delete, engine);
-        initModel();
     }
 
     private static ModelAndView load(Request request, Response response) {
         sessionExist(request, response);
         getCurrentClient(request);
+        initModel();
         model.setShowAlert(false);
         model.getReglas().clear();
         fillReglas();
@@ -75,20 +76,46 @@ public class SeleccionReglaController extends MainController {
     }
 
     public static ModelAndView modificar(Request request, Response response) {
-        //todo
-        System.out.println(request.body());
         String[] parameters = request.body().split("&");
-
         int reglaID = Integer.parseInt((parameters[0].split("="))[1]);
-        String dispositivo = (parameters[1].split("="))[1];
-        String methodname = (parameters[2].split("="))[1];
-
         Regla r = rdao.getReglaByID(reglaID);
-
-
-
-
-
+        String method = (parameters[1].split("="))[1];
+        int cantidad = Integer.parseInt((parameters[2].split("="))[1]);
+        String magnitudC = (parameters[3].split("="))[1];
+        String condicionV = (parameters[4].split("="))[1];
+        char condicion;
+        switch (condicionV){
+            case "Mayor":
+            case "mayor":
+                condicion = '>';
+                break;
+            case "Menor":
+            case "menor":
+                condicion = '<';
+                break;
+            case "Igual":
+            case "igual":
+                condicion = '=';
+                break;
+            default:
+                condicion = '>';
+                break;
+        }
+        int condicionValor = Integer.parseInt((parameters[5].split("="))[1]);
+        DispositivoInteligente d = r.getActuador().getDispositivo();
+        Sensor  sensor = getSensores(d, magnitudC);
+        Magnitud magnitud = sensor.getMagnitud();
+        Long magnituddelsensor = magnitud.getValor();
+        List<Condicion> condicions = r.getCondiciones();
+        Condicion c = condicions.get(0);
+        c.setCriterio(condicion);
+        c.setMagnitudDelSensor(magnituddelsensor);
+        c.setValor_condicion(condicionValor);
+        r.setCantidad(cantidad);
+        r.setMethodname(method);
+        BaseDao bdao = new BaseDao();
+        bdao.update(c);
+        bdao.update(r);
         model.success("La regla fue modificado exitosamente");
         return new ModelAndView( updateModel(), SELECCION_REGLA);
     }
@@ -110,7 +137,39 @@ public class SeleccionReglaController extends MainController {
             row.setId(regla.getId());
             row.setAccion(regla.getMethodName());
             row.setDispositivo(regla.getActuador().getDispositivo().getNombre());
+            List<Condicion> condList = condicionDao.getCondiciones(regla);
+            Condicion cond = condList.get(0);
+            row.setValorCondicion(cond.getValor_condicion());
+            row.setCantidad(regla.getCantidad());
             model.getReglas().add(row);
         }
+    }
+
+    private static Sensor getSensores(DispositivoInteligente d, String sensorTitulo) {
+
+        Sensor sensor = null;
+
+        // chequeo si el sensor ya existe.
+        for (Sensor s : d.getSensores()) {
+            if (s.getClass().getSimpleName().equals(sensorTitulo)) {
+                sensor = s;
+                break;
+            }
+        }
+
+        if (sensor == null) {
+            if (sensorTitulo == "Humedad") {
+                sensor = new SensorHumedad();
+            } else if (sensorTitulo == "Luz") {
+                sensor = new SensorLuz();
+            } else if (sensorTitulo == "Movimiento") {
+                sensor = new SensorMovimiento();
+            } else if (sensorTitulo == "Temperatura") {
+                sensor = new SensorTemperatura();
+            } else {
+                sensor = new SensorLuz();
+            }
+        }
+        return sensor;
     }
 }
