@@ -47,15 +47,15 @@
                         </div>
                         <button class="btn btn-primary btn-block" type="submit"> Subir dispositivos inteligentes </button>
                         {{#if showAlert}}
-                            {{#if isSuccess}}
-                                <div class="alert alert-success mx-auto mt-5 card-login">
-                                    <strong>iujuu!!</strong> {{message}}
-                                </div>
-                            {{else}}
-                                <div class="alert alert-danger mx-auto mt-5 card-login">
-                                    <strong>Upss!!</strong> {{message}}
-                                </div>
-                            {{/if}}
+                        {{#if success}}
+                            <div class="alert alert-success mx-auto mt-5 card-login">
+                                <strong>iujuu!! Su archivo fue subido con exito!</strong> {{message}}
+                            </div>
+                        {{else}}
+                            <div class="alert alert-danger mx-auto mt-5 card-login">
+                                <strong>Upss!! Su archivo no pudo ser subido. Por favor, revise el formato.</strong> {{message}}
+                            </div>
+                        {{/if}}
                         {{/if}}
 
                         <br>
@@ -66,17 +66,7 @@
                             <input class="file" id="inputFileStandard" name="inputFileStandard" aria-describedby="fileHelp" placeholder="Archivo a cargar" type="file" accept=".json,.png" />
                         </div>
                         <button class="btn btn-primary btn-block" type="submit"> Subir dispositivos estandard</button>
-                        {{#if showAlert}}
-                            {{#if isSuccess}}
-                                <div class="alert alert-success mx-auto mt-5 card-login">
-                                    <strong>iujuu!!</strong> {{message}}
-                                </div>
-                            {{else}}
-                                <div class="alert alert-danger mx-auto mt-5 card-login">
-                                    <strong>Upss!!</strong> {{message}}
-                                </div>
-                            {{/if}}
-                        {{/if}}
+
 
 
                     </form>
