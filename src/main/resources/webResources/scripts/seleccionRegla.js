@@ -29,7 +29,12 @@ $(function() {
 
         if(!(value === 'subir' || value === 'bajar')){
             $(this).hide();
+        } else {
+            $(this).show();
         }
+    });
+    $(document).on('change','#id',function(){
+        const id = "#select-" + $(this)[0].id.substring($(this)[0].id.indexOf("-") + 1);
     });
 });
 
@@ -39,8 +44,7 @@ function enableEdit(event) {
     let rows = event.target.parentElement.parentElement.children;
 
     entry.id = rows[0].firstElementChild.value;
-    entry.nombre = rows[1].firstElementChild.value;
-    entry.estado = rows[2].firstElementChild.value;
+    entry.accion = rows[2].firstElementChild.value;
     entry.cantidad = rows[2].lastElementChild.value ? rows[2].lastElementChild.value : 0;
     entry.condicionCMagnitud = rows[3].children[0].selectedOptions[0].value;
     entry.condicionCriterio = rows[3].children[1].selectedOptions[0].value;
