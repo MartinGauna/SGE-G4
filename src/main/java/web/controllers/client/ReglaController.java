@@ -9,7 +9,6 @@ import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.dispositivo.Estandard;
 import ar.edu.utn.frba.dds.regla.Regla;
-import ar.edu.utn.frba.dds.sensor.Sensor;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -18,7 +17,6 @@ import spark.template.handlebars.HandlebarsTemplateEngine;
 import web.Router;
 import web.controllers.MainController;
 import web.models.ReglasModel;
-import web.models.views.MedicionesTable;
 import web.models.views.ReglaTable;
 
 import java.util.ArrayList;
@@ -36,11 +34,11 @@ public class ReglaController extends MainController {
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
         Spark.get(Router.reglasPath(), ReglaController::showRegla,engine);
 
-        initModel();
     }
 
     private static ModelAndView showRegla(Request request, Response response) {
         sessionExist(request, response);
+        initModel();
         getCurrentClient(request);
         fillTable();
         return new ModelAndView (model, ESTADOSDISPOSITIVOS);

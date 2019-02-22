@@ -5,7 +5,6 @@ import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +22,6 @@ public class Regla implements Observer{
 
     @NotNull
     protected String methodname;
-
     private int cantidad;
 
     @NotNull
@@ -75,7 +73,7 @@ public class Regla implements Observer{
         return actuador;
     }
 
-    public void ejecutar(){
+    public void ejecutar() {
         //Resultado del update es TRUE por default (por si no tiene ninguna condicion)
         boolean result = true;
 
@@ -124,4 +122,13 @@ public class Regla implements Observer{
         }
 
     }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
 }
