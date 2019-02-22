@@ -83,7 +83,24 @@ public class SeleccionReglaController extends MainController {
         int cantidad = Integer.parseInt((parameters[2].split("="))[1]);
         String magnitudC = (parameters[3].split("="))[1];
         String condicionV = (parameters[4].split("="))[1];
-        char condicion = condicionV.charAt(0);
+        char condicion;
+        switch (condicionV){
+            case "Mayor":
+            case "mayor":
+                condicion = '>';
+                break;
+            case "Menor":
+            case "menor":
+                condicion = '<';
+                break;
+            case "Igual":
+            case "igual":
+                condicion = '=';
+                break;
+            default:
+                condicion = '>';
+                break;
+        }
         int condicionValor = Integer.parseInt((parameters[5].split("="))[1]);
         DispositivoInteligente d = r.getActuador().getDispositivo();
         Sensor  sensor = getSensores(d, magnitudC);
