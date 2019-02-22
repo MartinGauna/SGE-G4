@@ -6,6 +6,7 @@ import ar.edu.utn.frba.dds.Transformador;
 import ar.edu.utn.frba.dds.dao.ClientDao;
 import ar.edu.utn.frba.dds.dao.TransformadorDao;
 import ar.edu.utn.frba.dds.exception.IncompleteFormException;
+import mongo.MongoDb;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -14,6 +15,7 @@ import spark.template.handlebars.HandlebarsTemplateEngine;
 import web.Router;
 import web.controllers.MainController;
 import web.models.AltaReporteModel;
+
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -27,6 +29,7 @@ public class GenerarReporteController extends MainController {
     private static ClientDao clientDao = new ClientDao();
     private static TransformadorDao tdao = new TransformadorDao();
     private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    private static MongoDb mongo = MongoDb.getInstance();
 
     public static void init() {
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
@@ -83,11 +86,11 @@ public class GenerarReporteController extends MainController {
 
         try {
             if (tipo.equals("1")) {
-                gen.getRdao().addReporte(gen.generarReporteConsumoHogar(cliente, i, f));
+                mongo.guardarReporte(gen.generarReporteConsumoHogar(cliente, i, f));
             } else if (tipo.equals("2")) {
-                gen.getRdao().addReporte(gen.generarReporteConsumoInteligente(cliente, i, f));
+                mongo.guardarReporte(gen.generarReporteConsumoInteligente(cliente, i, f));
             } else if (tipo.equals("3")) {
-                gen.getRdao().addReporte(gen.generarReporteConsumoEstandard(cliente, i, f));
+                mongo.guardarReporte(gen.generarReporteConsumoEstandard(cliente, i, f));
             }
         } catch (NullPointerException ex) {
             throw new IncompleteFormException();
@@ -141,7 +144,7 @@ public class GenerarReporteController extends MainController {
         Date f = sdf.parse(fin);
 
         try {
-            gen.getRdao().addReporteTrafo(gen.generarReporteTransformador(t, i, f));
+            mongo.guardarReporteTrafo(gen.generarReporteTransformador(t, i, f));
         } catch (NullPointerException ex) {
             throw new IncompleteFormException();
         }
