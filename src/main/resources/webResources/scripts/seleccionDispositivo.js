@@ -25,10 +25,10 @@ function enableEdit(event) {
     let rows = event.target.parentElement.parentElement.children;
     let comboId = "#" + rows[2].lastElementChild.id;
 
-    entry.id = rows[0].firstChild.value;
-    entry.nombre = rows[1].firstChild.value;
+    entry.id = rows[0].firstElementChild.value;
+    entry.nombre = rows[1].firstElementChild.value;
     entry.estado = $(comboId).val();
-    entry.consumoHora = rows[3].firstChild.value;
+    entry.consumoHora = rows[3].firstElementChild.value;
 
     $.ajax({
         type: "put",
@@ -55,7 +55,7 @@ function deleteDispositivo(event) {
     console.log(event);
     let entry = {};
     let rows = event.target.parentElement.parentElement.children;
-    entry.id = rows[0].firstChild.value;
+    entry.id = rows[0].firstElementChild.value;
 
     $.ajax({
         url : "/seleccionDispositivo/" + entry.id,
