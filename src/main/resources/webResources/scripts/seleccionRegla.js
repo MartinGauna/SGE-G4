@@ -33,8 +33,12 @@ $(function() {
             $(this).show();
         }
     });
-    $(document).on('change','#id',function(){
-        const id = "#select-" + $(this)[0].id.substring($(this)[0].id.indexOf("-") + 1);
+    $(document).on('change','.accion',function() {
+        console.log($(this));
+        const id = "#cantidad-" + $(this)[0].id.substring($(this)[0].id.indexOf("-") + 1);
+        if(this.selectedOptions[0].value === "subir" || this.selectedOptions[0].value === 'bajar'){
+            $(id).show();
+        }
     });
 });
 
@@ -58,6 +62,7 @@ function enableEdit(event) {
              // rows[1].firstChild.value = entry.nombre;
              // rows[2].firstChild.value = entry.consumoHora;
              // rows[3].firstChild.value = entry.estado;
+            alert('Se modificó la regla con éxito');
         },
         error: function (respondError) {
             console.log(respondError);
