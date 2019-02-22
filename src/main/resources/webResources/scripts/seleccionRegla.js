@@ -51,7 +51,7 @@ function enableEdit(event) {
     entry.accion = rows[2].firstElementChild.value; // accion
     entry.cantidad = rows[2].lastElementChild.value ? rows[2].lastElementChild.value : 0; // Cantidad si es bajar o subir
     entry.condicionCMagnitud = rows[3].children[0].selectedOptions[0].value; // magnitud
-    entry.condicionCriterio = rows[3].children[1].selectedOptions[0].text(); // condicion
+    entry.condicionCriterio = rows[3].children[1].selectedOptions[0].text; // condicion
     entry.condicionValor = rows[3].children[2].value; //valor condicion
     $.ajax({
         type: "POST",
