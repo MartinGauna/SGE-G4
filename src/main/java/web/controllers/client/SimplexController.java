@@ -24,8 +24,11 @@ import web.models.SimplexModel;
 import web.models.seleccionReglaModel;
 import web.models.views.SimplexTable;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import static web.helper.SessionHelper.setSession;
@@ -81,7 +84,7 @@ public class SimplexController extends MainController {
         String userSession = request.session().attribute("user");
         Integer userID = Integer.parseInt(userSession.substring(0, userSession.indexOf("-")));
         currentClient = cdao.getCliente(userID);
-        ultimoConsumoW = getUltimoConsumo()/1000;
+        ultimoConsumoW = getUltimoConsumo();///1000;
 
         if(ultimoConsumoW >= 612){eficiente = false;}
         simplexAuto = currentClient.getSimplex();
@@ -148,13 +151,20 @@ public class SimplexController extends MainController {
 
     public static int getUltimoConsumo() {
         int consumo = 0;
+        Date date = new Date();
+        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        int month = localDate.getMonthValue();
         List<DispositivoInteligente> listDI = ddao.getAllDI(currentClient);
-        Calendar cal = Calendar.getInstance();
+        Date date2 = new Date();
+        LocalDate localDate2;// = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        int month2;// = localDate.getMonthValue();
+
         for (int i = 0; i < listDI.size(); i++) {
             DispositivoInteligente di = listDI.get(i);
             for (int it = 0; it < di.getConsumos().size(); it++) {
                 Consumo c = di.getConsumos().get(it);
-                if (11 == c.getFechaInicio().getMonth()) {
+                //if (month == c.getFechaInicio().getMonth()) {
+                if (month ==    c.getFechaInicio().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().getMonthValue()){
                     consumo += c.getWatts();
                 }
             }

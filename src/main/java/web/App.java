@@ -36,7 +36,7 @@ public class App
         bkg.prendido = false;
         bkg.intervalo = 10;
 
-        LoadData.Load();
+        //LoadData.Load();
 
         Spark.port(getHerokuAssignedPort());
         staticFileLocation("/webResources");

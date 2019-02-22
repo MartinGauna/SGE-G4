@@ -41,13 +41,45 @@
                 </div>
                 <div class="card-body">
                     <div>
-                        {{consumoUltimo}} watts
+                        {{consumoUltimo}} kW
                     </div>
                 </div>
                 <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
             </div>
         </div>
-
+        <!-- /.container-fluid -->
+        <div class="container-fluid">
+            <!-- DataTables Example -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Dispositivos
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th width="50%">Dispositivo</th>
+                                <th>Estado actual</th>
+                                <th>Consumo</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each tableDispositivos}}
+                                <tr>
+                                    <td>{{dispositivo.nombre}}</td>
+                                    <td>{{dispositivo.estado}}</td>
+                                    <td>{{consumo}}kW</td>
+                                </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
+            </div>
+        </div>
         <div class="container-fluid">
             <!-- DataTables Example -->
             <div class="card mb-3">
@@ -92,7 +124,7 @@
                             <thead>
                             <tr>
                                 <th width="50%">Dispositivo inteligente</th>
-                                <th>regla</th>
+                                <th>Regla</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -110,39 +142,7 @@
                 <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
             </div>
         </div>
-        <!-- /.container-fluid -->
-        <div class="container-fluid">
-            <!-- DataTables Example -->
-            <div class="card mb-3">
-                <div class="card-header">
-                    <i class="fas fa-table"></i>
-                    Dispositivos
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                            <tr>
-                                <th width="50%">Dispositivo</th>
-                                <th>Estado actual</th>
-                                <th>Consumo</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {{#each tableDispositivos}}
-                                <tr>
-                                    <td>{{dispositivo.nombre}}</td>
-                                    <td>{{dispositivo.estado}}</td>
-                                    <td>{{consumo}}</td>
-                                </tr>
-                            {{/each}}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
-            </div>
-        </div>
+
     </div>
     <!-- /.content-wrapper -->
 
