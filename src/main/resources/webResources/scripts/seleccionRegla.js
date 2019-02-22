@@ -54,8 +54,8 @@ function enableEdit(event) {
     entry.condicionCriterio = rows[3].children[1].selectedOptions[0].value;
     entry.condicionValor = rows[3].children[2].value;
     $.ajax({
-        type: "put",
-        url : "/seleccionReglas/",
+        type: "POST",
+        url : "/seleccionReglas",
         contentType: "application/json",
         data: entry,
         success: function() {

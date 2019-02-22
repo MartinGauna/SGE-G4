@@ -35,7 +35,7 @@ public class SeleccionReglaController extends MainController {
     public static void init() {
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
         Spark.get(Router.bajaModificacionReglaPath(), SeleccionReglaController::load, engine);
-        Spark.put(Router.modificarReglaPath(), SeleccionReglaController::modificar, engine);
+        Spark.post(Router.modificarReglaPath(), SeleccionReglaController::modificar, engine);
         Spark.delete(Router.bajaReglaPath(), SeleccionReglaController::delete, engine);
     }
 
@@ -76,14 +76,15 @@ public class SeleccionReglaController extends MainController {
     }
 
     public static ModelAndView modificar(Request request, Response response) {
-        int reglaID = Integer.parseInt(request.queryParams("id"));
+        String[] parameters = request.body().split("&");
+        int reglaID = Integer.parseInt((parameters[0].split("="))[1]);
         Regla r = rdao.getReglaByID(reglaID);
-        int cantidad = Integer.parseInt(request.queryParams("cantidad"));
-        String method = request.queryParams("accion");
-        String magnitudC = request.queryParams("condicionCMagnitud");
-        String condicionV = request.queryParams("condicionCriterio");
+        String method = (parameters[1].split("="))[1];
+        int cantidad = Integer.parseInt((parameters[2].split("="))[1]);
+        String magnitudC = (parameters[3].split("="))[1];
+        String condicionV = (parameters[4].split("="))[1];
         char condicion = condicionV.charAt(0);
-        int condicionValor = Integer.parseInt(request.queryParams("condicionValor"));
+        int condicionValor = Integer.parseInt((parameters[5].split("="))[1]);
         DispositivoInteligente d = r.getActuador().getDispositivo();
         Sensor  sensor = getSensores(d, magnitudC);
         Magnitud magnitud = sensor.getMagnitud();

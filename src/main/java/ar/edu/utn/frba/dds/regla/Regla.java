@@ -16,7 +16,7 @@ public class Regla implements Observer{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @OneToOne(fetch = FetchType.LAZY, targetEntity = Actuador.class, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, targetEntity = Actuador.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "idActuador", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_ACTUADOR"))
     private Actuador actuador;
 
