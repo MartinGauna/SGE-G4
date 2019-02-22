@@ -47,12 +47,12 @@ function enableEdit(event) {
     let entry = {};
     let rows = event.target.parentElement.parentElement.children;
 
-    entry.id = rows[0].firstElementChild.value;
-    entry.accion = rows[2].firstElementChild.value;
-    entry.cantidad = rows[2].lastElementChild.value ? rows[2].lastElementChild.value : 0;
-    entry.condicionCMagnitud = rows[3].children[0].selectedOptions[0].value;
-    entry.condicionCriterio = rows[3].children[1].selectedOptions[0].value;
-    entry.condicionValor = rows[3].children[2].value;
+    entry.id = rows[0].firstElementChild.value; // ID regla
+    entry.accion = rows[2].firstElementChild.value; // accion
+    entry.cantidad = rows[2].lastElementChild.value ? rows[2].lastElementChild.value : 0; // Cantidad si es bajar o subir
+    entry.condicionCMagnitud = rows[3].children[0].selectedOptions[0].value; // magnitud
+    entry.condicionCriterio = rows[3].children[1].selectedOptions[0].text(); // condicion
+    entry.condicionValor = rows[3].children[2].value; //valor condicion
     $.ajax({
         type: "POST",
         url : "/seleccionReglas",
