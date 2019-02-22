@@ -22,6 +22,9 @@
 
     <!-- Custom styles for this template-->
     <link href="./styles/css/sb-admin.css" rel="stylesheet">
+
+    <script src="./styles/vendor/jquery/jquery.min.js"></script>
+
     <script src="./scripts/altaRegla.js"></script>
 
 </head>
@@ -60,14 +63,14 @@
 
                         <div class="form-group col-md-8 ">
                             Acción
-                            <select class="form-control" title="accion" name="accion" id="sm">
+                            <select class="form-control" title="accion" name="accion" id="accion">
                                 <option value="prenderDispositivo">Prender</option>
                                 <option value="apagarDispositivo">Apagar</option>
                                 <option value="cambiarModoAAhorro">Modo Ahorro</option>
                                 <option value="subir">Subir</option>
                                 <option value="bajar">Bajar</option>
                             </select>
-                            <input type="text" class="form-control"  id="cantindad-{{id}}" value="0" name="cantidad" />
+                            <input type="text" class="form-control"  id="cantidad" value="0" name="cantidad" />
                         </div>
 
                         <div class="form-group col-md-8 ">
