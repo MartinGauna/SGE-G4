@@ -20,9 +20,18 @@ public class Regla implements Observer{
     @JoinColumn(name = "idActuador", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_ACTUADOR"))
     private Actuador actuador;
 
+    public void setMethodname(@NotNull String methodname) {
+        this.methodname = methodname;
+    }
+
     @NotNull
     protected String methodname;
     private int cantidad;
+
+    @NotNull
+    public List<Condicion> getCondiciones() {
+        return condiciones;
+    }
 
     @NotNull
     @OneToMany(cascade = {CascadeType.ALL})
