@@ -50,20 +50,20 @@
             alert("el formato de fecha de fin es incorrecto. Verificar");
         }
         else {
-            $.ajax({
-                url: urlClientes,
-                type: "post",
-                success: function () {
-                    location.reload();
-                },
-                error: function (respondError) {
-                    if (respondError.status == 410 || respondError.status == 400) {
-                        showAlertError("No se pudo crear el reporte");
-                    } else {
-                        showAlertError("Ocurrio un error. Intenta nuevamente");
-                    }
-                }
-            });
+            // $.ajax({
+            //     url: urlClientes,
+            //     type: "post",
+            //     success: function () {
+            //         location.reload();
+            //     },
+            //     error: function (respondError) {
+            //         if (respondError.status == 410 || respondError.status == 400) {
+            //             showAlertError("No se pudo crear el reporte");
+            //         } else {
+            //             showAlertError("Ocurrio un error. Intenta nuevamente");
+            //         }
+            //     }
+            // });
         }
     };
 
@@ -192,7 +192,7 @@
 
                         <div class="form-group" align="right">
                             <p>
-                                <button class="btn btn-lg btn-primary" onclick="crearReporteCliente()">Crear reporte
+                                <button class="btn btn-lg btn-primary" onclick="crearReporteCliente()" type="submit">Crear reporte
                                 </button>
                                 <!--<button class="btn btn-lg btn-danger"  onclick="deleteMethodology()">Cancelar</button>-->
                             </p>
