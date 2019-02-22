@@ -32,12 +32,13 @@
         <properties>
 
             <!-- Backup -->
-
             <property name="hibernate.archive.autodetection" value="class"/>
-            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/sge?reconnect=true&amp;useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;autoReconnect=true" />
-            <property name="hibernate.connection.username" value="root" />
-            <property name="hibernate.connection.password" value="root" />
+            <!--<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />-->
+            <!--
+            <property name="hibernate.connection.url" value="jdbc:mysql://b11e53903fcdbf:2d627525@us-cdbr-iron-east-01.cleardb.net/heroku_3225f8d1e147e98?reconnect=true&amp;useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;autoReconnect=true" />
+            <property name="hibernate.connection.username" value="b11e53903fcdbf" />
+            <property name="hibernate.connection.password" value="2d627525" />
+            -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
@@ -47,7 +48,7 @@
             <property name="hibernate.cache.use_second_level_cache" value="false" />
             <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider" />
 
-            <!--
+
             <property name="hibernate.connection.provider_class" value="com.zaxxer.hikari.hibernate.HikariConnectionProvider" />
             <property name="hibernate.hikari.minimumIdle" value="5" />
             <property name="hibernate.hikari.maximumPoolSize" value="20" />
@@ -55,18 +56,18 @@
             <property name="hibernate.hikari.dataSourceClassName" value="com.mysql.cj.jdbc.MysqlDataSource" />
             <property name="hibernate.hikari.dataSource.url" value="jdbc:mysql://b11e53903fcdbf:2d627525@us-cdbr-iron-east-01.cleardb.net/heroku_3225f8d1e147e98?reconnect=true&amp;useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;autoReconnect=true" />
             <property name="hibernate.hikari.dataSource.user" value="b11e53903fcdbf" />
-            <property name="hibernate.hikari.dataSource.password" value="2d627525" />
-            <property name="hibernate.hikari.dataSource.cachePrepStmts" value="true" />
-            <property name="hibernate.hikari.dataSource.prepStmtCacheSize" value="250" />
+            <property name="hibernate.hikari.dataSource.password" value="@Erosmith92" />
+            <property name="hibernate.hikari.dataSource.cachePrepStmts" value="2d627525" />
+            <!--<property name="hibernate.hikari.dataSource.prepStmtCacheSize" value="250" />
             <property name="hibernate.hikari.dataSource.prepStmtCacheSqlLimit" value="2048" />
             <property name="hibernate.hikari.dataSource.cacheResultSetMetadata" value="true" />
-            <property name="hibernate.hikari.dataSource.cacheServerConfiguration" value="true" />
+            <property name="hibernate.hikari.dataSource.cacheServerConfiguration" value="true" />-->
             <property name="hibernate.hikari.dataSource.useServerPrepStmts" value="true" />
             <property name="hibernate.hikari.dataSource.useLocalSessionState" value="true" />
             <property name="hibernate.hikari.dataSource.rewriteBatchedStatements" value="true" />
             <property name="hibernate.hikari.dataSource.elideSetAutoCommits" value="true" />
             <property name="hibernate.hikari.dataSource.maintainTimeStats" value="false" />
-            -->
+
         </properties>
 
     </persistence-unit>
