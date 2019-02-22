@@ -1,11 +1,8 @@
 package web.controllers.client;
 
 import ar.edu.utn.frba.dds.Cliente;
-import ar.edu.utn.frba.dds.dao.BaseDao;
-import ar.edu.utn.frba.dds.dao.ClientDao;
-import ar.edu.utn.frba.dds.dao.DispositivoDao;
-import ar.edu.utn.frba.dds.dao.ReglaDao;
-import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
+import ar.edu.utn.frba.dds.dao.*;
+import ar.edu.utn.frba.dds.regla.Condicion;
 import ar.edu.utn.frba.dds.regla.Regla;
 import spark.ModelAndView;
 import spark.Request;
@@ -29,6 +26,7 @@ public class SeleccionReglaController extends MainController {
     private static DispositivoDao ddao = new DispositivoDao();
     private static ReglaDao rdao = new ReglaDao();
     private static BaseDao bdao = new BaseDao();
+    private static CondicionDao condicionDao = new CondicionDao();
 
 
     public static void init() {
@@ -36,12 +34,12 @@ public class SeleccionReglaController extends MainController {
         Spark.get(Router.bajaModificacionReglaPath(), SeleccionReglaController::load, engine);
         Spark.put(Router.modificarReglaPath(), SeleccionReglaController::modificar, engine);
         Spark.delete(Router.bajaReglaPath(), SeleccionReglaController::delete, engine);
-        initModel();
     }
 
     private static ModelAndView load(Request request, Response response) {
         sessionExist(request, response);
         getCurrentClient(request);
+        initModel();
         model.setShowAlert(false);
         model.getReglas().clear();
         fillReglas();
@@ -110,6 +108,10 @@ public class SeleccionReglaController extends MainController {
             row.setId(regla.getId());
             row.setAccion(regla.getMethodName());
             row.setDispositivo(regla.getActuador().getDispositivo().getNombre());
+            List<Condicion> condList = condicionDao.getCondiciones(regla);
+            Condicion cond = condList.get(0);
+            row.setValorCondicion(cond.getValor_condicion());
+            row.setCantidad(regla.getCantidad());
             model.getReglas().add(row);
         }
     }
