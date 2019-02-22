@@ -12,14 +12,17 @@ import static web.helper.SessionHelper.setSession;
 
 public class BackgroundProcesses {
 
-    List<Cliente>  allClients;
-    ClientDao cdao = new ClientDao();
 
-    public void automatizacionAhorroAutomatico(long miliseconds) {
-
-    TimerTask task = new TimerTask() {
+    private static final BackgroundProcesses instance = new BackgroundProcesses();
+    public boolean prendido;
+    public int intervalo;
+    public Timer timer = new Timer();
+    public TimerTask task = new TimerTask() {
         @Override
         public void run() {
+            List<Cliente>  allClients;
+            ClientDao cdao = new ClientDao();
+
             allClients = cdao.list();
             for(int i = 0;i < allClients.size();i++)
             {
@@ -28,10 +31,13 @@ public class BackgroundProcesses {
 
         }
     };
+    //private constructor to avoid client applications to use constructor
+    private BackgroundProcesses(){}
 
-    Timer timer = new Timer();
-
-    // schedules the task to be run in an interval
-    timer.schedule(task,0,miliseconds);
+    public static BackgroundProcesses getInstance(){
+        return instance;
     }
+
+    //timer.schedule(task,0,miliseconds);
+
 }

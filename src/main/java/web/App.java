@@ -5,13 +5,12 @@ import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.helpers.BackgroundProcesses;
 import spark.Spark;
 import spark.debug.DebugScreen;
+import web.controllers.Admin.*;
 import web.controllers.Admin.AltaDispositivoController;
-import web.controllers.Admin.GenerarReporteController;
-import web.controllers.Admin.HogarController;
-import web.controllers.Admin.ReportesController;
 import web.controllers.LogoutController;
 import web.controllers.client.*;
 import web.controllers.login.LoginController;
+import web.models.SimplexAdminModel;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -32,8 +31,10 @@ public class App
     public static void main( String[] args ) throws ParseException {
 //        engine = new HandlebarsTemplateEngine ();
 
-        BackgroundProcesses bkg = new BackgroundProcesses();
-        bkg.automatizacionAhorroAutomatico(60000);
+        //SIMPLEX BACKGROUND PROCESS INITIATION
+        BackgroundProcesses bkg = BackgroundProcesses.getInstance();
+        bkg.prendido = false;
+        bkg.intervalo = 10;
 
         LoadData.Load();
 
@@ -71,10 +72,12 @@ public class App
         //EstadoDispositivoController.init();
         AltaReglasController.init();
 
+
        // ReglaController.init();
         GenerarReporteController.init();
         SeleccionDispositivoController.init();
         SeleccionReglaController.init();
+        SimplexAdminController.init();
 
     }
 
