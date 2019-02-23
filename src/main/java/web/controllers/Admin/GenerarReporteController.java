@@ -64,7 +64,7 @@ public class GenerarReporteController extends MainController {
         } catch (Exception ex) {
             response.status(400);
             response.body("Ocurrio un error. Intenta nuevamente");
-            model.failed(ex.getMessage());
+            model.failed("Ocurrio un error. Intente nuevamente");
         }
 
         return new ModelAndView(model, ALTAREPORTE);

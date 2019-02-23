@@ -1,5 +1,7 @@
 package ar.edu.utn.frba.dds.dispositivo;
 
+import ar.edu.utn.frba.dds.dao.BaseDao;
+import ar.edu.utn.frba.dds.sensor.Sensor;
 import ar.edu.utn.frba.dds.sensor.SensorHumedad;
 import ar.edu.utn.frba.dds.sensor.SensorTemperatura;
 
@@ -50,11 +52,23 @@ public class DispositivoInteligenteAAcondicionado extends DispositivoInteligente
         if(temperatura < 0){
             temperatura = 0;
         }
+        updateMedicion();
     }
 
     public void subir(int cantidad) {
         temperatura = temperatura + cantidad;
+        updateMedicion();
     }
 
+    public void updateMedicion(){
+        for (int i = 0; i < sensores.size(); ++i){
+            Sensor s = sensores.get(i);
+            if(s instanceof SensorTemperatura) {
+                s.getMagnitud().setValor(temperatura);
+                BaseDao bdao = new BaseDao();
+                bdao.update(s.getMagnitud());
+            }
+        }
+    }
 }
 

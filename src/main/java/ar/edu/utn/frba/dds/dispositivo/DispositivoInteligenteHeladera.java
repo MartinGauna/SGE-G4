@@ -1,5 +1,7 @@
 package ar.edu.utn.frba.dds.dispositivo;
 
+import ar.edu.utn.frba.dds.dao.BaseDao;
+import ar.edu.utn.frba.dds.sensor.Sensor;
 import ar.edu.utn.frba.dds.sensor.SensorHumedad;
 import ar.edu.utn.frba.dds.sensor.SensorTemperatura;
 
@@ -39,9 +41,23 @@ public class DispositivoInteligenteHeladera extends DispositivoInteligente {
         if(intensidad < 0){
             intensidad = 0;
         }
+        updateMedicion(cantidad * -1);
     }
 
     public void subir(int cantidad) {
         intensidad = intensidad + cantidad;
+        updateMedicion(cantidad);
+    }
+
+    public void updateMedicion(int cantidad){
+        for (int i = 0; i < sensores.size(); ++i){
+            Sensor s = sensores.get(i);
+            if(s instanceof SensorTemperatura) {
+                long ant = s.getMagnitud().getValor();
+                s.getMagnitud().setValor(ant + cantidad);
+                BaseDao bdao = new BaseDao();
+                bdao.update(s.getMagnitud());
+            }
+        }
     }
 }
