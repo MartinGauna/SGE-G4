@@ -82,6 +82,7 @@ public class AltaReglasController extends MainController {
             String methodName = request.queryParams("accion");
             char criterio = request.queryParams("criterio").charAt(0);
             String sensorTitulo = request.queryParams("sensor");
+            int cantidad = Integer.parseInt(request.queryParams("cantidad"));
             Long valorCondicion = parseLong(request.queryParams("valorCondicion"));
             DispositivoInteligente d = ddao.getDI(dispID);
 
@@ -95,6 +96,8 @@ public class AltaReglasController extends MainController {
             Condicion condicion = new Condicion(criterio, magnituddelsensor, valorCondicion);
             Regla regla = new Regla(d, methodName, null, 0);
             regla.addCondicion(condicion);
+            regla.setSensorTitulo(sensorTitulo);
+            regla.setCantidad(cantidad);
             condicion.setRegla(regla);
 
             List<Object> persist = new ArrayList<>();

@@ -81,16 +81,18 @@
                                         <option value="subir">Subir</option>
                                         <option value="bajar">Bajar</option>
                                     </select>
-                                    <input type="text" class="form-control"  id="cantidad-{{id}}" value="{{cantidad}}" name="cantidad" />
+                                    <input type="text" class="form-control cantidad"  id="cantidad-{{id}}" value="{{cantidad}}" name="cantidad" />
                                 </td>
                                 <td>
-                                    <select class="form-control" title="sensor" name="sensor" id="sensor{{id}}">
+                                    <input type="text" class="form-control"  id="isensor-{{id}}" value="{{sensor}}" name="sensor" style="display: none;"/>
+                                    <select class="form-control sensor" title="sensor" name="sensor" id="sensor-{{id}}">
                                         <option value="SensorHumedad">Humedad</option>
                                         <option value="SensorLuz">Luz</option>
                                         <option value="SensorMovimiento">Movimiento</option>
                                         <option value="SensorTemperatura">Temperatura</option>
                                     </select>
-                                    <select class="form-control" title="condicion" name="condicion" id="cond{{id}}">
+                                    <input type="text" class="form-control"  id="icondicion-{{id}}" value="{{condicion}}" name="consumo" style="display: none;"/>
+                                    <select class="form-control condicion" title="condicion" name="condicion" id="cond-{{id}}">
                                         <option value=">">Mayor</option>
                                         <option value="=">Igual</option>
                                         <option value="<">Menor</option>

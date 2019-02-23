@@ -3,6 +3,7 @@ package web.controllers.client;
 import ar.edu.utn.frba.dds.Cliente;
 import ar.edu.utn.frba.dds.Magnitud;
 import ar.edu.utn.frba.dds.dao.*;
+import ar.edu.utn.frba.dds.dispositivo.Dispositivo;
 import ar.edu.utn.frba.dds.dispositivo.DispositivoInteligente;
 import ar.edu.utn.frba.dds.regla.Condicion;
 import ar.edu.utn.frba.dds.regla.Regla;
@@ -132,13 +133,17 @@ public class SeleccionReglaController extends MainController {
         List<Regla> r = rdao.list();
         for(int i = 0; i < r.size(); i++){
             Regla regla = r.get(i);
+            Dispositivo d = regla.getActuador().getDispositivo();
             regla.ejecutar();
             ReglaPullDown row = new ReglaPullDown();
             row.setId(regla.getId());
             row.setAccion(regla.getMethodName());
-            row.setDispositivo(regla.getActuador().getDispositivo().getNombre());
+            row.setDispositivo(d.getNombre());
             List<Condicion> condList = condicionDao.getCondiciones(regla);
             Condicion cond = condList.get(0);
+            row.setSensor(regla.getSensorTitulo());
+            row.setCondicion(cond.getCriterio());
+//            row.setSensor(regla.getMethodName());
             row.setValorCondicion(cond.getValor_condicion());
             row.setCantidad(regla.getCantidad());
             model.getReglas().add(row);

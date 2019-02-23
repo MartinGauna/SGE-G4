@@ -21,11 +21,44 @@ $(function() {
         }
     });
 
-    $("input[name='cantidad']").each(function(){
-        console.log('cantidad log');
-        console.log($(this)[0].id);
+    $(".sensor").each(function (index) {
+        // console.log( $(this)[0] );
+        const id = "#isensor-" + $(this)[0].id.substring($(this)[0].id.indexOf("-") + 1);
+        // console.log(id);
+        const value = $(id)[0].value;
+        // console.log(value);
+        if(value === "SensorHumedad"){
+            $(this)[0][0].selected="selected";
+        } else if(value === "SensorLuz"){
+            $(this)[0][1].selected="selected";
+        } else if(value === "SensorMovimiento") {
+            $(this)[0][2].selected="selected";
+        } else if (value === 'SensorTemperatura') {
+            $(this)[0][3].selected="selected";
+        }
+    });
+
+    $(".condicion").each(function (index) {
+        // console.log( $(this)[0] );
+        const id = "#icondicion-" + $(this)[0].id.substring($(this)[0].id.indexOf("-") + 1);
+        // console.log(id);
+        const value = $(id)[0].value;
+        // console.log(value);
+        if(value === ">"){
+            $(this)[0][0].selected="selected";
+        } else if(value === "="){
+            $(this)[0][1].selected="selected";
+        } else if(value === "<") {
+            $(this)[0][2].selected="selected";
+        }
+    });
+
+
+    $(".cantidad").each(function(){
+        // console.log('cantidad log');
+        // console.log($(this)[0].id);
         const id = "#select-" + $(this)[0].id.substring($(this)[0].id.indexOf("-") + 1);
-        const value = $(id).find(":selected")[0] ? $(id).find(":selected").value : '';
+        const value = $(id).find(":selected")[0] ? $(id).find(":selected")[0].value : '';
 
         if(!(value === 'subir' || value === 'bajar')){
             $(this).hide();
@@ -33,6 +66,7 @@ $(function() {
             $(this).show();
         }
     });
+
     $(document).on('change','.accion',function() {
         console.log($(this));
         const id = "#cantidad-" + $(this)[0].id.substring($(this)[0].id.indexOf("-") + 1);
