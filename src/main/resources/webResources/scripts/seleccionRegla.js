@@ -2,7 +2,7 @@ $(function() {
     console.log( "ready!" );
     $(".fa-floppy-o").click(enableEdit);
     $(".fa-times").click(deleteRegla);
-    $(".select-Accion").each(function (index) {
+    $(".accion").each(function (index) {
         // console.log( $(this)[0] );
         const id = "#i-" + $(this)[0].id.substring($(this)[0].id.indexOf("-") + 1);
         // console.log(id);
