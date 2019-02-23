@@ -6,6 +6,24 @@ public class ReglaPullDown {
     private String accion;
     private int cantidad;
     private long valorCondicion;
+    private String sensor;
+    private char condicion;
+
+    public String getSensor() {
+        return sensor;
+    }
+
+    public void setSensor(String sensor) {
+        this.sensor = sensor;
+    }
+
+    public char getCondicion() {
+        return condicion;
+    }
+
+    public void setCondicion(char condicion) {
+        this.condicion = condicion;
+    }
 
     public ReglaPullDown() {
     }

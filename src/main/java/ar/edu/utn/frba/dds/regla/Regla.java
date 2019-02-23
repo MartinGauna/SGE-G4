@@ -27,6 +27,7 @@ public class Regla implements Observer{
     @NotNull
     protected String methodname;
     private int cantidad;
+    private String sensorTitulo;
 
     @NotNull
     public List<Condicion> getCondiciones() {
@@ -37,6 +38,8 @@ public class Regla implements Observer{
     @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "idRegla", referencedColumnName = "id")
     public List<Condicion> condiciones;
+
+
 
     public Regla(DispositivoInteligente dispositvo, String methodname,  List<Condicion> condiciones, int cantidad) {
         Actuador actuador1 = new Actuador(dispositvo);
@@ -140,4 +143,11 @@ public class Regla implements Observer{
         this.cantidad = cantidad;
     }
 
+    public String getSensorTitulo() {
+        return sensorTitulo;
+    }
+
+    public void setSensorTitulo(String sensorTitulo) {
+        this.sensorTitulo = sensorTitulo;
+    }
 }
