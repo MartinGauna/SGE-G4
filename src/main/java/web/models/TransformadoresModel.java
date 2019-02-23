@@ -1,17 +1,21 @@
 package web.models;
 
 import ar.edu.utn.frba.dds.Transformador;
-import com.google.gson.JsonArray;
-
-import java.util.ArrayList;
-import java.util.List;
-import com.google.gson.*;
+import ar.edu.utn.frba.dds.dao.DispositivoDao;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 
 
 public class TransformadoresModel {
+
+    private static DispositivoDao ddao = new DispositivoDao();
 
     private List<Transformador> transformadoresList;
 
@@ -45,7 +49,14 @@ public class TransformadoresModel {
             tJson.put("id", transformador.getId());
             tJson.put("lat", transformador.getLatitud());
             tJson.put("lng", transformador.getLongitud());
-            tJson.put("consumo", transformador.getConsumoTotal());
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            Date d = null;
+            try {
+                d = sdf.parse("01/01/2019");
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            tJson.put("consumo", transformador.getConsumoTotal(d, new Date()));
             data.put(tJson);
         });
 
@@ -56,4 +67,5 @@ public class TransformadoresModel {
 //        this.transformadoresString = gson.toJson(transformadores);
 //        this.transformadoresJson = new ObjectMapper().readValue(gson.toJson(transformadores), JsonNode.class);
     }
+
 }

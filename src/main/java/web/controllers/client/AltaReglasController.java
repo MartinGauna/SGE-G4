@@ -84,7 +84,6 @@ public class AltaReglasController extends MainController {
             String sensorTitulo = request.queryParams("sensor");
             int cantidad = Integer.parseInt(request.queryParams("cantidad"));
             Long valorCondicion = parseLong(request.queryParams("valorCondicion"));
-            int cantidad = Integer.parseInt(request.queryParams("cantidad"));
             DispositivoInteligente d = ddao.getDI(dispID);
 
             sensor = getSensores(d, sensorTitulo);
