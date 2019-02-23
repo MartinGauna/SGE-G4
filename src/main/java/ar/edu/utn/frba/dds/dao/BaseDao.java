@@ -107,36 +107,44 @@ public class BaseDao implements Dao {
     @SuppressWarnings("unchecked")
     protected <T> List<T> findByQuery(QueryModel details) {
         Query q = null;
-        getManager().clear();
-        //mavivo
-        details.setCacheable(false);
-        getManager().getEntityManagerFactory().getCache().evictAll();
-        manager.setProperty("javax.persistence.cache.retrieveMode",CacheRetrieveMode.BYPASS);
-        manager.setProperty("javax.persistence.cache.storeMode",   CacheStoreMode.BYPASS);
 
-        if (details.getQueryName() != null) {
-            q = getManager().createNamedQuery(details.getQueryName());
-        } else if (details.getQuery() != null) {
-            q = getManager().createQuery(details.getQuery());
-        } else {
-            throw new IllegalArgumentException("Either query or query name must be set");
-        }
+        try {
+            getManager().clear();
+            //mavivo
+            details.setCacheable(false);
+            getManager().getEntityManagerFactory().getCache().evictAll();
+            manager.setProperty("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+            manager.setProperty("javax.persistence.cache.storeMode", CacheStoreMode.BYPASS);
 
-        for (int i = 0; i < details.getParamNames().length; i++) {
-            q.setParameter(details.getParamNames()[i], details.getParamValues()[i]);
-        }
-        if (details.getStart() > -1) {
-            q.setFirstResult(details.getStart());
-        }
-        if (details.getCount() > -1) {
-            q.setMaxResults(details.getCount());
-        }
+            if (details.getQueryName() != null) {
+                q = getManager().createNamedQuery(details.getQueryName());
+            } else if (details.getQuery() != null) {
+                q = getManager().createQuery(details.getQuery());
+            } else {
+                throw new IllegalArgumentException("Either query or query name must be set");
+            }
 
-        //mavivo
-        q.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS); // skip the L2 cache
-        getManager().getEntityManagerFactory().getCache().evictAll();
+            for (int i = 0; i < details.getParamNames().length; i++) {
+                q.setParameter(details.getParamNames()[i], details.getParamValues()[i]);
+            }
+            if (details.getStart() > -1) {
+                q.setFirstResult(details.getStart());
+            }
+            if (details.getCount() > -1) {
+                q.setMaxResults(details.getCount());
+            }
 
-        return q.getResultList();
+            //mavivo
+            q.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS); // skip the L2 cache
+            getManager().getEntityManagerFactory().getCache().evictAll();
+
+            return q.getResultList();
+        }
+        catch (NullPointerException e)
+        {
+            findByQuery(details);
+            return q.getResultList();
+        }
     }
 
     protected int executeQuery(String query, String[] names, Object[] args) {

@@ -24,7 +24,7 @@ public class Transformador {
         this.clientes = clientes;
     }
 
-    @OneToMany(cascade = {CascadeType.ALL})
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinColumn(name = "idTransformador", referencedColumnName = "id")
     private List<Cliente> clientes;
 
@@ -33,7 +33,7 @@ public class Transformador {
     @NotNull
     double longitud;
 
-    @ManyToOne(cascade = {CascadeType.ALL}, targetEntity = Zona.class)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, targetEntity = Zona.class)
     @JoinColumn(name = "idZona", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_ZONA"))
     private Zona zona;
 

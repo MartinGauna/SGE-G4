@@ -24,6 +24,7 @@ import web.Router;
 import web.controllers.MainController;
 import web.helper.AlertHelper;
 import web.models.AlertModel;
+import web.models.UploadModel;
 
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletException;
@@ -49,22 +50,25 @@ public class UploadController extends MainController {
     DIFactory fm = new DIFactory();
     private static Cliente currentClient;
     private static BaseDao bdao = new BaseDao();
-
+    private static UploadModel uploadModel = new UploadModel();
 
     public static void init() {
         HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
-        AlertModel alertModel = null;
+
         cdao = new ClientDao();
         ddao = new DispositivoDao();
         setupMultipleElementConfig();
+
         Spark.get(Router.uploadPath(),UploadController::load,engine);
         //Spark.post(Router.uploadPath(),UploadController::upload,engine);
         JsonParser jp = new JsonParser();
-        Spark.post("/uploadFile", (req, res) -> {
+
+        Spark.post(Router.uploadPath(), (req, res) -> {
             req.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("D:/tmp"));
             getCurrentClient(req);
             Part filePartInteligente = req.raw().getPart("inputFileInteligente");
             Part filePartEstandard = req.raw().getPart("inputFileStandard");
+            uploadModel.setShowAlert(true);
             if(filePartInteligente.getSize() > 0)
             {
                 try (InputStream inputStream = filePartInteligente.getInputStream()) {
@@ -90,9 +94,11 @@ public class UploadController extends MainController {
                         topersist.add(cons);
                         bdao.persistList(topersist);
                     }
+                    uploadModel.setSuccess(true);
                     //alertModel.setIsSuccess(true);
-                } catch (IOException e) {
-                 e.printStackTrace();
+                } catch (Exception e) {
+                    uploadModel.setSuccess(false);
+                    e.printStackTrace();
                 }
              }
             if(filePartEstandard.getSize() > 0)
@@ -103,69 +109,23 @@ public class UploadController extends MainController {
                 dispositivoEstandard = jp.loadDEFromFile(fEstandar);
                 dispositivoEstandard.forEach(d -> dispositivoDao.addDispositivoIfNotExists(d));
                 //alertModel = AlertHelper.success();
-            } catch (IOException e) {
-                    e.printStackTrace();
+                uploadModel.setSuccess(true);
+            } catch (Exception e) {
+                uploadModel.setSuccess(false);
+                e.printStackTrace();
                 }
             }
 
-            return new ModelAndView(alertModel,HTML);
-        });
+            return new ModelAndView(uploadModel,HTML);
+        },engine);
 
     }
 
 
     private static ModelAndView load (Request request, Response response){
         sessionExist(request, response);
-        return new ModelAndView(AlertHelper.none(),HTML);
-    }
-
-    public static ModelAndView upload (Request request, Response response) throws ServletException, IOException{
-
-        AlertModel alertModel;
-        JsonParser jp = new JsonParser();
-        //Part tipoPart = request.raw().getPart("tipo");
-        //String tipo = tipoPart.toString();
-        //String tipo = request.queryParams("tipo");
-
-        alertModel = null;
-        //getCurrentClient(request);
-
-        /*
-        * TODO: en el hbs el "form" tiene la siguiente estructura:
-        * <form class="form-label-group" action="/uploadFile" method="POST" enctype="multipart/form-data">
-        * el "enctype" tiene ese valor para que pueda enviarse en el request el archivo subido.
-        * pero ademas de esto necesito que en el request se envie el valor del radiobutton seleccionado,
-        * pero llega como null.
-        * (se probó sacar el "enctype". Si lo saco, llega el valor del radiobutton y no el archivo.
-        * basicamente si viaja una cosa no viaja la otra)
-        *
-        * Habria que encontrar la forma de que en el mismo request se envien ambas cosas.
-        * posible solucion:hacer una funcion de jquery o algo por el estilo
-        * que arme un request concatenando ambas cosas
-        * */
-
-
-
-        try {
-            //request.raw().setAttribute("org.eclipse.jetty.multipartConfig",multipartConfigElement);
-            request.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("C:/tmp"));
-            File fEstandard = FileUtils.getFileWithPath(request.raw().getPart("inputFileStandard"));
-            File fInteligente = FileUtils.getFileWithPath(request.raw().getPart("inputFileInteligente"));
-
-            if(fEstandard.exists()) {jp.loadDEFromFile(fEstandard);}
-            if(fInteligente.exists()){jp.loadDEFromFile(fInteligente);}
-            alertModel = AlertHelper.success();
-        }catch (InvalidFileFormatException ex){
-            alertModel = AlertHelper.failed(ex.getMessage());
-        }catch (ParserErrorException e){
-            alertModel = AlertHelper.failed();
-        } catch (ServletException e) {
-            alertModel = AlertHelper.failed(e.getMessage());
-        } catch (IOException e) {
-            alertModel = AlertHelper.failed(e.getMessage());
-        }
-
-        return new ModelAndView(alertModel,HTML);
+        uploadModel.setShowAlert(false);
+        return new ModelAndView(uploadModel,HTML);
     }
 
     private static void setupMultipleElementConfig(){
