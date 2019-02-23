@@ -21,7 +21,11 @@ public abstract class Sensor implements Observable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = DispositivoInteligente.class)
+    public DispositivoInteligente getDispositivo() {
+        return dispositivo;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = DispositivoInteligente.class)
     @JoinColumn(name = "idDispositivo", referencedColumnName = "id")
     private DispositivoInteligente dispositivo;
 
@@ -123,5 +127,7 @@ public abstract class Sensor implements Observable {
             observer.update(this);
         }
     }
+
+    public void updateMedicion(){}
 
 }

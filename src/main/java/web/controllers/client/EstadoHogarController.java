@@ -50,9 +50,9 @@ public class EstadoHogarController extends MainController {
         Integer userID = Integer.parseInt(userSession.substring(0, userSession.indexOf("-")));
         currentClient = cdao.getCliente(userID);
         //fillReglasTable();
-        fillMedicionesTable();
         fillDispositivosTable();
         fillReglasTable();
+        fillMedicionesTable();
         //updateDispositivosTable();
         alert.setHideAlert();
         int ultimoConsumo = getUltimoConsumo();

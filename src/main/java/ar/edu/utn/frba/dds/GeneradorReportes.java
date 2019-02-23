@@ -65,10 +65,9 @@ public class GeneradorReportes {
         if(consumoTotal == 0) {
             reporte = reporte + " no registro consumos.";
         } else {
-            reporte = reporte + " registro un consumo de: " + consumoTotal + " watts.";
+            reporte = reporte + " registro un consumo de: " + consumoTotal + " watts en el periodo de: " + fechaInicio + " a: " + fechaFin;
         }
         Reporte reporte1 = new Reporte(cliente.getId(), fechaInicio, fechaFin, reporte, CONSUMO_HOGAR);
-        mongo.guardarReporte(reporte1);
 
         return reporte1;
     }
@@ -93,8 +92,6 @@ public class GeneradorReportes {
         reporte = reporte + consumoPromedio + " watts en el periodo de: " + fechaInicio + " a: " + fechaFin;
         Reporte reporte1 = new Reporte(cliente.getId(), fechaInicio, fechaFin, reporte, CONSUMO_INTELIGENTE);
 
-        mongo.guardarReporte(reporte1);
-
         return reporte1;
     }
 
@@ -118,7 +115,6 @@ public class GeneradorReportes {
         reporte = reporte + consumoPromedio + " watts en el periodo de: " + fechaInicio + " a: " + fechaFin;
         Reporte reporte1 = new Reporte(cliente.getId(), fechaInicio, fechaFin, reporte, CONSUMO_ESTANDAR);
 
-        mongo.guardarReporte(reporte1);
 
         return reporte1;
     }
@@ -128,7 +124,6 @@ public class GeneradorReportes {
         reporte = "El consumo del transformador fue: " + transformador.getConsumoTotal(fechaInicio, fechaFin) + " watts.";
         ReporteTransformador reporteTransformador = new ReporteTransformador(transformador.getId(), fechaInicio, fechaFin, reporte);
 
-        mongo.guardarReporteTrafo(reporteTransformador);
 
         return reporteTransformador;
 }

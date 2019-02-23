@@ -40,4 +40,6 @@ public class SensorTemperatura extends Sensor {
     public Magnitud getMedicion() {
         return this.getMagnitud();
     }
+
+    public void updateMedicion() {}
 }
