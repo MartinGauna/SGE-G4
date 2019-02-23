@@ -83,7 +83,7 @@ public class SimplexAdminController extends MainController {
            timerTasklocal = new TimerTask() {
                 @Override
                 public void run() {
-                    List<Cliente>  allClients;
+                    List<Cliente>  allClients ;
                     ClientDao cdao = new ClientDao();
 
                     allClients = cdao.list();
@@ -91,6 +91,7 @@ public class SimplexAdminController extends MainController {
                     {
                         allClients.get(i).ahorroAutomatico();
                     }
+                    //cdao.persistList(allClients);
 
                 }
             };

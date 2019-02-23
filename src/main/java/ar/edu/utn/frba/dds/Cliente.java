@@ -109,7 +109,7 @@ public class Cliente extends Usuario {
             if (dispositivosParaApagar != null) {
                 for (Dispositivo disp : dispositivosParaApagar) {
                     disp.setEstado("Apagado");
-                    ddao.save(disp);
+                    ddao.update(disp);
                 }
             }
         }
