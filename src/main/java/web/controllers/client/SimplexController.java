@@ -86,7 +86,7 @@ public class SimplexController extends MainController {
         currentClient = cdao.getCliente(userID);
         ultimoConsumoW = getUltimoConsumo();///1000;
 
-        if(ultimoConsumoW >= 612){eficiente = false;}
+        if(ultimoConsumoW >= 612){eficiente = false;} else{eficiente = true;}
         simplexAuto = currentClient.getSimplex();
 
        try
